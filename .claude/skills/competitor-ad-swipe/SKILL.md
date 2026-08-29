@@ -74,14 +74,19 @@ Two TrendTrack favorites folders carry the state between runs. **Read both befor
 
 | Folder | id | Meaning |
 |---|---|---|
-| `Inspo Bank → To Remake` | `eb28010c-6d7e-4794-b9ad-d623d99da79b` | Queue. Vetted candidates waiting to be briefed. |
-| `Swiped → VeRelief Briefs` | `8e6eb79b-c2b5-467c-bf44-dafc29eb1401` | Done. Never brief these again. |
+| `Inspo Bank → To Remake` | `6985225d-84f3-4e72-b831-96938ac00b9a` | Queue. Vetted candidates waiting to be briefed. |
+| `Swiped → VeRelief Briefs` | `a608a57a-d8fc-47cb-87a6-f3d1b08076b1` | Done. Never brief these again. |
 
-Both are workspace scope in **Nicholas's Workspace**, visibility **`private`**.
+Both are **`scope: "personal"`** — Mark's own favorites, not the workspace's. Every favorites
+call against them must pass `scope: "personal"` or it returns "this resource isn't in
+TrendTrack", because workspace and personal are separate namespaces.
 
 **These folders are Mark's working state, not team-facing. Keep them private.**
 
-- Never call `set_favorite_folder_visibility` with `organization` on them.
+- Never call `set_favorite_folder_visibility` with `organization` on them. Note that
+  visibility and scope are the same axis in TrendTrack: setting a workspace folder to
+  `private` **moves it into personal scope**, which silently changes which `scope` argument
+  every later call needs.
 - Never call `create_favorite_folder_share_link` on them. A folder share link is a **public
   URL**, and there is no API to revoke one once created — `create_favorite_folder_share_link`
   only ever returns the existing link. Creating one is a one-way door.
@@ -104,7 +109,8 @@ about what counts as worth remaking — tighten it rather than letting a backlog
 The ledger folder in detail:
 
 ```
-list_favorites(type="ads", folder="8e6eb79b-c2b5-467c-bf44-dafc29eb1401", limit=25)
+list_favorites(type="ads", scope="personal",
+               folder="a608a57a-d8fc-47cb-87a6-f3d1b08076b1", limit=25)
 ```
 
 Page through `pagination.totalPages` and collect every `ad.id`. Drop any candidate whose id is
@@ -113,8 +119,8 @@ already in that set — before spending effort on transcripts or rewriting.
 Then, **immediately after filing each brief**, register it in `Swiped`:
 
 ```
-add_favorite_item(type="ads", item_id="<ad.id>",
-                  folder_id="8e6eb79b-c2b5-467c-bf44-dafc29eb1401")
+add_favorite_item(type="ads", scope="personal", item_id="<ad.id>",
+                  folder_id="a608a57a-d8fc-47cb-87a6-f3d1b08076b1")
 ```
 
 Register it even if the run is later interrupted — an unregistered brief is one you will swipe
