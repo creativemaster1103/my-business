@@ -8,15 +8,15 @@ matching Video Brief row in Notion as a Winner.**
 ### The bar
 
 A creative is a winner when, **at ad level** (one hook variant, not the campaign), over a
-rolling **14 days** it clears **both** $1,000 USD spend **and** 1.8 purchase ROAS. Ad level is
+rolling **14 days** it clears **both** $500 USD spend **and** 1.8 purchase ROAS. Ad level is
 the point: a campaign averaging 1.9 tells you nothing about which of its four hooks earned it.
 
 The window is deliberately tight — a creative has to be earning *now*, not coasting on spend
-from three weeks ago. The trade-off is that far fewer ads reach $1,000 in 14 days, so expect
-lean weeks and read the near-miss list, which is where spend-short/ROAS-strong creatives now
-collect. Both the window and the floors live in `config/winner-criteria.yml`; if the crawl
-starts returning nothing week after week, lower `min_spend_usd` rather than widening the
-window — the shorter window is the point.
+from three weeks ago. The $500 floor is paired to it: at $1,000 over 14 days nothing in the
+account qualified at all, because halving the window without halving the floor roughly doubles
+the strictness. Both live in `config/winner-criteria.yml`. If the crawl starts returning
+nothing week after week, lower `min_spend_usd` further rather than widening the window — the
+short window is the thing being bought.
 
 ### Scope: video only
 
@@ -31,7 +31,7 @@ hidden, but does not itemise it.
 ```
 Meta Ads MCP     →  ad-level spend + purchase_roas, last 14d
       ↓  keep VID only — everything else is out of scope
-      ↓  keep spend >= $1,000 AND roas >= 1.8
+      ↓  keep spend >= $500 AND roas >= 1.8
 parse ad name    →  Creative ID / Format / Concept / Variant
       ↓  concept-name cross-check
 Notion MCP       →  Video Brief row: Performance = Winner, Winning version = <variant>
@@ -63,6 +63,23 @@ a winner off a **Mini Max PEMF static's** ROAS — a write that succeeds, looks 
 wrong. Filtering to `VID` first removes the whole class of error. After that, the crawl still
 cross-checks the concept name, which is what disambiguates the two Creative IDs owning two
 Notion rows each (HPT022, HPT031); when it cannot, it reports instead of writing.
+
+### Known data conflict: HPT022
+
+**Two Video Brief rows share the Creative ID `HPT022`** — *"Hard to sleep"* and *"Top 5
+Objection"*. Only *"Hard to sleep"* is marked Winner, but every `HPT022_VID` ad in the account
+is named **Top 5 Objection**. The tagged row and the ad data describe different concepts.
+
+The crawl will not write to either: the concept name does not corroborate the Creative ID, so
+it reports and moves on. That is the rule working, not a bug — but it means `HPT022` is a
+permanent blind spot until someone renumbers one of the two rows. The performance sitting
+unclaimed under it, over 90 days:
+
+| Variant | Spend | ROAS |
+|---|---|---|
+| `3B` | $1,786.66 | **1.97** |
+| `4B` | $9,780.22 | 1.45 |
+| `1B` | $37,556.23 | 1.13 |
 
 ### Meta API quirks this works around
 

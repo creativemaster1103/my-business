@@ -7,7 +7,11 @@ ad_account_name: "Hoolest FB Ads"
 
 # --- The bar ---------------------------------------------------------------
 # Both must be met, measured AT AD LEVEL (one hook variant), not campaign.
-min_spend_usd: 1000
+# Lowered from 1000 to 500 by Mark 2026-08-29, at the same time the window
+# narrowed to 14 days. Halving the window without halving the floor had roughly
+# doubled the strictness -- at $1,000/14d nothing in the account qualified. This
+# restores about the 30-day pass rate while keeping the fresher signal.
+min_spend_usd: 500
 min_roas: 1.8
 
 # Rolling window the metrics are measured over. Narrowed to 14 days by Mark
