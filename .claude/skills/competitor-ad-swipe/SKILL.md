@@ -74,16 +74,21 @@ Two TrendTrack favorites folders carry the state between runs. **Read both befor
 
 | Folder | id | Meaning |
 |---|---|---|
-| [`Inspo Bank → To Remake`](https://app.trendtrack.io/share/ads/inspo-bank-to-remake-2htOTy) | `eb28010c-6d7e-4794-b9ad-d623d99da79b` | Queue. Vetted candidates waiting to be briefed. |
-| [`Swiped → VeRelief Briefs`](https://app.trendtrack.io/share/ads/swiped-verelief-briefs-0hFU54) | `8e6eb79b-c2b5-467c-bf44-dafc29eb1401` | Done. Never brief these again. |
+| `Inspo Bank → To Remake` | `eb28010c-6d7e-4794-b9ad-d623d99da79b` | Queue. Vetted candidates waiting to be briefed. |
+| `Swiped → VeRelief Briefs` | `8e6eb79b-c2b5-467c-bf44-dafc29eb1401` | Done. Never brief these again. |
 
-Both are workspace scope in **Nicholas's Workspace**, visibility `organization`.
+Both are workspace scope in **Nicholas's Workspace**, visibility **`private`**.
 
-**Any folder you create must be made visible, or nobody but the API can see it.** New folders
-default to private, so after `create_favorite_folder` always call
-`set_favorite_folder_visibility` with `organization`, then `create_favorite_folder_share_link`
-and give the user the URL. A folder the team cannot open is a folder that does not exist to
-them.
+**These folders are Mark's working state, not team-facing. Keep them private.**
+
+- Never call `set_favorite_folder_visibility` with `organization` on them.
+- Never call `create_favorite_folder_share_link` on them. A folder share link is a **public
+  URL**, and there is no API to revoke one once created — `create_favorite_folder_share_link`
+  only ever returns the existing link. Creating one is a one-way door.
+- Any new folder the pipeline creates inherits the same rule: private, no share link.
+
+Ad-level share links (`create_ad_share_link`) are different and *are* wanted — they are the
+AD INSPO embed in each brief, which the team needs.
 
 **Work the bank first.** A sweep surfaces ~100 eligible ads and files at most 3; without a queue
 the other 97 are judged and thrown away every single week. Draw this run's picks from the bank
