@@ -58,9 +58,20 @@ MCP connector reaches TrendTrack over a different path. Do not work around it by
 | `.claude/skills/competitor-ad-swipe/references/notion-map.md` | Notion IDs + property mapping |
 | `config/competitors.yml` | Watchlist, thresholds, excluded angles |
 
-### Status
+### Schedule
 
-Run on demand — no schedule is armed. Watchlist confirmed 2026-08-29 (all six competitors).
+A Routine fires a fresh session every **Monday 08:00 Philippine time** (`0 0 * * 1` UTC) and
+runs the sweep end to end. Trigger id `trig_01Awavxwivudwt9MurxicY7y`. Push and email
+notifications on.
+
+> **Connectors must be attached from the claude.ai Routines UI.** This organization does not
+> allow the API to grant connectors to a trigger, so the Routine as created runs *without*
+> MCP tools and will stop at step 1. Open it in the Routines UI and attach **Trend Track MCP,
+> Notion, Zapier, Shopify, Higgsfield** before the first fire. Its prompt tells it to stop and
+> name the missing connector rather than improvise, so a misconfigured run fails loudly instead
+> of filing something wrong.
+
+Watchlist confirmed 2026-08-29 (all six competitors).
 
 **Still open:** the regulatory posture of VeRelief Prime. The claim set in the brand brief is
 written conservatively on purpose; whether the device is positioned as a general wellness
