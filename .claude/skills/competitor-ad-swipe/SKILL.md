@@ -133,8 +133,21 @@ briefs into the pipeline themselves. Follow `references/notion-map.md` exactly.
 2. Create the page with the Hook/Body/CTA table layout the template uses.
 3. Fill the strategy fields (Avatar, TEEP Stage, Self Targeting, Valence Zone) from your step-5
    analysis — these are the fields the team filters on, so an unfilled brief is an invisible one.
-4. Put the competitor creative in **AD INSPO** as a `<video src="...">` embed so it previews
-   inline. Use the `media.mediaUrl` from the scaling-ads response.
+4. **Upload** the competitor creative into AD INSPO — do not hotlink it. Pass the ad's
+   `media.mediaUrl` to Notion `create-attachment` as `source_url`; Notion downloads it
+   server-side, so this works even though the sandbox cannot reach `medias.trendtrack.io`
+   itself. Then embed the returned upload id:
+
+   ```
+   ### AD INSPO
+   <video src="file-upload://<file_upload_id>"></video>
+   ```
+
+   A hotlink to the TrendTrack CDN may not render and will rot when the URL expires; an
+   uploaded file plays inline and outlives the source. Name the file
+   `<CreativeID>-ad-inspo-<competitor>-<days>d.mp4`.
+5. Set the page **icon to ⚡** — the Video Brief template default. Every brief uses it. Do not
+   pick a per-brief emoji, however apt: a consistent icon is how the database stays scannable.
 
 ### 8. Report
 
@@ -152,6 +165,7 @@ Source details (days running, duplicates, ad ID) belong in this report, **not** 
   gummy brand's "eat 2 before bed" angle is not our angle.
 - **Do not touch existing rows.** This skill only creates. If something looks wrong in an
   existing brief, tell the user; never edit or delete their work.
+- **Icon is always ⚡.** No exceptions, no thematic emoji.
 - **The brief is for the editor, not the strategist.** It carries AD INSPO, general instruction,
   glossary, and the Hook/Body/CTA tables — nothing else. No source attribution block, no swipe
   analysis, no compliance table. Anything the editor cannot act on is noise.

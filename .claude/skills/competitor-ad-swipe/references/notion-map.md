@@ -60,9 +60,11 @@ Mirror the existing template so editors read a familiar shape.
 No source attribution block, no swipe analysis, no compliance table. The brief is for the
 editor — everything in it should be something they can act on.
 
+Page icon: **⚡** (template default, every brief).
+
 ```
 ### AD INSPO
-<video src="https://medias.trendtrack.io/video/facebook/<id>.mp4"></video>
+<video src="file-upload://<file_upload_id>"></video>
 
 ### GENERAL INSTRUCTION
 - Always apply the 1-3 sec rule (change visual every 1-3 sec)
@@ -87,8 +89,13 @@ TC = Time Clips · Super = Black text on white box · Caption = White text on bl
 One table row per beat. The `Visual` column is what the editor shoots or cuts — write it as a
 direction, not a description. The `Note` column carries pacing and delivery.
 
-Use the `media.mediaUrl` from the scaling-ads response for the AD INSPO embed — the `<video>`
-tag makes it preview inline. `thumbnailUrl` is the fallback when there is no media URL.
+**Upload the inspo, never hotlink it.** Pass `media.mediaUrl` to `create-attachment` as
+`source_url` — Notion fetches it server-side, which is why this succeeds despite the sandbox's
+egress block on `medias.trendtrack.io`. Embed the returned `file_upload_id` with a `<video>`
+tag. Ads run ~10 MB; the workspace is on a paid plan so the 50 MiB URL-download cap applies.
+
+If an upload fails, fall back to the `thumbnailUrl` as an image and say so in the report —
+do not silently leave a dead embed.
 
 The swipe analysis (source structure, angle, why it ran, what changed) still gets **done** — it
 is what makes the rewrite good — but it goes in the chat report, not the page.
