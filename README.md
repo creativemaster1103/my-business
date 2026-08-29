@@ -60,9 +60,12 @@ MCP connector reaches TrendTrack over a different path. Do not work around it by
 
 ### Schedule
 
-A Routine fires a fresh session every **Monday 08:00 Philippine time** (`0 0 * * 1` UTC) and
-runs the sweep end to end. Trigger id `trig_01Awavxwivudwt9MurxicY7y`. Push and email
-notifications on.
+A Routine fires a fresh session every **Monday 00:00 Philippine time** and runs the sweep end
+to end. Trigger id `trig_01Awavxwivudwt9MurxicY7y`. Push and email notifications on.
+
+The cron is `0 16 * * 0` — **Sunday** 16:00 UTC. Philippine time is UTC+8 with no daylight
+saving, so midnight Monday local falls on Sunday afternoon UTC and the day-of-week shifts back
+a day. Editing the hour without also moving the day would silently schedule it a day late.
 
 > **Connectors must be attached from the claude.ai Routines UI.** This organization does not
 > allow the API to grant connectors to a trigger, so the Routine as created runs *without*
