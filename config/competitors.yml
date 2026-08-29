@@ -5,8 +5,28 @@
 # Longevity is our proxy for profitability: nobody funds a losing creative for a month.
 min_days_running: 30
 
-# Hard cap on new Notion briefs per run, so a sweep can never flood the pipeline.
+# Ceiling on new Notion briefs per run, never a target. Filing to hit this number
+# is how the library fills with near-copies.
 max_new_briefs_per_run: 3
+
+# Never file two briefs from the same competitor in one sweep.
+max_briefs_per_competitor_per_run: 1
+
+# TrendTrack favorites folder used as the "already swiped" ledger.
+# Every filed brief registers its source ad here; every run reads it first.
+swiped_ledger_folder_id: 8e6eb79b-c2b5-467c-bf44-dafc29eb1401
+swiped_ledger_folder_name: "Swiped → VeRelief Briefs"
+
+# Skip a candidate whose framework appears in the last N briefs' Content Type.
+framework_lookback: 10
+
+# Avatars currently under-served in the Video Brief library. Prefer these when
+# candidates are otherwise close. Re-check the live counts each run rather than
+# trusting this list.
+prefer_avatars:
+  - HRV Hunter
+  - Sleep Struggler
+  - Off-ramper
 
 # Only consider ads this old at most, so we mine current winners rather than
 # long-running evergreen ads the team already swiped a year ago.

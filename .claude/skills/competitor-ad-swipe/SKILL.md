@@ -65,14 +65,69 @@ Two gotchas:
 - Each call costs credits. Check `check_credits` if a sweep is large; a `limit: 8` call runs
   about 12 units.
 
-### 3. Skip what we already have
+### 3. Skip what we already swiped
 
-`Creative ID` is a sequential house number (`HPT085`), not the source ad ID, so it cannot be
-the dedupe key. Instead, query the Video Brief data source and compare the **source ad** against
-what is already filed — check `Concept Name` and the AD INSPO media URL on recent rows.
+`Creative ID` is a house number (`HPT085`) and carries no link to the source ad, so it cannot
+be the dedupe key. The ledger lives in TrendTrack instead:
 
-Never create a second brief for an ad already in the database. Report skips as a count, not
-one line each.
+**Favorites folder `Swiped → VeRelief Briefs`** — id `8e6eb79b-c2b5-467c-bf44-dafc29eb1401`
+(workspace scope, ads).
+
+```
+list_favorites(type="ads", folder="8e6eb79b-c2b5-467c-bf44-dafc29eb1401", limit=25)
+```
+
+Page through `pagination.totalPages` and collect every `ad.id`. Drop any candidate whose id is
+already in that set — before spending effort on transcripts or rewriting.
+
+Then, **immediately after filing each brief**, register it:
+
+```
+add_favorite_item(type="ads", item_id="<ad.id>",
+                  folder_id="8e6eb79b-c2b5-467c-bf44-dafc29eb1401")
+```
+
+Register it even if the run is later interrupted — an unregistered brief is one you will swipe
+again next week. The ledger lives beside the ads rather than in this repo or a Notion column,
+so it survives across sessions and machines and the team can see it in the TrendTrack UI.
+
+Watch for **near-duplicates**, which the id check will not catch. Brands re-upload the same
+creative under new ad ids — Pulsetto had 80 copies of one ad. Two ads sharing a
+`content.body`, a `collationId`, or an obviously identical transcript are the same ad. Compare
+against the folder's existing entries on those fields too, not just id.
+
+Report skips as a count, not one line each.
+
+### 3b. Steer away from sameness
+
+Passing the dedupe check is not enough. Six different ads that all land on the same avatar make
+a library that looks varied and behaves identically. Before picking, read what is already there:
+
+```sql
+SELECT "Avatar", COUNT(*) AS n
+FROM "collection://34b8fb5b-44b0-8029-8b87-000b98d7a19f"
+WHERE "Creative ID" LIKE 'HPT%'
+GROUP BY "Avatar" ORDER BY n DESC
+```
+
+At time of writing that returns Wired Lifer 32, Multi 25, unset 24, Off-ramper 3,
+Sleep Struggler 2, HRV Hunter 1. The library is heavily skewed and two avatars are barely
+served.
+
+Apply these, in order:
+
+1. **Prefer the under-served avatar.** When two candidate ads are close on longevity and
+   duplicates, take the one mapping to the thinner column. A good ad for HRV Hunter is worth
+   more right now than a slightly better one for Wired Lifer.
+2. **One ad per competitor per run.** Never file two Pulsetto briefs in the same sweep, however
+   good both look — you are sampling one brand's strategy, not copying it.
+3. **Do not repeat a recent framework.** Check `Content Type` on the last ~10 briefs and skip a
+   candidate whose framework is already there.
+4. **Say when the well is dry.** If everything left is a rerun of an angle already covered,
+   file fewer briefs and say so. Filing to hit `max_new_briefs_per_run` is how the library
+   fills with near-copies.
+
+Report the avatar counts in step 8 so the skew stays visible.
 
 ### 4. Extract the script
 
@@ -160,15 +215,22 @@ briefs into the pipeline themselves. Follow `references/notion-map.md` exactly.
 
 ### 8. Report
 
-Give the user a short table: competitor, days running, angle, Creative ID, brief link. Then one
-line naming anything you skipped and why. Nothing else.
+Give the user a short table: competitor, days running, angle, avatar, Creative ID, brief link.
+Then:
+
+- one line naming anything skipped and why (already swiped, near-duplicate, angle repeat)
+- the current avatar spread, so the skew is visible before it becomes a problem
+
+Nothing else.
 
 Source details (days running, duplicates, ad ID) belong in this report, **not** in the brief.
 
 ## Guardrails
 
-- **Cap the output.** Respect `max_new_briefs_per_run`. Ten mediocre briefs are worse than two
-  good ones — the team has to read these.
+- **Cap the output.** Respect `max_new_briefs_per_run` as a ceiling, never a target. Ten
+  mediocre briefs are worse than two good ones — the team has to read these.
+- **Register every filed brief in the favorites ledger.** A brief that is not registered will
+  be swiped again.
 - **Longevity is necessary, not sufficient.** If a long-running ad's angle cannot legally or
   honestly transfer to a $399 non-prescription wellness device, drop it and say why. A retail
   gummy brand's "eat 2 before bed" angle is not our angle.
