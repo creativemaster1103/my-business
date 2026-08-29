@@ -188,29 +188,20 @@ briefs into the pipeline themselves. Follow `references/notion-map.md` exactly.
 2. Create the page with the Hook/Body/CTA table layout the template uses.
 3. Fill the strategy fields (Avatar, TEEP Stage, Self Targeting, Valence Zone) from your step-5
    analysis — these are the fields the team filters on, so an unfilled brief is an invisible one.
-4. Build **AD INSPO** from two blocks, in this order:
+4. **Start the page body with the two naming tables** — Batch name / Folder name, then File
+   naming. They carry the team's file-naming convention and are the first thing the editor
+   reads. `references/notion-map.md` has the exact format. Never omit them.
+5. Put the TrendTrack share link in **AD INSPO** as an `<embed>`, on its own:
 
    ```
    ### AD INSPO
    <embed src="https://app.trendtrack.io/share/ads/<slug>"></embed>
-   <video src="file-upload://<file_upload_id>">Raw creative</video>
    ```
 
-   **The share link is the primary.** Call TrendTrack `create_ad_share_link(ad_id)` and embed
-   the returned `shareUrl`. It renders as a rich card carrying days running, rank movement,
-   advertiser, countries and ad copy — context a bare video loses. This is the format to use
-   whenever linking a TrendTrack ad.
-
-   **The uploaded video is the backup.** Pass `media.mediaUrl` to Notion `create-attachment`
-   as `source_url` — Notion downloads it server-side, so this works despite the sandbox's
-   egress block on `medias.trendtrack.io`. Name it
-   `<CreativeID>-ad-inspo-<competitor>-<days>d.mp4`. Never hotlink the CDN URL directly: it
-   may not render and rots when the URL expires.
-
-   Note that `file-upload://` sources are resolved to real URLs on save, so a later
-   `update_content` cannot match on the original `file-upload://` string. Anchor edits on the
-   `### AD INSPO` heading instead.
-5. Set the page **icon to ⚡** — the Video Brief template default. Every brief uses it. Do not
+   Call `create_ad_share_link(ad_id)` to get the URL. It renders as a card carrying days
+   running, rank movement, advertiser and ad copy. No video block — the embed alone is house
+   style.
+6. Set the page **icon to ⚡** — the Video Brief template default. Every brief uses it. Do not
    pick a per-brief emoji, however apt: a consistent icon is how the database stays scannable.
 
 ### 8. Report
@@ -237,6 +228,8 @@ Source details (days running, duplicates, ad ID) belong in this report, **not** 
 - **Do not touch existing rows.** This skill only creates. If something looks wrong in an
   existing brief, tell the user; never edit or delete their work.
 - **Icon is always ⚡.** No exceptions, no thematic emoji.
+- **Never drop the naming tables.** They are not decoration and not source attribution — they
+  are how the editor names deliverables. Any brief without them is incomplete.
 - **The brief is for the editor, not the strategist.** It carries AD INSPO, general instruction,
   glossary, and the Hook/Body/CTA tables — nothing else. No source attribution block, no swipe
   analysis, no compliance table. Anything the editor cannot act on is noise.

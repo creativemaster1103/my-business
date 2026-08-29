@@ -37,7 +37,7 @@ of rows.
 
 | Property | Value |
 |---|---|
-| `Concept Name` | title — `<Angle> — <Avatar>` e.g. `Failed Alternative — Off-ramper` |
+| `Concept Name` | title — a short descriptive name for the creative, house style, e.g. `Not Another Sleep Supplement`, `3 Signs Nervous System Never Shut Off`. **No em-dashes, no avatar suffix** — this string goes into filenames. |
 | `Creative ID` | **`HPT<nnn>`** — next in sequence. Always set it. |
 | `Category` | `Adaptation` (always — this is a competitor-derived brief) |
 | `Product` | `VeRelief Prime` |
@@ -50,12 +50,47 @@ of rows.
 | `Valence Zone` | Zone 1–4, matching the emotional register of the swiped ad |
 | `Event` | `Evergreen` unless the source ad is clearly seasonal |
 | `Offer` | `NA` unless the rewrite carries a specific offer |
-| `Content Type` | short text — the UGC framework used, e.g. `Why I Switched` |
+| `Content Type` | short text, filename-safe — the framework used, e.g. `Why I Switched`, `AI VO`. Keep it to a few words with no parentheses. |
 | Leave unset | `Editor`, `Assign`, `Performance`, `Winning version`, `Delivery link` |
 
 ## Video Brief page body
 
-Mirror the existing template so editors read a familiar shape.
+Mirror the existing template exactly. **The two naming tables at the very top are required** —
+they carry the team's file-naming convention and the editor works from them. Never omit them.
+
+### Naming convention
+
+Read the values straight off the page properties.
+
+```
+Batch name   <CreativeID>_<Concept Name>_<Product>_<Content Type>_<Avatar>_<Offer>_<Category>_<Strategist>_<Editor>
+Folder name  <CreativeID>_<Concept Name>_<Product>
+File name    <CreativeID>_<Format>_<Concept Name>_<n><Self><Zone>_<Product>_<Content Type>_<Avatar>_<Offer>_<Category>_<Strategist>_<Editor>_<MMDDYY>
+```
+
+Where:
+
+| Token | From | Example |
+|---|---|---|
+| `<n>` | hook variant number, 1-indexed | `1` |
+| `<Self>` | `Self Targeting` abbreviated | `A - Actual Self` → `Ac`, `B - Ideal Self` → `Id`, `C - Ought Self` → `Ou` |
+| `<Zone>` | `Valence Zone` number | Zone 3 → `Z3` |
+| `<MMDDYY>` | date the brief is written | `082926` |
+| `<Editor>` | `Editor` property; `TBD` when unassigned | `JM` |
+
+**One file-name row per hook variant.** A brief with four hooks gets four rows — that is how the
+editor knows how many cuts to deliver. Leave the remaining rows of the five blank.
+
+Worked example, from HPT079:
+
+```
+HPT079_3 Signs Nervous System Never Shut Off_VeRelief Prime_AI VO_Multi_NA_New_Mark_JM
+HPT079_3 Signs Nervous System Never Shut Off_VeRelief Prime
+HPT079_VID_3 Signs Nervous System Never Shut Off_1Ac-Z3_VeRelief Prime_AI VO_Multi_NA_New_Mark_JM_082726
+```
+
+### Body structure
+
 
 No source attribution block, no swipe analysis, no compliance table. The brief is for the
 editor — everything in it should be something they can act on.
@@ -63,9 +98,12 @@ editor — everything in it should be something they can act on.
 Page icon: **⚡** (template default, every brief).
 
 ```
+<table>  ← Batch name / Folder name
+File naming
+<table>  ← one row per hook variant
+
 ### AD INSPO
 <embed src="https://app.trendtrack.io/share/ads/<slug>"></embed>
-<video src="file-upload://<file_upload_id>">Raw creative</video>
 
 ### GENERAL INSTRUCTION
 - Always apply the 1-3 sec rule (change visual every 1-3 sec)
@@ -90,17 +128,13 @@ TC = Time Clips · Super = Black text on white box · Caption = White text on bl
 One table row per beat. The `Visual` column is what the editor shoots or cuts — write it as a
 direction, not a description. The `Note` column carries pacing and delivery.
 
-**Share link first, upload second.** `create_ad_share_link(ad_id)` returns a `shareUrl` like
-`https://app.trendtrack.io/share/ads/pulsetto-acWuuw`; put it in an `<embed>` so it renders as
-the TrendTrack card. Then `create-attachment` the raw `media.mediaUrl` (Notion fetches it
-server-side — that is why it works despite the sandbox egress block) and add it as a `<video>`
-below. Ads run ~10 MB against a 50 MiB cap on this paid workspace.
+**AD INSPO is the share-link embed alone.** `create_ad_share_link(ad_id)` returns a `shareUrl`
+like `https://app.trendtrack.io/share/ads/pulsetto-acWuuw`; put it in an `<embed>`. That is the
+house convention — see HPT079. Do not add a video block, and never hotlink
+`medias.trendtrack.io` directly.
 
-Never hotlink `medias.trendtrack.io` directly. If the upload fails, fall back to `thumbnailUrl`
-as an image and say so in the report — do not silently leave a dead embed.
-
-`file-upload://` sources resolve to real URLs on save, so later `update_content` calls cannot
-match the original string. Anchor edits on the `### AD INSPO` heading.
+Header rows are colour-coded: HOOK `green_bg`, BODY `orange_bg`, CTA `blue_bg`. Use `<br>` for
+line breaks inside a cell, and `SUPER:` to prefix on-screen text.
 
 The swipe analysis (source structure, angle, why it ran, what changed) still gets **done** — it
 is what makes the rewrite good — but it goes in the chat report, not the page.
