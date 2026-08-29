@@ -5,12 +5,27 @@
 # Longevity is our proxy for profitability: nobody funds a losing creative for a month.
 min_days_running: 30
 
-# Target of 5 concepts per week. One concept = one brief = one HPT number,
-# and every brief carries exactly 4 hook variants — so 5 concepts is 20 cuts.
-# Still a ceiling rather than a quota: a week with only three worth taking
-# files three, and says so.
-max_new_briefs_per_run: 5
+# FIVE IS THE FLOOR, not the ceiling. One concept = one brief = one HPT number,
+# each carrying exactly 4 hook variants — so a minimum week is 20 cuts.
+min_new_briefs_per_run: 5
+max_new_briefs_per_run: 7
 hooks_per_brief: 4
+
+# Meeting the floor is a sourcing problem, never a standards problem.
+# When a sweep is short of five, widen the net in THIS ORDER and stop as soon as
+# five are found. The last rung is off-limits without Mark's say-so.
+shortfall_escalation:
+  - deepen        # page further into each brand's library, not just the top ranks
+  - add_brands    # sweep every tracked brand, including ones off the watchlist
+  - discover      # search_advertisers for new brands in the category, then track them
+  - recently_ended # ads that ran 30d+ and stopped in the last 90d — still validated
+  - ESCALATE      # under five after all of the above: file what is good, tell Mark
+
+# Never relaxed automatically. Dropping this is lowering the bar, not widening the net.
+never_relax_without_approval:
+  - min_days_running
+  - compliance gate
+  - four distinct hook mechanisms per brief
 
 # No per-competitor cap. Take the winners wherever they are.
 # Brand spread is not a goal — a competitor with nothing worth remaking this week
@@ -98,11 +113,29 @@ excluded_angles:
   - Ingestible dosing / supplement routine
   - Subscription-only offer mechanics
 
-# Also tracked in the TrendTrack workspace but not on the sweep list.
-# Move any of these up into `competitors:` to include them.
-#   ZenoWell          bae29de3-84da-4529-9663-c96b4aad1bee   zenowell.ai
-#   Vagustim Health   85b1c55d-6052-4f09-ae5b-2338ecf4bae5   vagustim.io
-#   MindSpire         071f6ca1-30a4-48d2-b71c-da8d6ed18c70   sona.help
-#   NuCalm            21bc15b7-fb70-4aee-8833-dacbc3ab199d   (no active ads)
-#   Pulsetto EU       c86b8f80-66d1-4c51-8d28-914f7dc0d0e9   EU-targeted split of Pulsetto
-#   Hoolest Inc.      65c24001-c2d0-444a-b334-395371343270   us — useful for self-audit
+  # --- ADDED to support the five-a-week floor, 2026-08-29 -------------------
+  # Already tracked in TrendTrack, previously off the sweep list. Added because
+  # six brands cannot reliably yield five keepers a week. Revert by deleting
+  # these three entries.
+  - name: ZenoWell
+    domain: zenowell.ai
+    brandtracker_id: bae29de3-84da-4529-9663-c96b4aad1bee
+    priority: high
+    note: 54 active ads, and runs vagusnervecommunity.org. Squarely our category.
+
+  - name: Vagustim Health
+    domain: vagustim.io
+    brandtracker_id: 85b1c55d-6052-4f09-ae5b-2338ecf4bae5
+    priority: medium
+    note: 33 active ads. Direct vagus-nerve device competitor.
+
+  - name: MindSpire
+    domain: sona.help
+    brandtracker_id: 071f6ca1-30a4-48d2-b71c-da8d6ed18c70
+    priority: medium
+    note: 21 active ads. Adjacent calm/mental-health positioning.
+
+# Tracked in TrendTrack but deliberately off the sweep list.
+#   NuCalm        21bc15b7-fb70-4aee-8833-dacbc3ab199d   no active ads
+#   Pulsetto EU   c86b8f80-66d1-4c51-8d28-914f7dc0d0e9   EU split, duplicates Pulsetto
+#   Hoolest Inc.  65c24001-c2d0-444a-b334-395371343270   us — useful for self-audit

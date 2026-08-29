@@ -139,6 +139,30 @@ against the folder's existing entries on those fields too, not just id.
 
 Report skips as a count, not one line each.
 
+### 3a. Hitting the floor of five
+
+`min_new_briefs_per_run` is **5**. Falling short is a sourcing failure, not an acceptable
+outcome — but so is padding. When the obvious candidates run out, widen the net in this order
+and stop the moment you have five:
+
+1. **Deepen.** `get_brandtracker_scaling_ads` returns the top ranks by default. Page further in
+   — Pulsetto alone had 81 eligible video ads and a single call sees eight of them. Most
+   shortfalls die here.
+2. **Add brands.** Sweep every tracked brand via `list_tracked_brands`, not just the watchlist.
+3. **Discover.** `search_advertisers` for new brands in the category (vagus nerve, stress
+   device, sleep wearable, HRV), `add_to_brandtracker` anything promising, then sweep it. This
+   grows the watchlist permanently — report what you added.
+4. **Recently ended.** Ads that genuinely ran 30+ days and stopped within the last 90. A
+   creative that ran four months and was retired last month is still a validated structure.
+   Use `status: "all"` and filter on true run length.
+5. **Escalate.** Still short after all four: file what is genuinely good, and tell Mark plainly
+   that the category did not produce five keepers this week. That is real information about the
+   market — it is not a failure to hide by padding.
+
+**What never gives, at any rung:** `min_days_running: 30`, the compliance gate, and four
+distinct hook mechanisms per brief. Widening the net is legitimate; lowering the bar is not.
+If the only way to reach five is to break one of those, stop at four and say why.
+
 ### 3b. Steer away from sameness
 
 Passing the dedupe check is not enough. Six different ads that all land on the same avatar make
@@ -172,10 +196,8 @@ Apply these, in order:
    same thing to the same person is not, whoever they came from.
 3. **Do not repeat a recent framework**, and do not repeat one *within* the batch. Check the
    last `framework_lookback` briefs, plus everything already picked this run.
-4. **Say when the well is dry.** If everything left is a rerun of an angle already covered,
-   file fewer briefs and say so. Filing to hit `max_new_briefs_per_run` is how the library
-   fills with near-copies. A quiet week with an empty bank is a real signal: the competitors
-   have not shipped anything new worth taking.
+4. **Five is the floor.** Do not stop at four because the obvious candidates ran out. Work the
+   escalation ladder below until you have five.
 
 Report the avatar counts in step 8 so the skew stays visible.
 
@@ -293,9 +315,8 @@ Source details (days running, duplicates, ad ID) belong in this report, **not** 
 
 ## Guardrails
 
-- **Cap the output.** Respect `max_new_briefs_per_run` as a ceiling, never a quota. Five
-  mediocre briefs are worse than two good ones — the team has to read these, and every concept
-  filed is four cuts of editing work committed.
+- **Five is a floor, seven is the ceiling.** Never file fewer than five without having worked
+  the whole escalation ladder and said so explicitly.
 - **Register every filed brief in the favorites ledger.** A brief that is not registered will
   be swiped again.
 - **Longevity is necessary, not sufficient.** If a long-running ad's angle cannot legally or
