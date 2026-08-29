@@ -103,8 +103,13 @@ turned up. That way the judgement accumulates instead of being redone.
 When a banked ad is briefed, **move it**: add it to `Swiped` and remove it from the bank with
 `remove_favorite_item`. An ad in both folders will be re-briefed.
 
-Keep the bank to roughly 10-15 ads. If it is fuller than that, the sweep is being too generous
-about what counts as worth remaking — tighten it rather than letting a backlog rot.
+Keep the bank near 20 ads. It has to run about four weeks ahead of a five-a-week target, or a
+quiet fortnight from the competitors starves the pipeline. If it is much fuller than that, the
+sweep is being too generous about what counts as worth remaking.
+
+**A thin bank is the signal that matters.** If it keeps falling short of 20, the competitors are
+not producing five keepers a week and the target is outrunning supply — say so in the report
+rather than lowering the bar to hit the number.
 
 The ledger folder in detail:
 
@@ -155,8 +160,9 @@ Apply these, in order:
 1. **Prefer the under-served avatar.** When two candidate ads are close on longevity and
    duplicates, take the one mapping to the thinner column. A good ad for HRV Hunter is worth
    more right now than a slightly better one for Wired Lifer.
-2. **One ad per competitor per run.** Never file two Pulsetto briefs in the same sweep, however
-   good both look — you are sampling one brand's strategy, not copying it.
+2. **At most two ads per competitor per run.** Never let one brand supply the whole batch — you
+   are sampling a market, not copying a competitor. If two come from the same brand they must
+   be different angles and different avatars, not two cuts of one idea.
 3. **Do not repeat a recent framework.** Check `Content Type` on the last ~10 briefs and skip a
    candidate whose framework is already there.
 4. **Say when the well is dry.** If everything left is a rerun of an angle already covered,
@@ -272,8 +278,9 @@ Source details (days running, duplicates, ad ID) belong in this report, **not** 
 
 ## Guardrails
 
-- **Cap the output.** Respect `max_new_briefs_per_run` as a ceiling, never a target. Ten
-  mediocre briefs are worse than two good ones — the team has to read these.
+- **Cap the output.** Respect `max_new_briefs_per_run` as a ceiling, never a quota. Five
+  mediocre briefs are worse than two good ones — the team has to read these, and every concept
+  filed is four cuts of editing work committed.
 - **Register every filed brief in the favorites ledger.** A brief that is not registered will
   be swiped again.
 - **Longevity is necessary, not sufficient.** If a long-running ad's angle cannot legally or

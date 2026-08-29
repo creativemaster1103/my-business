@@ -5,12 +5,15 @@
 # Longevity is our proxy for profitability: nobody funds a losing creative for a month.
 min_days_running: 30
 
-# Ceiling on new Notion briefs per run, never a target. Filing to hit this number
-# is how the library fills with near-copies.
-max_new_briefs_per_run: 3
+# Target of 5 concepts per week. Still a ceiling rather than a quota — a week with
+# only three worth taking files three, and says so.
+max_new_briefs_per_run: 5
 
-# Never file two briefs from the same competitor in one sweep.
-max_briefs_per_competitor_per_run: 1
+# Raised to 2 so five is actually reachable. With six competitors and a limit of
+# one each, hitting five needs five different brands to ship a keeper in the same
+# week, which they will not reliably do. Two apiece means five can come from three
+# brands on a thin week, without any single brand dominating the batch.
+max_briefs_per_competitor_per_run: 2
 
 # TrendTrack favorites folders holding state between runs.
 # Both are PERSONAL scope (Mark's own favorites) — pass scope: "personal" on every call.
@@ -18,14 +21,14 @@ max_briefs_per_competitor_per_run: 1
 # Queue of vetted candidates waiting to be briefed. Picks come from here first.
 inspo_bank_folder_id: 6985225d-84f3-4e72-b831-96938ac00b9a
 inspo_bank_folder_name: "Inspo Bank → To Remake"
-inspo_bank_target_size: 12
+inspo_bank_target_size: 20
 
 # Already briefed. Never swipe these again.
 swiped_ledger_folder_id: a608a57a-d8fc-47cb-87a6-f3d1b08076b1
 swiped_ledger_folder_name: "Swiped → VeRelief Briefs"
 
 # Skip a candidate whose framework appears in the last N briefs' Content Type.
-framework_lookback: 10
+framework_lookback: 12
 
 # Avatars currently under-served in the Video Brief library. Prefer these when
 # candidates are otherwise close. Re-check the live counts each run rather than
