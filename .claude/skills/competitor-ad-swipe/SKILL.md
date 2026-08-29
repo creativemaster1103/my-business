@@ -1,0 +1,119 @@
+---
+name: competitor-ad-swipe
+description: Find competitor ads that have been running longer than a threshold (default 30 days) on TrendTrack, extract their script, rewrite it for VeRelief Prime, and file it as a Video Brief in Notion. Use when the user asks to check competitor ads, mine long-running ads, build a swipe file, or run the weekly competitor sweep.
+---
+
+# Competitor Ad Swipe → VeRelief Prime Brief
+
+Turn a competitor's proven long-running ads into VeRelief Prime scripts, filed in Notion.
+
+The premise: **ad longevity is the only free performance signal we get.** A DTC brand does not
+pay to run a creative for 30+ days unless it is profitable. Anything past that threshold is a
+validated concept — the angle, the hook, and the structure have already survived a real auction.
+
+## Required connectors
+
+Check these are enabled in-chat before starting. If one is off, stop and tell the user which
+one to toggle on — do not attempt to scrape a site as a workaround.
+
+| Connector | Used for |
+|---|---|
+| **Trend Track MCP** | Discovery: competitor ads + how long each has run |
+| **Notion** | Destination: Video Brief + Ad Creative Pipeline |
+| **Higgsfield** | Transcribing ad video when no text script is available |
+| **Shopify** | Live VeRelief Prime price / offer facts |
+
+Direct HTTPS to `trendtrack.io` is blocked by the egress proxy in sandboxed sessions. This is
+expected and is not a failure to route around — all TrendTrack access goes through the MCP
+connector, which uses a different path. Never substitute scraping.
+
+## Run the pipeline
+
+### 1. Load the watchlist
+
+Read `config/competitors.yml` for the brands to sweep, the `min_days_running` threshold, and
+`max_new_briefs_per_run`. If the user named a specific competitor, that overrides the file.
+
+### 2. Pull ads from TrendTrack
+
+Call the TrendTrack MCP tools to list ads for each watchlist brand.
+
+**Inspect the tool schema at runtime** — do not assume field names. Find whichever field
+expresses longevity (`days_running`, `first_seen`, `started_at`, `creation_date`, …) and
+compute days live against today's date. Keep only ads at or over the threshold.
+
+Sort survivors by days running, descending. The longest-running ad is the strongest signal.
+
+### 3. Skip what we already have
+
+Query the Notion Video Brief data source (see `references/notion-map.md`) and read the
+`Creative ID` field on existing rows. Every brief this skill creates is stamped with a
+`Creative ID` of `TT-<trendtrack_ad_id>`. If that ID is already present, skip the ad.
+
+Never create a second brief for an ad already in the database. Report skips as a count, not
+one line each.
+
+### 4. Extract the script
+
+In order of preference:
+
+1. **Text the API already returns** — ad copy, primary text, headline, on-screen text.
+2. **Transcribe the video** — if TrendTrack gives a video/creative URL and no script, call
+   Higgsfield `video_analysis_create`, poll `video_analysis_status`, and use the transcript.
+3. **Say so.** If neither works, record the ad with what you have and set the brief status to
+   `Conceptualizing` with a note that the script needs manual capture. Do not invent a script.
+
+Capture the **visual beats** too, not just the words. A script without its visual pacing is
+half a brief, and the editor cannot build from it.
+
+### 5. Analyse the structure
+
+Run the `brook-adblock-analyzer` skill on the extracted script. You need, at minimum:
+
+- The **Hook / Body / CTA** split
+- Which **Person Blocks** are present (Problem Statement, Failed Alternative, Desired Result,
+  Before & After, Social Proof, Storytelling)
+- The **primary angle** (Comparison, Transformation, Problem-Solution, Authority, …)
+
+This analysis is what gets transferred. **We are copying the structure, never the words.**
+
+### 6. Rewrite for VeRelief Prime
+
+Read `references/verelief-prime-brief.md` in full before writing a single line.
+
+Hard rules:
+
+- Keep the competitor's **structure and angle**. Replace **every** word, claim, and story beat.
+- Never reuse a competitor's sentence, tagline, or on-screen text verbatim.
+- Never carry over a competitor's **claim** — their device is not ours and their substantiation
+  is not ours. Re-derive each claim from the approved list in the brand brief.
+- Run the compliance gate in the brand brief on the finished script. It is not optional. A
+  script that fails the gate does not get filed — fix it or drop the ad.
+- Pull live price/offer from Shopify. Never hardcode a price.
+
+### 7. File it in Notion
+
+Follow `references/notion-map.md` exactly. For each rewritten ad:
+
+1. Create a **Video Brief** page using the Hook/Body/CTA table layout the template uses.
+2. Create the matching **Ad Creative Pipeline** row and relate the two.
+3. Fill the strategy fields (Avatar, TEEP Stage, Valence Zone, Self-Concept Anchor, Story
+   Framework) from your step-5 analysis — these are the fields the team filters on, so an
+   unfilled brief is an invisible brief.
+4. Put the **source attribution** block at the top of the page body: competitor, days running,
+   TrendTrack ad ID and link, date swept.
+
+### 8. Report
+
+Give the user a short table: competitor, days running, angle, new Notion brief link. Then one
+line naming anything you skipped and why. Nothing else.
+
+## Guardrails
+
+- **Cap the output.** Respect `max_new_briefs_per_run`. Ten mediocre briefs are worse than two
+  good ones — the team has to read these.
+- **Longevity is necessary, not sufficient.** If a long-running ad's angle cannot legally or
+  honestly transfer to a $399 non-prescription wellness device, drop it and say why. A retail
+  gummy brand's "eat 2 before bed" angle is not our angle.
+- **Do not touch existing rows.** This skill only creates. If something looks wrong in an
+  existing brief, tell the user; never edit or delete their work.

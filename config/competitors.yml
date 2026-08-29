@@ -1,0 +1,55 @@
+# Competitor ad watchlist for the /competitor-ad-swipe pipeline.
+# Edit freely — the skill reads this file at the start of every run.
+
+# An ad must have been running at least this many days to be considered.
+# Longevity is our proxy for profitability: nobody funds a losing creative for a month.
+min_days_running: 30
+
+# Hard cap on new Notion briefs per run, so a sweep can never flood the pipeline.
+max_new_briefs_per_run: 3
+
+# Only consider ads this old at most, so we mine current winners rather than
+# long-running evergreen ads the team already swiped a year ago.
+max_days_running: 365
+
+competitors:
+  # --- SEEDED, UNCONFIRMED -------------------------------------------------
+  # These are the direct vagus-nerve / calm-device competitors. Mark should
+  # confirm, trim, or replace this list before the first scheduled run.
+  - name: Pulsetto
+    domain: pulsetto.tech
+    priority: high
+    note: Closest positioning to VeRelief Prime — neck-worn vagus stimulator, similar price band.
+
+  - name: Truvaga
+    domain: truvaga.com
+    priority: high
+    note: electroCore. Handheld, strongest claims-substantiation posture in the category.
+
+  - name: Sensate
+    domain: getsensate.com
+    priority: medium
+    note: Infrasonic rather than electrical. Good source of calm/wind-down angles.
+
+  - name: Apollo Neuro
+    domain: apolloneuro.com
+    priority: medium
+    note: Wearable vibration. Heavy HRV-Hunter messaging worth studying.
+
+  - name: Neuvana
+    domain: neuvanalife.com
+    priority: low
+    note: Xen earbuds. Adjacent mechanism, overlapping avatar.
+
+  - name: Nurosym
+    domain: nurosym.com
+    priority: low
+    note: Parasym. Clinical-authority angle.
+
+# Angles that never transfer to a $399 non-prescription wellness device.
+# The skill drops any swiped ad whose primary angle matches one of these.
+excluded_angles:
+  - Prescription or medication replacement
+  - Named-condition treatment claims
+  - Ingestible dosing / supplement routine
+  - Subscription-only offer mechanics
