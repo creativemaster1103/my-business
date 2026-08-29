@@ -195,8 +195,13 @@ briefs into the pipeline themselves. Follow `references/notion-map.md` exactly.
    padding with near-copies.
 5. **Start the page body with the two naming tables** — Batch name / Folder name, then File
    naming. They carry the team's file-naming convention and are the first thing the editor
-   reads. `references/notion-map.md` has the exact format. Never omit them. **One file-name row
-   per hook variant**, so four by default.
+   reads. **One file-name row per hook variant**, so four by default.
+
+   **Read Mark's Naming Convention Generator first** —
+   `1LqXRQXs4WyGptVOmvsk1JIH1UnfyBExIC2Ls-rtBhL8`, "Video Naming Convention" tab — and match
+   its output verbatim. It is the source of truth; `references/notion-map.md` documents the
+   format but the sheet wins if they ever disagree. The Drive connector cannot write cells, so
+   replicate the format rather than filling the sheet in.
 6. Put the TrendTrack share link in **AD INSPO** as an `<embed>`, on its own:
 
    ```

@@ -60,40 +60,55 @@ they carry the team's file-naming convention and the editor works from them. Nev
 
 ### Naming convention
 
-Read the values straight off the page properties.
+**Source of truth:** Mark's [Naming Convention Generator](https://docs.google.com/spreadsheets/d/1LqXRQXs4WyGptVOmvsk1JIH1UnfyBExIC2Ls-rtBhL8/edit),
+"Video Naming Convention" tab. File id `1LqXRQXs4WyGptVOmvsk1JIH1UnfyBExIC2Ls-rtBhL8`.
+
+**Read that sheet at the start of every run** and match its output format exactly. The Drive
+connector is read-only for content — `update_file` changes only title and parent — so the sheet
+cannot be filled in programmatically. Replicate its format instead, and re-read it each run in
+case the convention changed.
+
+Its input columns, in order:
 
 ```
-Batch name   <CreativeID>_<Concept Name>_<Product>_<Content Type>_<Avatar>_<Offer>_<Category>_<Strategist>_<Editor>
-Folder name  <CreativeID>_<Concept Name>_<Product>
-File name    <CreativeID>_<Format>_<Concept Name>_<n><Self><Zone>_<Product>_<Content Type>_<Avatar>_<Offer>_<Category>_<Strategist>_<Editor>_<MMDDYY>
+Creative ID, Format, Date, Concept name, Variation, Self Variation,
+TEEP Stage, Valence Zone, Product, Content Type, Avatar, Offer,
+Category, Strategist, Editor
 ```
 
-Where:
+Its three outputs:
 
-| Token | From | Example |
+```
+File/Ad name  <CreativeID>_<Format>_<Concept>_<Var><Self><TEEP>-<Zone>_<Product>_<ContentType>_<Avatar>_<Offer>_<Category>_<Strategist>_<Editor>_<MMDDYY>
+Batch name    <CreativeID>_<Concept>_<Product>_<ContentType>_<Avatar>_<Offer>_<Category>_<Strategist>_<Editor>
+Folder name   <CreativeID>_<Concept>_<Product>
+```
+
+**The variant token is four separate fields, not two.** `1Ab-Z3` reads as:
+
+| Part | From | Note |
 |---|---|---|
-| `<n>` | hook variant number, 1-indexed | `1` |
-| `<Self>` | `Self Targeting` abbreviated | `A - Actual Self` → `Ac`, `B - Ideal Self` → `Id`, `C - Ought Self` → `Ou` |
-| `<Zone>` | `Valence Zone` number | Zone 3 → `Z3` |
-| `<MMDDYY>` | date the brief is written | `082926` |
-| `<Editor>` | `Editor` property; `TBD` when unassigned | `JM` |
+| `1` | Variation | 1-indexed, one per hook variant |
+| `A` | Self Targeting | letter only — `A - Actual Self` → `A` |
+| `b` | **TEEP Stage** | letter only, lowercase for video — `b - Exploration` → `b` |
+| `Z3` | Valence Zone | zone number |
 
-**Four variations is the default.** One file-name row per hook variant, so four rows for four
-hooks, with the fifth row of the table left blank. Only the leading `<n>` changes between them —
-`1Ac-Z3`, `2Ac-Z3`, `3Ac-Z3`, `4Ac-Z3` — since self-targeting and zone are properties of the
-concept, not the hook.
+Do **not** read `Ab` as an abbreviation of the self-targeting name. `A` and `b` are two
+different properties jammed together, and TEEP Stage is easy to miss because it appears nowhere
+else in the string. Getting this wrong produces a filename that looks plausible and sorts
+wrongly.
 
-Mark generates these strings with his own spreadsheet generator and pastes them in. Match that
-output exactly; if a brief's values would produce a string you are unsure about, leave the row
-blank rather than guessing a variant of the convention.
-
-Worked example, from HPT079:
+Live example from the generator:
 
 ```
-HPT079_3 Signs Nervous System Never Shut Off_VeRelief Prime_AI VO_Multi_NA_New_Mark_JM
-HPT079_3 Signs Nervous System Never Shut Off_VeRelief Prime
-HPT079_VID_3 Signs Nervous System Never Shut Off_1Ac-Z3_VeRelief Prime_AI VO_Multi_NA_New_Mark_JM_082726
+HPT085_VID_Test Zap_1Bd-Z3_VeRelief Prime_AI VO_Multi_NA_New_Mark_JM_082726
+HPT085_Test Zap_VeRelief Prime_AI VO_Multi_NA_New_Mark_JM
+HPT085_Test Zap_VeRelief Prime
 ```
+
+Statics use the same shape with `IMG` and an uppercase TEEP letter
+(`HPT047_IMG_Labor Day Sale Bundle_1bD-Z2_...`), so do not assume a fixed case — take the
+letter as the sheet writes it for that format.
 
 ### Body structure
 
