@@ -8,22 +8,37 @@ call rejects one, re-`fetch` the database rather than guessing a replacement.
 | What | ID |
 |---|---|
 | Video Brief (data source) | `collection://34b8fb5b-44b0-8029-8b87-000b98d7a19f` |
-| Ad Creative Pipeline (data source) | `collection://9ed8fb5b-44b0-8214-ba3f-87e0b7d225f7` |
 | Video Brief page template | `3528fb5b-44b0-80d6-85c5-cfd2c41793df` |
 
-Both live under **Hoolest Creative Lab**.
+Under **Hoolest Creative Lab**.
 
-## Write order
+## Write target
 
-Create the Video Brief first, then the Pipeline row, then relate them. The relation is
-two-sided — setting it from the Pipeline row's `Video Brief` property is enough.
+**Video Brief only.** This skill does not create Ad Creative Pipeline rows — the team promotes
+briefs into the pipeline themselves. The Pipeline data source
+(`collection://9ed8fb5b-44b0-8214-ba3f-87e0b7d225f7`) is listed here only so it is recognisable,
+not as a destination.
+
+## Creative ID
+
+Sequential house number, `HPT` + three digits, zero-padded. Not derived from the source ad.
+
+```sql
+SELECT "Creative ID" FROM "collection://34b8fb5b-44b0-8029-8b87-000b98d7a19f"
+WHERE "Creative ID" LIKE 'HPT%' ORDER BY "Creative ID" DESC LIMIT 5
+```
+
+Take the highest well-formed `HPT<nnn>` and add one. Ignore malformed entries — the database
+contains a bare `HPT` and an `HPT0` that are not part of the sequence. Numbering is not strictly
+dense (gaps and out-of-order creation dates exist); always go off the maximum, never off a count
+of rows.
 
 ## Video Brief — property mapping
 
 | Property | Value |
 |---|---|
 | `Concept Name` | title — `<Angle> — <Avatar>` e.g. `Failed Alternative — Off-ramper` |
-| `Creative ID` | **`TT-<trendtrack_ad_id>`** — the dedupe key. Always set it. |
+| `Creative ID` | **`HPT<nnn>`** — next in sequence. Always set it. |
 | `Category` | `Adaptation` (always — this is a competitor-derived brief) |
 | `Product` | `VeRelief Prime` |
 | `Format` | `VID` |
@@ -38,40 +53,16 @@ two-sided — setting it from the Pipeline row's `Video Brief` property is enoug
 | `Content Type` | short text — the UGC framework used, e.g. `Why I Switched` |
 | Leave unset | `Editor`, `Assign`, `Performance`, `Winning version`, `Delivery link` |
 
-## Ad Creative Pipeline — property mapping
-
-| Property | Value |
-|---|---|
-| `Ad Name` | title — same as the Video Brief `Concept Name` |
-| `Video Brief` | relation → the page just created |
-| `Product` | `VeRelief Prime` |
-| `Status` | `💡 Idea` |
-| `Medium` | `VID` |
-| `Format` | `UGC` / `Talking Head` / `VSL` / `Mashup` — match the source ad's form |
-| `Avatar`, `TEEP Stage`, `Valence Zone` | same values as the Video Brief |
-| `Self-Concept Anchor` | `Actual Self (who they are now)` / `Ideal Self (…)` / `Ought Self (…)` |
-| `Story Framework` | from analysis — `Problem-Agitate-Solve`, `Before-After-Bridge`, `SCQA`, … or `NA` |
-| `Language Intensity` | `Low — Organic-feeling` or `High — Direct response` |
-| `Emotion Present` | short text — the dominant emotion the ad works on |
-| `Sprint Week` | the current week's Monday |
-| Leave unset | `Owner`, `Worked?`, `CX Generation`, `Static Brief`, `Insight Bank` |
-
-> Note the two databases spell the same concepts differently — `TEEP Stage` is
-> `A - Trigger` in the Pipeline but `a - Trigger` in the Video Brief, and the Pipeline's
-> `Self-Concept Anchor` options are worded differently from the Video Brief's `Self Targeting`.
-> Use each database's own option strings exactly or the write silently drops the value.
-
 ## Video Brief page body
 
 Mirror the existing template so editors read a familiar shape.
 
-```
-## Source
-Competitor · Days running · TrendTrack ad ID + link · Swept on <date>
-Compliance gate: passed <date>
+No source attribution block, no swipe analysis, no compliance table. The brief is for the
+editor — everything in it should be something they can act on.
 
+```
 ### AD INSPO
-<video src="competitor creative url">
+<video src="https://medias.trendtrack.io/video/facebook/<id>.mp4"></video>
 
 ### GENERAL INSTRUCTION
 - Always apply the 1-3 sec rule (change visual every 1-3 sec)
@@ -96,15 +87,8 @@ TC = Time Clips · Super = Black text on white box · Caption = White text on bl
 One table row per beat. The `Visual` column is what the editor shoots or cuts — write it as a
 direction, not a description. The `Note` column carries pacing and delivery.
 
-## Structural analysis block
+Use the `media.mediaUrl` from the scaling-ads response for the AD INSPO embed — the `<video>`
+tag makes it preview inline. `thumbnailUrl` is the fallback when there is no media URL.
 
-Append below the brief so the strategy is auditable later:
-
-```
-### Swipe analysis
-- Source structure: <hook type → body blocks → CTA type>
-- Primary angle: <angle>
-- Person Blocks present: <list>
-- Why it ran <N> days: <one sentence>
-- What we changed and why: <one sentence>
-```
+The swipe analysis (source structure, angle, why it ran, what changed) still gets **done** — it
+is what makes the rewrite good — but it goes in the chat report, not the page.

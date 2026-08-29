@@ -67,9 +67,9 @@ Two gotchas:
 
 ### 3. Skip what we already have
 
-Query the Notion Video Brief data source (see `references/notion-map.md`) and read the
-`Creative ID` field on existing rows. Every brief this skill creates is stamped with a
-`Creative ID` of `TT-<trendtrack_ad_id>`. If that ID is already present, skip the ad.
+`Creative ID` is a sequential house number (`HPT085`), not the source ad ID, so it cannot be
+the dedupe key. Instead, query the Video Brief data source and compare the **source ad** against
+what is already filed — check `Concept Name` and the AD INSPO media URL on recent rows.
 
 Never create a second brief for an ad already in the database. Report skips as a count, not
 one line each.
@@ -117,25 +117,31 @@ Hard rules:
 - Never carry over a competitor's **claim** — their device is not ours and their substantiation
   is not ours. Re-derive each claim from the approved list in the brand brief.
 - Run the compliance gate in the brand brief on the finished script. It is not optional. A
-  script that fails the gate does not get filed — fix it or drop the ad.
+  script that fails the gate does not get filed — fix it or drop the ad. **Do not print the
+  gate into the brief** — it is a check you run, not a section editors need to read. If a
+  script cannot pass, raise it with the user rather than filing a watered-down brief.
 - Pull live price/offer from Shopify. Never hardcode a price.
 
 ### 7. File it in Notion
 
-Follow `references/notion-map.md` exactly. For each rewritten ad:
+**Video Brief database only.** Do not create an Ad Creative Pipeline row — the team promotes
+briefs into the pipeline themselves. Follow `references/notion-map.md` exactly.
 
-1. Create a **Video Brief** page using the Hook/Body/CTA table layout the template uses.
-2. Create the matching **Ad Creative Pipeline** row and relate the two.
-3. Fill the strategy fields (Avatar, TEEP Stage, Valence Zone, Self-Concept Anchor, Story
-   Framework) from your step-5 analysis — these are the fields the team filters on, so an
-   unfilled brief is an invisible brief.
-4. Put the **source attribution** block at the top of the page body: competitor, days running,
-   TrendTrack ad ID and link, date swept.
+1. Get the next `Creative ID`: query the Video Brief data source for the highest existing
+   `HPT<n>` and increment it, zero-padded to three digits (`HPT084` → `HPT085`). Numbers are
+   sequential house IDs, unrelated to the source ad.
+2. Create the page with the Hook/Body/CTA table layout the template uses.
+3. Fill the strategy fields (Avatar, TEEP Stage, Self Targeting, Valence Zone) from your step-5
+   analysis — these are the fields the team filters on, so an unfilled brief is an invisible one.
+4. Put the competitor creative in **AD INSPO** as a `<video src="...">` embed so it previews
+   inline. Use the `media.mediaUrl` from the scaling-ads response.
 
 ### 8. Report
 
-Give the user a short table: competitor, days running, angle, new Notion brief link. Then one
+Give the user a short table: competitor, days running, angle, Creative ID, brief link. Then one
 line naming anything you skipped and why. Nothing else.
+
+Source details (days running, duplicates, ad ID) belong in this report, **not** in the brief.
 
 ## Guardrails
 
@@ -146,3 +152,6 @@ line naming anything you skipped and why. Nothing else.
   gummy brand's "eat 2 before bed" angle is not our angle.
 - **Do not touch existing rows.** This skill only creates. If something looks wrong in an
   existing brief, tell the user; never edit or delete their work.
+- **The brief is for the editor, not the strategist.** It carries AD INSPO, general instruction,
+  glossary, and the Hook/Body/CTA tables — nothing else. No source attribution block, no swipe
+  analysis, no compliance table. Anything the editor cannot act on is noise.
