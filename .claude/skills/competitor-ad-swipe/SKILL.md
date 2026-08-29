@@ -74,8 +74,28 @@ Two TrendTrack favorites folders carry the state between runs. **Read both befor
 
 | Folder | id | Meaning |
 |---|---|---|
-| `Inspo Bank → To Remake` | `6985225d-84f3-4e72-b831-96938ac00b9a` | Queue. Vetted candidates waiting to be briefed. |
+| `★ Mark's Picks (any vertical)` | `4c9e5267-210a-464e-99d0-1fc4ec25efe5` | **Highest priority.** Hand-picked by Mark, often from outside the category. |
+| `Inspo Bank → To Remake` | `6985225d-84f3-4e72-b831-96938ac00b9a` | Queue. Candidates the sweep vetted. `★ Mark's Picks` is a subfolder of this. |
 | `Swiped → VeRelief Briefs` | `a608a57a-d8fc-47cb-87a6-f3d1b08076b1` | Done. Never brief these again. |
+
+### `★ Mark's Picks` — read this first, every run
+
+Mark adds ads here by hand, including **winners from other verticals** — skincare, supplements,
+finance, anything. They take priority over everything the sweep finds, and different rules apply:
+
+- **Brief them first.** A human picked these; that judgement outranks the ranking heuristic.
+  Work through them before considering anything else, oldest first.
+- **Do not apply the watchlist filter.** They will not be from tracked brands and usually will
+  not be in the vagus-nerve category at all. That is deliberate, not an error.
+- **Do not auto-drop them on the longevity check.** The 30-day rule exists to find validated
+  ads; Mark adding one *is* the validation. If the data shows a short run, brief it anyway and
+  mention the discrepancy in the report — never silently discard a human pick.
+- **Do apply the compliance gate and the four-distinct-hooks rule.** Those never relax, whatever
+  the source.
+- Rewriting these is harder. Read the **"Swiping from another vertical"** section of
+  `references/verelief-prime-brief.md` before starting one.
+
+If `★ Mark's Picks` alone yields five, the sweep still runs — to top the bank up, not to file.
 
 Both are **`scope: "personal"`** — Mark's own favorites, not the workspace's. Every favorites
 call against them must pass `scope: "personal"` or it returns "this resource isn't in

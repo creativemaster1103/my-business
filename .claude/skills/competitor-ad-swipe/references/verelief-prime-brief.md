@@ -88,6 +88,39 @@ Run every finished script through this before it goes to Notion. Any failure blo
 
 Record the gate result in the brief body so a reviewer can see it ran.
 
+## Swiping from another vertical
+
+Mark drops winners from outside the category into `★ Mark's Picks`. These are the most valuable
+source in the bank and the hardest to rewrite, because nothing about the surface transfers.
+
+The category is saturated — every vagus-nerve brand runs the same three angles. A skincare ad, a
+finance ad, a supplement ad that has been running six months carries a structure our competitors
+have never used on this audience. That is the whole point of taking it.
+
+**What transfers across verticals:** the emotional mechanism (what feeling the hook exploits),
+the block order and pacing, the objection being pre-empted, the shape of the proof, the reason
+the viewer keeps watching past three seconds.
+
+**What does not:** the category context, the proof itself, the offer mechanics, the persona, and
+above all the *claim shape*. A supplement can say "take two before bed"; a device cannot. A
+finance ad can promise a number; we cannot.
+
+Two failure modes to avoid:
+
+1. **Transplanting the surface.** Taking a mattress ad's "sleep like never before" and swapping
+   the product in. That is not a swipe, it is a find-and-replace, and it reads like one.
+2. **Losing the mechanism.** Stripping so much that only a generic structure survives. If you
+   cannot say in one sentence *why the original worked on its audience*, and show that same
+   force operating in ours, the swipe has failed.
+
+Ask: **what job was the original hook doing on its viewer, and what does that same job look like
+for someone who cannot switch their nervous system off?** Rebuild from that answer, not from the
+original's words.
+
+A cross-vertical swipe usually needs a harder look at the avatar, because the original was not
+written for anyone in our four. Pick the avatar the *mechanism* fits, not the one the surface
+resembles.
+
 ## What actually transfers from a competitor ad
 
 Take: the **structure** (hook shape, block order, pacing), the **angle**, the **objection**
