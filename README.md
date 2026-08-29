@@ -58,15 +58,14 @@ MCP connector reaches TrendTrack over a different path. Do not work around it by
 | `.claude/skills/competitor-ad-swipe/references/notion-map.md` | Notion IDs + property mapping |
 | `config/competitors.yml` | Watchlist, thresholds, excluded angles |
 
-### Before the first scheduled run
+### Status
 
-Two things need a human decision:
+Run on demand — no schedule is armed. Watchlist confirmed 2026-08-29 (all six competitors).
 
-1. **Confirm the watchlist.** `config/competitors.yml` is seeded with the obvious
-   vagus-nerve/calm-device competitors but nobody has confirmed them.
-2. **Confirm the regulatory posture.** The claim set in the brand brief is written
-   conservatively on purpose. The exact status of VeRelief Prime — general wellness device vs.
-   any FDA clearance and its indication — decides how far those claims can stretch.
+**Still open:** the regulatory posture of VeRelief Prime. The claim set in the brand brief is
+written conservatively on purpose; whether the device is positioned as a general wellness
+device or carries an FDA clearance (and for what indication) decides how far those claims can
+stretch. Until that is confirmed, the conservative set stands.
 
 ### What it deliberately does not do
 

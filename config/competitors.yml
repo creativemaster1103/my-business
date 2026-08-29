@@ -13,9 +13,8 @@ max_new_briefs_per_run: 3
 max_days_running: 365
 
 competitors:
-  # --- SEEDED, UNCONFIRMED -------------------------------------------------
-  # These are the direct vagus-nerve / calm-device competitors. Mark should
-  # confirm, trim, or replace this list before the first scheduled run.
+  # --- CONFIRMED by Mark, 2026-08-29 ---------------------------------------
+  # The direct vagus-nerve / calm-device set. Sweep all six.
   - name: Pulsetto
     domain: pulsetto.tech
     priority: high
