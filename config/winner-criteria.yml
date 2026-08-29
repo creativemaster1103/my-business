@@ -1,0 +1,40 @@
+# Winner criteria for the /winner-crawl pipeline.
+# The skill reads this file at the start of every run.
+
+# Meta ad account to crawl. USD, business "thehoolest".
+ad_account_id: "948100899908170"
+ad_account_name: "Hoolest FB Ads"
+
+# --- The bar ---------------------------------------------------------------
+# Both must be met, measured AT AD LEVEL (one hook variant), not campaign.
+min_spend_usd: 1000
+min_roas: 1.8
+
+# Rolling window the metrics are measured over. Confirmed by Mark 2026-08-29:
+# 30 days catches creatives while they are still live and scaling, and stops
+# a concept that won in June from re-flagging every week forever.
+date_preset: last_30d
+
+# --- Notion destination ----------------------------------------------------
+video_brief_data_source: "collection://34b8fb5b-44b0-8029-8b87-000b98d7a19f"
+performance_value: "Winner"
+
+# Only ever PROMOTE. Never write "Loser", never overwrite a Performance value
+# a human already set. The crawl can add signal, never erase judgement.
+promote_only: true
+
+# Also record which hook variant cleared the bar, in the existing
+# "Winning version" text property (HPT025 already uses it this way).
+write_winning_version: true
+
+# --- Matching --------------------------------------------------------------
+# The Video Brief database is VID-only. Static ads reuse the SAME HPT numbers
+# for completely different concepts, so matching on the number alone writes to
+# the wrong row. Require the format token to be VID and cross-check the concept
+# name. See "Why the format token is not optional" in SKILL.md.
+require_format_token: VID
+require_concept_name_match: true
+
+# Minimum token-overlap between the Meta ad's concept slug and the Notion
+# "Concept Name" before a match is accepted. Below this, report, do not write.
+concept_match_min_overlap: 0.5
