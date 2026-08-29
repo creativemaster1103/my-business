@@ -70,8 +70,25 @@ Two gotchas:
 `Creative ID` is a house number (`HPT085`) and carries no link to the source ad, so it cannot
 be the dedupe key. The ledger lives in TrendTrack instead:
 
-**Favorites folder `Swiped → VeRelief Briefs`** — id `8e6eb79b-c2b5-467c-bf44-dafc29eb1401`
-(workspace scope, ads).
+Two TrendTrack favorites folders carry the state between runs. **Read both before sweeping.**
+
+| Folder | id | Meaning |
+|---|---|---|
+| `Inspo Bank → To Remake` | `eb28010c-6d7e-4794-b9ad-d623d99da79b` | Queue. Vetted candidates waiting to be briefed. |
+| `Swiped → VeRelief Briefs` | `8e6eb79b-c2b5-467c-bf44-dafc29eb1401` | Done. Never brief these again. |
+
+**Work the bank first.** A sweep surfaces ~100 eligible ads and files at most 3; without a queue
+the other 97 are judged and thrown away every single week. Draw this run's picks from the bank
+before considering anything new, and top the bank back up with the best of what the fresh sweep
+turned up. That way the judgement accumulates instead of being redone.
+
+When a banked ad is briefed, **move it**: add it to `Swiped` and remove it from the bank with
+`remove_favorite_item`. An ad in both folders will be re-briefed.
+
+Keep the bank to roughly 10-15 ads. If it is fuller than that, the sweep is being too generous
+about what counts as worth remaking — tighten it rather than letting a backlog rot.
+
+The ledger folder in detail:
 
 ```
 list_favorites(type="ads", folder="8e6eb79b-c2b5-467c-bf44-dafc29eb1401", limit=25)
@@ -80,7 +97,7 @@ list_favorites(type="ads", folder="8e6eb79b-c2b5-467c-bf44-dafc29eb1401", limit=
 Page through `pagination.totalPages` and collect every `ad.id`. Drop any candidate whose id is
 already in that set — before spending effort on transcripts or rewriting.
 
-Then, **immediately after filing each brief**, register it:
+Then, **immediately after filing each brief**, register it in `Swiped`:
 
 ```
 add_favorite_item(type="ads", item_id="<ad.id>",
@@ -125,7 +142,8 @@ Apply these, in order:
    candidate whose framework is already there.
 4. **Say when the well is dry.** If everything left is a rerun of an angle already covered,
    file fewer briefs and say so. Filing to hit `max_new_briefs_per_run` is how the library
-   fills with near-copies.
+   fills with near-copies. A quiet week with an empty bank is a real signal: the competitors
+   have not shipped anything new worth taking.
 
 Report the avatar counts in step 8 so the skew stays visible.
 

@@ -12,8 +12,13 @@ max_new_briefs_per_run: 3
 # Never file two briefs from the same competitor in one sweep.
 max_briefs_per_competitor_per_run: 1
 
-# TrendTrack favorites folder used as the "already swiped" ledger.
-# Every filed brief registers its source ad here; every run reads it first.
+# TrendTrack favorites folders holding state between runs.
+# Queue of vetted candidates waiting to be briefed. Picks come from here first.
+inspo_bank_folder_id: eb28010c-6d7e-4794-b9ad-d623d99da79b
+inspo_bank_folder_name: "Inspo Bank → To Remake"
+inspo_bank_target_size: 12
+
+# Already briefed. Never swipe these again.
 swiped_ledger_folder_id: 8e6eb79b-c2b5-467c-bf44-dafc29eb1401
 swiped_ledger_folder_name: "Swiped → VeRelief Briefs"
 
