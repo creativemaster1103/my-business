@@ -51,7 +51,8 @@ of rows.
 | `Event` | `Evergreen` unless the source ad is clearly seasonal |
 | `Offer` | `NA` unless the rewrite carries a specific offer |
 | `Content Type` | short text, filename-safe — the framework used, e.g. `Why I Switched`, `AI VO`. Keep it to a few words with no parentheses. |
-| Leave unset | `Editor`, `Assign`, `Performance`, `Winning version`, `Delivery link` |
+| `Editor` | `JM` — the default editor. Only differs if the user says so. |
+| Leave unset | `Assign`, `Performance`, `Winning version`, `Delivery link` |
 
 ## Video Brief page body
 

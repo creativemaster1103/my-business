@@ -31,6 +31,8 @@ F Self Variation  G TEEP Stage  H Valence Zone  I Product      J Content Type
 K Avatar        L Offer       M Category       N Strategist    O Editor
 ```
 
+`O` (Editor) defaults to **`JM`**. `N` (Strategist) is `Mark`.
+
 `F` and `G` take the **letter only** — `A - Actual Self` → `A`, `b - Exploration` → `b`. They
 concatenate in the output as `1Ab-Z3`, which is why both matter and why TEEP Stage is easy to
 lose: it appears nowhere else in the string.
@@ -45,6 +47,16 @@ lose: it appears nowhere else in the string.
 3. **Read rows 20-24 and 29-30** with `google_sheets_get_data_range`.
 4. **Paste those strings verbatim** into the brief's naming tables. Do not adjust them, even if
    one looks wrong — if it looks wrong, the inputs were wrong; fix those and re-read.
+
+## The sheet normalises some values
+
+It returned `Off-Ramper` for the `Off-ramper` that Notion's Avatar property uses. The sheet's
+casing wins for filenames — paste what it gives you rather than "correcting" it back to match
+Notion.
+
+Read the output back **after** the write, never assume it. A read taken while the sheet is being
+edited in the browser can catch a half-applied state: one run here briefly returned `New` for a
+`Category` that was `Adaptation` moments later.
 
 ## Two traps, both learned the hard way
 
