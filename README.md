@@ -2,8 +2,8 @@
 
 ## Winner Crawl
 
-Automates: **crawl the ad account at ad level → keep creatives over the bar → tag the matching
-Video Brief row in Notion as a Winner.**
+Automates: **crawl the ad account at ad level → keep video creatives over the bar → tag the
+matching Video Brief row in Notion as a Winner.**
 
 ### The bar
 
@@ -11,13 +11,22 @@ A creative is a winner when, **at ad level** (one hook variant, not the campaign
 rolling 30 days it clears **both** $1,000 USD spend **and** 1.8 purchase ROAS. Ad level is the
 point: a campaign averaging 1.9 tells you nothing about which of its four hooks earned it.
 
+### Scope: video only
+
+**An ad name carrying a `VID` token is a video, and video is the whole scope.** Anything
+without one is not evaluated — statics (`IMG`), creator/whitelist ads
+(`WillBurger_VeReliefPrime_…`, which are videos but follow no naming convention), and legacy
+one-offs (`Prime _ PDP_BOFU _ …`). The report gives a count of what was skipped so nothing is
+hidden, but does not itemise it.
+
 ### How it runs
 
 ```
 Meta Ads MCP     →  ad-level spend + purchase_roas, last 30d
+      ↓  keep VID only — everything else is out of scope
       ↓  keep spend >= $1,000 AND roas >= 1.8
 parse ad name    →  Creative ID / Format / Concept / Variant
-      ↓  require VID + concept-name cross-check
+      ↓  concept-name cross-check
 Notion MCP       →  Video Brief row: Performance = Winner, Winning version = <variant>
 ```
 
@@ -29,7 +38,7 @@ Notion MCP       →  Video Brief row: Performance = Winner, Winning version = <
 
 Or scope it: `/winner-crawl last 90 days`, `/winner-crawl dry run`.
 
-### The HPT namespace collides — read before changing the matcher
+### The VID filter is also what keeps writes correct
 
 Statics run their own HPT sequence that **reuses numbers already spent on videos**, for
 different concepts:
@@ -44,12 +53,9 @@ different concepts:
 
 Matching on the number alone tags *"HPT034 – Worth of investment"*, a VeRelief Prime video, as
 a winner off a **Mini Max PEMF static's** ROAS — a write that succeeds, looks plausible and is
-wrong. The crawl therefore requires the format token to be `VID` **and** cross-checks the
-concept name. Two Notion rows can also share a Creative ID (HPT022, HPT031); the concept name
-is what picks the right one, and when it cannot, the crawl reports instead of writing.
-
-The Video Brief database is VID-only, so a winning **static has no row to write to**. It still
-shows up in the report — that is signal, not an error.
+wrong. Filtering to `VID` first removes the whole class of error. After that, the crawl still
+cross-checks the concept name, which is what disambiguates the two Creative IDs owning two
+Notion rows each (HPT022, HPT031); when it cannot, it reports instead of writing.
 
 ### Meta API quirks this works around
 
@@ -65,6 +71,7 @@ shows up in the report — that is signal, not an error.
 
 ### Safety rules
 
+- **Video only.** No `VID` token, no consideration.
 - **Promote only.** Never writes `Loser`, never overwrites a `Performance` value a human set.
 - Never creates a Video Brief row; it only updates existing ones.
 - Never writes to a row whose concept name does not corroborate the Creative ID.
@@ -75,7 +82,7 @@ shows up in the report — that is signal, not an error.
 | Path | What |
 |---|---|
 | `.claude/skills/winner-crawl/SKILL.md` | The pipeline |
-| `config/winner-criteria.yml` | Thresholds, window, account id, Notion destination |
+| `config/winner-criteria.yml` | Thresholds, window, scope, account id, Notion destination |
 
 ### Schedule
 

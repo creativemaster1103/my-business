@@ -27,12 +27,16 @@ promote_only: true
 # "Winning version" text property (HPT025 already uses it this way).
 write_winning_version: true
 
-# --- Matching --------------------------------------------------------------
-# The Video Brief database is VID-only. Static ads reuse the SAME HPT numbers
-# for completely different concepts, so matching on the number alone writes to
-# the wrong row. Require the format token to be VID and cross-check the concept
-# name. See "Why the format token is not optional" in SKILL.md.
-require_format_token: VID
+# --- Scope -----------------------------------------------------------------
+# VIDEO ONLY. Confirmed by Mark 2026-08-29: an ad name carrying a VID token is
+# a video, and video is the whole scope for now. Ads without a VID token --
+# statics (IMG) and creator/whitelist ads, which follow no naming convention --
+# are OUT OF SCOPE. They are not winners-without-a-row; they are not evaluated.
+#
+# This is also what keeps writes correct. Statics reuse the SAME HPT numbers for
+# completely different concepts, so a number-only match writes to the wrong row.
+# See "Video only, and why that also keeps writes correct" in SKILL.md.
+scope_format_token: VID
 require_concept_name_match: true
 
 # Minimum token-overlap between the Meta ad's concept slug and the Notion
