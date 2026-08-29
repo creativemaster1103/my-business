@@ -5,9 +5,12 @@
 # Longevity is our proxy for profitability: nobody funds a losing creative for a month.
 min_days_running: 30
 
-# Target of 5 concepts per week. Still a ceiling rather than a quota — a week with
-# only three worth taking files three, and says so.
+# Target of 5 concepts per week. One concept = one brief = one HPT number,
+# and every brief carries exactly 4 hook variants — so 5 concepts is 20 cuts.
+# Still a ceiling rather than a quota: a week with only three worth taking
+# files three, and says so.
 max_new_briefs_per_run: 5
+hooks_per_brief: 4
 
 # No per-competitor cap. Take the winners wherever they are.
 # Brand spread is not a goal — a competitor with nothing worth remaking this week
