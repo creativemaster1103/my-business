@@ -18,32 +18,38 @@ competitors:
   - name: Pulsetto
     domain: pulsetto.tech
     priority: high
-    note: Closest positioning to VeRelief Prime — neck-worn vagus stimulator, similar price band.
+    brandtracker_id: d704568c-700e-4334-b293-1fa198fbdf8f
+    note: Closest positioning. Neck-worn. 81 video ads past 30d. Leans hard on named-condition claims — never mirror those.
 
   - name: Truvaga
     domain: truvaga.com
     priority: high
-    note: electroCore. Handheld, strongest claims-substantiation posture in the category.
+    brandtracker_id: 1d203af5-1c8e-41cf-bc40-70ed672d915a
+    note: electroCore. Handheld, our closest form-factor rival. Returns no transcripts — read content.body instead.
 
   - name: Sensate
     domain: getsensate.com
     priority: medium
+    brandtracker_id: c463846b-5d95-4544-b6ce-6081e48fd030
     note: Infrasonic rather than electrical. Good source of calm/wind-down angles.
 
   - name: Apollo Neuro
     domain: apolloneuro.com
     priority: medium
+    brandtracker_id: 7519b324-8657-4122-b086-1375c9b4fb66
     note: Wearable vibration. Heavy HRV-Hunter messaging worth studying.
 
   - name: Neuvana
     domain: neuvanalife.com
     priority: low
+    brandtracker_id: 93128e5f-1501-41f0-a066-f044251aad73
     note: Xen earbuds. Adjacent mechanism, overlapping avatar.
 
   - name: Nurosym
     domain: nurosym.com
     priority: low
-    note: Parasym. Clinical-authority angle.
+    brandtracker_id: e4f81c3c-759a-4b03-85d8-4dde6e2ad83b
+    note: Parasym. Clinical-authority angle. Highest volume in the set — 392 active ads.
 
 # Angles that never transfer to a $399 non-prescription wellness device.
 # The skill drops any swiped ad whose primary angle matches one of these.
@@ -52,3 +58,12 @@ excluded_angles:
   - Named-condition treatment claims
   - Ingestible dosing / supplement routine
   - Subscription-only offer mechanics
+
+# Also tracked in the TrendTrack workspace but not on the sweep list.
+# Move any of these up into `competitors:` to include them.
+#   ZenoWell          bae29de3-84da-4529-9663-c96b4aad1bee   zenowell.ai
+#   Vagustim Health   85b1c55d-6052-4f09-ae5b-2338ecf4bae5   vagustim.io
+#   MindSpire         071f6ca1-30a4-48d2-b71c-da8d6ed18c70   sona.help
+#   NuCalm            21bc15b7-fb70-4aee-8833-dacbc3ab199d   (no active ads)
+#   Pulsetto EU       c86b8f80-66d1-4c51-8d28-914f7dc0d0e9   EU-targeted split of Pulsetto
+#   Hoolest Inc.      65c24001-c2d0-444a-b334-395371343270   us — useful for self-audit

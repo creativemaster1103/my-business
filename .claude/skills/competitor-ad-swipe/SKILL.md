@@ -20,7 +20,7 @@ one to toggle on — do not attempt to scrape a site as a workaround.
 |---|---|
 | **Trend Track MCP** | Discovery: competitor ads + how long each has run |
 | **Notion** | Destination: Video Brief + Ad Creative Pipeline |
-| **Higgsfield** | Transcribing ad video when no text script is available |
+| **Higgsfield** | Fallback only — transcribing video when TrendTrack returns no transcript |
 | **Shopify** | Live VeRelief Prime price / offer facts |
 
 Direct HTTPS to `trendtrack.io` is blocked by the egress proxy in sandboxed sessions. This is
@@ -36,13 +36,34 @@ Read `config/competitors.yml` for the brands to sweep, the `min_days_running` th
 
 ### 2. Pull ads from TrendTrack
 
-Call the TrendTrack MCP tools to list ads for each watchlist brand.
+`list_tracked_brands` → grab the `brandtracker_id` for each watchlist brand. Everything the
+watchlist names is already tracked; if the user adds a new one, `add_to_brandtracker` first.
 
-**Inspect the tool schema at runtime** — do not assume field names. Find whichever field
-expresses longevity (`days_running`, `first_seen`, `started_at`, `creation_date`, …) and
-compute days live against today's date. Keep only ads at or over the threshold.
+Then per brand:
 
-Sort survivors by days running, descending. The longest-running ad is the strongest signal.
+```
+get_brandtracker_scaling_ads(
+  brandtracker_id = <uuid>,
+  min_days_running = <threshold from config>,
+  status           = "active",
+  media_type       = "video",
+  ad_rank_sort     = "current_rank",
+  limit            = 8
+)
+```
+
+`min_days_running` does the 30-day filter server-side — do not filter by hand.
+
+**Rank survivors by `metrics.duplicates`, not just `daysRunning`.** Duplicates are how many
+times the brand has re-uploaded the same creative. A 272-day ad with 80 duplicates is a brand
+shouting; a 392-day ad with 10 is one they forgot to switch off. Longevity × duplicates is the
+real signal. `metrics.reach` and `estimatedSpend` break ties.
+
+Two gotchas:
+- `main_countries` only matches EU/UK (Meta transparency reporting). For US ads use
+  `ad_countries`, or leave country unset and read `audience.targetedCountries`.
+- Each call costs credits. Check `check_credits` if a sweep is large; a `limit: 8` call runs
+  about 12 units.
 
 ### 3. Skip what we already have
 
@@ -55,13 +76,21 @@ one line each.
 
 ### 4. Extract the script
 
+Usually already done for you. `get_brandtracker_scaling_ads` returns `content.transcript` as a
+JSON string of timed segments — parse it and you have the full spoken script with timings, which
+also gives you the pacing. `content.body` carries the ad copy, `content.ctaDescription` the CTA
+headline.
+
 In order of preference:
 
-1. **Text the API already returns** — ad copy, primary text, headline, on-screen text.
-2. **Transcribe the video** — if TrendTrack gives a video/creative URL and no script, call
-   Higgsfield `video_analysis_create`, poll `video_analysis_status`, and use the transcript.
-3. **Say so.** If neither works, record the ad with what you have and set the brief status to
-   `Conceptualizing` with a note that the script needs manual capture. Do not invent a script.
+1. **`content.transcript`** — parse the segments. Timings are the pacing map; use them.
+2. **`get_brandtracker_transcripts`** — grouped transcripts for the brand, sorted by
+   `longestRunning` or `usageCount`. Useful for sweeping a brand's whole library at once.
+3. **Higgsfield** — only if both are empty. Some brands (Truvaga, at time of writing) return
+   `transcript: null` on every ad; their `content.body` is long-form and often carries the whole
+   argument, so read that before reaching for transcription.
+4. **Say so.** If none work, file with what you have, status `Conceptualizing`, noting the script
+   needs manual capture. Do not invent a script.
 
 Capture the **visual beats** too, not just the words. A script without its visual pacing is
 half a brief, and the editor cannot build from it.
