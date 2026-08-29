@@ -133,19 +133,28 @@ briefs into the pipeline themselves. Follow `references/notion-map.md` exactly.
 2. Create the page with the Hook/Body/CTA table layout the template uses.
 3. Fill the strategy fields (Avatar, TEEP Stage, Self Targeting, Valence Zone) from your step-5
    analysis — these are the fields the team filters on, so an unfilled brief is an invisible one.
-4. **Upload** the competitor creative into AD INSPO — do not hotlink it. Pass the ad's
-   `media.mediaUrl` to Notion `create-attachment` as `source_url`; Notion downloads it
-   server-side, so this works even though the sandbox cannot reach `medias.trendtrack.io`
-   itself. Then embed the returned upload id:
+4. Build **AD INSPO** from two blocks, in this order:
 
    ```
    ### AD INSPO
-   <video src="file-upload://<file_upload_id>"></video>
+   <embed src="https://app.trendtrack.io/share/ads/<slug>"></embed>
+   <video src="file-upload://<file_upload_id>">Raw creative</video>
    ```
 
-   A hotlink to the TrendTrack CDN may not render and will rot when the URL expires; an
-   uploaded file plays inline and outlives the source. Name the file
-   `<CreativeID>-ad-inspo-<competitor>-<days>d.mp4`.
+   **The share link is the primary.** Call TrendTrack `create_ad_share_link(ad_id)` and embed
+   the returned `shareUrl`. It renders as a rich card carrying days running, rank movement,
+   advertiser, countries and ad copy — context a bare video loses. This is the format to use
+   whenever linking a TrendTrack ad.
+
+   **The uploaded video is the backup.** Pass `media.mediaUrl` to Notion `create-attachment`
+   as `source_url` — Notion downloads it server-side, so this works despite the sandbox's
+   egress block on `medias.trendtrack.io`. Name it
+   `<CreativeID>-ad-inspo-<competitor>-<days>d.mp4`. Never hotlink the CDN URL directly: it
+   may not render and rots when the URL expires.
+
+   Note that `file-upload://` sources are resolved to real URLs on save, so a later
+   `update_content` cannot match on the original `file-upload://` string. Anchor edits on the
+   `### AD INSPO` heading instead.
 5. Set the page **icon to ⚡** — the Video Brief template default. Every brief uses it. Do not
    pick a per-brief emoji, however apt: a consistent icon is how the database stays scannable.
 
