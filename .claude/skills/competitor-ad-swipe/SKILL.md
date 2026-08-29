@@ -160,11 +160,18 @@ Apply these, in order:
 1. **Prefer the under-served avatar.** When two candidate ads are close on longevity and
    duplicates, take the one mapping to the thinner column. A good ad for HRV Hunter is worth
    more right now than a slightly better one for Wired Lifer.
-2. **At most two ads per competitor per run.** Never let one brand supply the whole batch — you
-   are sampling a market, not copying a competitor. If two come from the same brand they must
-   be different angles and different avatars, not two cuts of one idea.
-3. **Do not repeat a recent framework.** Check `Content Type` on the last ~10 briefs and skip a
-   candidate whose framework is already there.
+2. **No per-competitor quota. Follow the winners.** A competitor with nothing worth remaking
+   this week gets skipped entirely — do not reach for their best mediocre ad to give them a
+   slot. All five may come from one brand if that brand is the one producing winners. Pulsetto
+   ships ~1,500 ads a month and Sensate has nine in total; expecting them to contribute
+   equally would trade real winners for cosmetic spread.
+
+   What must stay varied is the **message**, not the source. Within a single run, no two briefs
+   may share the same angle + avatar pairing, and none may repeat a framework from the last
+   `framework_lookback` briefs. Five ads from one competitor is fine; five briefs that say the
+   same thing to the same person is not, whoever they came from.
+3. **Do not repeat a recent framework**, and do not repeat one *within* the batch. Check the
+   last `framework_lookback` briefs, plus everything already picked this run.
 4. **Say when the well is dry.** If everything left is a rerun of an angle already covered,
    file fewer briefs and say so. Filing to hit `max_new_briefs_per_run` is how the library
    fills with near-copies. A quiet week with an empty bank is a real signal: the competitors

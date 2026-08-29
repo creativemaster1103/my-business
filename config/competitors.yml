@@ -9,11 +9,17 @@ min_days_running: 30
 # only three worth taking files three, and says so.
 max_new_briefs_per_run: 5
 
-# Raised to 2 so five is actually reachable. With six competitors and a limit of
-# one each, hitting five needs five different brands to ship a keeper in the same
-# week, which they will not reliably do. Two apiece means five can come from three
-# brands on a thin week, without any single brand dominating the batch.
-max_briefs_per_competitor_per_run: 2
+# No per-competitor cap. Take the winners wherever they are.
+# Brand spread is not a goal — a competitor with nothing worth remaking this week
+# gets skipped entirely, and all five can come from one brand if that brand is the
+# one producing winners. Variety is enforced on angle, avatar and framework below,
+# which is what actually stops the library converging.
+max_briefs_per_competitor_per_run: null
+
+# Real diversity guard, applied WITHIN each batch: no two briefs in the same run
+# may share an angle+avatar pairing, and none may repeat a framework used in the
+# last `framework_lookback` briefs.
+enforce_distinct_angle_avatar_within_run: true
 
 # TrendTrack favorites folders holding state between runs.
 # Both are PERSONAL scope (Mark's own favorites) — pass scope: "personal" on every call.
