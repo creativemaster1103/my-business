@@ -31,7 +31,9 @@ F Self Variation  G TEEP Stage  H Valence Zone  I Product      J Content Type
 K Avatar        L Offer       M Category       N Strategist    O Editor
 ```
 
-`O` (Editor) defaults to **`JM`**. `N` (Strategist) is `Mark`.
+Defaults: `J` Content Type = **`AI VO`**, `O` Editor = **`JM`**, `N` Strategist = `Mark`.
+These must match the Notion properties exactly — the two are set together or the filename and
+the database disagree.
 
 `F` and `G` take the **letter only** — `A - Actual Self` → `A`, `b - Exploration` → `b`. They
 concatenate in the output as `1Ab-Z3`, which is why both matter and why TEEP Stage is easy to

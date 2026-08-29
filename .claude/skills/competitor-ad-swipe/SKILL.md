@@ -204,6 +204,10 @@ briefs into the pipeline themselves. Follow `references/notion-map.md` exactly.
 
    Reconstructing the format by hand is how you ship a filename that looks right and is wrong —
    it already happened once with the TEEP Stage letter.
+
+   **Set the defaults in both places.** Content Type `AI VO`, Editor `JM`, Strategist `Mark` go
+   into the Notion properties *and* the spreadsheet row. Changing one without the other leaves
+   the filename disagreeing with the database.
 6. Put the TrendTrack share link in **AD INSPO** as an `<embed>`, on its own:
 
    ```
