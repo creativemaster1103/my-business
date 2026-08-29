@@ -63,10 +63,9 @@ they carry the team's file-naming convention and the editor works from them. Nev
 **Source of truth:** Mark's [Naming Convention Generator](https://docs.google.com/spreadsheets/d/1LqXRQXs4WyGptVOmvsk1JIH1UnfyBExIC2Ls-rtBhL8/edit),
 "Video Naming Convention" tab. File id `1LqXRQXs4WyGptVOmvsk1JIH1UnfyBExIC2Ls-rtBhL8`.
 
-**Read that sheet at the start of every run** and match its output format exactly. The Drive
-connector is read-only for content — `update_file` changes only title and parent — so the sheet
-cannot be filled in programmatically. Replicate its format instead, and re-read it each run in
-case the convention changed.
+**Generate the strings in that sheet each run** — see `references/naming-generator.md` for the
+Zapier procedure. The format below is documentation; the sheet's output is the truth, and if
+they ever disagree the sheet wins.
 
 Its input columns, in order:
 
