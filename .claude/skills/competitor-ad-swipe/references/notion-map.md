@@ -78,8 +78,14 @@ Where:
 | `<MMDDYY>` | date the brief is written | `082926` |
 | `<Editor>` | `Editor` property; `TBD` when unassigned | `JM` |
 
-**One file-name row per hook variant.** A brief with four hooks gets four rows — that is how the
-editor knows how many cuts to deliver. Leave the remaining rows of the five blank.
+**Four variations is the default.** One file-name row per hook variant, so four rows for four
+hooks, with the fifth row of the table left blank. Only the leading `<n>` changes between them —
+`1Ac-Z3`, `2Ac-Z3`, `3Ac-Z3`, `4Ac-Z3` — since self-targeting and zone are properties of the
+concept, not the hook.
+
+Mark generates these strings with his own spreadsheet generator and pastes them in. Match that
+output exactly; if a brief's values would produce a string you are unsure about, leave the row
+blank rather than guessing a variant of the convention.
 
 Worked example, from HPT079:
 

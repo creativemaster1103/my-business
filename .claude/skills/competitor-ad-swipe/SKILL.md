@@ -188,10 +188,16 @@ briefs into the pipeline themselves. Follow `references/notion-map.md` exactly.
 2. Create the page with the Hook/Body/CTA table layout the template uses.
 3. Fill the strategy fields (Avatar, TEEP Stage, Self Targeting, Valence Zone) from your step-5
    analysis — these are the fields the team filters on, so an unfilled brief is an invisible one.
-4. **Start the page body with the two naming tables** — Batch name / Folder name, then File
+4. **Write four hook variants by default.** One body, one CTA, four different ways in. Hooks
+   are the highest-leverage thing to test, and four is the house default — HPT079 ships four.
+   Make them four genuinely different *mechanisms*, not four rewordings: e.g. reframe, cost,
+   in-medias-res, direct callout. If the concept only supports fewer, say so rather than
+   padding with near-copies.
+5. **Start the page body with the two naming tables** — Batch name / Folder name, then File
    naming. They carry the team's file-naming convention and are the first thing the editor
-   reads. `references/notion-map.md` has the exact format. Never omit them.
-5. Put the TrendTrack share link in **AD INSPO** as an `<embed>`, on its own:
+   reads. `references/notion-map.md` has the exact format. Never omit them. **One file-name row
+   per hook variant**, so four by default.
+6. Put the TrendTrack share link in **AD INSPO** as an `<embed>`, on its own:
 
    ```
    ### AD INSPO
@@ -201,7 +207,7 @@ briefs into the pipeline themselves. Follow `references/notion-map.md` exactly.
    Call `create_ad_share_link(ad_id)` to get the URL. It renders as a card carrying days
    running, rank movement, advertiser and ad copy. No video block — the embed alone is house
    style.
-6. Set the page **icon to ⚡** — the Video Brief template default. Every brief uses it. Do not
+7. Set the page **icon to ⚡** — the Video Brief template default. Every brief uses it. Do not
    pick a per-brief emoji, however apt: a consistent icon is how the database stays scannable.
 
 ### 8. Report
@@ -228,6 +234,8 @@ Source details (days running, duplicates, ad ID) belong in this report, **not** 
 - **Do not touch existing rows.** This skill only creates. If something looks wrong in an
   existing brief, tell the user; never edit or delete their work.
 - **Icon is always ⚡.** No exceptions, no thematic emoji.
+- **Four hook variants, four file rows.** They must match; a fifth file row with no hook, or a
+  hook with no row, means the editor delivers the wrong number of cuts.
 - **Never drop the naming tables.** They are not decoration and not source attribution — they
   are how the editor names deliverables. Any brief without them is incomplete.
 - **The brief is for the editor, not the strategist.** It carries AD INSPO, general instruction,
