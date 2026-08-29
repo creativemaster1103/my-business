@@ -10,10 +10,12 @@ ad_account_name: "Hoolest FB Ads"
 min_spend_usd: 1000
 min_roas: 1.8
 
-# Rolling window the metrics are measured over. Confirmed by Mark 2026-08-29:
-# 30 days catches creatives while they are still live and scaling, and stops
-# a concept that won in June from re-flagging every week forever.
-date_preset: last_30d
+# Rolling window the metrics are measured over. Narrowed to 14 days by Mark
+# 2026-08-29 (was last_30d). Tighter window = fresher signal: a creative has to
+# be earning NOW, not coasting on spend from three weeks ago. The trade-off is
+# fewer ads clear the $1,000 floor in 14 days, so expect leaner weeks and watch
+# the near-miss list, where spend-short/ROAS-strong creatives now collect.
+date_preset: last_14d
 
 # --- Notion destination ----------------------------------------------------
 video_brief_data_source: "collection://34b8fb5b-44b0-8029-8b87-000b98d7a19f"

@@ -8,8 +8,15 @@ matching Video Brief row in Notion as a Winner.**
 ### The bar
 
 A creative is a winner when, **at ad level** (one hook variant, not the campaign), over a
-rolling 30 days it clears **both** $1,000 USD spend **and** 1.8 purchase ROAS. Ad level is the
-point: a campaign averaging 1.9 tells you nothing about which of its four hooks earned it.
+rolling **14 days** it clears **both** $1,000 USD spend **and** 1.8 purchase ROAS. Ad level is
+the point: a campaign averaging 1.9 tells you nothing about which of its four hooks earned it.
+
+The window is deliberately tight — a creative has to be earning *now*, not coasting on spend
+from three weeks ago. The trade-off is that far fewer ads reach $1,000 in 14 days, so expect
+lean weeks and read the near-miss list, which is where spend-short/ROAS-strong creatives now
+collect. Both the window and the floors live in `config/winner-criteria.yml`; if the crawl
+starts returning nothing week after week, lower `min_spend_usd` rather than widening the
+window — the shorter window is the point.
 
 ### Scope: video only
 
@@ -22,7 +29,7 @@ hidden, but does not itemise it.
 ### How it runs
 
 ```
-Meta Ads MCP     →  ad-level spend + purchase_roas, last 30d
+Meta Ads MCP     →  ad-level spend + purchase_roas, last 14d
       ↓  keep VID only — everything else is out of scope
       ↓  keep spend >= $1,000 AND roas >= 1.8
 parse ad name    →  Creative ID / Format / Concept / Variant
