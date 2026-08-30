@@ -1,0 +1,90 @@
+# Winner criteria for the /winner-crawl pipeline.
+# The skill reads this file at the start of every run and never hardcodes a number.
+# Edit freely — but read the calibration note on the thresholds before you touch them.
+
+# --- Source ------------------------------------------------------------------
+
+# Hoolest FB Ads. Confirmed live 2026-08-30 via ads_get_ad_accounts:
+# business "thehoolest" (345282930714527), ACTIVE, queryable, currency USD.
+# NOTE THE CURRENCY. Most other accounts on this login are PHP; the spend floor
+# below is USD and is meaningless against a PHP account.
+ad_account_id: "948100899908170"
+ad_account_name: "Hoolest FB Ads"
+currency: USD
+
+# Rolling lookback. Passed as date_preset. Do NOT use `maximum` — it breaks
+# sorting on this account (see the API quirks section of the skill).
+window: last_30d
+
+# --- Thresholds --------------------------------------------------------------
+#
+# An ad is a Winner only if it clears BOTH floors at AD level in `window`.
+#
+# ⚠ PROVISIONAL — Mark to confirm. These are calibrated against what the account
+# actually did in the 30 days to 2026-08-30, not against a target ROAS anyone
+# has stated. Observed ad-level purchase_roas across the top 40 ads by spend:
+#
+#   highest overall     3.32   HPT034 IMG Hero Product (a STATIC, Mini Max PEMF)
+#   highest video       1.68   HPT061_VID College Student
+#   next videos         1.50 / 1.49 / 1.44 / 1.44 / 1.41
+#   account midpoint    ~1.2
+#   floor               0.71
+#
+# So the account is running roughly 0.7–1.7 on video. A ROAS floor of 2.0 would
+# tag ZERO videos every week and read as a broken automation; 1.5 tags about two
+# a month, which is what a winner should be. If Mark's real break-even is
+# different, change min_roas here and nowhere else.
+min_spend: 2000        # USD in `window` — enough delivery for ROAS to mean anything
+min_roas: 1.5          # ad-level purchase_roas
+
+# Reported, never written. An ad clearing min_spend and landing within this much
+# of min_roas is a near miss — it goes in the report so Mark can eyeball the band.
+# The Performance property has a "High Potential" option; the crawl deliberately
+# does NOT auto-write it. Near misses are a human call.
+near_miss_roas_margin: 0.1
+
+# --- Scope -------------------------------------------------------------------
+
+# VIDEO ONLY, and this is a correctness control, not a preference. See the
+# skill's "Why the VID filter is load-bearing" section — statics reuse HPT
+# numbers that belong to entirely different video concepts in Notion.
+require_format_token: VID
+
+# Ad-name shapes that are out of scope. Counted and reported, never evaluated,
+# never tagged, never listed as near misses.
+out_of_scope:
+  - statics             # IMG token — HPT034, HPT038, HPT039, HPT045 all exist as IMG
+  - creator_whitelist   # e.g. WillBurger_VeReliefPrime_20260623_trybe=ee9ff2ba
+  - legacy_unnamed      # e.g. "Longform - Nov 26th - Copy", "Prime _ PDP_BOFU _ ..."
+
+# Products to consider. The account runs both; Notion carries both. `null` means
+# do not filter on product, only use it as a tiebreaker when a Creative ID is
+# ambiguous.
+products: null
+
+# --- Destination -------------------------------------------------------------
+
+notion:
+  # Video Brief. Read live 2026-08-30; re-fetch rather than guessing if rejected.
+  video_brief_data_source: "collection://34b8fb5b-44b0-8029-8b87-000b98d7a19f"
+
+  # The only two properties this pipeline ever writes.
+  performance_property: "Performance"
+  winning_version_property: "Winning version"
+
+  # Promote only. "High Potential" and "Loser" are valid options on the property
+  # and are BOTH off-limits to this automation.
+  write_value: "Winner"
+
+# --- Write safety ------------------------------------------------------------
+
+# Never downgrade, never overwrite. If Performance already holds any value, the
+# row is reported under "already tagged" and left exactly as it is — including
+# when the current best variant differs from the recorded one. Surfacing that
+# disagreement is the job; resolving it is Mark's.
+never_overwrite_existing_performance: true
+never_write_loser: true
+
+# Two Notion rows can and do share a Creative ID (HPT022 and HPT031 both do).
+# Disambiguate on Concept Name. If that fails, report and write nothing.
+on_ambiguous_creative_id: report_and_skip
