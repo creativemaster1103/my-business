@@ -60,7 +60,7 @@ framework_lookback: 12
 prefer_avatars:
   - HRV Hunter
   - Sleep Struggler
-  - Off-ramper
+  - Off-Ramper
 
 # Only consider ads this old at most, so we mine current winners rather than
 # long-running evergreen ads the team already swiped a year ago.

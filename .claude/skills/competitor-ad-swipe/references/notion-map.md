@@ -39,12 +39,12 @@ of rows.
 |---|---|
 | `Concept Name` | title — a short descriptive name for the creative, house style, e.g. `Not Another Sleep Supplement`, `3 Signs Nervous System Never Shut Off`. **No em-dashes, no avatar suffix** — this string goes into filenames. |
 | `Creative ID` | **`HPT<nnn>`** — next in sequence. Always set it. |
-| `Category` | `Adaptation` (always — this is a competitor-derived brief) |
+| `Category` | **`New`** (always for a swiped brief — see below). Goes into filenames. |
 | `Product` | `VeRelief Prime` |
 | `Format` | `VID` |
 | `Status` | `Conceptualizing`, or `Brief In progress` if the script is complete |
 | `Strategist` | `Mark` |
-| `Avatar` | from analysis — `Wired Lifer` / `Sleep Struggler` / `HRV Hunter` / `Off-ramper` / `Multi` |
+| `Avatar` | from analysis — `Wired Lifer` / `Sleep Struggler` / `HRV Hunter` / `Off-Ramper` / `Multi` |
 | `TEEP Stage` | `a - Trigger` / `b - Exploration` / `c - Evaluation` / `d - Purchase` (lowercase letters in this DB) |
 | `Self Targeting` | `A - Actual Self` / `B - Ideal Self` / `C - Ought Self` |
 | `Valence Zone` | Zone 1–4, matching the emotional register of the swiped ad |
@@ -53,6 +53,23 @@ of rows.
 | `Content Type` | **defaults to `AI VO`** — production method, not framework. Only change it if the user says so. Must match the spreadsheet's value exactly, since it goes into filenames. |
 | `Editor` | `JM` — the default editor. Only differs if the user says so. |
 | Leave unset | `Assign`, `Performance`, `Winning version`, `Delivery link` |
+
+### Category — there is no `Adaptation`
+
+The property has exactly **two** options, `New` and `Iteration`. Verified live 2026-08-30: 71
+rows `New`, 10 `Iteration`, 5 unset, and **zero** anything else.
+
+A competitor-derived brief is `New`. "Adaptation" describes where the idea came from, not what
+the row is — and the distinction the property actually encodes is whether this is a fresh
+concept or a rework of an existing HPT:
+
+- **`New`** — a concept we have not run before, including every swipe.
+- **`Iteration`** — a rework of an existing HPT. The concept name says so too, e.g. HPT060
+  "HPT041 Price Objection - Iteration", HPT054 "HPT025 Top 5 Q&A - Iteration 1".
+
+Do not write `Adaptation`. It is not a valid option, it flows straight into the filename
+(`..._<Offer>_<Category>_<Strategist>_...`), and every ad in the live account carries `New` or
+`Iteration` in that slot.
 
 ## Video Brief page body
 

@@ -52,13 +52,20 @@ lose: it appears nowhere else in the string.
 
 ## The sheet normalises some values
 
-It returned `Off-Ramper` for the `Off-ramper` that Notion's Avatar property uses. The sheet's
-casing wins for filenames — paste what it gives you rather than "correcting" it back to match
-Notion.
+Notion's Avatar option is `Off-Ramper` — capital R — so the sheet and the database agree here;
+earlier notes in this file claiming otherwise were wrong. Where the sheet genuinely does
+normalise a value, its casing wins for filenames: paste what it gives you rather than
+"correcting" it.
 
 Read the output back **after** the write, never assume it. A read taken while the sheet is being
-edited in the browser can catch a half-applied state: one run here briefly returned `New` for a
-`Category` that was `Adaptation` moments later.
+edited in the browser can catch a half-applied state.
+
+One run here was misread this way: the sheet returned `New` for a `Category` believed to be
+`Adaptation`, and it was written up as a timing race. It was not. `Adaptation` is not a valid
+Category — the Notion property offers only `New` and `Iteration`, and no row has ever held
+anything else (see `references/notion-map.md`). The sheet was right and the input was wrong.
+When a read-back disagrees with what you think you wrote, check the value is legal before
+concluding it is a race.
 
 ## Two traps, both learned the hard way
 

@@ -195,7 +195,7 @@ WHERE "Creative ID" LIKE 'HPT%'
 GROUP BY "Avatar" ORDER BY n DESC
 ```
 
-At time of writing that returns Wired Lifer 32, Multi 25, unset 24, Off-ramper 3,
+At time of writing that returns Wired Lifer 32, Multi 25, unset 24, Off-Ramper 3,
 Sleep Struggler 2, HRV Hunter 1. The library is heavily skewed and two avatars are barely
 served.
 

@@ -20,7 +20,7 @@ actually maps to, not the one that's most convenient:
 | Avatar | The person | What lands |
 |---|---|---|
 | **Wired Lifer** | Always-on, can't downshift, "tired but wired" | Speed. Relief in seconds, mid-day, at your desk |
-| **Off-ramper** | Wants off substances — alcohol, benzos, nightly edibles | Drug-free, non-habit-forming, in your control |
+| **Off-Ramper** | Wants off substances — alcohol, benzos, nightly edibles | Drug-free, non-habit-forming, in your control |
 | **Sleep Struggler** | Racing mind at bedtime | Wind-down ritual, no morning hangover |
 | **HRV Hunter** | Quantified-self, Oura/Whoop, optimiser | Mechanism, measurable, stackable with the rest of the protocol |
 
