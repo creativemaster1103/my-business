@@ -47,6 +47,32 @@ inspo_bank_folder_id: 6985225d-84f3-4e72-b831-96938ac00b9a
 inspo_bank_folder_name: "Inspo Bank → To Remake"
 inspo_bank_target_size: 20
 
+# --- Daily harvest (/inspo-harvest) ------------------------------------------
+# Controls the DAILY top-up that keeps the bank stocked. The weekly swipe drains
+# the bank; this refills it. Deliberately demand-driven: when the bank is already
+# at `inspo_bank_target_size` the run exits having spent almost no credits, so
+# most days cost nothing.
+harvest:
+  # Ads banked per run. Caps a single day's damage if the vetting goes wrong,
+  # and keeps one run from burning a week of quota refilling an empty bank.
+  max_adds_per_run: 6
+
+  # Ads pulled per brand per get_brandtracker_scaling_ads call. ~12 credits at 8.
+  # Raising this raises cost linearly across nine brands — deepen by paging in
+  # the weekly swipe instead, which is where a shortfall is actually diagnosed.
+  sweep_limit: 8
+
+  # Floor on TrendTrack `includedQuota.remaining` (usage_get). Below this the
+  # harvest refuses to run. The weekly swipe outranks the daily top-up: a harvest
+  # that drains the quota on a Saturday leaves Sunday's swipe unable to file
+  # anything. Quota is 10,000/month and the period rolls over on the 3rd.
+  credit_reserve: 2500
+
+  # Never relaxed by the daily harvest under any circumstance. Recently-ended ads
+  # are an escalation rung in the WEEKLY swipe, reached deliberately when the
+  # brief floor is short — never a shortcut the daily top-up takes on its own.
+  active_only: true
+
 # Already briefed. Never swipe these again.
 swiped_ledger_folder_id: a608a57a-d8fc-47cb-87a6-f3d1b08076b1
 swiped_ledger_folder_name: "Swiped → VeRelief Briefs"
@@ -105,14 +131,6 @@ competitors:
     brandtracker_id: e4f81c3c-759a-4b03-85d8-4dde6e2ad83b
     note: Parasym. Clinical-authority angle. Highest volume in the set — 392 active ads.
 
-# Angles that never transfer to a $399 non-prescription wellness device.
-# The skill drops any swiped ad whose primary angle matches one of these.
-excluded_angles:
-  - Prescription or medication replacement
-  - Named-condition treatment claims
-  - Ingestible dosing / supplement routine
-  - Subscription-only offer mechanics
-
   # --- ADDED to support the five-a-week floor, 2026-08-29 -------------------
   # Already tracked in TrendTrack, previously off the sweep list. Added because
   # six brands cannot reliably yield five keepers a week. Revert by deleting
@@ -134,6 +152,14 @@ excluded_angles:
     brandtracker_id: 071f6ca1-30a4-48d2-b71c-da8d6ed18c70
     priority: medium
     note: 21 active ads. Adjacent calm/mental-health positioning.
+
+# Angles that never transfer to a $399 non-prescription wellness device.
+# The skill drops any swiped ad whose primary angle matches one of these.
+excluded_angles:
+  - Prescription or medication replacement
+  - Named-condition treatment claims
+  - Ingestible dosing / supplement routine
+  - Subscription-only offer mechanics
 
 # Tracked in TrendTrack but deliberately off the sweep list.
 #   NuCalm        21bc15b7-fb70-4aee-8833-dacbc3ab199d   no active ads

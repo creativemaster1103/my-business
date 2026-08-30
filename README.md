@@ -2,7 +2,7 @@
 
 ## Routines and connectors — read this first
 
-Both automations here run as Routines, and **a Routine's connectors can only be attached from
+All three automations here run as Routines, and **a Routine's connectors can only be attached from
 the claude.ai Routines UI.** This is an org-level policy, not a gap in how the Routines were
 set up.
 
@@ -19,9 +19,9 @@ them either. There is no API path. Deleting and recreating a Routine does not he
 recreate hits the same policy.
 
 **Consequence:** a Routine created through the API fires a session holding built-in tools only
-(`Bash`, `Read`, `Edit`, `Skill`, `WebFetch` …) and no MCP connectors. Both prompts here are
-written to stop and name the missing connector rather than improvise, so a misconfigured run
-fails loudly instead of filing something wrong — but it still does no work.
+(`Bash`, `Read`, `Edit`, `Skill`, `WebFetch` …) and no MCP connectors. All three prompts here
+are written to stop and name the missing connector rather than improvise, so a misconfigured
+run fails loudly instead of filing something wrong — but it still does no work.
 
 This is exactly what happened on **2026-08-30 16:10 UTC**: the swipe Routine fired on schedule,
 ran 48 seconds, exited at its step-1 connector gate, and recorded `SUCCEEDED`. The run status
@@ -33,10 +33,108 @@ means "reported the blocker correctly", not "did the job".
 |---|---|
 | Weekly competitor ad swipe | Trend Track MCP, Notion, Zapier, Shopify, Higgsfield |
 | Weekly winner crawl | Meta Ads, Notion |
+| Daily inspo harvest | Trend Track MCP |
 
-Until that is done, either pipeline can still be run by hand in a chat session that has the
-connectors enabled — `/competitor-ad-swipe` or `/winner-crawl`. That is a stopgap, not a fix:
-it needs a human to start it.
+Until that is done, any of the pipelines can still be run by hand in a chat session that has
+the connectors enabled — `/inspo-harvest`, `/competitor-ad-swipe` or `/winner-crawl`. That is a
+stopgap, not a fix: it needs a human to start it.
+
+## Inspo Harvest
+
+Automates: **sweep the competitor watchlist daily for video ads still actively running past 30
+days → vet them → file the keepers in the TrendTrack Inspo Bank.**
+
+This is the front half of the creative pipeline, split out so it can run on its own cadence:
+
+```
+/inspo-harvest        (daily)    competitors → vet → Inspo Bank
+/competitor-ad-swipe  (weekly)   Inspo Bank  → rewrite → Notion brief
+```
+
+The harvest **only ever adds** to the bank. It never briefs, never touches Notion, and never
+removes anything — draining the bank is the swipe's job. The two cannot collide.
+
+### Why split it out, and why daily is not expensive
+
+The bank has to run about four weeks ahead of a five-a-week briefing target. Topping it up only
+on swipe day means a quiet fortnight from the competitors starves the pipeline with no warning —
+and the warning is the valuable part.
+
+A daily sweep of nine brands would burn the TrendTrack quota for nothing, so the harvest is
+**demand-driven rather than schedule-driven**: it reads the bank first and exits almost free if
+the bank is at target. Most days are a no-op by design. A run that does nothing because the bank
+is full is a *successful* run, and both the skill and the Routine prompt say so explicitly — a
+string of quiet days should not read as a broken automation.
+
+Cost is bounded three ways: the `credit_reserve` floor (step 0), the early exit on a full bank
+(step 2), and stopping the brand sweep the moment the deficit is filled (step 4). The monthly
+quota is 10,000 units and the billing period rolls over on the 3rd.
+
+### Run it
+
+```
+/inspo-harvest
+```
+
+### Required connectors
+
+- **Trend Track MCP** — the only one. Discovery, dedupe, and the favorites write all go through it.
+
+### Files
+
+| Path | What |
+|---|---|
+| `.claude/skills/inspo-harvest/SKILL.md` | The pipeline |
+| `config/competitors.yml` | Watchlist and thresholds (shared with the swipe), plus the `harvest:` block |
+
+### Schedule
+
+A Routine fires a fresh session **every day at 01:00 UTC — 09:00 Philippine time**. Trigger id
+`trig_01LUEXWWkXhojHkeZUWtd4ho`. Push and email notifications on. First run 2026-08-31.
+
+The cron is `0 1 * * *`. Because it is daily, day-of-week is `*` and **the timezone day-shift
+trap that bit both weekly Routines does not apply here** — there is no day field to get wrong.
+The hour avoids the 16:00 UTC slot both weekly Routines share, and on swipe day the harvest lands
+15 hours ahead of the swipe, so the bank is topped up before it is drained.
+
+> **Blocker: no connectors attached.** Needs **Trend Track MCP** attached from the claude.ai
+> Routines UI — see *Routines and connectors* above. Re-verified 2026-08-30: `create_trigger`
+> still rejects the `connectors` parameter for this org outright, so there is no API path.
+> Until it is attached, every fire stops at the connector gate having banked nothing.
+
+### The bank was audited on 2026-08-30, and it has two problems
+
+Read live from TrendTrack while building this. Both are pre-existing, neither is caused by the
+harvest, and the harvest is written not to repeat them:
+
+**1. The bank is at 5 of 20, and every entry fails the filter it was supposedly built with.**
+All five are `status: "inactive"`, and three ran for 22, 5 and 23 days — well under the 30-day
+threshold that is the entire premise. Whatever populated it did not apply the longevity or
+active filter. The harvest pins `status: "active"` and `min_days_running` server-side and treats
+both as non-negotiable, so it will not add more like these. **It also will not clean these out** —
+the skill only ever adds. Removing them is a human call, and worth making: they are the queue the
+weekly swipe draws from first.
+
+**2. Three of the five entries are the same creative.** The three Pulsetto ads carry
+byte-identical `content.body` under different ad ids — the brand re-uploading, which they do
+constantly (80 copies of one ad at peak). So the real bank depth is about 3 distinct creatives,
+not 5. Deduping on `ad.id` alone does not catch this, so the harvest also compares normalized
+`content.body` and `collationId` against everything already banked or swiped, and against
+everything picked in the same run.
+
+### What it deliberately does not do
+
+- Never writes to Notion or files a brief — that is `/competitor-ad-swipe`.
+- Never removes anything from any folder, including the stale entries above.
+- Never relaxes `status: "active"` or `min_days_running` to hit a number. Recently-ended ads are
+  an escalation rung in the weekly swipe, reached deliberately, not a shortcut the daily top-up
+  takes on its own.
+- Never writes into `★ Mark's Picks` — that subfolder means "a human chose this", and an
+  automation writing into it destroys the priority signal the swipe depends on.
+- Never makes a favorites folder organization-visible and never creates a folder share link.
+  A folder share link is a public URL with no API to revoke it — a one-way door.
+- Never pads a short sweep. A bank below target is reported as what it is: the competitors are
+  not producing enough keepers.
 
 ## Competitor Ad Swipe
 
@@ -109,7 +207,12 @@ a day. Editing the hour without also moving the day would silently schedule it a
 > Higgsfield** attached from the claude.ai Routines UI — see *Routines and connectors* above.
 > Until then every fire stops at step 1, as the 2026-08-30 run did.
 
-Watchlist confirmed 2026-08-29 (all six competitors).
+Watchlist confirmed 2026-08-29. **Corrected 2026-08-30:** ZenoWell, Vagustim Health and
+MindSpire — the three brands added on 2026-08-29 specifically to support the five-a-week floor —
+were indented under `excluded_angles:` rather than `competitors:`, so YAML parsed them as
+excluded-angle entries and the sweep never saw them. The watchlist read six brands, not nine,
+and `excluded_angles` carried three objects where it should hold four strings. Both keys now
+parse correctly.
 
 **Still open:** the regulatory posture of VeRelief Prime. The claim set in the brand brief is
 written conservatively on purpose; whether the device is positioned as a general wellness
