@@ -87,3 +87,33 @@ stretch. Until that is confirmed, the conservative set stands.
 - Never reuses a competitor's words, claims, or proof; only their structure and angle.
 - Never files a script that fails the compliance gate.
 - Never exceeds `max_new_briefs_per_run`.
+
+## Winner Crawl
+
+Automates: **pull ad-level performance from the Hoolest Meta account → keep every video
+creative clearing both the spend and ROAS floors → tag its Notion Video Brief row as a
+Winner.** Promote-only; it never writes Loser and never overwrites a Performance value that is
+already set.
+
+### Schedule
+
+A Routine fires a fresh session on cron `0 16 * * 1` — **Monday 16:00 UTC**. Trigger id
+`trig_011usqGZbGMcmPwYo1UaALEc`. Push and email notifications on. As of 2026-08-30 it has
+never fired; its first run is 2026-08-31.
+
+> **Two blockers, both open.** Fix them before the first fire or the run is wasted.
+>
+> 1. **The skill does not exist.** The Routine's prompt invokes
+>    `.claude/skills/winner-crawl/SKILL.md` and reads its thresholds, window, ad account id and
+>    Notion destination from `config/winner-criteria.yml`. Neither file exists in this repo or
+>    anywhere in its history. Both need writing.
+> 2. **No connectors are attached.** Same defect as Competitor Ad Swipe above — the Routine was
+>    created through the API, so it carries no MCP grant and its fired session gets built-in
+>    tools only. It needs **Meta Ads** and **Notion**, attached from the claude.ai Routines UI.
+>    Its prompt tells it to stop and name the missing connector rather than improvise, so a
+>    misconfigured run fails loudly instead of tagging the wrong rows.
+
+> **Check the day-of-week.** `0 16 * * 1` is Monday 16:00 UTC, which is **Tuesday 00:00**
+> Philippine time — the local day shifts *forward* one, the mirror of the correction made to
+> Competitor Ad Swipe in `7c54c9e`. If the intent was Monday local, the cron should be
+> `0 16 * * 0`, which collides with the swipe's slot. Confirm which day is wanted.
