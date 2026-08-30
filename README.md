@@ -1,5 +1,128 @@
 # Hoolest — business automations
 
+## Winner Crawl
+
+Automates: **crawl the ad account at ad level → keep video creatives over the bar → tag the
+matching Video Brief row in Notion as a Winner.**
+
+### The bar
+
+A creative is a winner when, **at ad level** (one hook variant, not the campaign), over a
+rolling **14 days** it clears **both** $500 USD spend **and** 1.8 purchase ROAS. Ad level is
+the point: a campaign averaging 1.9 tells you nothing about which of its four hooks earned it.
+
+The window is deliberately tight — a creative has to be earning *now*, not coasting on spend
+from three weeks ago. The $500 floor is paired to it: at $1,000 over 14 days nothing in the
+account qualified at all, because halving the window without halving the floor roughly doubles
+the strictness. Both live in `config/winner-criteria.yml`. If the crawl starts returning
+nothing week after week, lower `min_spend_usd` further rather than widening the window — the
+short window is the thing being bought.
+
+### Scope: video only
+
+**An ad name carrying a `VID` token is a video, and video is the whole scope.** Anything
+without one is not evaluated — statics (`IMG`), creator/whitelist ads
+(`WillBurger_VeReliefPrime_…`, which are videos but follow no naming convention), and legacy
+one-offs (`Prime _ PDP_BOFU _ …`). The report gives a count of what was skipped so nothing is
+hidden, but does not itemise it.
+
+### How it runs
+
+```
+Meta Ads MCP     →  ad-level spend + purchase_roas, last 14d
+      ↓  keep VID only — everything else is out of scope
+      ↓  keep spend >= $500 AND roas >= 1.8
+parse ad name    →  Creative ID / Format / Concept / Variant
+      ↓  concept-name cross-check
+Notion MCP       →  Video Brief row: Performance = Winner, Winning version = <variant>
+```
+
+### Run it
+
+```
+/winner-crawl
+```
+
+Or scope it: `/winner-crawl last 90 days`, `/winner-crawl dry run`.
+
+### The VID filter is also what keeps writes correct
+
+Statics run their own HPT sequence that **reuses numbers already spent on videos**, for
+different concepts:
+
+| HPT | Notion Video Brief (VID) | Meta static ad (IMG) |
+|---|---|---|
+| HPT033 | Stuck on Fight or Flight – AI UGC | PEMF Statics *(Mini Max PEMF)* |
+| HPT034 | Worth of investment | Hero Product *(Mini Max PEMF)* |
+| HPT038 | Gel Tip Vs Gel Paste 3 | US vs THEM |
+| HPT039 | Gel Tip Vs Gel Paste 4 | B2G1 Bundles |
+| HPT045 | Ronak UGC | Back to School Sale |
+
+Matching on the number alone tags *"HPT034 – Worth of investment"*, a VeRelief Prime video, as
+a winner off a **Mini Max PEMF static's** ROAS — a write that succeeds, looks plausible and is
+wrong. Filtering to `VID` first removes the whole class of error. After that, the crawl still
+cross-checks the concept name, which is what disambiguates the two Creative IDs owning two
+Notion rows each (HPT022, HPT031); when it cannot, it reports instead of writing.
+
+### Known data conflict: HPT022
+
+**Two Video Brief rows share the Creative ID `HPT022`** — *"Hard to sleep"* and *"Top 5
+Objection"*. Only *"Hard to sleep"* is marked Winner, but every `HPT022_VID` ad in the account
+is named **Top 5 Objection**. The tagged row and the ad data describe different concepts.
+
+The crawl will not write to either: the concept name does not corroborate the Creative ID, so
+it reports and moves on. That is the rule working, not a bug — but it means `HPT022` is a
+permanent blind spot until someone renumbers one of the two rows. The performance sitting
+unclaimed under it, over 90 days:
+
+| Variant | Spend | ROAS |
+|---|---|---|
+| `3B` | $1,786.66 | **1.97** |
+| `4B` | $9,780.22 | 1.45 |
+| `1B` | $37,556.23 | 1.13 |
+
+### Meta API quirks this works around
+
+- **`filtering` is silently ignored** on this account. An `amount_spent >= 1000` filter still
+  returns $638 rows, and `purchase_roas` is rejected outright as unfilterable at ad level.
+- **`sort` is reliable.** So the crawl sorts by spend descending, pages, and applies both
+  thresholds itself, stopping once rows drop below the spend floor.
+- **`date_preset: maximum` breaks sorting and filtering both** and returns arbitrary order.
+  Use `last_90d` when a wide window is wanted, never `maximum`.
+- `spend` is an alias for `amount_spent` and **is** window-scoped. Values arrive as display
+  strings (`"$2,231.65 USD"`); strip currency and commas before comparing. `purchase_roas` can
+  be `null` — treat null as 0, never as a pass.
+
+### Safety rules
+
+- **Video only.** No `VID` token, no consideration.
+- **Promote only.** Never writes `Loser`, never overwrites a `Performance` value a human set.
+- Never creates a Video Brief row; it only updates existing ones.
+- Never writes to a row whose concept name does not corroborate the Creative ID.
+- Never touches any ad account other than the one in config.
+
+### Files
+
+| Path | What |
+|---|---|
+| `.claude/skills/winner-crawl/SKILL.md` | The pipeline |
+| `config/winner-criteria.yml` | Thresholds, window, scope, account id, Notion destination |
+
+### Schedule
+
+A Routine fires a fresh session every **Monday 09:00 Philippine time** — nine hours after the
+competitor sweep, so the week's briefs and the week's winners land together. Trigger id
+`trig_011usqGZbGMcmPwYo1UaALEc`. Push and email notifications on.
+
+The cron is `0 1 * * 1` — **Monday** 01:00 UTC. Philippine time is UTC+8, so 09:00 local is
+01:00 UTC the same day; unlike the competitor sweep, no day-of-week shift is needed here.
+
+> **Connectors must be attached from the claude.ai Routines UI.** Same limitation as the
+> competitor sweep — this organization rejects the API's `connectors` parameter outright, so
+> the Routine as created runs *without* MCP tools and will stop at step 1. Open it in the
+> Routines UI and attach **Meta Ads** and **Notion** before the first fire. Its prompt tells it
+> to stop and name the missing connector rather than improvise.
+
 ## Competitor Ad Swipe
 
 Automates: **find competitor ads running 30+ days → extract the script → rewrite for
