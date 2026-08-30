@@ -145,6 +145,16 @@ Four things that are easy to get wrong:
 - Each call costs credits — roughly 12 units at `limit: 8`. That is the whole reason for the
   early exits in steps 0, 2 and here.
 
+**Do not trust `daysRunning` from this endpoint on its own.** The scaling endpoint returns
+`lastSeenAt: null` and appears to compute `daysRunning` as first-seen-to-today, which
+*overstates* any ad that has already stopped. Pinning `status: "active"` is most of the defence,
+but it is not all of it — verify true run length against the enriched favorites record before
+banking, and drop anything whose genuine run is under `min_days_running`.
+
+This is almost certainly how the bank ended up holding entries that ran 22, 5 and 23 days. An
+overstated `daysRunning` is invisible at the point of banking and only shows up weeks later, in
+the swipe, as a candidate that never deserved the queue slot.
+
 ### 5. Rank the survivors
 
 **Longevity × duplicates, not `daysRunning` alone.** `metrics.duplicates` is how many times the
