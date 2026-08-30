@@ -1,5 +1,43 @@
 # Hoolest — business automations
 
+## Routines and connectors — read this first
+
+Both automations here run as Routines, and **a Routine's connectors can only be attached from
+the claude.ai Routines UI.** This is an org-level policy, not a gap in how the Routines were
+set up.
+
+Verified 2026-08-30, not assumed. `create_trigger` does expose a `connectors` parameter; calling
+it with the five the swipe needs fails outright:
+
+```
+create_trigger: the connectors parameter is not available for this organization.
+Omit the connectors parameter.
+```
+
+`update_trigger` has no `connectors` parameter at all, so an existing Routine cannot be granted
+them either. There is no API path. Deleting and recreating a Routine does not help — the
+recreate hits the same policy.
+
+**Consequence:** a Routine created through the API fires a session holding built-in tools only
+(`Bash`, `Read`, `Edit`, `Skill`, `WebFetch` …) and no MCP connectors. Both prompts here are
+written to stop and name the missing connector rather than improvise, so a misconfigured run
+fails loudly instead of filing something wrong — but it still does no work.
+
+This is exactly what happened on **2026-08-30 16:10 UTC**: the swipe Routine fired on schedule,
+ran 48 seconds, exited at its step-1 connector gate, and recorded `SUCCEEDED`. The run status
+means "reported the blocker correctly", not "did the job".
+
+**The fix, per Routine:** open it in the claude.ai Routines UI and attach its connectors.
+
+| Routine | Connectors to attach |
+|---|---|
+| Weekly competitor ad swipe | Trend Track MCP, Notion, Zapier, Shopify, Higgsfield |
+| Weekly winner crawl | Meta Ads, Notion |
+
+Until that is done, either pipeline can still be run by hand in a chat session that has the
+connectors enabled — `/competitor-ad-swipe` or `/winner-crawl`. That is a stopgap, not a fix:
+it needs a human to start it.
+
 ## Competitor Ad Swipe
 
 Automates: **find competitor ads running 30+ days → extract the script → rewrite for
@@ -67,12 +105,9 @@ The cron is `0 16 * * 0` — **Sunday** 16:00 UTC. Philippine time is UTC+8 with
 saving, so midnight Monday local falls on Sunday afternoon UTC and the day-of-week shifts back
 a day. Editing the hour without also moving the day would silently schedule it a day late.
 
-> **Connectors must be attached from the claude.ai Routines UI.** This organization does not
-> allow the API to grant connectors to a trigger, so the Routine as created runs *without*
-> MCP tools and will stop at step 1. Open it in the Routines UI and attach **Trend Track MCP,
-> Notion, Zapier, Shopify, Higgsfield** before the first fire. Its prompt tells it to stop and
-> name the missing connector rather than improvise, so a misconfigured run fails loudly instead
-> of filing something wrong.
+> **Blocker: no connectors attached.** Needs **Trend Track MCP, Notion, Zapier, Shopify,
+> Higgsfield** attached from the claude.ai Routines UI — see *Routines and connectors* above.
+> Until then every fire stops at step 1, as the 2026-08-30 run did.
 
 Watchlist confirmed 2026-08-29 (all six competitors).
 
@@ -128,11 +163,9 @@ A Routine fires a fresh session on cron `0 16 * * 1` — **Monday 16:00 UTC**. T
 `trig_011usqGZbGMcmPwYo1UaALEc`. Push and email notifications on. As of 2026-08-30 it has
 never fired; its first run is 2026-08-31.
 
-> **Blocker: no connectors are attached.** Same defect as Competitor Ad Swipe above — the
-> Routine was created through the API, so it carries no MCP grant and its fired session gets
-> built-in tools only. It needs **Meta Ads** and **Notion**, attached from the claude.ai
-> Routines UI. Its prompt tells it to stop and name the missing connector rather than
-> improvise, so a misconfigured run fails loudly instead of tagging the wrong rows.
+> **Blocker: no connectors attached.** Needs **Meta Ads** and **Notion** attached from the
+> claude.ai Routines UI — see *Routines and connectors* above. Until then every fire stops at
+> step 1 rather than tagging anything.
 
 > **Check the day-of-week.** `0 16 * * 1` is Monday 16:00 UTC, which is **Tuesday 00:00**
 > Philippine time — the local day shifts *forward* one, the mirror of the correction made to
