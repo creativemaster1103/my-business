@@ -5,7 +5,7 @@
 **Method pin:** parker-brain v15 (`b55c441`)
 **Run id:** `4c20de24-44c5-404d-bde9-20a2030abda1`
 **Current phase:** Phase 1 — audit baseline and foundation
-**Right now:** Phase 0 is complete. Phase 1 is running the dependency spine.
+**Right now:** 16 Phase-1 prompts are running in parallel across branches B, C, D and E.
 
 > **Scope decision (Mark, 2026-09-08):** this session builds **Phase 0 + Phase 1 only**.
 > Phase 2 (strategy) and Phase 3 (idea bank, sprint plan, briefs) are deliberately not run.
@@ -20,12 +20,12 @@
 
 | Branch | Done | Planned this session | Full Phase 1 |
 |---|---|---|---|
-| E — Audit baseline (internal) | 0 | 6 | 11 |
-| E — Audit baseline (external) | 0 | 2 | 6 |
+| E — Audit baseline (internal) | 6 running | 6 | 11 |
+| E — Audit baseline (external) | 2 running | 2 | 6 |
 | A — Brand foundation | 0 | 6 | 14 |
-| B — Competitors | 0 | 9 | 71 |
-| C — Personas | 0 | 7 | 12 |
-| D — Voice of customer | 0 | 6 | 12 |
+| B — Competitors | 9 running | 9 | 71 |
+| C — Personas | 4 running | 7 | 12 |
+| D — Voice of customer | 1 running | 6 | 12 |
 | Synthesis | 0 | 2 | 2 |
 
 ## Needs attention
@@ -55,12 +55,12 @@ Marks: `done` / `running` / `pending` / `blocked`.
 - [ ] `pending` — `/setup-routines` arming (schedules stamped but **not armed** — no scheduler in this environment)
 
 ### Branch E — internal audit baseline
-- [ ] `pending` — audits-quarterly/90-day-creative-strategy-audit  **(anchor)**
-- [ ] `pending` — audits-quarterly/90-day-performance-audit
-- [ ] `pending` — audits-quarterly/90-day-diversity-audit
-- [ ] `pending` — audits-quarterly/customer-review-audit
-- [ ] `pending` — audits-monthly/monthly-hook-audit
-- [ ] `pending` — audits-weekly/weekly-performance-snapshot
+- [ ] `running` — audits-quarterly/90-day-creative-strategy-audit  **(anchor)**
+- [ ] `running` — audits-quarterly/90-day-performance-audit
+- [ ] `running` — audits-quarterly/90-day-diversity-audit
+- [ ] `running` — audits-quarterly/customer-review-audit
+- [ ] `running` — audits-monthly/monthly-hook-audit
+- [ ] `running` — audits-weekly/weekly-performance-snapshot
 - [ ] `pending` — audits-quarterly/quarterly-whitespace-analysis *(deferred — not in spine)*
 - [ ] `pending` — audits-monthly/monthly-performance-report *(deferred)*
 - [ ] `pending` — audits-monthly/monthly-organic-tiktok-audit *(deferred)*
@@ -68,8 +68,8 @@ Marks: `done` / `running` / `pending` / `blocked`.
 - [ ] `pending` — audits-biweekly/biweekly-iterations-report *(deferred)*
 
 ### Branch E — external audit cuts
-- [ ] `pending` — audits-monthly-external/monthly-creative-landscape
-- [ ] `pending` — audits-quarterly-external/90-day-creative-strategy-audit-external
+- [ ] `running` — audits-monthly-external/monthly-creative-landscape
+- [ ] `running` — audits-quarterly-external/90-day-creative-strategy-audit-external
 - [ ] `pending` — audits-monthly-external/monthly-top-impressions-report *(deferred)*
 - [ ] `pending` — audits-quarterly-external/90-day-performance-audit-external *(deferred)*
 - [ ] `pending` — audits-quarterly-external/90-day-diversity-audit-external *(deferred)*
@@ -94,16 +94,16 @@ Marks: `done` / `running` / `pending` / `blocked`.
 ### Branch B — competitors
 Tracked set (7 subscribed 2026-09-08): Pulsetto, Truvaga, Sensate, Apollo Neuroscience,
 Neuvana, Nurosym, SONA.help. Missing: ZenoWell, Vagustim Health (not in Parker's DB).
-- [ ] `pending` — `competitors/_competitive-set.md`
-- [ ] `pending` — competitor-snapshot x 7 (one per rival)
-- [ ] `pending` — working-thesis-synthesis
+- [ ] `running` — `competitors/_competitive-set.md`
+- [ ] `running` — competitor-snapshot x 7 (one per rival)
+- [ ] `running` — working-thesis-synthesis
 - [ ] `pending` — the 9 per-rival deep slices x 7 rivals = 63 runs *(deferred — full-fidelity per-rival profiles are a session of their own)*
 
 ### Branch C — personas
-- [ ] `pending` — personas/ad-account
-- [ ] `pending` — personas/ad-comments
-- [ ] `pending` — personas/customer-reviews
-- [ ] `pending` — personas/brand-reputation
+- [ ] `running` — personas/ad-account
+- [ ] `running` — personas/ad-comments
+- [ ] `running` — personas/customer-reviews
+- [ ] `running` — personas/brand-reputation
 - [ ] `pending` — personas/personas-profile *(blocked on the source pulls)*
 - [ ] `pending` — personas/persona-voice-library *(blocked on personas-profile)*
 - [ ] `pending` — personas/cross-persona-bias-notes *(blocked on personas-profile)*
@@ -114,7 +114,7 @@ Neuvana, Nurosym, SONA.help. Missing: ZenoWell, Vagustim Health (not in Parker's
 - [ ] `pending` — personas/lifecycle-journey-maps *(deferred)*
 
 ### Branch D — voice of customer
-- [ ] `pending` — voice-of-customer/voc-corpus-profile
+- [ ] `running` — voice-of-customer/voc-corpus-profile
 - [ ] `pending` — voice-of-customer/voc-pain-phrase
 - [ ] `pending` — voice-of-customer/voc-outcome-phrase
 - [ ] `pending` — voice-of-customer/voc-objection
