@@ -5,11 +5,81 @@ quarter: 2026-Q3
 generated_on: 2026-09-08
 refresh_by: 2026-12-07
 date_range: 2026-06-10 to 2026-09-08
-data_sources_read: [live ads manager via Parker MCP search_facebook_ads_sql (Hoolest FB Ads, act 948100899908170, USD), Parker AI format tag vocabulary (ad_format, awareness_level, emotion, desire, occasion), competitor ad library via search_competitor_facebook_ads (7 tracked brands), brand context doc via get_brand_persona]
-formats_active_this_quarter: [Offer Based, UGC Single, Educational, Demo, Founder Ads, Authority Figure, B-roll mashup + Voiceover, Headline Only, Headline + Benefits, Callout, Product Collection, Comment Response, Infomercial / VSL, Reaction, How To, Comparison, Unboxing, Listicle, Employee Generated Content, POV, Wall of Text, Press, Mashup, Green Screen, Question-based Headline, Us vs Them, News, High Production, Warehouse, AI Animation, Sceptic Test, Faceless, Trends, ASMR, Aesthetic, Before & After, Post-It Note, Humour, Other]
-formats_dropped_since_prior_quarter: [Stitch Hooks, Billboard, Social Interface]
-formats_new_this_quarter: [Comment Response, How To, POV, Wall of Text, Press, News, High Production, AI Animation, Before & After, Trends, Aesthetic, Humour]
-data_limitations: [No prior-quarter diversity audit exists. This is the t0 baseline. Trajectory is built by re-running the same 90-day format pull against 2026-03-12 to 2026-06-09 rather than against a prior written audit, so quarter-over-quarter reads carry no earlier strategist interpretation to check against., No inspo brands and no affinity brands are tracked for this brand. search_competitor_facebook_ads mode=brands returns 8 rows and 7 are relationshipType competitor. Every section-three recommendation is therefore anchored to a direct competitor rather than to an out-of-category source, which narrows the recommendation slate to what rivals in the vagus nerve category happen to be running., Post-purchase surveys hold zero responses for this brand, so no buyer-stated read of which creative format brought them in is available., AI format tags cover 568 of the 923 ads that delivered spend in the window, or 61.5 percent. 355 delivering ads carry no format tag. Count shares in this audit use 568 as the denominator and are stated as a share of tagged ads, not of all delivering ads. Spend shares use the full account spend of $1045684.92 as the denominator. An ad can carry more than one format tag, so format shares sum past 100 percent., Format-level average hook rate and hold rate are not exposed by the aggregate summary. The tool returns spend, ROAS, CPA, CPM, CTR, purchases and revenue at the format level, but hook rate and hold rate only per ad. Every hook and hold figure in this audit is a named single ad, never a format average, and format-average hook and hold are marked data-limited throughout., AI tag coverage in the competitor library is uneven. Pulsetto shows 337 analyzed ads of 840 scraped and returns full tag arrays. Truvaga, Apollo Neuroscience, Neuvana, Sensate and SONA.help returned empty tag arrays on their top-ranked ads, so competitor format share is measurable for Pulsetto and data-limited for the other six., Northbeam is not connected. All attribution is Meta default. The brand did not supply an attribution window or a naming convention at intake, so ad-name tokens are read as inventory handles only and every creative claim in this audit rests on media fields.]
+data_sources_read:
+  - "live ads manager via Parker MCP search_facebook_ads_sql, ad account Hoolest FB Ads, act 948100899908170, USD"
+  - "Parker AI format tag vocabulary: ad_format, awareness_level, emotion, desire, occasion"
+  - "competitor ad library via Parker MCP search_competitor_facebook_ads, 7 tracked brands"
+  - "brand context doc via Parker MCP get_brand_persona"
+  - "prior-quarter format pull, 2026-03-12 to 2026-06-09, run as the trajectory baseline"
+  - "no prior-quarter diversity audit available"
+  - "no inspo library available"
+  - "no affinity library available"
+  - "post-purchase survey: zero responses for this brand"
+formats_active_this_quarter:
+  - Offer Based
+  - UGC Single
+  - Educational
+  - Demo
+  - Founder Ads
+  - Authority Figure
+  - B-roll mashup + Voiceover
+  - Headline Only
+  - Headline + Benefits
+  - Callout
+  - Product Collection
+  - Comment Response
+  - Infomercial / VSL
+  - Reaction
+  - How To
+  - Comparison
+  - Unboxing
+  - Listicle
+  - Employee Generated Content
+  - POV
+  - Wall of Text
+  - Press
+  - Mashup
+  - Green Screen
+  - Question-based Headline
+  - Us vs Them
+  - News
+  - High Production
+  - Warehouse
+  - AI Animation
+  - Sceptic Test
+  - Faceless
+  - Trends
+  - ASMR
+  - Aesthetic
+  - Before & After
+  - Post-It Note
+  - Humour
+  - Other
+formats_dropped_since_prior_quarter:
+  - Stitch Hooks
+  - Billboard
+  - Social Interface
+formats_new_this_quarter:
+  - Comment Response
+  - How To
+  - POV
+  - Wall of Text
+  - Press
+  - News
+  - High Production
+  - AI Animation
+  - Before & After
+  - Trends
+  - Aesthetic
+  - Humour
+data_limitations:
+  - "No prior-quarter diversity audit exists. This is the t0 baseline. Trajectory is built by re-running the same 90-day format pull against 2026-03-12 to 2026-06-09 rather than against a prior written audit, so quarter-over-quarter reads carry no earlier strategist interpretation to check against."
+  - "No inspo brands and no affinity brands are tracked for this brand. search_competitor_facebook_ads mode=brands returns 8 rows and 7 are relationshipType competitor. Every section-three recommendation is therefore anchored to a direct competitor rather than to an out-of-category source, which narrows the recommendation slate to what rivals in the vagus nerve category happen to be running."
+  - "Post-purchase surveys hold zero responses for this brand, so no buyer-stated read of which creative format brought them in is available."
+  - "AI format tags cover 568 of the 923 ads that delivered spend in the window, or 61.5 percent. 355 delivering ads carry no format tag. Count shares use 568 as the denominator and are stated as a share of tagged ads, not of all delivering ads. Spend shares use the full account spend of $1,045,684.92 as the denominator. An ad can carry more than one format tag, so format shares sum past 100 percent."
+  - "Format-level average hook rate and hold rate are not exposed by the aggregate summary. The tool returns spend, ROAS, CPA, CPM, CTR, purchases and revenue at the format level, but hook rate and hold rate only per ad. Every hook and hold figure in this audit is a named single ad, never a format average, and format-average hook and hold are marked data-limited throughout."
+  - "AI tag coverage in the competitor library is uneven. Pulsetto shows 337 analyzed ads of 840 scraped and returns full tag arrays. Truvaga, Apollo Neuroscience, Neuvana, Sensate and SONA.help returned empty tag arrays on their top-ranked ads, so competitor format share is measurable for Pulsetto and data-limited for the other six."
+  - "Northbeam is not connected. All attribution is Meta default. The brand did not supply an attribution window or a naming convention at intake, so ad-name tokens are read as inventory handles only and every creative claim in this audit rests on media fields."
 ---
 
 # 90-day creative diversity audit (format) — Hoolest Performance Technologies — 2026-Q3
