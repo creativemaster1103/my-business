@@ -5,7 +5,10 @@
 **Method pin:** parker-brain v15 (`b55c441`)
 **Run id:** `4c20de24-44c5-404d-bde9-20a2030abda1`
 **Current phase:** Phase 1 — audit baseline and foundation
-**Right now:** 16 Phase-1 prompts are running in parallel across branches B, C, D and E.
+**Right now:** **BUILD INTERRUPTED 2026-09-08 ~21:40 UTC — individual API spend limit reached.**
+Four prompt agents were killed mid-write and three more were stopped by a container restart.
+Six documents completed. Three are **truncated mid-sentence** and must be re-run. Seven never started.
+The limit has since reset. Resume with `/set-up-brain`, which reads this file.
 
 > **Scope decision (Mark, 2026-09-08):** this session builds **Phase 0 + Phase 1 only**.
 > Phase 2 (strategy) and Phase 3 (idea bank, sprint plan, briefs) are deliberately not run.
@@ -20,15 +23,20 @@
 
 | Branch | Done | Planned this session | Full Phase 1 |
 |---|---|---|---|
-| E — Audit baseline (internal) | 6 running | 6 | 11 |
-| E — Audit baseline (external) | 2 running | 2 | 6 |
+| E — Audit baseline (internal) | 3 done, 1 truncated | 6 | 11 |
+| E — Audit baseline (external) | 0 | 2 | 6 |
 | A — Brand foundation | 0 | 6 | 14 |
-| B — Competitors | 9 running | 9 | 71 |
-| C — Personas | 4 running | 7 | 12 |
-| D — Voice of customer | 1 running | 6 | 12 |
+| B — Competitors | 2 done, 1 truncated | 9 | 71 |
+| C — Personas | 2 done | 7 | 12 |
+| D — Voice of customer | 1 truncated | 6 | 12 |
 | Synthesis | 0 | 2 | 2 |
 
 ## Needs attention
+
+- **THE ANCHOR AUDIT IS INCOMPLETE.** `audits/2026-Q3/90-day-creative-strategy-audit.md` is the doc
+  that Branch A's account one-pagers are *defined as syntheses of*. Until it is re-run to completion,
+  `ad-account-evaluation`, `performance-targets-and-metrics` and `organic-channels-inventory` cannot
+  be built honestly — and `brand-profile-narrative` depends on those. This is the first thing to fix.
 
 - **Post-purchase surveys are dark** — 0 responses in Parker. Every persona and VoC doc that
   would read them is `data-limited`. Logged in `running-notes/missing-context.md`.
@@ -55,12 +63,12 @@ Marks: `done` / `running` / `pending` / `blocked`.
 - [ ] `pending` — `/setup-routines` arming (schedules stamped but **not armed** — no scheduler in this environment)
 
 ### Branch E — internal audit baseline
-- [ ] `running` — audits-quarterly/90-day-creative-strategy-audit  **(anchor)**
-- [ ] `running` — audits-quarterly/90-day-performance-audit
-- [ ] `running` — audits-quarterly/90-day-diversity-audit
-- [ ] `running` — audits-quarterly/customer-review-audit
-- [ ] `running` — audits-monthly/monthly-hook-audit
-- [ ] `running` — audits-weekly/weekly-performance-snapshot
+- [ ] `blocked` — audits-quarterly/90-day-creative-strategy-audit **(anchor)** — **TRUNCATED at 290 lines mid-sentence; no open-loops tail. Re-run required.** Sections through "Stage of awareness" exist; the synthesis and open loops do not.
+- [x] `done` — audits-quarterly/90-day-performance-audit
+- [x] `done` — audits-quarterly/90-day-diversity-audit
+- [x] `done` — audits-quarterly/customer-review-audit
+- [ ] `pending` — audits-monthly/monthly-hook-audit
+- [ ] `pending` — audits-weekly/weekly-performance-snapshot
 - [ ] `pending` — audits-quarterly/quarterly-whitespace-analysis *(deferred — not in spine)*
 - [ ] `pending` — audits-monthly/monthly-performance-report *(deferred)*
 - [ ] `pending` — audits-monthly/monthly-organic-tiktok-audit *(deferred)*
@@ -68,8 +76,8 @@ Marks: `done` / `running` / `pending` / `blocked`.
 - [ ] `pending` — audits-biweekly/biweekly-iterations-report *(deferred)*
 
 ### Branch E — external audit cuts
-- [ ] `running` — audits-monthly-external/monthly-creative-landscape
-- [ ] `running` — audits-quarterly-external/90-day-creative-strategy-audit-external
+- [ ] `pending` — audits-monthly-external/monthly-creative-landscape
+- [ ] `pending` — audits-quarterly-external/90-day-creative-strategy-audit-external
 - [ ] `pending` — audits-monthly-external/monthly-top-impressions-report *(deferred)*
 - [ ] `pending` — audits-quarterly-external/90-day-performance-audit-external *(deferred)*
 - [ ] `pending` — audits-quarterly-external/90-day-diversity-audit-external *(deferred)*
@@ -94,16 +102,18 @@ Marks: `done` / `running` / `pending` / `blocked`.
 ### Branch B — competitors
 Tracked set (7 subscribed 2026-09-08): Pulsetto, Truvaga, Sensate, Apollo Neuroscience,
 Neuvana, Nurosym, SONA.help. Missing: ZenoWell, Vagustim Health (not in Parker's DB).
-- [ ] `running` — `competitors/_competitive-set.md`
-- [ ] `running` — competitor-snapshot x 7 (one per rival)
-- [ ] `running` — working-thesis-synthesis
+- [ ] `pending` — `competitors/_competitive-set.md`
+- [x] `done` — competitor-snapshot: SONA.help, Neuvana (2 of 7)
+- [ ] `blocked` — competitor-snapshot: Sensate — **TRUNCATED at 214 lines mid-URL.** Re-run required.
+- [ ] `pending` — competitor-snapshot: Pulsetto, Nurosym, Apollo Neuroscience, Truvaga (4 of 7 — never started)
+- [ ] `pending` — working-thesis-synthesis
 - [ ] `pending` — the 9 per-rival deep slices x 7 rivals = 63 runs *(deferred — full-fidelity per-rival profiles are a session of their own)*
 
 ### Branch C — personas
-- [ ] `running` — personas/ad-account
-- [ ] `running` — personas/ad-comments
-- [ ] `running` — personas/customer-reviews
-- [ ] `running` — personas/brand-reputation
+- [ ] `pending` — personas/ad-account
+- [x] `done` — personas/ad-comments
+- [ ] `pending` — personas/customer-reviews
+- [ ] `pending` — personas/brand-reputation
 - [ ] `pending` — personas/personas-profile *(blocked on the source pulls)*
 - [ ] `pending` — personas/persona-voice-library *(blocked on personas-profile)*
 - [ ] `pending` — personas/cross-persona-bias-notes *(blocked on personas-profile)*
@@ -114,7 +124,7 @@ Neuvana, Nurosym, SONA.help. Missing: ZenoWell, Vagustim Health (not in Parker's
 - [ ] `pending` — personas/lifecycle-journey-maps *(deferred)*
 
 ### Branch D — voice of customer
-- [ ] `running` — voice-of-customer/voc-corpus-profile
+- [ ] `blocked` — voice-of-customer/voc-corpus-profile — **TRUNCATED at 814 lines mid-sentence.** Has its open-loops tail but the final section is cut. Re-run required.
 - [ ] `pending` — voice-of-customer/voc-pain-phrase
 - [ ] `pending` — voice-of-customer/voc-outcome-phrase
 - [ ] `pending` — voice-of-customer/voc-objection
