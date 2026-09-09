@@ -5,7 +5,8 @@
 **Method pin:** parker-brain v15 (`b55c441`)
 **Run id:** `4c20de24-44c5-404d-bde9-20a2030abda1`
 **Current phase:** Phase 1 — audit baseline and foundation
-**Right now:** **BUILD INTERRUPTED 2026-09-08 ~21:40 UTC — individual API spend limit reached.**
+**Right now:** Phase 0 complete, Phase 1 partial, stamp and verify complete.
+**BUILD INTERRUPTED 2026-09-08 ~21:40 UTC — individual API spend limit reached.**
 Four prompt agents were killed mid-write and three more were stopped by a container restart.
 Six documents completed. Three are **truncated mid-sentence** and must be re-run. Seven never started.
 The spend limit has since reset, but **Parker MCP then dropped out of the session** and its tools
@@ -142,12 +143,32 @@ Neuvana, Nurosym, SONA.help. Missing: ZenoWell, Vagustim Health (not in Parker's
 - [ ] `pending` — market-synthesis/gaps-opportunities-inspo *(blocked on A + B)*
 - [ ] `pending` — open-loops/open-loops-roll-up *(blocked on everything above)*
 
-### Stamp
-- [ ] `pending` — `CLAUDE.md` from template
-- [ ] `pending` — `README.md`
-- [ ] `pending` — `brand-lens.md`
-- [ ] `pending` — `running-notes/refresh-schedule.md` + `routine-log.md`
-- [ ] `pending` — `competitors/INDEX.md`, `audits/INDEX.md`
+### Stamp — complete (2026-09-09)
+- [x] `done` — `CLAUDE.md` stamped from template. Leads with the brand's real claim gate (copied
+      from the team's own VeRelief Prime brief), and carries an honest "what is thin" section so
+      Parker does not answer from a doc that isn't there.
+- [x] `done` — `README.md` — the brand-facing map, with the incomplete-build warning up top.
+- [x] `done` — `brand-lens.md` — seeded from `config/competitors.yml`, the team's brief and the
+      Q3 audits. Every line marked `stated` or `verified`; the two stated-vs-verified conflicts
+      the diversity audit found are recorded as live tensions, not resolved.
+- [x] `done` — `running-notes/refresh-schedule.md` (generated from real frontmatter of the 10
+      docs that exist, with an explicit "not yet generated" section) + `routine-log.md`.
+- [x] `done` — `competitors/INDEX.md`, `audits/INDEX.md`.
+
+### Verify build — run 2026-09-09
+All structural checks pass except one, which is known and documented:
+- [x] `done` — layout whole (23/23 surfaces); contract stamped not templated (no slots remain)
+- [x] `done` — method mounted at a release tag, `prompts/` + `creative-strategy-context/` +
+      `system/` all present, pin recorded in both `parker_config.json` and `standard-sync.md`,
+      `parker-system/**` deny rules in place
+- [x] `done` — all 21 craft skills shipped alongside the 11 routine skills (26 total); single
+      `dream` skill and the routine version won the collision
+- [x] `done` — review-gate bundle complete; `voice-lint.py` and `grounding-check.py` both verified
+      executable in the brain
+- [x] `done` — voice layer complete (both halves: `outputStyle: Parker` + `parker.md`);
+      craft-context hook present; 7 schedule recipes stamped
+- [ ] `blocked` — **routines are stamped but NOT armed.** No scheduler in the build environment,
+      so no scheduled agents were registered. Run `/setup-routines` to arm them.
 
 ## What happens next
 
