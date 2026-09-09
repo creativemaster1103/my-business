@@ -40,6 +40,17 @@ data_limitations:
   - "TikTok library holds zero customer language. It is a competitor and creator swipe file, not a VoC surface."
 ---
 
+> # ⚠ THIS DOCUMENT IS INCOMPLETE
+>
+> It was cut off mid-sentence when the build hit an API spend limit on 2026-09-08. The
+> open-loops tail is present, but the final section ends partway through a sentence about
+> clinician and practitioner language in the review corpus.
+>
+> The corpus measurements above are real and were verified against live pulls — they are safe to
+> use as denominators. The last section's conclusions are not finished.
+>
+> Re-run: `parker-system/prompts/voice-of-customer/voc-corpus-profile.md`
+
 # VoC corpus profile - Hoolest Performance Technologies
 
 ## Executive summary

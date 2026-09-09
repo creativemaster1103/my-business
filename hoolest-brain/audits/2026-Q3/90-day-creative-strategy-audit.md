@@ -27,6 +27,23 @@ data_limitations:
   - The AI ad summary for HPT025 names the on-screen person "Dr. Robert Alexander, founder of Hoolest Performance Technologies," which contradicts the brand context naming the founder Nick Hool. Treated as a tag-layer error and not used as evidence.
 ---
 
+> # ⚠ THIS DOCUMENT IS INCOMPLETE
+>
+> It was cut off mid-sentence when the build hit an API spend limit on 2026-09-08. It ends
+> partway through a sentence in the "Stage of awareness" section and **has no open-loops tail**,
+> which every Parker standing doc is required to carry.
+>
+> **This is the anchor audit.** Branch A's account one-pagers (`ad-account-evaluation`,
+> `performance-targets-and-metrics`, `organic-channels-inventory`) are *defined as syntheses of
+> this document*, and `brand-profile-narrative.md` depends on those. Nothing up that spine can be
+> built honestly until this is re-run.
+>
+> **Use what is here** — the top-10-by-spend table and the per-ad deep dives are complete and
+> were built from real pulls. **Do not treat the analysis as finished**, and do not infer that a
+> section is absent because it had nothing to say; it is absent because the run died.
+>
+> Re-run: `parker-system/prompts/audits-quarterly/90-day-creative-strategy-audit.md`
+
 # 90-day creative strategy audit — Hoolest Performance Technologies — 2026-Q3
 
 ## Executive summary

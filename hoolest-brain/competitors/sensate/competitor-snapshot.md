@@ -25,6 +25,17 @@ data_limitations:
   - Eight of the nine sub-context docs beneath this snapshot do not exist yet.
 ---
 
+> # ⚠ THIS DOCUMENT IS INCOMPLETE
+>
+> It was cut off mid-URL in the media appendix when the build hit an API spend limit on
+> 2026-09-08, and **has no open-loops tail**.
+>
+> Sensate is also the thinnest rival in the set — 8 ads total — so even a complete snapshot would
+> support only limited conclusions. Treat anything here as directional.
+>
+> Re-run: `parker-system/prompts/competitor-profile/competitor-snapshot.md` for Sensate
+> (externalBrandId `5e0e1047-2f32-475d-81ef-c117597e2f8f`)
+
 # Competitor snapshot — Sensate
 
 ## The headline read

@@ -40,6 +40,12 @@ anchor audit above all, since Branch A is blocked on it.
 
 ## Needs attention
 
+- **THE REVIEW PASS NEVER RAN.** The runner requires a separate review subagent per output,
+  checking fidelity to the prompt before any downstream node consumes the doc. The spend limit
+  was reached before any review started. The six completed docs were only spot-checked
+  structurally by the orchestrator — a far weaker check. **Run the review pass over them before
+  treating them as gated.** Recorded in `prompts-run-log/2026-09-08-full-buildout.md`.
+
 - **THE ANCHOR AUDIT IS INCOMPLETE.** `audits/2026-Q3/90-day-creative-strategy-audit.md` is the doc
   that Branch A's account one-pagers are *defined as syntheses of*. Until it is re-run to completion,
   `ad-account-evaluation`, `performance-targets-and-metrics` and `organic-channels-inventory` cannot
