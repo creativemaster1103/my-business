@@ -8,7 +8,13 @@
 **Right now:** **BUILD INTERRUPTED 2026-09-08 ~21:40 UTC — individual API spend limit reached.**
 Four prompt agents were killed mid-write and three more were stopped by a container restart.
 Six documents completed. Three are **truncated mid-sentence** and must be re-run. Seven never started.
-The limit has since reset. Resume with `/set-up-brain`, which reads this file.
+The spend limit has since reset, but **Parker MCP then dropped out of the session** and its tools
+did not come back. All three repairs need live Parker pulls (`search_facebook_ads_sql`,
+`search_customer_reviews_sql`, `search_competitor_facebook_ads`), so they cannot run without it.
+
+**To resume:** start a fresh session with Parker MCP connected and run `/set-up-brain`, which reads
+this file and picks up from the first unresolved item. Fix the three truncated docs first — the
+anchor audit above all, since Branch A is blocked on it.
 
 > **Scope decision (Mark, 2026-09-08):** this session builds **Phase 0 + Phase 1 only**.
 > Phase 2 (strategy) and Phase 3 (idea bank, sprint plan, briefs) are deliberately not run.
