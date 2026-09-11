@@ -1,0 +1,79 @@
+# Config for the /video-brief-scriptwriting pipeline — originate Video Briefs
+# from scratch, with no competitor ad as the seed.
+# The skill reads this file at the start of every run.
+
+# --- Volume ---------------------------------------------------------------
+# One concept = one brief = one HPT number = 4 hook variants = 4 cuts.
+# Three originated concepts is a working session; the competitor sweep carries
+# the weekly volume. Originating is slower per concept because each one has to
+# be argued from evidence rather than inherited from a proven ad.
+min_new_briefs_per_run: 3
+max_new_briefs_per_run: 5
+hooks_per_brief: 4
+
+# --- Evidence -------------------------------------------------------------
+# The premise of this skill: a competitor sweep borrows validation from ad
+# longevity. Originating has no such borrowed signal, so evidence replaces it.
+# A concept with no evidence behind it is a guess wearing a brief's clothes.
+
+# Every concept must rest on at least this many independent evidence items.
+min_evidence_per_concept: 2
+
+# At least one must be a real customer saying something in their own words —
+# a review, a survey response, or an ad comment. Our own performance data is
+# supporting evidence, never the whole case: it shows what worked, not why.
+require_voice_of_customer_anchor: true
+
+# Ranked by how close each source sits to a real buyer's own words.
+evidence_sources:
+  - customer_reviews         # Parker: search_customer_reviews_semantic / _sql
+  - post_purchase_survey     # Parker: semantic_search_post_purchase_survey
+  - facebook_ad_comments     # Parker: search_facebook_ad_comments_semantic
+  - own_ad_performance       # Motion: get_creative_insights / _transcript
+  - swipe_file               # Parker: search_swipe_file
+  - support_and_sales_notes  # only if the user supplies them in-chat
+
+# --- Diversity ------------------------------------------------------------
+# Same guards as the competitor sweep. Originating makes convergence MORE
+# likely, not less: left alone, a writer returns to the same angle every time.
+enforce_distinct_angle_avatar_within_run: true
+framework_lookback: 12
+
+# Live counts, read 2026-09-11. Re-read them each run rather than trusting these.
+#   Wired Lifer 34 · Multi 27 · (unset) 23 · Sleep Struggler 4 · Off-Ramper 3 · HRV Hunter 1
+# The library is badly skewed. Originating is the cheapest way to correct it,
+# because unlike a swipe it is not constrained by which ads the category happens
+# to be running.
+prefer_avatars:
+  - HRV Hunter
+  - Off-Ramper
+  - Sleep Struggler
+
+# TEEP Stage is unset on 39 of 92 briefs and 'd - Purchase' has only 5.
+# Prefer the thin stages when a concept could honestly sit at more than one.
+prefer_teep_stages:
+  - d - Purchase
+  - a - Trigger
+
+# --- Notion property defaults --------------------------------------------
+# These must match the naming-generator spreadsheet row exactly, or the
+# filename and the database disagree. Set both or neither.
+defaults:
+  product: VeRelief Prime      # or 'PEMF Mini Max'
+  format: VID
+  category: New                # originated, not an iteration of an existing brief
+  event: Evergreen
+  offer: NA
+  content_type: AI VO
+  strategist: Mark
+  editor: JM
+  status: Conceptualizing      # 'Brief In progress' once the script is complete
+
+# --- Never relaxed --------------------------------------------------------
+# Widening the evidence search is legitimate. Lowering these is not.
+never_relax_without_approval:
+  - compliance gate
+  - four distinct hook mechanisms per brief
+  - min_evidence_per_concept
+  - require_voice_of_customer_anchor
+  - no invented customer quotes, statistics, or testimonials
