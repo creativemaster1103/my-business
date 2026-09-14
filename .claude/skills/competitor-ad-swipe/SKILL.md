@@ -314,7 +314,9 @@ briefs into the pipeline themselves. Follow `references/notion-map.md` exactly.
    Call `create_ad_share_link(ad_id)` to get the URL. It renders as a card carrying days
    running, rank movement, advertiser and ad copy. No video block — the embed alone is house
    style.
-7. Set the page **icon to ⚡** — the Video Brief template default. Every brief uses it. Do not
+7. **Set `Status` to `Ready for Visuals`** once the script is on the page — always. A finished
+   brief left at `Brief In progress` never reaches the editor.
+8. Set the page **icon to ⚡** — the Video Brief template default. Every brief uses it. Do not
    pick a per-brief emoji, however apt: a consistent icon is how the database stays scannable.
 
 ### 8. Report

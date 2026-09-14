@@ -93,8 +93,11 @@ The one thing worth repeating here, because this skill files several briefs in a
 run sit at different awareness levels they get different letters — and if you find yourself
 wanting two letters inside one brief, the brief is actually two concepts.
 
-## 6. `Status`
+## 6. `Status` is always `Ready for Visuals`
 
-File at `Conceptualizing` if the script is a concept and hooks only. Use `Brief In progress` once
-the Hook/Body/CTA tables are complete and an editor could work from the page — which, for this
-skill, should be every brief. Originating and then filing a stub is just moving the work.
+Once the script is on the page, the status is **`Ready for Visuals`**. Not `Conceptualizing`,
+not `Brief In progress` — both of those mean the brief is still being written, and a finished
+script sitting under either is a brief the editor never picks up.
+
+`Conceptualizing` is only for a row deliberately filed without a script. This skill should never
+produce one: originating a concept and then filing a stub is just moving the work.

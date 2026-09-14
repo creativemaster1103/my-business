@@ -42,7 +42,7 @@ of rows.
 | `Category` | `Adaptation` (always — this is a competitor-derived brief) |
 | `Product` | `VeRelief Prime` |
 | `Format` | `VID` |
-| `Status` | `Conceptualizing`, or `Brief In progress` if the script is complete |
+| `Status` | **`Ready for Visuals`** — always, once the script is on the page. `Conceptualizing` only for a row filed without a script (see step 4's fallback). |
 | `Strategist` | `Mark` |
 | `Avatar` | from analysis — `Wired Lifer` / `Sleep Struggler` / `HRV Hunter` / `Off-ramper` / `Multi` |
 | `TEEP Stage` | `a - Trigger` / `b - Exploration` / `c - Evaluation` / `d - Purchase` (lowercase letters in this DB) |

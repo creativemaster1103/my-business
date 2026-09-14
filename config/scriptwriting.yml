@@ -83,7 +83,10 @@ defaults:
   content_type: AI VO
   strategist: Mark
   editor: JM
-  status: Conceptualizing      # 'Brief In progress' once the script is complete
+  status: Ready for Visuals    # ALWAYS, once the script is on the page.
+                               # Not 'Conceptualizing' and not 'Brief In progress' —
+                               # a filed script is ready for the editor, and leaving it
+                               # short of that status is how a finished brief goes unseen.
 
 # --- Never relaxed --------------------------------------------------------
 # Widening the evidence search is legitimate. Lowering these is not.

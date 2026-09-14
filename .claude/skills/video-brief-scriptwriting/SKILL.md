@@ -181,6 +181,8 @@ the top, and `references/notion-deltas.md` for what an originated brief does dif
    23 briefs have no avatar and 39 no TEEP stage; do not add to that.
 4. Four hook variants, four file-name rows. They must match exactly.
 5. Page icon **⚡**, every brief, no exceptions.
+6. **Set `Status` to `Ready for Visuals`.** Always, once the script is on the page — see
+   `notion-deltas.md` §6.
 
 ### 9. Report
 
@@ -218,6 +220,8 @@ response.
 - **This skill only creates.** Never edit or delete an existing brief. If one looks wrong, say so
   in the report.
 - **Icon is always ⚡.** No thematic emoji, however apt.
+- **Status is always `Ready for Visuals`** once the script is filed. A finished brief left at
+  `Brief In progress` is invisible to the editor, which wastes the whole run.
 - **The brief is for the editor.** Naming tables, general instruction, glossary, Hook/Body/CTA.
   No evidence section, no strategy rationale, no compliance table. Anything the editor cannot act
   on is noise.
