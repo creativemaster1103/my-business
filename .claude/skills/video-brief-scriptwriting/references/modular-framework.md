@@ -114,6 +114,23 @@ The same concept at two stages is two different scripts, not one script with a d
 
 **Four hooks per brief, and all four sit at the same awareness level as the brief.**
 
+### A hook is 3-4 seconds. Maximum 10 words.
+
+That is the whole budget. At normal VO pace, 3 seconds is about 8 words and 4 seconds is about
+10 — so a hook has room for one idea stated once, and nothing else.
+
+What that rules out, every time:
+
+- **Set-up.** No clause that exists to make the next clause make sense.
+- **A second clause explaining the first.** If the hook needs explaining it is not a hook. Cut
+  the explanation and let the silence do the work.
+- **Anything that isn't in the persona's own register.** A trades-worker Wired Lifer speaks in
+  flat, clipped declaratives; a hook written in marketing cadence gets skipped no matter how
+  accurate it is. Write the words they would actually use about themselves.
+
+Count the words before filing. A 15-word hook is not a hook that runs slightly long — it is a
+hook whose first 10 words have to carry a viewer who has already gone.
+
 Four ways into **one** concept: same body, same CTA, same persona, same `HPT` number, four
 different openings. Not four concepts.
 
