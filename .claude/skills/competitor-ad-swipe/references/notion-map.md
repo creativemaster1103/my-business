@@ -45,14 +45,20 @@ of rows.
 | `Status` | **`Ready for Visuals`** — always, once the script is on the page. `Conceptualizing` only for a row filed without a script (see step 4's fallback). |
 | `Strategist` | `Mark` |
 | `Avatar` | from analysis — `Wired Lifer` / `Sleep Struggler` / `HRV Hunter` / `Off-ramper` / `Multi` |
-| `TEEP Stage` | `a - Trigger` / `b - Exploration` / `c - Evaluation` / `d - Purchase` (lowercase letters in this DB) |
-| `Self Targeting` | `A - Actual Self` / `B - Ideal Self` / `C - Ought Self` |
-| `Valence Zone` | Zone 1–4, matching the emotional register of the swiped ad |
+| `Landing Page` | The page the concept is written to sell against |
 | `Event` | `Evergreen` unless the source ad is clearly seasonal |
 | `Offer` | `NA` unless the rewrite carries a specific offer |
 | `Content Type` | **defaults to `AI VO`** — production method, not framework. Only change it if the user says so. It goes straight into filenames. |
 | `Editor` | `JM` — the default editor. Only differs if the user says so. |
-| Leave unset | `Assign`, `Performance`, `Winning version`, `Delivery link` |
+| Leave unset | **`TEEP Stage`, `Self Targeting`, `Valence Zone`** — retired 2026-09-14, see below — plus `Assign`, `Performance`, `Winning version`, `Delivery link` |
+
+### Three retired properties
+
+**Do not set `TEEP Stage`, `Self Targeting` or `Valence Zone`.** They were replaced by the four
+gates in `modular-framework.md` — core desire, awareness stage, angle, persona — which carry the
+same strategic information more usefully, and by the awareness letter in the filename. The
+properties still exist on the database and older briefs still carry values; leave those alone,
+and leave the fields empty on anything new.
 
 ## Video Brief page body
 

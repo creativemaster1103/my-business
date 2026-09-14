@@ -54,17 +54,15 @@ Read the **`ugc-video-frameworks`** skill and pick from its 25. The framework is
 load a swipe would have inherited from the source ad — originating means choosing it
 deliberately, which is a real decision and not a formality.
 
-Match it to the TEEP stage:
+Match it to the **awareness stage**:
 
-| TEEP stage | What the viewer needs | Frameworks that fit |
+| Awareness | What the viewer needs | Frameworks that fit |
 |---|---|---|
-| `a - Trigger` | To recognise themselves | Problem → Solution, 3 Signs, Green Screen |
-| `b - Exploration` | To understand the mechanism | Industry Secret, Industry Myths, Unboxing |
-| `c - Evaluation` | To believe it over the alternative | Why I Switched, Before/After, Testimonial Mashup |
-| `d - Purchase` | A reason to act now | Offer formats, 3 Reasons Why, Customer Story |
-
-`d - Purchase` has 5 briefs and `a - Trigger` has 8, against 21 and 19 for the middle two. Prefer
-the thin ends when a concept could honestly sit at more than one stage.
+| Unaware | To see themselves before the problem is named | Storytelling, Green Screen, Day-in-Life |
+| Problem Aware | To recognise the problem | Problem → Solution, 3 Signs, Industry Myths |
+| Solution Aware | To understand the mechanism | Industry Secret, Unboxing, Why I Switched |
+| Product Aware | To believe it over the alternative | Before/After, Testimonial Mashup, Comparison |
+| Most Aware | A reason to act now | Offer formats, 3 Reasons Why, Customer Story |
 
 **Do not repeat a framework** used in the last `framework_lookback` briefs, or one already used
 by another concept in this run.
@@ -114,14 +112,15 @@ There is no ad ID to dedupe against here, so the check is semantic and you have 
 reading. Before writing:
 
 ```sql
-SELECT "Creative ID", "Concept Name", "Avatar", "TEEP Stage", "Content Type"
+SELECT "Creative ID", "Concept Name", "Avatar", "Landing Page", "Content Type"
 FROM "collection://34b8fb5b-44b0-8029-8b87-000b98d7a19f"
 WHERE "Creative ID" LIKE 'HPT%'
 ORDER BY "Creative ID" DESC LIMIT 40
 ```
 
 Read the concept names and open anything that sounds close. A new concept must differ from every
-recent brief in **at least two** of: angle, avatar, framework, TEEP stage. Differing only in
+recent brief in **at least two** of: angle, core desire, persona, framework, awareness stage.
+Differing only in
 wording is an iteration, and an iteration is a different thing:
 
 - Genuinely new concept → `Category: New`

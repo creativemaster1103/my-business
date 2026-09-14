@@ -49,11 +49,13 @@ prefer_avatars:
   - Off-Ramper
   - Sleep Struggler
 
-# TEEP Stage is unset on 39 of 92 briefs and 'd - Purchase' has only 5.
-# Prefer the thin stages when a concept could honestly sit at more than one.
-prefer_teep_stages:
-  - d - Purchase
-  - a - Trigger
+# Retired 2026-09-14 — replaced by the four gates, which carry the same
+# strategic information more usefully. Leave empty on new briefs; do not
+# backfill old ones.
+retired_properties:
+  - TEEP Stage
+  - Self Targeting
+  - Valence Zone
 
 # --- The four gates -------------------------------------------------------
 # Nothing gets written until all four are set. If the user has not named them

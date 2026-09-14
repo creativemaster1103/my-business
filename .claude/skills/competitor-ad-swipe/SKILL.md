@@ -278,8 +278,8 @@ briefs into the pipeline themselves. Follow `references/notion-map.md` exactly.
    `HPT<n>` and increment it, zero-padded to three digits (`HPT084` → `HPT085`). Numbers are
    sequential house IDs, unrelated to the source ad.
 2. Create the page with the Hook/Body/CTA table layout the template uses.
-3. Fill the strategy fields (Avatar, TEEP Stage, Self Targeting, Valence Zone) from your step-5
-   analysis — these are the fields the team filters on, so an unfilled brief is an invisible one.
+3. Fill `Avatar` and `Landing Page` from your step-5 analysis. **Do not set `TEEP Stage`,
+   `Self Targeting` or `Valence Zone`** — retired 2026-09-14, see `references/notion-map.md`.
 4. **Four hook variants per brief, always.**
 
    > **The arithmetic: 5 concepts = 5 briefs = 5 `HPT` numbers, and each one carries exactly

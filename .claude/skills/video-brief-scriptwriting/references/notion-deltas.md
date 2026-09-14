@@ -56,9 +56,9 @@ the report, because it usually means the concept has not decided what it is aski
 | `Format` | select | `VID` only |
 | `Status` | status | `Conceptualizing` → `Brief In progress` → `Ready for Visuals` → `Need Revisions` → `Assigned to Editor` → `Ready to Upload` → `Uploaded to Drive` · `Failed to Upload` |
 | `Avatar` | select | `Wired Lifer` · `Sleep Struggler` · `HRV Hunter` · **`Off-Ramper`** · `Multi` |
-| `TEEP Stage` | select | `a - Trigger` · `b - Exploration` · `c - Evaluation` · `d - Purchase` |
-| `Self Targeting` | select | `A - Actual Self` · `B - Ideal Self` · `C - Ought Self` |
-| `Valence Zone` | select | see below — the full strings are long |
+| `TEEP Stage` | select | **retired — leave empty** |
+| `Self Targeting` | select | **retired — leave empty** |
+| `Valence Zone` | select | **retired — leave empty** |
 | `Event` | select | `Evergreen` · `BFCM` |
 | `Offer` | select | `20OFF` · `NA` · `15%OFF` |
 | `Content Type` | **text** | free text, not a select. Defaults to `AI VO`. |

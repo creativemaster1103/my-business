@@ -176,9 +176,9 @@ the top, and `references/notion-deltas.md` for what an originated brief does dif
 1. Derive the next `Creative ID` from the live maximum (`HPT091` on 2026-09-11 — re-derive it,
    never assume).
 2. Create the page with the two naming tables first, then the Hook/Body/CTA tables.
-3. Fill every strategy field — `Avatar`, `TEEP Stage`, `Self Targeting`, `Valence Zone`,
-   `Landing Page`. These are what the team filters on, and an unfilled brief is an invisible one.
-   23 briefs have no avatar and 39 no TEEP stage; do not add to that.
+3. Fill `Avatar` and `Landing Page` — those are what the team filters on, and 23 briefs have no
+   avatar already. **Leave `TEEP Stage`, `Self Targeting` and `Valence Zone` empty** — retired
+   2026-09-14; the four gates replaced them.
 4. Four hook variants, four file-name rows. They must match exactly.
 5. Page icon **⚡**, every brief, no exceptions.
 6. **Set `Status` to `Ready for Visuals`.** Always, once the script is on the page — see
