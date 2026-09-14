@@ -297,17 +297,13 @@ briefs into the pipeline themselves. Follow `references/notion-map.md` exactly.
    naming. They carry the team's file-naming convention and are the first thing the editor
    reads. **One file-name row per hook variant**, so four by default.
 
-   **Generate the names with Mark's sheet, do not reconstruct them.** Follow
-   `references/naming-generator.md`: clear rows 6-16, write one input row per hook variant,
-   read the computed output back, paste it in verbatim. Writes go through **Zapier → Google
-   Sheets** (the Drive connector is read-only for content).
+   **Build the names from the page's own properties** — see `references/naming-convention.md`.
+   No spreadsheet and no Zapier: that procedure was retired 2026-09-14 and the old sheet now
+   emits a different, wrong format.
 
-   Reconstructing the format by hand is how you ship a filename that looks right and is wrong —
-   it already happened once with the TEEP Stage letter.
-
-   **Set the defaults in both places.** Content Type `AI VO`, Editor `JM`, Strategist `Mark` go
-   into the Notion properties *and* the spreadsheet row. Changing one without the other leaves
-   the filename disagreeing with the database.
+   The variant token is `<hook number><awareness letter>` — `1B` is hook 1 of a Problem Aware
+   brief. `A` Unaware · `B` Problem Aware · `C` Solution Aware · `D` Product Aware · `E` Most
+   Aware. All four hooks on a brief carry the same letter.
 6. Put the TrendTrack share link in **AD INSPO** as an `<embed>`, on its own:
 
    ```

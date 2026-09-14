@@ -55,9 +55,25 @@ prefer_teep_stages:
   - d - Purchase
   - a - Trigger
 
+# --- The four gates -------------------------------------------------------
+# Nothing gets written until all four are set. If the user has not named them
+# and the evidence does not settle one, ASK. Never guess a gate.
+#   core desire (Life Force 8) . awareness stage . ad angle . persona
+# Full lists and rules: references/modular-framework.md
+require_four_gates_before_writing: true
+
+# Awareness letter used in every file name. All four hooks on a brief share it,
+# because a brief sits at exactly one awareness level.
+awareness_codes:
+  A: Unaware
+  B: Problem Aware
+  C: Solution Aware
+  D: Product Aware
+  E: Most Aware
+
 # --- Notion property defaults --------------------------------------------
-# These must match the naming-generator spreadsheet row exactly, or the
-# filename and the database disagree. Set both or neither.
+# File names are built from these properties directly (no spreadsheet), so
+# there is now only one place to set them.
 defaults:
   product: VeRelief Prime      # or 'PEMF Mini Max'
   format: VID
@@ -74,6 +90,8 @@ defaults:
 never_relax_without_approval:
   - compliance gate
   - four distinct hook mechanisms per brief
+  - all four hooks at the brief's awareness level
+  - the four gates set before any line is written
   - min_evidence_per_concept
   - require_voice_of_customer_anchor
   - no invented customer quotes, statistics, or testimonials

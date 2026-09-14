@@ -31,24 +31,25 @@ Check before starting. If one is off, say which — do not work around it.
 | **Notion** | Destination: the Video Brief database |
 | **Shopify** | Live price / offer / product facts |
 | **Motion Creative Analytics** | Supporting evidence: what already works on our own account |
-| **Zapier** | Writing the naming-generator spreadsheet (Google Drive is read-only for content) |
 
 Parker, Notion and Shopify are required. Motion is strongly preferred — without it you are
-writing blind to our own results. Zapier is required to file, because the file names come from
-Mark's sheet and are never reconstructed by hand.
+writing blind to our own results. Nothing else is needed to file: file names are built from the
+brief's own Notion properties.
 
 ## Read before writing
 
-Three files, in this order, and none of them are optional:
+Four files, in this order, and none of them are optional:
 
-1. `.claude/skills/competitor-ad-swipe/references/verelief-prime-brief.md` — product, avatars,
-   voice, **approved claim set, compliance gate**. One product, one claim set; it is not
-   duplicated here.
-2. `references/concept-sources.md` — where evidence comes from and how to search it
-3. `references/origination-rules.md` — avatar, angle, framework, blocks, four hooks, dedupe
+1. `references/modular-framework.md` — **the four gates**, the Hook/Body/CTA spine, the blocks,
+   and how awareness decides structure. This governs how every script is assembled.
+2. `.claude/skills/competitor-ad-swipe/references/verelief-prime-brief.md` — product, the four
+   approved personas, voice, **approved claim set, compliance gate**. One product, one claim
+   set; it is not duplicated here.
+3. `references/concept-sources.md` — where evidence comes from and how to search it
+4. `references/origination-rules.md` — picking from the gap, framework, dedupe
 
 And for filing: `references/notion-deltas.md`, plus the sibling's
-`references/notion-map.md` and `references/naming-generator.md`.
+`references/notion-map.md` and `references/naming-convention.md`.
 
 ---
 
@@ -83,10 +84,27 @@ one of which is a real customer in their own words.**
 Gather across the whole run before writing anything. Evidence found while searching for one
 concept routinely turns out to be the better case for a different one.
 
-### 3. Form the concepts
+### 3. Set the four gates — per concept
 
-Per `references/origination-rules.md`, in this order — avatar from the gap, angle from the
-evidence, framework from `ugc-video-frameworks`, then the block list.
+**Nothing gets written until all four are set.** If the user has not named them and the evidence
+does not settle one, **ask**. Never guess a gate and never start writing with one missing.
+
+| Gate | Where it comes from |
+|---|---|
+| **Core desire** (Life Force 8) | the evidence — what the customer is actually reaching for |
+| **Awareness stage** | who you are trying to reach, and what they already know |
+| **Ad angle** | the argument the evidence supports |
+| **Persona** | the gap in the library (step 1), not where evidence is thickest |
+
+`references/modular-framework.md` has all four lists and the rules. Two that catch people:
+
+- **Awareness decides where the product enters the script**, so it is a structural choice, not a
+  label. The same concept at two stages is two different scripts.
+- **Desire and persona are not interchangeable.** Wired Lifer's real driver is Life Force 1
+  (self-preservation — chronic stress damaging them), not 3. Read the persona before assuming.
+
+Then, per `references/origination-rules.md`: framework from `ugc-video-frameworks`, then the
+block list.
 
 Write each concept's case in one sentence before going further:
 
@@ -105,8 +123,17 @@ Shopify, every run: current price, current offer, what is in the box, the guaran
 
 ### 5. Write the script
 
-Per concept: **four hook variants** (four distinct mechanisms — see `origination-rules.md`), one
-body, one CTA. Same avatar, same HPT number.
+Per concept: **four hook variants** (four distinct mechanisms), one body, one CTA. Same persona,
+same HPT number.
+
+**All four hooks sit at the brief's awareness level.** Audit each one against the alignment test
+in `modular-framework.md` §5 before filing — a Problem Aware hook that gestures at a solution has
+drifted to Solution Aware, and one that never names the problem has drifted to Unaware. Both are
+disqualified. The awareness letter is in every file name, so a mismatch is visible downstream.
+
+**Product and Person blocks go inside the Body.** The Hook and the CTA are structural units, not
+assemblies of blocks — a hook may draw on the same material as a Problem Statement, but it is
+not one and is never mapped as one.
 
 Write the `Visual` column as a **direction the editor can shoot**, not a description of a mood.
 The `Note` column carries pacing and delivery. One table row per beat, and apply the 1-3 second
@@ -128,12 +155,14 @@ reads.
 
 ### 7. Generate the file names
 
-Mark's Naming Convention Generator, via Zapier, per the sibling's
-`references/naming-generator.md`. **Once per brief, never batched** — `notion-deltas.md` §5 says
-why. Paste the output strings verbatim; if one looks wrong, the inputs were wrong.
+Build all three strings from the page's own properties, per the sibling's
+`references/naming-convention.md`. No spreadsheet, no Zapier.
 
-Set `Content Type`, `Editor` and `Strategist` in the spreadsheet row **and** the Notion
-properties. Changing one without the other leaves the filename disagreeing with the database.
+The variant token is `<hook number><awareness letter>`: `A` Unaware · `B` Problem Aware ·
+`C` Solution Aware · `D` Product Aware · `E` Most Aware. **All four hooks carry the same
+letter**, because a brief sits at one awareness level. `Self Targeting`, `TEEP Stage` and
+`Valence Zone` are no longer part of any name — still set them on the page, but they do not
+travel with the asset.
 
 ### 8. File in Notion
 

@@ -82,18 +82,16 @@ Zone 4 — Fear/Panic/Loss (Negative + High Intensity)
 The filename token is just the number — `Z3`. Pick the zone the **hook** opens in, not the one
 the ad resolves to; most of ours open in 3 and land in 1.
 
-## 5. The naming sheet runs once per brief
+## 5. Names come from the properties, not a sheet
 
-`references/naming-generator.md` in the sibling skill has the full procedure and its two traps
-(the date needs a leading apostrophe; empty strings do not clear cells). One thing it does not
-spell out, which matters more here because this skill files several briefs in a run:
+`references/naming-convention.md` in the sibling skill carries the full spec. The Zapier →
+Google Sheets procedure was retired 2026-09-14; do not use that sheet, which now emits a
+different and wrong format.
 
-**Never batch two concepts into the sheet.** Output rows 20-24 hold at most five file names, and
-the Batch name (row 29) and Folder name (row 30) cells hold exactly one brief's values. Two
-concepts in the sheet at once produces one brief's batch name applied to both.
-
-Per brief, in order: clear rows 6-16 → write rows 2-5, one per hook variant → read rows 20-24 and
-29-30 → paste verbatim → move to the next concept and clear again.
+The one thing worth repeating here, because this skill files several briefs in a run: the
+**awareness letter is per brief, not per hook**. Four hooks, one letter. If two concepts in a
+run sit at different awareness levels they get different letters — and if you find yourself
+wanting two letters inside one brief, the brief is actually two concepts.
 
 ## 6. `Status`
 

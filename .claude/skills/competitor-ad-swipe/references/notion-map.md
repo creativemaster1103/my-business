@@ -50,7 +50,7 @@ of rows.
 | `Valence Zone` | Zone 1–4, matching the emotional register of the swiped ad |
 | `Event` | `Evergreen` unless the source ad is clearly seasonal |
 | `Offer` | `NA` unless the rewrite carries a specific offer |
-| `Content Type` | **defaults to `AI VO`** — production method, not framework. Only change it if the user says so. Must match the spreadsheet's value exactly, since it goes into filenames. |
+| `Content Type` | **defaults to `AI VO`** — production method, not framework. Only change it if the user says so. It goes straight into filenames. |
 | `Editor` | `JM` — the default editor. Only differs if the user says so. |
 | Leave unset | `Assign`, `Performance`, `Winning version`, `Delivery link` |
 
@@ -61,12 +61,12 @@ they carry the team's file-naming convention and the editor works from them. Nev
 
 ### Naming convention
 
-**Source of truth:** Mark's [Naming Convention Generator](https://docs.google.com/spreadsheets/d/1LqXRQXs4WyGptVOmvsk1JIH1UnfyBExIC2Ls-rtBhL8/edit),
-"Video Naming Convention" tab. File id `1LqXRQXs4WyGptVOmvsk1JIH1UnfyBExIC2Ls-rtBhL8`.
+**Source of truth:** `references/naming-convention.md`. Names are built from the brief's own
+Notion properties — no spreadsheet, no Zapier. Mark's Naming Convention Generator sheet was
+retired 2026-09-14 and must not be used; it emits a different, now-wrong format.
 
-**Generate the strings in that sheet each run** — see `references/naming-generator.md` for the
-Zapier procedure. The format below is documentation; the sheet's output is the truth, and if
-they ever disagree the sheet wins.
+Everything from here to the end of this section describes the **old** scheme, kept only so that
+briefs written before 2026-09-14 remain readable. Do not build new names from it.
 
 Its input columns, in order:
 
