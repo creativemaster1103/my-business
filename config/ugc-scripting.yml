@@ -284,7 +284,16 @@ shoot_defaults:
   takes_per_hook: 1
 
 target_length_seconds: [30, 45]
-hook_must_land_within_seconds: 3
+
+# A hook is 3 seconds. At UGC pace that is 6-10 words, ONE sentence. Count them
+# — "inside 3 seconds" is unmeasurable and gets broken without anyone noticing.
+# A pause comes out of the budget. No trailing address ("- this is for you")
+# — that is five words spent on nothing. If it will not fit it is the wrong
+# hook, not a hook that needs trimming.
+hook_seconds: 3
+hook_words: [6, 10]
+hook_sentences: 1
+hook_no_trailing_address: true
 
 # Any paid or gifted creator discloses in the first two seconds, as a super.
 # Not in the caption, not at the end.

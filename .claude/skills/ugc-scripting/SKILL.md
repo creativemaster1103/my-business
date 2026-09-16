@@ -262,7 +262,8 @@ Rules that hold for every UGC script:
   relief loses the viewer at the turn.
 - **Write in the creator's register, not the brand's.** Keep the substance on-brand; let the
   delivery be theirs.
-- **Length**: 30–45s unless the framework says otherwise. Hook inside 3 seconds.
+- **Length**: 30–45s unless the framework says otherwise. **Hook = 3 seconds = 6–10 words, one
+  sentence.** Count them; see step 7.
 
 Casting, delivery and energy direction are in `references/ugc-creator-brief.md`. The template's
 own **Shooting Specifications** callout governs the technical side — do not contradict it.
@@ -270,6 +271,18 @@ own **Shooting Specifications** callout governs the technical side — do not co
 ### 7. Five hooks per script
 
 > **2 scripts × 5 hooks = 10 hook takes + 2 body takes**, on one page.
+
+> ### A hook is 3 seconds. That is **6–10 words, one sentence.**
+>
+> Count them. "Inside 3 seconds" is unmeasurable and gets broken without anyone noticing; a word
+> count does not. At UGC pace — roughly three words a second — eight words is the budget.
+>
+> - **One sentence.** A two-part setup ("If you've ever… — this is for you") is already double.
+> - **No trailing address.** "— this is for you", "— you're who I'm talking to", "— hi" are four
+>   or five words spent on nothing. The line either finds its person or it does not.
+> - **A pause comes out of the budget.** A 1-second beat leaves you five words, not eight.
+> - If it will not fit, it is the wrong hook, not a hook that needs trimming. Cut the setup and
+>   start at the interesting half.
 
 Five genuinely different **mechanisms**, not five rewordings of one opening. A reworded hook tests
 nothing — the whole reason for five is to find out which *way in* works, and two hooks that differ
