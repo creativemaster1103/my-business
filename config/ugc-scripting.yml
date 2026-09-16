@@ -1,26 +1,83 @@
 # Config for the /ugc-scripting pipeline.
 # Edit freely — the skill reads this file at the start of every run.
 
-# One concept = one brief = one HPT number, each carrying exactly 4 hook variants.
-# A three-script run is therefore 12 file-name rows and 12 takes for the creator.
-scripts_per_run: 3
-hooks_per_script: 4
+# EVERY BRIEF SHIPS: 2 scripts + 10 general clips, on one page.
+#
+# Both scripts live on the same brief page, in the `Script 1` / `Script 2`
+# sections the Notion template already carries. 2 scripts x 3 hooks = 6 hook
+# takes + 2 body takes, plus one shotlist of 10 clips serving both.
+scripts_per_brief: 2
+hooks_per_script: 3
+general_clips_per_brief: 10
+
+# NOTE: the Video Brief (AI-VO) pipeline standardises on FOUR hook variants.
+# This template's naming block asks for THREE ("film the 3 hooks separately to
+# the body"), so the UGC pipeline follows the template. Flagged for Mark —
+# the two conventions should not drift apart by accident.
+
+# The two scripts must be genuinely different, not two angles on one idea.
+enforce_distinct_framework_within_brief: true
+enforce_distinct_persona_angle_within_brief: true
 
 # Never relaxed automatically. Dropping any of these is lowering the bar.
 never_relax_without_approval:
+  - four gates cleared before writing
   - brand compliance gate
   - endorsement gate
-  - four distinct hook mechanisms per script
+  - two distinct scripts per brief
+  - ten general clips per brief
   - customer-sourced — no invented quotes
+
+# --- The four gates --------------------------------------------------------
+# BLOCKING. Nothing is written until all four are resolved, per script.
+# Full procedure in references/four-gates.md.
+gates:
+  - persona          # from the live `Official Persona` toggle on Notion
+  - awareness_level  # Unaware -> Most-Aware
+  - core_desire      # one of the Life Force 8
+  - ad_angle         # optional to be GIVEN — derive from pain/desire/fear and say so
+
+# Read live every run. It is maintained and carries real survey percentages;
+# a copy in this repo would go stale silently.
+persona_source_page: 3448fb5b-44b0-80fe-88e0-d1e8064822fc   # 👤 Buying Persona
+persona_toggle: Official Persona
+
+# The same page's `Final and approved personas` toggle holds these four:
+# "the current approved set. Use these for creative that is locked."
+approved_personas:
+  - The Wired Lifer
+  - The Lights-Out Loser
+  - The HRV Hunter
+  - The Off-Ramper
+
+# Legitimate personas, but ask Mark before shipping a script against one.
+personas_needing_signoff:
+  - The Self-Rescuer
+  - The Chronic Condition Warrior
+  - The Clinician / Practitioner
+  - The Gift / Caregiver Buyer
+
+# Standing compliance callout on the persona page itself. This persona is
+# DRAWN to anti-medication framing, which is precisely where the legal risk
+# sits — the appeal and the exposure are the same sentence.
+persona_compliance_holds:
+  The Off-Ramper:
+    body_state_language_only: true
+    signoff_required_from: Nick
+    never: Anti-medication framing in paid
+
+# Angles that never transfer to this product, whoever the persona is.
+# Shared with the swipe pipeline — see config/competitors.yml excluded_angles.
+excluded_angles_source: config/competitors.yml
 
 # --- Voice of customer -----------------------------------------------------
 # Minimum usable quotes in the bank before writing starts. Below this the run
 # stops and reports, rather than writing an AI-VO script and calling it UGC.
 min_quotes_in_bank: 15
 
-# Prefer material that several independent customers circle. One striking
-# review is an anecdote; three saying the same thing is an insight.
-min_independent_voices_per_concept: 3
+# Prefer material several independent customers circle. One striking review is
+# an anecdote; three saying the same thing is an insight.
+min_independent_voices_per_script: 3
 
 # Read these first. 5-star reviews are congratulation, not information.
 review_star_priority: [3, 4, 2, 5, 1]
@@ -36,43 +93,64 @@ voc_sources:
 # The 25-framework library lives in the `ugc-video-frameworks` skill. Do not
 # duplicate it here and do not invent a 26th.
 frameworks_skill: ugc-video-frameworks
-
-# Skip a framework used in the last N briefs, and never repeat one within a run.
 framework_lookback: 12
 
-# --- Notion ----------------------------------------------------------------
-video_brief_data_source: collection://34b8fb5b-44b0-8029-8b87-000b98d7a19f
+# --- Notion destination ----------------------------------------------------
+# A PAGE of child pages, not a database. No properties, no HPT creative ID,
+# no naming-convention spreadsheet. Do not file UGC scripts in the Video Brief
+# database — that is the AI-VO pipeline's destination.
+ugc_brief_database_page: 3448fb5b-44b0-80b7-a01f-df29eb7dd956   # 🤳 UGC Brief Database
+template_page: 3dc8fb5b-44b0-8025-920d-cdc4e9ac0903             # ✏️ TEMPLATE
+page_icon: ✏️
+page_title_format: "<Creator Name>-<Concept>"
 
-# Free-text property, so nothing validates it — a typo propagates into every
-# filename. Must match the naming sheet exactly.
-content_type: UGC
+# The template and all four live briefs say `Hoolest Mini`. Confirm the product
+# before filing rather than assuming VeRelief Prime.
+confirm_product_before_filing: true
 
-# Only `New` and `Iteration` exist as options. There is NO `Adaptation` option,
-# despite what the competitor-ad-swipe notion map claims — verified live
-# 2026-09-16. Raise that discrepancy with Mark rather than adding an option.
-default_category: New
+# Creator-facing file naming. The template's example is `Talkinghead_hook1`,
+# which is ambiguous once a page carries two scripts — scope it to the script.
+file_naming:
+  a_roll_hook: "Talkinghead_S<script>_hook<n>"
+  a_roll_body: "Talkinghead_S<script>_body"
+  b_roll: "BRoll_<section>"
 
-# Avatars currently under-served in the Video Brief library. Prefer these when
-# concepts are otherwise close. Re-check live counts each run.
-# NOTE the capital R: the Notion select option is `Off-Ramper`, not `Off-ramper`.
-prefer_avatars:
-  - HRV Hunter
-  - Sleep Struggler
-  - Off-Ramper
+# --- The 10 general clips --------------------------------------------------
+# One per B-ROLLS | SHOTLIST row. The template ships 8 rows; extend to 10.
+# The test for "general" is that BOTH scripts can use it — a clip serving only
+# one is script b-roll and does not count toward the ten.
+#
+# `section` is what the creator names the file after (BRoll_Struggle), so it
+# goes in bold at the front of the Visual description cell. Full spec, with
+# why each earns its place, is in references/general-clips.md.
+general_clips:
+  - {n: 1,  section: Device,       clip: Device close in hand, unbranded surface, slow turn,      cuts_in: hook}
+  - {n: 2,  section: Application,  clip: Device applied correctly, second angle, no face,         cuts_in: body}
+  - {n: 3,  section: Struggle,     clip: Before state — jaw set, shoulders up, staring. No device, cuts_in: hook}
+  - {n: 4,  section: Relief,       clip: The exhale. Shoulders drop. Held long, no cut,           cuts_in: body}
+  - {n: 5,  section: Alternatives, clip: Failed alternative in frame — cold tea, wine, app open,  cuts_in: body}
+  - {n: 6,  section: Portability,  clip: Device out of a bag, pocket or drawer, one motion,       cuts_in: body}
+  - {n: 7,  section: Trigger,      clip: Trigger on screen — 3am phone, packed calendar, inbox,   cuts_in: hook}
+  - {n: 8,  section: Gel tip,      clip: Gel tip detail, macro, texture,                          cuts_in: body}
+  - {n: 9,  section: Everyday,     clip: Hands doing something ordinary — laptop, kettle, phone,  cuts_in: any}
+  - {n: 10, section: Aftermath,    clip: Back to it — returns to desk or bed, settled. No device, cuts_in: cta}
+
+general_clip_must_serve_both_scripts: true
+hold_each_clip_seconds: [6, 8]
 
 # --- Creator shoot defaults ------------------------------------------------
-# Deliberately unpolished. A ring-lit, tripod-steady, studio-audio UGC ad reads
-# as a brand ad and loses the format's only advantage.
+# The brief's own standing `Shooting Specifications` callout governs the
+# technical side (good lighting, 9:16, no filters, 1-3s handles, no logos).
+# These cover casting, energy and register, which the callout does not — and
+# they must never contradict it.
 shoot_defaults:
   camera: Front-facing phone, hand-held
   framing: Chest-up, slightly off-centre
-  audio: Phone mic or earbuds, room tone audible
-  light: Available light, facing a window
   location: The room where the problem actually happens
-  wardrobe: Own clothes, nothing styled
+  wardrobe: Own clothes, nothing styled, no logos
+  energy: Low and flat. Talking, not presenting
   takes_per_hook: 1
 
-# Scripted at 30-45s unless the chosen framework specifies otherwise.
 target_length_seconds: [30, 45]
 hook_must_land_within_seconds: 3
 
@@ -80,11 +158,3 @@ hook_must_land_within_seconds: 3
 # Not in the caption, not at the end.
 disclosure_super: "#ad"
 disclosure_within_seconds: 2
-
-# Grab these every shoot regardless of framework — they are what saves a
-# script in the edit and cost thirty seconds.
-always_capture_broll:
-  - Device in hand, close, unbranded surface
-  - Device applied correctly, second angle
-  - The moment before — the stressed/tired state, no device in frame
-  - Hands doing something ordinary nearby

@@ -56,67 +56,72 @@ the script.
 
 ## Casting
 
-Cast the **avatar**, not the demographic. Age matters far less than whether the person reads as
-someone who would plausibly own the problem.
+Cast the **persona**, not the demographic. Age matters far less than whether the person reads as
+someone who would plausibly own the problem. Personas come from the live `Official Persona`
+toggle — see `four-gates.md`.
 
-| Avatar | Reads true when the creator is | Reads false when |
+| Persona | Reads true when the creator is | Reads false when |
 |---|---|---|
-| **Wired Lifer** | Visibly mid-day, mid-work, shot in a real workspace | Shot at golden hour looking rested |
-| **Off-Ramper** | Matter-of-fact, understated, no redemption-arc energy | Preachy, or dramatising the substance they left |
-| **Sleep Struggler** | Filmed at night, low light, low energy delivery | Bright, bouncy, clearly shot at 11am |
-| **HRV Hunter** | Fluent in the data without being told to be | Reciting metrics they clearly do not use |
+| **The Wired Lifer** | Visibly mid-day, mid-work, in a real workspace | Shot at golden hour looking rested |
+| **The Lights-Out Loser** | Filmed at night, low energy delivery | Bright and bouncy, clearly shot at 11am |
+| **The HRV Hunter** | Fluent in the data without being told to be | Reciting metrics they clearly do not use |
+| **The Off-Ramper** | Matter-of-fact, understated, no redemption-arc energy | Preachy, or dramatising what they left |
+| **The Self-Rescuer** | Speaking about it afterwards, calmly. Never mid-episode | Performing distress to camera |
+| **The Gift / Caregiver Buyer** | Talking about someone else, not themselves | Slipping into first-person testimony |
 
-> Avatar strings in Notion are `Wired Lifer`, `Sleep Struggler`, `HRV Hunter`, `Off-Ramper`,
-> `Multi`. Note the capital **R** in `Off-Ramper` — other files in this repo write it
-> `Off-ramper`, and the select option will not match.
+The four in the approved set are the default. The others need Mark's go-ahead before a script
+ships — and **the Off-Ramper needs Nick's** on top of that.
+
+> **Never stage an episode.** A creator performing a panic attack or a spiral to camera is the
+> fastest way to a script that fails both compliance gates and reads as exploitative. The
+> Self-Rescuer's story is told *after*, in the calm.
 
 ## Production direction
 
-Specify these in the brief's creator direction block. A creator who has to guess will guess
-toward "polished", which is the one thing UGC cannot be.
+**The brief's own `Shooting Specifications` callout governs the technical side** — good lighting,
+9:16 vertical, 1–3 second handles, no filters or colour grading, no logos on clothing, clean
+background, ACs and fans off. It is standing text on every brief and it is not ours to
+contradict. Do not write direction that fights it.
+
+What the callout does not cover, and what we specify instead:
 
 | | Default | Why |
 |---|---|---|
 | **Camera** | Front-facing phone, hand-held | Tripod-steady reads as produced |
-| **Framing** | Chest-up, slightly off-centre, some headroom drift | Perfect framing kills the register |
-| **Audio** | Phone mic or earbuds. Room tone audible | Studio audio over a kitchen shot is uncanny |
-| **Light** | Whatever the room has, facing a window | Ring light reads as influencer, not customer |
-| **Location** | The room where the problem actually happens | A clean neutral wall says nothing |
-| **Wardrobe** | What they already own | Styled wardrobe breaks the premise |
-| **Takes** | One continuous take per hook, plus b-roll | Cutaways every two seconds signal an edit |
+| **Framing** | Chest-up, slightly off-centre | Perfect framing kills the register |
+| **Location** | The room where the problem actually happens | A clean neutral wall says nothing. Clean ≠ characterless |
+| **Wardrobe** | What they already own, no logos | Styled wardrobe breaks the premise |
+| **Energy** | Low and flat. Talking, not presenting | The category sells calm |
+| **Takes** | One continuous take per hook | Cutaways every two seconds signal an edit |
 
-**B-roll to capture on every shoot**, regardless of framework — it is what saves a script in the
-edit and costs thirty seconds to grab:
-
-- Device in hand, close, unbranded surface
-- Device being applied, clean and correct, from a second angle
-- The moment *before* — the actual stressed/tired state, no device in frame
-- Hands doing something ordinary nearby: laptop, kettle, phone face-down
+The ten B-roll clips every shoot captures are in `general-clips.md` — they go in the brief's
+`B-ROLLS | SHOTLIST` table, one per row, and serve both scripts on the page.
 
 ## Delivery
 
-- **Talk, do not present.** The read should sound like the middle of a conversation with a
-  friend who asked.
-- **Keep the stumbles.** A restarted sentence is a credibility signal. Do not direct them out.
+- **Talk, do not present.** The read should sound like the middle of a conversation with a friend
+  who asked.
 - **Do not smile at the claim.** The moment the creator performs enthusiasm, it becomes an ad.
-- **Pace down, not up.** The category sells calm; a fast excited read contradicts the product.
-- **Never read the super out loud.** Spoken line and on-screen text should do different jobs.
+- **Pace down, not up.** A fast excited read contradicts the product.
+- **Never read the super out loud.** Spoken line and on-screen text do different jobs.
+- **A natural restart is fine, an unusable take is not.** A slightly imperfect delivery reads as
+  credible; direct for ease rather than for polish, but get a clean take of every hook.
 
-## What the creator direction block contains
+## Where this direction goes
 
-Put this near the top of the brief, under the naming tables and before the script. Short, and
-only things the creator can act on:
+The template has no "creator direction" block, and **do not add one** — the layout is fixed and
+identical across every brief. This direction is for *us*: it decides who gets cast, how the
+script is written, and what the `Note` column of each beat says.
 
-```
-CREATOR DIRECTION
-Avatar        Wired Lifer — reads as someone mid-workday, not rested
-Location      Home desk or office, daylight, real room
-Wardrobe      Own clothes, nothing styled
-Camera        Front-facing, hand-held, chest-up
-Energy        Low and flat. Talking, not presenting
-Disclosure    #ad super in the first 2 seconds
-Must capture  4 hook takes · full body take · B-roll list below
-```
+The things the creator must be told go where the template already puts them:
+
+| What | Where it goes on the page |
+|---|---|
+| Who they are playing, energy, location | The `Note` column, beat by beat |
+| What to shoot | `Shot / Action` column, and the shotlist |
+| Disclosure | A scripted `SUPER:` in the first beat of every hook |
+| Technical specs | The standing `Shooting Specifications` callout — unedited |
+| File names | The standing `File Naming Convention` block |
 
 ## Two failure modes
 

@@ -1,122 +1,132 @@
-# Notion map — UGC deltas
+# Notion map — UGC Brief Database
 
-Same database, same `HPT` sequence, same page icon as every other Video Brief. This file records
-only what differs for a UGC script, plus the option values **read live from the workspace on
-2026-09-16**.
-
-Base map: `.claude/skills/competitor-ad-swipe/references/notion-map.md`. Everything not
-contradicted below still applies.
+**Destination: the `🤳 UGC Brief Database` page.** Read live 2026-09-16.
 
 | What | ID |
 |---|---|
-| Video Brief (data source) | `collection://34b8fb5b-44b0-8029-8b87-000b98d7a19f` |
-| Video Brief page template | `3528fb5b-44b0-80d6-85c5-cfd2c41793df` |
+| `🤳 UGC Brief Database` (parent page) | `3448fb5b-44b0-80b7-a01f-df29eb7dd956` |
+| `✏️ TEMPLATE` (copy this) | `3dc8fb5b-44b0-8025-920d-cdc4e9ac0903` |
+| Path | Hoolest Creative Lab → … → UGC Brief Database |
 
-## Property mapping — UGC
+## It is a page of child pages, not a database
 
-| Property | Value | Delta |
+This matters more than anything else on this page. The UGC Brief Database has **no Notion
+properties at all** — no schema, no select options, no filters. Each brief is a plain child page
+whose entire content is the body.
+
+Everything the Video Brief pipeline does around properties therefore **does not apply here**:
+
+| Video Brief convention | In the UGC Brief Database |
+|---|---|
+| `HPT<nnn>` Creative ID | **None.** No creative ID, no sequence to increment |
+| `Avatar` / `TEEP Stage` / `Self Targeting` / `Valence Zone` properties | **None.** Still think them through — they decide how the script is written — but they are reported in chat, not filed |
+| `Content Type` = `UGC` | **None.** The database is the content type |
+| `Category`, `Status`, `Editor`, `Strategist`, `Offer` properties | **None.** `Offer` exists, but as a row in the header table |
+| Naming-convention Google Sheet (`HPT085_VID_…`) | **Not used.** This database has its own creator-facing naming convention — see below |
+| Page icon ⚡ | **✏️** |
+
+**Do not file a UGC script in the Video Brief database**, and do not run the Zapier naming-sheet
+procedure for one. Those belong to `/competitor-ad-swipe` and the AI-VO pipeline.
+
+## Page title
+
+```
+<Creator Name>-<Concept>
+```
+
+Live examples: `Hayden Bender-Fight-or-flight`, `Kenzie Williams-Fight-or-flight`,
+`Lauren DeCicco-Fight-or-flight`, `Clayton Stakelbeck-Fight-or-flight`.
+
+Hyphen, no spaces around it. Icon **✏️**, matching the template and every existing brief.
+
+**One page per creator.** Four creators shooting the same concept is four pages, which is exactly
+what the existing four are. The concept name repeats; the creator name is what makes it unique.
+
+## Page body — copy the template
+
+Duplicate `✏️ TEMPLATE` and fill it. Do not rebuild the layout from scratch and do not reorder it
+— the standing callouts are the team's instructions to creators and every brief carries them
+identically.
+
+Structure, in order:
+
+```
+<table header-column>   Content Creator · Product · Event · Inspo link · Offer
+# Content Brief          standing paragraph
+callout 🎥 gray_bg       Shooting Specifications — standing, do not edit
+callout 💡 gray_bg       HOW TO UPLOAD CONTENT — standing, do not edit
+# Storyboard / Shot List
+## A-ROLL/SCRIPT
+## A-Roll (TALKING HEAD)
+### Script 1                ← Hooks, then Main Body
+### Script 2                ← Hooks, then Main Body
+## B-ROLLS | SHOTLIST       ← the 10 general clips
+## File Naming Convention   standing, with the hook count corrected
+```
+
+### The header table
+
+| Row | Fill with |
+|---|---|
+| `Content Creator` | The creator's name. The only row filled in on the existing briefs |
+| `Product` | The product this brief is for. **The template and all four live briefs say `Hoolest Mini`** — confirm which product before filing rather than assuming VeRelief Prime |
+| `Event` | `Launch` in the live briefs. `Evergreen` otherwise |
+| `Inspo link` | A reference ad if the concept came from one. Leave empty otherwise |
+| `Offer` | `20% OFF` in the live briefs. Pull the live offer from Shopify |
+
+### Two scripts per page
+
+**`Script 1` and `Script 2` are two sections of one brief page**, not two pages. The template ships
+with both headings for exactly this reason: one creator, one shoot, two scripts.
+
+Under each: `#### Hooks`, then `#### Main Body`. The two scripts must differ in framework and in
+angle+avatar — see the skill.
+
+### The shotlist is the clip bank
+
+`B-ROLLS | SHOTLIST` is a three-column table, header row `orange_bg`:
+
+| Shotlist | Visual description | INSPO |
 |---|---|---|
-| `Concept Name` | title, house style, no em-dashes, no avatar suffix — it goes into filenames | — |
-| `Creative ID` | `HPT<nnn>`, next in sequence | — |
-| `Content Type` | **`UGC`** | **differs** — `AI VO` is the AI-voiceover default |
-| `Category` | `New`, or `Iteration` when reworking an existing concept | **see the warning below** |
-| `Product` | `VeRelief Prime` | — |
-| `Format` | `VID` | — |
-| `Status` | `Conceptualizing`, or `Brief In progress` once the script is complete | — |
-| `Strategist` | `Mark` | — |
-| `Editor` | `JM` | — |
-| `Avatar` | `Wired Lifer` / `Sleep Struggler` / `HRV Hunter` / **`Off-Ramper`** / `Multi` | — |
-| `TEEP Stage` | `a - Trigger` / `b - Exploration` / `c - Evaluation` / `d - Purchase` | — |
-| `Self Targeting` | `A - Actual Self` / `B - Ideal Self` / `C - Ought Self` | — |
-| `Valence Zone` | full option string — see below | — |
-| `Landing Page` | set it — UGC points somewhere specific | **differs**: worth filling here |
-| `Event` | `Evergreen` unless seasonal | — |
-| `Offer` | `NA` / `20OFF` / `15%OFF` | — |
-| Leave unset | `Assign`, `Performance`, `Winning version`, `Delivery link` | — |
 
-## Values that bite
+**The template ships with 8 rows. We file 10** — the ten general clips, one per row. Extend the
+table; the row count is not sacred, the ten clips are.
 
-**`Category` has only two options: `New` and `Iteration`.** There is no `Adaptation` option in
-this database, despite what the competitor-ad-swipe map says — that was verified against the live
-schema and the swipe map is wrong on this one field. Writing an option that does not exist either
-fails the call or silently adds a new option to the team's database. Use `New` for an original
-UGC concept and `Iteration` for a rework of an existing one. **Raise the `Adaptation` discrepancy
-with Mark rather than adding the option.**
+> **Each row needs a section NAME, not just a number.** The file-naming convention at the bottom
+> of the page is `BRoll_<section>`, and *"the name of 'section' can be found in the Shotlist
+> above"*. A numbered row with no name gives the creator nothing to name the file after. Put the
+> name at the front of the `Visual description` cell — `**Struggle** — jaw set, shoulders up…`.
+> The template's own examples are `BRoll_Struggle`, `BRoll_Frustration`,
+> `BRoll_Physical discomfort`.
 
-**`Content Type` is a free-text property, not a select.** `UGC` needs no schema change, but
-nothing validates it either — a typo lands silently and then propagates into every filename.
-Write it exactly `UGC`.
+Section names for the standing ten are in `general-clips.md`.
 
-**`Avatar` is `Off-Ramper`, with a capital R.** The brand brief and `config/competitors.yml`
-both write `Off-ramper`. The Notion select option is `Off-Ramper`; that spelling wins for writes.
+## File naming — and the one fix the template needs
 
-**`Valence Zone` options are the full descriptive strings**, not `Zone 1`:
+The naming block is creator-facing and stays as it is, **except for the hook count and script
+scoping.**
+
+The template reads:
 
 ```
-Zone 1 — Cozy/Calm/Supportive (Positive + Low Intensity)
-Zone 2 — Joy/Hype/Excitement (Positive + High Intensity)
-Zone 3 — Frustration/Fatigue/Irritation (Negative + Low Intensity)
-Zone 4 — Fear/Panic/Loss (Negative + High Intensity)
+Please film the 3 hooks separately to the body
+- Talkinghead_hook1
+- Talkinghead_hook2
+- Talkinghead_hook3
 ```
 
-The naming sheet takes only the zone **number** (`Z3`). The Notion property takes the whole
-string. They are the same field in two formats.
+Two problems once a page carries two scripts:
 
-**`Format` has exactly one option, `VID`.** Statics do not live in this database.
+1. **`Talkinghead_hook1` is ambiguous.** Script 1's first hook and Script 2's first hook get the
+   same filename. Scope it: **`Talkinghead_S1_hook1`** … **`Talkinghead_S2_hook3`**, plus
+   `Talkinghead_S1_body` and `Talkinghead_S2_body`.
+2. **The count must match what is actually written.** `hooks_per_script` in
+   `config/ugc-scripting.yml` is **3**, matching this template. If that ever changes, the naming
+   block changes with it — a brief asking for three hooks and listing four is how a creator
+   delivers the wrong number of takes.
 
-**`Landing Page` options**, undocumented in the base map:
+> **Flagged for Mark:** the Video Brief pipeline standardises on **four** hook variants per
+> concept; this template asks for **three**. Both are defensible, but they should not disagree by
+> accident. The UGC pipeline follows this template until told otherwise.
 
-```
-Fight-or-Flight Founder Story · Fight-or-Flight Listicle · Racing mind to Asleep
-Stress to Control · Sleep Listicle · Home Page
-```
-
-**`Editor` options**: `JM`, `Jovanna`, `Diego`, `Ronak`, `Nick`. **`Strategist`**: `Mark`,
-`Nick`, `Ronak`.
-
-## Page body — UGC layout
-
-Same top as every brief. The script tables are where it diverges: a creator is told what to
-**say** and what to **do**, in that order, so `Spoken` leads.
-
-```
-<table>  ← Batch name / Folder name
-File naming
-<table>  ← one row per hook variant (four)
-
-### CREATOR DIRECTION
-Avatar · Location · Wardrobe · Camera · Energy · Disclosure · Must capture
-
-### B-ROLL
-- device in hand, close
-- device applied, second angle
-- the moment before, no device in frame
-- hands doing something ordinary nearby
-
-### GLOSSARY
-Super = Black text on white box · Caption = White text on black box · VO = off-camera line
-
----
-## Creative Brief Instruction
-
-**HOOK ×4**
-| Spoken | Shot / Action | Note |
-
-**BODY**
-| Spoken | Shot / Action | Note |
-
-**CTA**
-| Spoken | Shot / Action | Note |
-```
-
-Header rows keep the house colours: HOOK `green_bg`, BODY `orange_bg`, CTA `blue_bg`. `<br>` for
-line breaks inside a cell, `SUPER:` to prefix on-screen text.
-
-**The four hooks go in one HOOK table**, one row per variant, numbered to match the file-name
-rows. Four hooks, four file rows, four takes — if those three numbers disagree the creator shoots
-the wrong thing.
-
-**No AD INSPO section** unless the script was built from a specific reference ad. There is no
-TrendTrack share link for an original concept, and an empty heading is worse than none.
-
-Page icon: **⚡**, template default, every brief.
+B-roll naming is unchanged: `BRoll_<section>`, one per shotlist row, ten of them.

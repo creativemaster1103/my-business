@@ -1,12 +1,11 @@
 # Hoolest — business automations
 
-Video briefing strategy. Two pipelines, both ending in the same Notion **Video Brief** database
-and the same `HPT` numbering:
+Video briefing strategy. Two pipelines, two Notion destinations:
 
-| Skill | Sources from | Output reads as |
-|---|---|---|
-| [`/competitor-ad-swipe`](#competitor-ad-swipe) | Competitor ads running 30+ days | AI-voiceover editor cut sheet |
-| [`/ugc-scripting`](#ugc-scripting) | Our own customers' words | Creator shoot script |
+| Skill | Sources from | Files into | Output reads as |
+|---|---|---|---|
+| [`/competitor-ad-swipe`](#competitor-ad-swipe) | Competitor ads running 30+ days | **Video Brief** database | AI-voiceover editor cut sheet |
+| [`/ugc-scripting`](#ugc-scripting) | Our own customers' words | **UGC Brief Database** | Creator shoot brief |
 
 ## Competitor Ad Swipe
 
@@ -100,15 +99,49 @@ stretch. Until that is confirmed, the conservative set stands.
 
 ## UGC Scripting
 
-Automates: **mine what our customers actually said → pick a proven UGC framework → write a
-creator-shootable script → file it in Notion.**
+Automates: **mine what our customers actually said → clear four strategy gates → write two
+creator-shootable scripts and a ten-clip shotlist → file it in the UGC Brief Database.**
+
+### Every brief ships 2 scripts and 10 general clips
+
+One page, one creator, two scripts, ten clips.
+
+The two scripts live in the `Script 1` / `Script 2` sections the team's Notion template already
+carries, and must differ in framework **and** in persona+angle — two angles onto one persona is
+one script with extra steps. Each gets **3 hooks** and a body, matching the template's own naming
+block (`film the 3 hooks separately to the body`).
+
+The ten clips go in the `B-ROLLS | SHOTLIST` table, one per row, and are captured once for both
+edits. The test for "general" is blunt: **if it cannot be cut into both scripts, it is not a
+general clip** — it is script b-roll, and it does not count toward the ten. Each row carries a
+section name, because the creator names the file `BRoll_<section>`.
+
+### The four gates
+
+**Nothing gets written until all four are resolved, per script.**
+
+| Gate | Source |
+|---|---|
+| **Persona** | The `Official Persona` toggle on Notion's `👤 Buying Persona` page — read live, never from a copy |
+| **Awareness level** | Unaware → Most-Aware, read off the persona's buying behaviour |
+| **Core Desire** | One of the Life Force 8, from the toggle on the same page |
+| **Ad Angle** | *Optional to be given* — derived from the persona's pain / desire / fear, and stated |
+
+They are a gate, not a worksheet. A script started before they are settled is written to nobody
+in particular, and it reads that way.
+
+The persona page carries eight personas and a second toggle naming four of them as the approved
+set for locked creative — Wired Lifer, Lights-Out Loser, HRV Hunter, Off-Ramper. Those four are
+the default; the other four need Mark's go-ahead. **The Off-Ramper carries a standing compliance
+hold**: body-state language only, Nick's sign-off, and no anti-medication framing in paid — the
+persona is drawn to exactly the framing that carries the risk.
 
 ### Why voice of customer
 
 The sibling pipeline mines what *competitors* proved in the auction. This one mines what *our
 buyers* already wrote. A review that says "I was sceptical because I'd already wasted money on a
-breathing app" is a hook, an objection and a proof beat in one sentence — pre-validated in a way
-ideation never is. Copywriters invent objections; customers state them.
+breathing app" is a hook, an objection and a proof beat in one sentence. Copywriters invent
+objections; customers state them.
 
 The 3- and 4-star reviews carry the information. Five-star reviews are congratulation.
 
@@ -116,14 +149,17 @@ The 3- and 4-star reviews carry the information. Five-star reviews are congratul
 
 ```
 Okendo + Parker + Gorgias  →  quote bank (15-25 verbatim lines, tagged hook/objection/proof)
-      ↓  cluster by what the person was trying to do
-ugc-video-frameworks skill →  pick the framework the evidence points at
       ↓
-script                     →  Spoken / Shot-Action / Note, 4 hook mechanisms
+Official Persona (Notion)  →  FOUR GATES: persona · awareness · core desire · angle
+      ↓  blocking — nothing is written until these are stated
+ugc-video-frameworks skill →  two frameworks, one per script, paired to share one clip bank
+      ↓
+2 scripts × 3 hooks        →  Spoken / Shot-Action / Note
+10 general clips           →  one shotlist serving both
       ↓  brand compliance gate + endorsement gate
-Shopify                    →  live price/offer
+Shopify                    →  live price/offer for the header table
       ↓
-Notion MCP                 →  Video Brief page, Content Type `UGC`
+Notion MCP                 →  duplicate ✏️ TEMPLATE, fill, file as `<Creator>-<Concept>`
 ```
 
 ### Run it
@@ -132,16 +168,15 @@ Notion MCP                 →  Video Brief page, Content Type `UGC`
 /ugc-scripting
 ```
 
-Or scope it: `/ugc-scripting two scripts for Sleep Struggler`, `/ugc-scripting from the
-post-purchase survey`.
+Or scope it: `/ugc-scripting for Hayden Bender, Lights-Out Loser`,
+`/ugc-scripting from the post-purchase survey`.
 
 ### Required connectors
 
-- **Notion** — destination, and the record of what has already been scripted
+- **Notion** — persona source, destination, and the record of what has been scripted
 - **Okendo** — product reviews
 - **Parker** — semantic review search, post-purchase survey, ad comments
 - **Shopify** — live price/offer
-- **Zapier** — writes the naming-convention sheet (the Drive connector is read-only)
 - **Gorgias** — optional, but support tickets are the best source of unspoken objections
 
 ### Files
@@ -149,13 +184,15 @@ post-purchase survey`.
 | Path | What |
 |---|---|
 | `.claude/skills/ugc-scripting/SKILL.md` | The pipeline |
-| `.claude/skills/ugc-scripting/references/ugc-creator-brief.md` | Casting, shoot direction, **endorsement gate** |
-| `.claude/skills/ugc-scripting/references/voice-of-customer.md` | Where the quotes are and how to judge one |
-| `.claude/skills/ugc-scripting/references/notion-map-ugc.md` | Property deltas + live option values |
-| `config/ugc-scripting.yml` | Quote-bank floor, framework lookback, shoot defaults |
+| `references/four-gates.md` | Persona, awareness, core desire, angle — and how to derive an angle |
+| `references/voice-of-customer.md` | Where the quotes are and how to judge one |
+| `references/general-clips.md` | The standing ten, their section names, capture notes |
+| `references/ugc-creator-brief.md` | Casting, delivery, **endorsement gate** |
+| `references/notion-map-ugc.md` | The destination page, the template, and what does *not* apply |
+| `config/ugc-scripting.yml` | Gates, quote-bank floor, the ten clips, shoot defaults |
 
-It reuses the brand brief and the naming generator from `competitor-ad-swipe/references/` rather
-than copying them — same product, same claim set, same file-naming sheet.
+It reuses the brand brief from `competitor-ad-swipe/references/` rather than copying it — same
+product, same approved claim set.
 
 ### The endorsement gate
 
@@ -165,18 +202,32 @@ defence when we wrote the script. The gate covers personal-outcome claims, typic
 placement, costume authority, and the rule that a customer review is never handed to a creator as
 their own experience.
 
-Both gates run on every script. A script that fails either is fixed or dropped — never watered
-down to hit the count.
+Both compliance gates run on every script. One that fails either is fixed or dropped — never
+watered down to hit the count.
 
 ### What it deliberately does not do
 
+- **Never writes before the four gates are clear.** No persona, awareness level and core desire,
+  no script.
 - **Never invents a customer quote, review or statistic.** If the connectors return nothing, the
   run reports that and stops.
 - Never puts a review verbatim into a creator's mouth as their own experience.
-- Never files fewer than four hook variants, or a hook without a matching file-name row.
-- Never creates an Ad Creative Pipeline row, and never edits an existing brief.
+- Never files a UGC script in the Video Brief database, and never runs the `HPT` naming sheet for
+  one — that database has no properties, no creative ID and its own creator-facing naming.
+- Never edits the standing `Shooting Specifications` or `HOW TO UPLOAD CONTENT` callouts.
+- Never edits an existing brief.
 
-**Still open:** the Video Brief `Category` property has only two options, `New` and `Iteration` —
-there is no `Adaptation`, despite what `competitor-ad-swipe/references/notion-map.md` instructs.
-Verified against the live schema 2026-09-16. The UGC pipeline uses `New`; the swipe pipeline's
-mapping needs Mark's call on which value competitor-derived briefs should carry.
+### Two things flagged, not decided
+
+**Hook count.** The Video Brief pipeline standardises on **four** hook variants per concept; the
+UGC template's naming block asks for **three**. The UGC pipeline follows its own template. Both
+are defensible — they just should not drift apart by accident.
+
+**`Category` in the Video Brief database** has only two options, `New` and `Iteration`. There is
+no `Adaptation`, despite what `competitor-ad-swipe/references/notion-map.md` instructs — verified
+against the live schema 2026-09-16. That pipeline's mapping needs Mark's call on which value
+competitor-derived briefs should carry. It does not affect UGC briefs, which have no properties
+at all.
+
+**Product.** The UGC template and all four existing briefs say `Hoolest Mini`, not
+`VeRelief Prime`. The pipeline confirms the product before filing rather than assuming.
