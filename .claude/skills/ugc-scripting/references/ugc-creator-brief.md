@@ -113,10 +113,15 @@ What the callout does not cover, and what we specify instead:
 | **Location** | The room where the problem actually happens | A clean neutral wall says nothing. Clean ≠ characterless |
 | **Wardrobe** | What they already own, no logos | Styled wardrobe breaks the premise |
 | **Energy** | Low and flat. Talking, not presenting | The category sells calm |
-| **Takes** | One continuous take per hook | Cutaways every two seconds signal an edit |
+| **Takes** | One continuous take per hook — **five hooks per script** | Cutaways every two seconds signal an edit |
+| **Rig** | Phone propped against books or a mug when both hands are needed | There is no tripod and no second person. Say which in the brief |
 
 The ten B-roll clips every shoot captures are in `general-clips.md` — they go in the brief's
 `B-ROLLS | SHOTLIST` table, one per row, and serve both scripts on the page.
+
+**Everything is shot alone on an iPhone in about fifteen minutes.** No crew, no tripod, no second
+phone, no lighting kit, nothing they have to buy. A direction they cannot physically execute alone
+comes back missing, and nobody finds out until the edit.
 
 ## Delivery
 

@@ -108,13 +108,35 @@ One page, one creator, two scripts, ten clips.
 
 The two scripts live in the `Script 1` / `Script 2` sections the team's Notion template already
 carries, and must differ in framework **and** in persona+angle — two angles onto one persona is
-one script with extra steps. Each gets **3 hooks** and a body, matching the template's own naming
-block (`film the 3 hooks separately to the body`).
+one script with extra steps. Each gets **5 hooks** and a body, so **10 hook takes and 2 body
+takes** per page.
 
-The ten clips go in the `B-ROLLS | SHOTLIST` table, one per row, and are captured once for both
-edits. The test for "general" is blunt: **if it cannot be cut into both scripts, it is not a
-general clip** — it is script b-roll, and it does not count toward the ten. Each row carries a
-section name, because the creator names the file `BRoll_<section>`.
+Five genuinely different *mechanisms*, not five rewordings — a reworded hook tests nothing. The
+pipeline picks five from eight (in medias res, direct callout, objection-first, reframe,
+confession, demonstration-first, contrast, failed-alternative) and the two scripts may share at
+most two, so the ten hooks stay varied instead of converging.
+
+### The clips are shot alone, on an iPhone, in fifteen minutes
+
+There is no production shoot. Every one of the ten has to survive one test:
+
+> Could they shoot it **alone, in their kitchen, in under a minute**, without moving furniture or
+> asking anyone for help?
+
+So: one person, one iPhone. No second operator, no second phone, no tripod, no gimbal, no
+lighting kit, no macro lens. Nothing to buy — only the device and things already in their home.
+One take, 6–8 seconds. Nothing shot on a phone screen, because they're filming *with* the phone —
+a screen means a laptop, a TV or a wall calendar.
+
+**Every row says whether the phone is handheld or propped.** Five of the ten need both of the
+creator's hands, which means the phone goes against a stack of books or a mug. Leaving that unsaid
+is the single most common reason a clip comes back missing.
+
+Each row is written as an instruction in the second person — *"prop the phone and sit how you
+actually sit at 4pm"*, not *"evocative shot conveying low-grade tension"*. The test for "general"
+is blunt: **if it cannot be cut into both scripts, it is not a general clip** — it is script
+b-roll, and it does not count toward the ten. Each row carries a section name, because the creator
+names the file `BRoll_<section>`.
 
 ### First question: specific creator, or general?
 
@@ -174,8 +196,8 @@ Official Persona (Notion)  →  FOUR GATES: persona · awareness · core desire 
       ↓  blocking — nothing is written until these are stated
 ugc-video-frameworks skill →  two frameworks, one per script, paired to share one clip bank
       ↓
-2 scripts × 3 hooks        →  Spoken / Shot-Action / Note
-10 general clips           →  one shotlist serving both
+2 scripts × 5 hooks        →  Spoken / Shot-Action / Note
+10 general clips           →  one shotlist, iPhone-only, serving both
       ↓  brand compliance gate + endorsement gate
 Shopify                    →  live price/offer for the header table
       ↓
@@ -242,9 +264,10 @@ watered down to hit the count.
 
 ### Flagged, not decided
 
-**Hook count.** The Video Brief pipeline standardises on **four** hook variants per concept; the
-UGC template's naming block asks for **three**. The UGC pipeline follows its own template. Both
-are defensible — they just should not drift apart by accident.
+**Hook count — three conventions in play.** The UGC template's standing naming block says
+**three** hooks, the Video Brief pipeline uses **four**, and this pipeline now writes **five**.
+Five is what it follows, and the naming block gets corrected on every brief — but the template
+should be updated at source so the fix is not made by hand each time.
 
 **`Category` in the Video Brief database** has only two options, `New` and `Iteration`. There is
 no `Adaptation`, despite what `competitor-ad-swipe/references/notion-map.md` instructs — verified

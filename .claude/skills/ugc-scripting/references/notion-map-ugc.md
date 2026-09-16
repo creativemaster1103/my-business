@@ -103,6 +103,10 @@ angle+avatar — see the skill.
 **The template ships with 8 rows. We file 10** — the ten general clips, one per row. Extend the
 table; the row count is not sacred, the ten clips are.
 
+**Each cell is an instruction the creator can act on alone with an iPhone**, and states whether
+the phone is handheld or propped. There is no crew and no production shoot — see
+`general-clips.md` for the execution rules every row obeys.
+
 > **Each row needs a section NAME, not just a number.** The file-naming convention at the bottom
 > of the page is `BRoll_<section>`, and *"the name of 'section' can be found in the Shotlist
 > above"*. A numbered row with no name gives the creator nothing to name the file after. Put the
@@ -126,18 +130,27 @@ Please film the 3 hooks separately to the body
 - Talkinghead_hook3
 ```
 
-Two problems once a page carries two scripts:
+Two things are wrong with it now:
 
-1. **`Talkinghead_hook1` is ambiguous.** Script 1's first hook and Script 2's first hook get the
-   same filename. Scope it: **`Talkinghead_S1_hook1`** … **`Talkinghead_S2_hook3`**, plus
-   `Talkinghead_S1_body` and `Talkinghead_S2_body`.
-2. **The count must match what is actually written.** `hooks_per_script` in
-   `config/ugc-scripting.yml` is **3**, matching this template. If that ever changes, the naming
-   block changes with it — a brief asking for three hooks and listing four is how a creator
+1. **The count is three; we write five.** `hooks_per_script` is **5**. Rewrite the block on every
+   brief to list five. A brief asking for three hooks while five are written is how a creator
    delivers the wrong number of takes.
+2. **`Talkinghead_hook1` is ambiguous** once a page carries two scripts — Script 1's first hook
+   and Script 2's first hook get the same filename.
 
-> **Flagged for Mark:** the Video Brief pipeline standardises on **four** hook variants per
-> concept; this template asks for **three**. Both are defensible, but they should not disagree by
-> accident. The UGC pipeline follows this template until told otherwise.
+So the block each brief carries is:
+
+```
+Please film the 5 hooks separately to the body, for each script
+- Talkinghead_S1_hook1 … Talkinghead_S1_hook5
+- Talkinghead_S1_body
+- Talkinghead_S2_hook1 … Talkinghead_S2_hook5
+- Talkinghead_S2_body
+```
+
+> **Flagged for Mark:** three conventions are now in play — this template's standing text says
+> **three** hooks, the Video Brief pipeline uses **four**, and the UGC pipeline writes **five**.
+> Five is what Mark asked for and what the pipeline follows; the template's standing text should
+> be updated at source so the correction is not made by hand on every brief.
 
 B-roll naming is unchanged: `BRoll_<section>`, one per shotlist row, ten of them.

@@ -4,16 +4,33 @@
 # EVERY BRIEF SHIPS: 2 scripts + 10 general clips, on one page.
 #
 # Both scripts live on the same brief page, in the `Script 1` / `Script 2`
-# sections the Notion template already carries. 2 scripts x 3 hooks = 6 hook
+# sections the Notion template already carries. 2 scripts x 5 hooks = 10 hook
 # takes + 2 body takes, plus one shotlist of 10 clips serving both.
 scripts_per_brief: 2
-hooks_per_script: 3
+hooks_per_script: 5
 general_clips_per_brief: 10
 
-# NOTE: the Video Brief (AI-VO) pipeline standardises on FOUR hook variants.
-# This template's naming block asks for THREE ("film the 3 hooks separately to
-# the body"), so the UGC pipeline follows the template. Flagged for Mark —
-# the two conventions should not drift apart by accident.
+# The Notion template's standing naming block says THREE hooks. That number is
+# now wrong — correct it to five on every brief. A brief asking for three while
+# five are written is how a creator delivers the wrong number of takes.
+# (The Video Brief / AI-VO pipeline uses four. Three separate conventions is
+# one too many; raise it with Mark.)
+correct_template_hook_count_to: 5
+
+# Five genuinely different mechanisms, not five rewordings. A reworded hook
+# tests nothing. Pick five of these eight per script.
+hook_mechanisms:
+  - in_medias_res        # mid-sentence, mid-action, already using it
+  - direct_callout       # names the viewer's situation in the first four words
+  - objection_first      # leads with the reason not to buy, then dismantles it
+  - reframe              # says the thing the category never says out loud
+  - confession           # admits something slightly unflattering
+  - demonstration_first  # does the thing on camera before saying anything
+  - contrast             # "everyone says X" -> the actual answer
+  - failed_alternative   # opens on the thing that did not work, in frame
+
+# So the ten hooks across the page stay varied rather than converging.
+max_shared_hook_mechanisms_between_scripts: 2
 
 # The two scripts must be genuinely different, not two angles on one idea.
 enforce_distinct_framework_within_brief: true
@@ -22,6 +39,8 @@ enforce_distinct_persona_angle_within_brief: true
 # Never relaxed automatically. Dropping any of these is lowering the bar.
 never_relax_without_approval:
   - four gates cleared before writing
+  - five distinct hook mechanisms per script
+  - every clip shootable alone on an iPhone
   - brand compliance gate
   - endorsement gate
   - two distinct scripts per brief
@@ -137,32 +156,53 @@ confirm_product_before_filing: true
 # Creator-facing file naming. The template's example is `Talkinghead_hook1`,
 # which is ambiguous once a page carries two scripts — scope it to the script.
 file_naming:
-  a_roll_hook: "Talkinghead_S<script>_hook<n>"
+  a_roll_hook: "Talkinghead_S<script>_hook<n>"   # n = 1..5
   a_roll_body: "Talkinghead_S<script>_body"
-  b_roll: "BRoll_<section>"
+  b_roll: "BRoll_<section>"                      # 10 of them
 
 # --- The 10 general clips --------------------------------------------------
+# ONE PERSON, ONE IPHONE, NO CREW. The creators are not running a production
+# shoot — they have a phone, the room they live in, and about fifteen minutes.
+# A clip they cannot execute alone comes back missing, and nobody finds out
+# until the edit.
+#
+# The test: could they shoot it, alone, in their kitchen, in under a minute,
+# without moving furniture or asking anyone for help?
+clip_execution_rules:
+  crew: None. One person, one iPhone
+  never_required: [second camera operator, second phone, tripod, gimbal, lighting kit, macro lens]
+  props: Only the device, the gel tips, and things already in their home
+  take: One continuous take, no choreography, no timing to hit
+  editing: None. Raw clips, no filters, no colour grading, no speed ramps
+  screens: Never a phone screen — they are filming WITH the phone. Laptop, TV or wall calendar
+  phone_position_must_be_stated: true   # handheld, or propped against books/a mug/a wall
+
 # One per B-ROLLS | SHOTLIST row. The template ships 8 rows; extend to 10.
 # The test for "general" is that BOTH scripts can use it — a clip serving only
 # one is script b-roll and does not count toward the ten.
 #
 # `section` is what the creator names the file after (BRoll_Struggle), so it
-# goes in bold at the front of the Visual description cell. Full spec, with
-# why each earns its place, is in references/general-clips.md.
+# goes in bold at the front of the Visual description cell. `clip` is written
+# as an instruction in the second person, because that is what gets pasted in.
+# Full spec in references/general-clips.md.
 general_clips:
-  - {n: 1,  section: Device,       clip: Device close in hand, unbranded surface, slow turn,      cuts_in: hook}
-  - {n: 2,  section: Application,  clip: Device applied correctly, second angle, no face,         cuts_in: body}
-  - {n: 3,  section: Struggle,     clip: Before state — jaw set, shoulders up, staring. No device, cuts_in: hook}
-  - {n: 4,  section: Relief,       clip: The exhale. Shoulders drop. Held long, no cut,           cuts_in: body}
-  - {n: 5,  section: Alternatives, clip: Failed alternative in frame — cold tea, wine, app open,  cuts_in: body}
-  - {n: 6,  section: Portability,  clip: Device out of a bag, pocket or drawer, one motion,       cuts_in: body}
-  - {n: 7,  section: Trigger,      clip: Trigger on screen — 3am phone, packed calendar, inbox,   cuts_in: hook}
-  - {n: 8,  section: Gel tip,      clip: Gel tip detail, macro, texture,                          cuts_in: body}
-  - {n: 9,  section: Everyday,     clip: Hands doing something ordinary — laptop, kettle, phone,  cuts_in: any}
-  - {n: 10, section: Aftermath,    clip: Back to it — returns to desk or bed, settled. No device, cuts_in: cta}
+  - {n: 1,  section: Device,       phone: handheld, cuts_in: hook, clip: "Hold the device in one hand over a plain table. Turn it over slowly once"}
+  - {n: 2,  section: Application,  phone: propped,  cuts_in: body, clip: "Prop the phone. Use the device the way you normally do. Face out of frame"}
+  - {n: 3,  section: Struggle,     phone: propped,  cuts_in: hook, clip: "Prop the phone at your desk. Sit how you actually sit at 4pm. Do nothing for 8 seconds"}
+  - {n: 4,  section: Relief,       phone: propped,  cuts_in: body, clip: "Same setup as Struggle. Let one long breath out and let your shoulders drop"}
+  - {n: 5,  section: Alternatives, phone: handheld, cuts_in: body, clip: "Point the phone at what you tried before — cold tea, a wine glass, an app open on a laptop"}
+  - {n: 6,  section: Portability,  phone: handheld, cuts_in: body, clip: "Bag on the table. Reach in with one hand and pull the device out. One motion"}
+  - {n: 7,  section: Trigger,      phone: handheld, cuts_in: hook, clip: "Film a laptop screen, TV or wall calendar — a packed week, a full inbox, a clock at 3am"}
+  - {n: 8,  section: Gel tip,      phone: handheld, cuts_in: body, clip: "Hold a gel tip as close to the lens as the phone will still focus. Turn it slightly"}
+  - {n: 9,  section: Everyday,     phone: propped,  cuts_in: any,  clip: "Prop the phone. Film your hands doing something ordinary — typing, making tea, phone face-down"}
+  - {n: 10, section: Aftermath,    phone: propped,  cuts_in: cta,  clip: "Prop the phone. Walk back to the desk or get into bed, settled, and carry on. No device in frame"}
 
 general_clip_must_serve_both_scripts: true
 hold_each_clip_seconds: [6, 8]
+
+# Do not ask for a wide AND a close of everything — that doubles a fifteen
+# minute job and the second version rarely gets used.
+takes_per_clip: 1
 
 # --- Creator shoot defaults ------------------------------------------------
 # The brief's own standing `Shooting Specifications` callout governs the

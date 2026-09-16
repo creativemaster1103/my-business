@@ -1,6 +1,6 @@
 ---
 name: ugc-scripting
-description: Write creator-ready UGC video scripts for Hoolest — two scripts plus a ten-clip B-roll shotlist per brief, for a named content creator or as a general unassigned brief, sourced from customer language and gated on persona, awareness level, core desire and ad angle — and file them in the Notion UGC Brief Database. Use when the user asks for a UGC script, a creator script, a script for a specific creator, a talking-head ad, a testimonial ad, to script a creator shoot, or to run the UGC batch.
+description: Write creator-ready UGC video scripts for Hoolest — two scripts of five hooks each plus a ten-clip iPhone-shootable B-roll shotlist per brief, for a named content creator or as a general unassigned brief, sourced from customer language and gated on persona, awareness level, core desire and ad angle — and file them in the Notion UGC Brief Database. Use when the user asks for a UGC script, a creator script, a script for a specific creator, a talking-head ad, a testimonial ad, to script a creator shoot, or to run the UGC batch.
 ---
 
 # UGC Scripting → UGC Brief Database
@@ -12,10 +12,11 @@ in the Notion **UGC Brief Database** off the team's own template.
 >
 > **2 scripts**, genuinely different — different framework, different persona+angle pairing. Both
 > live on **one** brief page, in the `Script 1` and `Script 2` sections the template already
-> carries. Each gets **3 hooks** and a main body.
+> carries. Each gets **5 hooks** and a main body — so **10 hook takes and 2 body takes**.
 >
 > **10 general clips**, one per `B-ROLLS | SHOTLIST` row, captured once and cuttable into
-> **either** script. Spec in `references/general-clips.md`.
+> **either** script. **Shot alone on an iPhone in fifteen minutes** — there is no production
+> shoot. Spec in `references/general-clips.md`.
 >
 > One page, one creator, two scripts, ten clips. Two scripts without the clip bank is an
 > incomplete brief, and so is a clip bank shot for only one of them.
@@ -66,7 +67,7 @@ This is the sibling of `/competitor-ad-swipe`, and the two differ in almost ever
 | Source | Competitor ads running 30d+ | Customer reviews, surveys, support tickets, ad comments |
 | Destination | **Video Brief** database | **UGC Brief Database** page |
 | Output | Editor cut sheet | **Creator shoot brief** — spoken lines + shotlist |
-| Per brief | 1 concept, 4 hooks | **2 scripts, 3 hooks each, 10 clips** |
+| Per brief | 1 concept, 4 hooks | **2 scripts, 5 hooks each, 10 clips** |
 | Creative ID | `HPT<nnn>` | **none** — no properties in this database |
 | File naming | Google Sheets generator | **`Talkinghead_S1_hook1` / `BRoll_<section>`** |
 | Page icon | ⚡ | **✏️** |
@@ -110,7 +111,7 @@ Record the mode. Every later step branches on it.
 
 ### 2. Load the config
 
-Read `config/ugc-scripting.yml` for `scripts_per_brief` (2), `hooks_per_script` (3),
+Read `config/ugc-scripting.yml` for `scripts_per_brief` (2), `hooks_per_script` (5),
 `general_clips_per_brief` (10), `framework_lookback` and the shoot defaults. A user instruction
 overrides the file.
 
@@ -212,13 +213,13 @@ Rules that hold for every UGC script:
 Casting, delivery and energy direction are in `references/ugc-creator-brief.md`. The template's
 own **Shooting Specifications** callout governs the technical side — do not contradict it.
 
-### 7. Three hooks per script
+### 7. Five hooks per script
 
-The template's naming block asks the creator to *"film the 3 hooks separately to the body"*.
+> **2 scripts × 5 hooks = 10 hook takes + 2 body takes**, on one page.
 
-> **2 scripts × 3 hooks = 6 hook takes + 2 body takes**, on one page.
-
-Three genuinely different **mechanisms**, not three rewordings:
+Five genuinely different **mechanisms**, not five rewordings of one opening. A reworded hook tests
+nothing — the whole reason for five is to find out which *way in* works, and two hooks that differ
+only in adjectives give you one data point at twice the cost.
 
 | Mechanism | Opens with |
 |---|---|
@@ -226,25 +227,56 @@ Three genuinely different **mechanisms**, not three rewordings:
 | **Direct callout** | Names the viewer's situation in the first four words |
 | **Objection-first** | Leads with the reason not to buy, then dismantles it |
 | **Reframe** | Says the thing the category never says out loud |
+| **Confession** | Admits something slightly unflattering about themselves |
+| **Demonstration-first** | Does the thing on camera before saying anything about it |
+| **Contrast** | "Everyone says X" → the actual answer |
+| **Failed-alternative** | Opens on the thing that did not work, in frame |
 
-Pick three of the four per script, and do not give both scripts the same three.
+Pick **five of the eight** per script. **The two scripts may share at most two mechanisms**, so
+the ten hooks across the page stay genuinely varied rather than converging.
 
-> **Flagged:** the Video Brief pipeline standardises on **four** hook variants; this template asks
-> for **three**. The UGC pipeline follows the template. Raise it with Mark rather than letting the
-> two conventions drift apart by accident.
+If a concept cannot carry five distinct openings, it is the wrong concept — take the next one
+rather than padding with rewordings.
+
+**The naming block must list five**, `Talkinghead_S1_hook1` … `Talkinghead_S1_hook5`. The
+template's standing text says three; that number is now wrong and gets corrected on every brief.
+A brief asking for three hooks while five are written is how a creator delivers the wrong number
+of takes.
 
 ### 8. Build the clip bank
 
 **10 general clips, shared by both scripts.** Read `references/general-clips.md` — the standing
-ten, why each earns its place, their section names, and the capture notes.
+ten, their section names, which need the phone propped, and the capture notes.
 
-The standing ten are the default. Swap one only for a clip that passes the same test:
+**The hard constraint is execution, not concept.** The creators shoot on an iPhone, alone, in
+their own home, in about fifteen minutes. There is no crew and no production shoot. Every clip
+must survive this test:
+
+> Could they shoot it, **alone, in their kitchen, in under a minute**, without moving furniture
+> or asking anyone for help?
+
+Which means, on every clip:
+
+- **One person, one iPhone.** No second operator, no second phone, no tripod, no gimbal, no
+  lighting kit, no macro lens.
+- **Say whether the phone is handheld or propped.** If the clip needs both of the creator's
+  hands, the phone gets propped against books, a mug or a wall — and the brief says so. This is
+  the single most common reason a clip comes back missing.
+- **Nothing to buy.** Only the device, the gel tips, and things already in their home.
+- **One take, 6–8 seconds, no choreography.** No timing to hit, no second angle within a take.
+- **Nothing shot on a phone screen** — they are filming *with* the phone. A screen means a laptop,
+  a TV, or a wall calendar.
+- **Write each row as an instruction in the second person.** "Prop the phone and sit how you
+  actually sit at 4pm" is shootable. "Evocative shot conveying low-grade tension" is not.
+
+The standing ten are the default and already obey all of this. Swap one only for a clip that
+passes both tests — the execution test above, and:
 
 > **If it cannot be cut into both scripts, it is not a general clip.** It is script b-roll, and it
 > does not count toward the ten.
 
 - **No spoken lines in any clip.** The moment a clip carries dialogue it belongs to one script.
-- **Same room, same wardrobe, same phone** as the talking-head footage, or it will not cut in.
+- **Same room, same clothes** as the talking-head footage, or it will not cut in.
 - **Each row needs a section name**, because the creator names the file `BRoll_<section>`.
 - **Run the clips through the compliance gates too.** Footage makes claims — a visible
   prescription bottle implies medication replacement, and a clip showing wrong device placement
@@ -278,9 +310,10 @@ do not rebuild the layout, and do not edit the standing callouts.
 3. **`Script 1` and `Script 2`** — hooks then main body, under the headings already there.
 4. **`B-ROLLS | SHOTLIST`** — extend the template's 8 rows to **10**, one clip each, section name
    in bold at the front of the `Visual description` cell. `INSPO` takes a link or stays empty.
-5. **File Naming Convention** — scope the hook names to the script:
-   `Talkinghead_S1_hook1` … `Talkinghead_S2_hook3`, plus `Talkinghead_S1_body` /
-   `Talkinghead_S2_body`. B-roll stays `BRoll_<section>`.
+5. **File Naming Convention** — the template's standing text says three hooks. **Correct it to
+   five and scope the names to the script**: `Talkinghead_S1_hook1` … `Talkinghead_S2_hook5`,
+   plus `Talkinghead_S1_body` / `Talkinghead_S2_body`. B-roll stays `BRoll_<section>`, ten of
+   them.
 
 **One page per creator.** Four creators shooting the same concept is four pages — which is exactly
 what the existing four are. A general brief is one page that any of them could shoot; if it is
@@ -321,8 +354,10 @@ an awareness level, and the database has no properties to file one in.
 - **Two scripts and ten clips, every brief.** One script is half a brief. Ten clips shot for only
   one of the two is not a clip bank.
 - **The two scripts must differ in framework and in persona+angle.**
-- **Three hooks per script**, matching the template's naming block — and the naming block must
-  match the number actually written.
+- **Five hooks per script**, five distinct mechanisms, at most two shared between the two
+  scripts. The naming block must be corrected to five — the template's standing text says three.
+- **Every clip must be shootable alone on an iPhone in under a minute.** No crew, no tripod, no
+  second phone, no props they do not own. State handheld or propped on every row.
 - **Wrong database is the loudest failure here.** UGC briefs go in the UGC Brief Database, as
   child pages of the template, with icon ✏️ and no properties.
 - **Do not edit the standing callouts** — Shooting Specifications and HOW TO UPLOAD CONTENT are
