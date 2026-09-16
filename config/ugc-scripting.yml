@@ -210,6 +210,12 @@ page_title_format: "<Creator Name>-<Concept>"
 # before filing rather than assuming VeRelief Prime.
 confirm_product_before_filing: true
 
+# The product name is "Hoolest Mini". NEVER "Mini" on its own - in a script, a
+# shotlist or a brief. It is the product name, not a nickname, and a creator
+# who hears "the Mini" will say "the Mini".
+product_name: Hoolest Mini
+never_abbreviate_product_name: true
+
 # Creator-facing file naming. The template's example is `Talkinghead_hook1`,
 # which is ambiguous once a page carries two scripts — scope it to the script.
 file_naming:
@@ -256,9 +262,9 @@ block_clips_per_brief: 7
 freestyle_clips_per_brief: 3
 
 general_clips:
-  - {shotlist: Product Intro,         block: "PRODUCT: Product Introduction", phone: handheld, clip: "Hold the Mini in one hand over a plain table. Turn it over slowly."}
-  - {shotlist: Product Demo,          block: "PRODUCT: Demonstration",        phone: propped,  clip: "Use the Mini just under your ear, face out of frame."}
-  - {shotlist: Product Feature,       block: "PRODUCT: Features/Benefits",    phone: handheld, clip: "Reach into a bag on the table and pull the Mini out. One motion."}
+  - {shotlist: Product Intro,         block: "PRODUCT: Product Introduction", phone: handheld, clip: "Hold the Hoolest Mini in one hand over a plain table. Turn it over slowly."}
+  - {shotlist: Product Demo,          block: "PRODUCT: Demonstration",        phone: propped,  clip: "Use the Hoolest Mini just under your ear, face out of frame."}
+  - {shotlist: Product Feature,       block: "PRODUCT: Features/Benefits",    phone: handheld, clip: "Reach into a bag on the table and pull the Hoolest Mini out. One motion."}
   - {shotlist: Person Problem,        block: "PERSON: Problem Statement",     phone: propped,  clip: "Sit how you actually sit at 4pm. Do nothing for 8 seconds. No device in frame."}
   - {shotlist: Person Failed Alt,     block: "PERSON: Failed Alternative",    phone: handheld, clip: "Point the phone at what you tried before - cold tea, a meditation app, a yoga mat."}
   - {shotlist: Person Desired Result, block: "PERSON: Desired Result",        phone: propped,  clip: "Same setup as Person Problem. Let one long breath out, shoulders drop."}

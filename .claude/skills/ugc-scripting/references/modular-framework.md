@@ -123,7 +123,15 @@ condition-plus-number hook turns on.
 
 **Hoolest Mini is a new product.** Every script carries a launch beat at **Product Introduction**:
 
-> *"Hoolest just launched their newest vagus nerve stimulator."*
+> *"The Hoolest Mini just launched. It's their newest vagus nerve stimulator."*
+
+**The product is `Hoolest Mini`. Never `Mini` on its own**, in a script, a shotlist or a brief —
+it is the product name, not a nickname, and a creator who hears "the Mini" will say "the Mini".
+
+That is also why the launch beat is phrased this way round. The obvious version — *"Hoolest just
+launched their newest vagus nerve stimulator, this is the Hoolest Mini"* — says Hoolest twice in
+two sentences and reads like a press release. Leading with the product name and following with
+the launch fact keeps the full name and sounds like a person.
 
 Then the product intro proper. Rules:
 

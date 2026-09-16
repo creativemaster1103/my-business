@@ -58,9 +58,9 @@ call. See `modular-framework.md` for the blocks.
 
 | Shotlist | Block | Clip — as the creator reads it | Phone |
 |---|---|---|---|
-| **Product Intro** | Product Introduction | Hold the Mini in one hand over a plain table. Turn it over slowly. | handheld |
-| **Product Demo** | Demonstration | Use the Mini just under your ear, face out of frame. | **propped** |
-| **Product Feature** | Features/Benefits | Reach into a bag on the table and pull the Mini out. One motion. | handheld |
+| **Product Intro** | Product Introduction | Hold the Hoolest Mini in one hand over a plain table. Turn it over slowly. | handheld |
+| **Product Demo** | Demonstration | Use the Hoolest Mini just under your ear, face out of frame. | **propped** |
+| **Product Feature** | Features/Benefits | Reach into a bag on the table and pull the Hoolest Mini out. One motion. | handheld |
 | **Person Problem** | Problem Statement | Sit how you actually sit at 4pm — shoulders up, jaw tight. Do nothing for 8 seconds. No device in frame. | **propped** |
 | **Person Failed Alt** | Failed Alternative | Point the phone at what you tried before — cold tea, a meditation app, a yoga mat. | handheld |
 | **Person Desired Result** | Desired Result | Same setup as Person Problem. Let one long breath out, shoulders drop. | **propped** |
