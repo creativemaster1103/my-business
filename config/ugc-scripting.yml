@@ -220,17 +220,35 @@ clip_execution_rules:
 # goes in bold at the front of the Visual description cell. `clip` is written
 # as an instruction in the second person, because that is what gets pasted in.
 # Full spec in references/general-clips.md.
+# Built from the modular framework: each clip is a Product or Person block, so
+# it has a known place in the script. `shotlist` is the cell value AND the file
+# name (Product Intro -> BRoll_ProductIntro), which is why repeated blocks are
+# numbered. Not shot: Social Proof, Buying Experience, Unboxing (see
+# references/modular-framework.md).
+# 7 built from the modular framework + 3 deliberately open. A fully specified
+# shotlist gets exactly what was asked for and nothing better; the creator knows
+# their own room and what reads as real. The free slots are often the ones that
+# cut. `shotlist` is the cell value AND the file name (Product Intro ->
+# BRoll_ProductIntro). Not shot: Social Proof, Buying Experience, Unboxing.
+block_clips_per_brief: 7
+freestyle_clips_per_brief: 3
+
 general_clips:
-  - {n: 1,  section: Device,       phone: handheld, cuts_in: hook, clip: "Hold the device in one hand over a plain table. Turn it over slowly once"}
-  - {n: 2,  section: Application,  phone: propped,  cuts_in: body, clip: "Prop the phone. Use the device the way you normally do. Face out of frame"}
-  - {n: 3,  section: Struggle,     phone: propped,  cuts_in: hook, clip: "Prop the phone at your desk. Sit how you actually sit at 4pm. Do nothing for 8 seconds"}
-  - {n: 4,  section: Relief,       phone: propped,  cuts_in: body, clip: "Same setup as Struggle. Let one long breath out and let your shoulders drop"}
-  - {n: 5,  section: Alternatives, phone: handheld, cuts_in: body, clip: "Point the phone at what you tried before — cold tea, a wine glass, an app open on a laptop"}
-  - {n: 6,  section: Portability,  phone: handheld, cuts_in: body, clip: "Bag on the table. Reach in with one hand and pull the device out. One motion"}
-  - {n: 7,  section: Trigger,      phone: handheld, cuts_in: hook, clip: "Film a laptop screen, TV or wall calendar — a packed week, a full inbox, a clock at 3am"}
-  - {n: 8,  section: Gel tip,      phone: handheld, cuts_in: body, clip: "Hold a gel tip as close to the lens as the phone will still focus. Turn it slightly"}
-  - {n: 9,  section: Everyday,     phone: propped,  cuts_in: any,  clip: "Prop the phone. Film your hands doing something ordinary — typing, making tea, phone face-down"}
-  - {n: 10, section: Aftermath,    phone: propped,  cuts_in: cta,  clip: "Prop the phone. Walk back to the desk or get into bed, settled, and carry on. No device in frame"}
+  - {shotlist: Product Intro,         block: "PRODUCT: Product Introduction", phone: handheld, clip: "Hold the Mini in one hand over a plain table. Turn it over slowly."}
+  - {shotlist: Product Demo,          block: "PRODUCT: Demonstration",        phone: propped,  clip: "Use the Mini just under your ear, face out of frame."}
+  - {shotlist: Product Feature,       block: "PRODUCT: Features/Benefits",    phone: handheld, clip: "Reach into a bag on the table and pull the Mini out. One motion."}
+  - {shotlist: Person Problem,        block: "PERSON: Problem Statement",     phone: propped,  clip: "Sit how you actually sit at 4pm. Do nothing for 8 seconds. No device in frame."}
+  - {shotlist: Person Failed Alt,     block: "PERSON: Failed Alternative",    phone: handheld, clip: "Point the phone at what you tried before - cold tea, a meditation app, a yoga mat."}
+  - {shotlist: Person Desired Result, block: "PERSON: Desired Result",        phone: propped,  clip: "Same setup as Person Problem. Let one long breath out, shoulders drop."}
+  - {shotlist: Person Before & After, block: "PERSON: Before & After",        phone: propped,  clip: "Walk back to the desk or get into bed, settled. No device in frame."}
+  - {shotlist: Free 1,                block: freestyle, phone: any, clip: "Your space - somewhere this script would actually happen for you. Your call what that is."}
+  - {shotlist: Free 2,                block: freestyle, phone: any, clip: "Anything you think fits. Something you'd film for your own feed."}
+  - {shotlist: Free 3,                block: freestyle, phone: any, clip: "A moment from your day. Doesn't have to be about the product."}
+
+# Freestyle is open on CONTENT, not on the rules. No talking, 6-8s, same room
+# and clothes, shot alone. Compliance still applies to footage: no medication or
+# pill bottles, no clinical set dressing, never staging an episode.
+freestyle_still_obeys: [no talking, 6-8 seconds, same room and clothes, compliance gates]
 
 general_clip_must_serve_both_scripts: true
 hold_each_clip_seconds: [6, 8]

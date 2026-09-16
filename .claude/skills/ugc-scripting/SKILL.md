@@ -386,9 +386,10 @@ Follow `references/notion-map-ugc.md` exactly.
      do not query it, and do not guess a discount.
 3. **`Script 1` and `Script 2`** — hooks then main body, under the headings already there.
 4. **`B-ROLLS | SHOTLIST`** — extend the template's 8 rows to **10**, one clip each. The
-   `Shotlist` column holds the **name** (`Device`, `Struggle`, `Relief`…), not a number — that is
-   what the creator names the file after. Keep descriptions to one or two plain sentences and say
-   whether to prop the phone. `INSPO` takes a link or stays empty.
+   `Shotlist` column holds the **block** (`Product Intro`, `Person Problem`…), not a number —
+   that is what the creator names the file after. **7 block clips + 3 freestyle**: the open slots
+   are where the clip you did not think to ask for comes from. Keep descriptions to one or two
+   plain sentences and say whether to prop the phone. `INSPO` takes a link or stays empty.
 5. **Fill the `[LINK]` placeholder** in the HOW TO UPLOAD callout. Check Dropbox
    `Hoolest UGC - 2026` for the creator's folder: if it exists, create a **file request** into it
    and use that URL; if it does not, **ask Mark** before creating one. Use a file request, never a

@@ -48,30 +48,52 @@ they cost about fifteen minutes at the end of a shoot that was happening anyway.
 They also **accumulate**. Clips from previous shoots stay usable, because nothing in them is tied
 to a concept. After a few shoots there is a library.
 
-## The ten
+## The ten — 7 block, 3 freestyle
 
-| # | Section | Clip — as the creator reads it | Phone | Cuts in at | Why it earns its place |
-|---|---|---|---|---|---|
-| **1** | `Device` | Hold the device in one hand over a plain table. Turn it over slowly once | handheld | Hook | The object reveal. Shows the product before anything explains it — curiosity beats exposition, and it is the most reusable frame in the bank |
-| **2** | `Application` | Prop the phone. Use the device the way you normally do. Face out of frame — chin down or shoulders only | **propped** | Body | The mechanism beat. Every script needs a moment where the viewer sees *how*. No face, so it cuts under any script |
-| **3** | `Struggle` | Prop the phone at your desk. Sit how you actually sit at 4pm — shoulders up, jaw tight, staring past the screen. Do nothing for 8 seconds | **propped** | Hook | The recognition beat. The frame that makes the right viewer stop, and it works under any hook because it is a state, not a story |
-| **4** | `Relief` | Same setup as `Struggle`. Let one long breath out and let your shoulders drop. Do not perform it — just breathe out | **propped** | Body | The payoff, shown rather than claimed. Safer under the gates too: a body settling is observable, not an outcome claim |
-| **5** | `Alternatives` | Point the phone at the things you tried before — cold half-drunk tea, a wine glass, a meditation app open on a laptop. Slow pan or just hold still | handheld | Body | The objection beat. Pre-empts "I already tried something" without a word spoken |
-| **6** | `Portability` | Bag or jacket on the table. Reach in with one hand and pull the device out. One motion | handheld | Body | Portability proved instead of asserted. Answers "when would I actually use this" in one second |
-| **7** | `Trigger` | Film a **laptop screen, a TV, or a wall calendar** — a packed week, a full inbox, a clock reading 3am. Not your phone, you are filming with it | handheld | Hook | The situation beat. Names *when* the problem happens without naming a condition, which is the line the compliance gate cares about |
-| **8** | `Gel tip` | Hold a gel tip close to the lens — as close as the phone will still focus. Turn it slightly | handheld | Body | The consumable, and the only tactile frame in the set. Also the repeat-purchase engine |
-| **9** | `Everyday` | Prop the phone. Film your hands doing something ordinary nearby — typing, making tea, putting the phone face-down | **propped** | Any | The connective tissue. Unglamorous, endlessly cuttable, the clip that saves an edit with an awkward seam |
-| **10** | `Aftermath` | Prop the phone. Walk back to the desk or get into bed, settled, and carry on. Device not in frame | **propped** | CTA | The close. Life resumes, undramatically. The tonal opposite of a transformation shot, which is what keeps it on-brand |
+**Seven clips are built from the modular framework**, so each has a known place in the script and
+the editor knows which beat it cuts under. **Three are deliberately open** — the creator's own
+call. See `modular-framework.md` for the blocks.
 
-**The `Section` column is not decoration.** It is what the creator names the file after —
-`BRoll_Struggle`, `BRoll_Gel tip` — because the brief's naming block says *"the name of 'section'
-can be found in the Shotlist above"*. Put it in bold at the front of the `Visual description` cell,
-then the instruction. A numbered row with no section name gives the creator nothing to name the
-file after.
+### The seven block clips
 
-**Write the instruction as an instruction**, in the second person, the way the rows above read.
-"Prop the phone and sit how you actually sit at 4pm" is shootable. "Evocative shot conveying
-low-grade workplace tension" is not.
+| Shotlist | Block | Clip — as the creator reads it | Phone |
+|---|---|---|---|
+| **Product Intro** | Product Introduction | Hold the Mini in one hand over a plain table. Turn it over slowly. | handheld |
+| **Product Demo** | Demonstration | Use the Mini just under your ear, face out of frame. | **propped** |
+| **Product Feature** | Features/Benefits | Reach into a bag on the table and pull the Mini out. One motion. | handheld |
+| **Person Problem** | Problem Statement | Sit how you actually sit at 4pm — shoulders up, jaw tight. Do nothing for 8 seconds. No device in frame. | **propped** |
+| **Person Failed Alt** | Failed Alternative | Point the phone at what you tried before — cold tea, a meditation app, a yoga mat. | handheld |
+| **Person Desired Result** | Desired Result | Same setup as Person Problem. Let one long breath out, shoulders drop. | **propped** |
+| **Person Before & After** | Before & After *(situational only)* | Walk back to the desk or get into bed, settled. No device in frame. | **propped** |
+
+### The three freestyle clips
+
+| Shotlist | Clip — as the creator reads it |
+|---|---|
+| **Free 1** | Your space — somewhere this script would actually happen for you. Your call what that is. |
+| **Free 2** | Anything you think fits. Something you'd film for your own feed. |
+| **Free 3** | A moment from your day. Doesn't have to be about the product. |
+
+**Why three are open.** A fully specified shotlist gets you exactly what you asked for and nothing
+better. The creator knows their own room, their own routine and what reads as real on their feed;
+we do not. These three slots are where the clip you did not think to ask for comes from, and in
+practice they are often the ones that cut.
+
+**Freestyle still obeys the rules.** No talking, 6–8 seconds, same room and clothes, shot alone on
+the phone. And the compliance gates still apply to footage: **no medication or pill bottles in
+frame, no clinical or medical set dressing, nothing staging an episode.** Say that on the row if
+there is any doubt — it is easier than re-shooting.
+
+**The `Shotlist` cell is the file name.** `Product Intro` → `BRoll_ProductIntro`, `Free 1` →
+`BRoll_Free1`. Short and unique, which is why a block used twice would have to be numbered — and
+why we cut the duplicates rather than number them.
+
+**Blocks deliberately not shot:** Social Proof (a creator citing numbers is a claim the brand
+owns), Buying Experience (no price while Shopify is on hold), Unboxing and Storytelling (a
+different shoot — and Storytelling is what the freestyle slots tend to produce anyway).
+
+**Keep descriptions to one or two plain sentences**, plus whether to prop the phone. A creator
+skims this on set; a paragraph does not get read.
 
 ## Brief mode changes how they are written
 

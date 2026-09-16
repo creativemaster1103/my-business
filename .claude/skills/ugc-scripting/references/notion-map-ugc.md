@@ -192,10 +192,15 @@ table; the row count is not sacred, the ten clips are.
 the phone is handheld or propped. There is no crew and no production shoot — see
 `general-clips.md` for the execution rules every row obeys.
 
-> **The `Shotlist` column holds the NAME, not a number.** `Device`, `Application`, `Struggle`,
-> `Relief`… That column is what the creator names the file after — `BRoll_Struggle` — and the
-> template says so: *"the name of 'section' can be found in the Shotlist above"*. A numbered row
-> gives them nothing to name the file from.
+> **The `Shotlist` column holds the BLOCK, not a number.** `Product Intro`, `Product Demo`,
+> `Person Problem 1`, `Person Failed Alt`… The shotlist is built from the modular framework so
+> every clip has a known place in the script and the editor knows which beat it cuts under.
+> Product blocks first, then Person blocks; a block carrying two clips gets numbered.
+>
+> That cell is also what the creator names the file after — `Product Intro` →
+> `BRoll_ProductIntro` — and the template says so: *"the name of 'section' can be found in the
+> Shotlist above"*. A row number gives them nothing to name the file from, and two rows both
+> reading `Problem Statement` would collide.
 >
 > **Keep the description short.** One or two plain sentences: what to point the phone at, and
 > whether to prop it. `Sit how you actually sit at 4pm — shoulders up, jaw tight. Do nothing for
