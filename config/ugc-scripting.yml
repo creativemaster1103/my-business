@@ -301,6 +301,16 @@ hook_max_words: 15
 hook_no_trailing_address: true
 hook_no_two_part_setup: true
 
+# Direction is minimal. A hook that is purely someone talking gets NO note -
+# "Talking head" goes once at the top of the Hooks section. Annotate only what
+# changes what the creator physically does. Shared direction is said once, not
+# repeated per beat. Cut anything explaining why the writing works: that is a
+# note to the writer, and it makes the read self-conscious.
+# The test on any note: could they DO it?
+direction_only_when_action_changes: true
+shared_direction_stated_once: true
+no_writer_rationale_in_brief: true
+
 # Any paid or gifted creator discloses in the first two seconds, as a super.
 # Not in the caption, not at the end.
 disclosure_super: "#ad"

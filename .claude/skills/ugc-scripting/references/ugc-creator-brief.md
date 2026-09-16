@@ -154,6 +154,16 @@ The things the creator must be told go where the template already puts them:
 rather than adding a block or a table — the template has no place for either, and a brief that
 invents one stops matching the rest of the folder.
 
+**And use less of it than feels natural.** A hook that is just someone talking gets no note at
+all — `Talking head` goes once at the top of the section. Annotate only what changes what the
+creator physically does: hold the product, hold a gel tip, prop the phone, start mid-sentence.
+Everything else — why the line lands, where the emphasis sits, what the pause is doing — is a note
+to the writer. It makes the brief look like homework and it makes the read self-conscious, which
+is the one thing UGC cannot survive.
+
+The test on any note: **could they do it?** "Prop the phone" passes. "Self-deprecating, not
+self-pitying" does not.
+
 ## Two failure modes
 
 1. **The polished UGC.** Well-lit, well-framed, clean audio, confident read. It performs like a

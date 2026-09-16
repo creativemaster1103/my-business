@@ -230,6 +230,26 @@ So: **spoken lines plain, every direction inline in `<span color="yellow">…</s
 belong in this database. Hooks are a numbered list under `#### **Hooks**`; the body is script
 text between the `---` dividers under `#### Main **Body**`, exactly as the template lays it out.
 
+> ### Keep the direction minimal. Most beats need none.
+>
+> **If a hook is just someone talking, write nothing.** Put `Talking head` once at the top of the
+> Hooks section and let the five lines stand bare. A creator reading five lines shoots five
+> clips; a creator reading five lines each wrapped in three sentences of notes slows down,
+> second-guesses, and performs.
+>
+> **Only annotate what changes what they physically do:** hold the product, hold a gel tip, prop
+> the phone, start mid-sentence, stay silent first. One short clause, on that beat only.
+>
+> **Say shared direction once.** If all five hooks are shot the same way, that is one line at the
+> top, not five repetitions. Energy and register belong there too.
+>
+> **Cut every line that explains why the writing works.** "Concede it properly — this is what
+> makes the next line credible", "the pause is the hook", "this is the thesis, give it room" are
+> notes to the writer. The creator cannot act on them and they make the brief look like homework.
+>
+> The test: **could they do it?** "Prop the phone" passes. "Self-deprecating, not self-pitying"
+> does not.
+
 **Build from the modular framework.** Read `references/modular-framework.md` — the house
 messaging structure, taken from the `brook-adblock-analyzer` skill. Choose the **block sequence**
 before writing a line (`Hook → Failed Alternative → Problem Statement → Product Introduction →
@@ -247,7 +267,8 @@ Everything a beat needs still gets said, just inline:
   cannot say it out loud in one breath, it is written, not spoken.
 - **What they do**, in yellow — where they are, what is in frame, when the product comes up.
   `HOLD THE PRODUCT` is the template's own signal for the product beats.
-- **Delivery and pacing**, in yellow — energy, where to pause, what not to overplay.
+- **Delivery**, in yellow — but only where it changes what they do, and said once at the top of
+  a section rather than on every beat.
 
 Rules that hold for every UGC script:
 
