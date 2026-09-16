@@ -21,7 +21,7 @@ one to toggle on — do not attempt to scrape a site as a workaround.
 | **Trend Track MCP** | Discovery: competitor ads + how long each has run |
 | **Notion** | Destination: Video Brief + Ad Creative Pipeline |
 | **Higgsfield** | Fallback only — transcribing video when TrendTrack returns no transcript |
-| **Shopify** | Live VeRelief Prime price / offer facts |
+| ~~Shopify~~ | **ON HOLD — do not connect or query** (Mark, 2026-09-16). Price/offer comes from Mark instead |
 
 Direct HTTPS to `trendtrack.io` is blocked by the egress proxy in sandboxed sessions. This is
 expected and is not a failure to route around — all TrendTrack access goes through the MCP
@@ -267,7 +267,9 @@ Hard rules:
   script that fails the gate does not get filed — fix it or drop the ad. **Do not print the
   gate into the brief** — it is a check you run, not a section editors need to read. If a
   script cannot pass, raise it with the user rather than filing a watered-down brief.
-- Pull live price/offer from Shopify. Never hardcode a price.
+- **Never hardcode a price.** Shopify is on hold as of 2026-09-16, so the way to honour that is
+  to keep a price out of the script. If one is genuinely required, ask Mark for the figure — do
+  not query Shopify and do not reuse a number from this repo.
 
 ### 7. File it in Notion
 

@@ -8,9 +8,16 @@ Hoolest Inc. VeRelief Prime — a handheld, self-applied vagus/peripheral nerve 
 device. Patented. Non-invasive, drug-free, no prescription. Works in seconds, in your hand,
 anywhere. Consumable gel tips (~$14 / 30-day supply) are the repeat-purchase engine.
 
-**Always pull the live price and current offer from Shopify at run time.** Prices in this file
-would go stale and a wrong price in a brief reaches an editor. As of writing, VeRelief Prime
-sits around $399 — treat that as a sanity check, not a source.
+> **🚫 Shopify is on hold** (Mark, 2026-09-16). Do not query it for price, offer or product
+> status. The rule below is suspended; the principle behind it is not.
+
+**Never hardcode a price.** Prices in this file go stale, and a wrong price in a brief reaches an
+editor. With the live source on hold, the way to honour that is to **keep a price out of the
+script** — ask Mark for a figure if one is genuinely required.
+
+The $399 written here previously is exactly the hazard: Hoolest Mini is a different product at a
+different price, and the "one-time device against a recurring habit" argument does not transfer
+to it. Treat any number in this file as stale until Mark confirms it.
 
 ## Who we're talking to
 
@@ -84,7 +91,8 @@ Run every finished script through this before it goes to Notion. Any failure blo
    near-verbatim? → rewrite it.
 5. Does a claim assume the competitor's device mechanism rather than ours? → re-derive from the
    approved set above.
-6. Is the price current from Shopify? → refresh it.
+6. Does the script state a price at all? → it should not. Shopify is on hold, so there is no
+   live source to check it against. Cut the number or get it from Mark.
 
 Record the gate result in the brief body so a reviewer can see it ran.
 

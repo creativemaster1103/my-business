@@ -82,11 +82,28 @@ procedure for one.
 | **Notion** | Persona source, destination, and the record of what has already been scripted |
 | **Okendo** | Voice of customer — product reviews, review questions |
 | **Parker** | Voice of customer at depth — semantic review search, post-purchase survey, ad comments |
-| **Shopify** | Live price / offer facts for the header table |
+| ~~Shopify~~ | **ON HOLD — do not connect or query.** See below |
 | **Gorgias** | Optional — support tickets are the best source of unspoken objections |
 
 If one is off, stop and name it. Do not substitute invented customer quotes for a connector you
 could not reach — a fabricated review is the one failure this pipeline cannot recover from.
+
+> ### 🚫 Shopify is on hold
+>
+> **Do not query Shopify from this pipeline** — not for price, not for offers, not for product
+> status. Standing instruction from Mark, 2026-09-16. It is a hold, not a removal: lift it only
+> when Mark says so.
+>
+> What that changes:
+>
+> - **Take the `Offer` value from the user, or leave the template's default.** Never invent one,
+>   and never infer a discount from an order value.
+> - **No price in the scripts.** This was already the better call — good UGC does not quote a
+>   price — and with no live source it is now the only defensible one. If a script genuinely
+>   needs a price, ask Mark for the figure rather than reaching for a number.
+> - The brand brief's *"always pull the live price and current offer from Shopify at run time"*
+>   is suspended for the same period. Its point stands: **never hardcode a price.** With the
+>   connector on hold, the way to honour that is to not state one.
 
 ## Run the pipeline
 
@@ -305,8 +322,10 @@ do not rebuild the layout, and do not edit the standing callouts.
    general mode. Icon **✏️**, parent `3448fb5b-44b0-80b7-a01f-df29eb7dd956`.
 2. **Header table**: Content Creator · Product · Event · Inspo link · Offer.
    - `Content Creator` takes the name, or `General — unassigned` plus a one-line casting spec.
-   - **Confirm the product** — the template and all four live briefs say `Hoolest Mini`, not
-     VeRelief Prime. Pull the offer from Shopify.
+   - **Confirm the product with the user** — the template and all four live briefs say
+     `Hoolest Mini`, not VeRelief Prime.
+   - `Offer` comes from the user or stays at the template's default. **Shopify is on hold** —
+     do not query it, and do not guess a discount.
 3. **`Script 1` and `Script 2`** — hooks then main body, under the headings already there.
 4. **`B-ROLLS | SHOTLIST`** — extend the template's 8 rows to **10**, one clip each, section name
    in bold at the front of the `Visual description` cell. `INSPO` takes a link or stays empty.
@@ -349,6 +368,8 @@ an awareness level, and the database has no properties to file one in.
   persona is drawn to exactly the framing that carries the risk.
 - **Never invent a customer quote, review, or statistic.** If the connectors returned nothing,
   report that and stop.
+- **Do not touch Shopify.** On hold as of 2026-09-16. No price in scripts; `Offer` comes from the
+  user or the template default.
 - **Never put a review verbatim into a creator's mouth as their own experience.** Mine the
   phrasing; write the line.
 - **Two scripts and ten clips, every brief.** One script is half a brief. Ten clips shot for only

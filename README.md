@@ -46,12 +46,12 @@ Or scope it: `/competitor-ad-swipe Pulsetto only, last 60 days`.
 
 ### Required connectors
 
-Enable all four in the chat's connector settings before the first run:
+Enable these in the chat's connector settings before the first run:
 
 - **Trend Track MCP** — discovery
 - **Notion** — destination
 - **Higgsfield** — video transcription
-- **Shopify** — live price/offer
+- ~~Shopify~~ — **on hold**, do not connect ([see below](#-shopify-is-on-hold))
 
 Direct HTTPS to `trendtrack.io` is blocked by the sandbox egress proxy. That is expected: the
 MCP connector reaches TrendTrack over a different path. Do not work around it by scraping.
@@ -77,7 +77,8 @@ a day. Editing the hour without also moving the day would silently schedule it a
 > **Connectors must be attached from the claude.ai Routines UI.** This organization does not
 > allow the API to grant connectors to a trigger, so the Routine as created runs *without*
 > MCP tools and will stop at step 1. Open it in the Routines UI and attach **Trend Track MCP,
-> Notion, Zapier, Shopify, Higgsfield** before the first fire. Its prompt tells it to stop and
+> Notion, Zapier, Higgsfield** before the first fire — **not Shopify**, which is on hold. Its
+> prompt tells it to stop and
 > name the missing connector rather than improvise, so a misconfigured run fails loudly instead
 > of filing something wrong.
 
@@ -96,6 +97,20 @@ stretch. Until that is confirmed, the conservative set stands.
 - Never exceeds `max_new_briefs_per_run`.
 
 ---
+
+## 🚫 Shopify is on hold
+
+**Do not query Shopify from either pipeline** — not for price, not for offers, not for product
+status. Standing instruction from Mark, 2026-09-16. A hold, not a removal: lift it only when Mark
+says so.
+
+Both skills previously said *"pull live price/offer from Shopify, never hardcode a price."* The
+principle stands; the method is suspended. With no live source, the way to honour it is to **keep
+a price out of the script** — which is the better call anyway, since good UGC does not quote one.
+If a price is genuinely required, ask Mark for the figure. Never infer a discount from an order
+value, and never reuse a stale number from this repo.
+
+The `Offer` field on a UGC brief comes from the user, or stays at the Notion template's default.
 
 ## UGC Scripting
 
@@ -199,7 +214,6 @@ ugc-video-frameworks skill →  two frameworks, one per script, paired to share 
 2 scripts × 5 hooks        →  Spoken / Shot-Action / Note
 10 general clips           →  one shotlist, iPhone-only, serving both
       ↓  brand compliance gate + endorsement gate
-Shopify                    →  live price/offer for the header table
       ↓
 Notion MCP                 →  duplicate ✏️ TEMPLATE, fill, file as `<Creator>-<Concept>`
 ```
@@ -219,7 +233,7 @@ Loser`, or `/ugc-scripting general, from the post-purchase survey`.
 - **Notion** — persona source, destination, and the record of what has been scripted
 - **Okendo** — product reviews
 - **Parker** — semantic review search, post-purchase survey, ad comments
-- **Shopify** — live price/offer
+- ~~Shopify~~ — **on hold**, see below
 - **Gorgias** — optional, but support tickets are the best source of unspoken objections
 
 ### Files

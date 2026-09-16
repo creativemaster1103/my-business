@@ -83,7 +83,7 @@ callout 💡 gray_bg       HOW TO UPLOAD CONTENT — standing, do not edit
 | `Product` | The product this brief is for. **The template and all four live briefs say `Hoolest Mini`** — confirm which product before filing rather than assuming VeRelief Prime |
 | `Event` | `Launch` in the live briefs. `Evergreen` otherwise |
 | `Inspo link` | A reference ad if the concept came from one. Leave empty otherwise |
-| `Offer` | `20% OFF` in the live briefs. Pull the live offer from Shopify |
+| `Offer` | `20% OFF` in the live briefs. **Shopify is on hold** — take this from the user or leave the template default. Never infer a discount |
 
 ### Two scripts per page
 

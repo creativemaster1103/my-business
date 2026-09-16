@@ -47,6 +47,22 @@ never_relax_without_approval:
   - ten general clips per brief
   - customer-sourced — no invented quotes
 
+# --- Connector holds -------------------------------------------------------
+# Shopify is ON HOLD. Standing instruction from Mark, 2026-09-16.
+# Do not connect to or query Shopify from this pipeline — not for price, not
+# for offers, not for product status. This is a hold, not a removal: lift it
+# only when Mark says so.
+connector_holds:
+  shopify:
+    status: on_hold
+    since: 2026-09-16
+    set_by: Mark
+    scope: All queries — price, offer, product status
+    consequences:
+      offer_value: Take from the user, or leave the Notion template's default
+      price_in_scripts: None. Ask Mark for a figure if one is genuinely needed
+      never: Infer a discount from an order value or reuse a stale number from this repo
+
 # --- Brief mode ------------------------------------------------------------
 # ASK FIRST, before the gates and before the research. Never inferred, never
 # defaulted — it decides which personas are even available to the script.
@@ -127,6 +143,7 @@ min_independent_voices_per_script: 3
 # Read these first. 5-star reviews are congratulation, not information.
 review_star_priority: [3, 4, 2, 5, 1]
 
+# NOTE: Shopify is deliberately absent from this list — see connector_holds.
 voc_sources:
   - okendo_reviews          # reviews_search / reviews_aggregate
   - parker_reviews_semantic # search_customer_reviews_semantic
