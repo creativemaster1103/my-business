@@ -285,15 +285,21 @@ shoot_defaults:
 
 target_length_seconds: [30, 45]
 
-# A hook is 3 seconds. At UGC pace that is 6-10 words, ONE sentence. Count them
-# — "inside 3 seconds" is unmeasurable and gets broken without anyone noticing.
-# A pause comes out of the budget. No trailing address ("- this is for you")
-# — that is five words spent on nothing. If it will not fit it is the wrong
-# hook, not a hook that needs trimming.
-hook_seconds: 3
-hook_words: [6, 10]
-hook_sentences: 1
+# Hooks TARGET 3 seconds and may not EXCEED 5. At UGC pace (~3 words/sec) that
+# is ~10 words, 15 at the ceiling. Count them - "inside 3 seconds" is
+# unmeasurable and gets broken without anyone noticing.
+#
+# 5s is a ceiling, not a target. Spend the extra two seconds only on: first-
+# person history (reads as lived, not written), a specific detail ("a
+# supermarket queue" beats "a queue"), or a real beat. Never on a two-part
+# setup or a trailing address ("- this is for you"). A pause comes out of the
+# budget, not around it.
+hook_target_seconds: 3
+hook_max_seconds: 5
+hook_target_words: 10
+hook_max_words: 15
 hook_no_trailing_address: true
+hook_no_two_part_setup: true
 
 # Any paid or gifted creator discloses in the first two seconds, as a super.
 # Not in the caption, not at the end.

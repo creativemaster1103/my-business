@@ -262,8 +262,8 @@ Rules that hold for every UGC script:
   relief loses the viewer at the turn.
 - **Write in the creator's register, not the brand's.** Keep the substance on-brand; let the
   delivery be theirs.
-- **Length**: 30–45s unless the framework says otherwise. **Hook = 3 seconds = 6–10 words, one
-  sentence.** Count them; see step 7.
+- **Length**: 30–45s unless the framework says otherwise. **Hook targets 3s (~10 words) and may
+  not exceed 5s (~15 words).** Count them; see step 7.
 
 Casting, delivery and energy direction are in `references/ugc-creator-brief.md`. The template's
 own **Shooting Specifications** callout governs the technical side — do not contradict it.
@@ -272,17 +272,29 @@ own **Shooting Specifications** callout governs the technical side — do not co
 
 > **2 scripts × 5 hooks = 10 hook takes + 2 body takes**, on one page.
 
-> ### A hook is 3 seconds. That is **6–10 words, one sentence.**
+> ### A hook targets 3 seconds and may not exceed 5. That is **~10 words, 15 at the ceiling.**
 >
 > Count them. "Inside 3 seconds" is unmeasurable and gets broken without anyone noticing; a word
-> count does not. At UGC pace — roughly three words a second — eight words is the budget.
+> count does not. At UGC pace — roughly three words a second — 3s is about 10 words and the 5s
+> ceiling is about 15.
 >
-> - **One sentence.** A two-part setup ("If you've ever… — this is for you") is already double.
-> - **No trailing address.** "— this is for you", "— you're who I'm talking to", "— hi" are four
->   or five words spent on nothing. The line either finds its person or it does not.
-> - **A pause comes out of the budget.** A 1-second beat leaves you five words, not eight.
-> - If it will not fit, it is the wrong hook, not a hook that needs trimming. Cut the setup and
->   start at the interesting half.
+> **Five seconds is a ceiling, not a target.** Most hooks should still land near three. Spend the
+> extra two seconds only when they buy something specific:
+>
+> - **First-person history.** "I spent years trying to think my way out of my own body" reads as
+>   lived; "you can't think your way out of your body" reads as written. Worth four extra words.
+> - **A specific detail.** "A supermarket queue" beats "a queue". Specificity is what makes the
+>   right viewer recognise themselves.
+> - **A beat.** A 1-second pause is real and comes out of the budget, not around it.
+>
+> Never spend it on:
+>
+> - **A two-part setup.** "If you've ever… — this is for you" is a conditional plus a payoff, and
+>   the conditional is usually the boring half. Start at the assertion.
+> - **A trailing address.** "— this is for you", "— you're who I'm talking to", "— hi". Five words
+>   telling the viewer they are the viewer. The line either finds its person or it does not.
+>
+> If it still will not fit in 15, it is the wrong hook rather than a hook that needs trimming.
 
 Five genuinely different **mechanisms**, not five rewordings of one opening. A reworded hook tests
 nothing — the whole reason for five is to find out which *way in* works, and two hooks that differ
