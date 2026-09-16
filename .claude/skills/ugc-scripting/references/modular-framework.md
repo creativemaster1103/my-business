@@ -40,6 +40,39 @@ Desired Result · Before & After · Social Proof · Storytelling.
 5. **The two scripts on a page should use different sequences**, not just different words. Two
    scripts that both run Problem Statement → Product Introduction → Desired Result are one script.
 
+## Fight-or-Flight — the house angle
+
+**Hoolest's own angle, and not one of the framework's thirteen.** It is the concept already in the
+creator pages' titles (`Hayden Bender-Fight-or-flight`) and the one to write to unless Mark says
+otherwise. **One angle per content creator** — one brief each, two script variations under it.
+
+In framework terms it sits closest to **Problem-Solution**: the problem is a nervous system stuck
+in fight-or-flight, the product is the way to reach the switch. Name it `Fight-or-Flight` on the
+brief; note the Problem-Solution shape when analysing.
+
+**Why it is the best angle available for the Self-Rescuer**, and worth understanding rather than
+just following:
+
+- **It is compliance-safe by construction.** "Fight or flight" describes a *body state*, which is
+  wellness language. "Panic attack" and "anxiety" name conditions, which is drug-claim language.
+  The angle lets a script describe exactly what is happening — heart going, chest tight, hands
+  unsteady — without ever naming a condition. For the persona whose source material is most
+  saturated with claims we cannot make, that is the whole problem solved at the framing level.
+- **Customers already use the phrase.** *"I use it several times a day to keep my fight or flight
+  steady"* (Courtney M). *"The effects of a souped up sympathetic nervous system for years"*
+  (Nat). *"When my body is exhibiting sympathetic nervous system activation… it just melts away"*
+  (Kira). The angle is not imposed on the audience; it is borrowed from them.
+- **It relocates the problem from character to physiology**, which is the turn this persona
+  needs: they have been told to manage their thinking, and the thing that is failing is not their
+  thinking.
+
+**Two lines to stay off**, because they look like the angle and are not:
+
+- *"It's not in your head"* — reads as denying a mental-health condition, which is a claim about
+  a condition. Say what it **is** (a body state you can reach) rather than what it is not.
+- Any mechanism claim beyond **targets the vagus nerve**. "The nerve that talks to the switch" is
+  a mechanism story we have not substantiated. Show the placement; do not explain the wiring.
+
 ## Blocks that do not transfer to us
 
 - **Social Proof** — a creator citing reviews or user counts is a claim the brand owns, and the

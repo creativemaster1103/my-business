@@ -162,6 +162,19 @@ voc_sources:
   - ad_comments             # search_facebook_ad_comments_semantic — public objections
   - gorgias_tickets         # optional — private objections
 
+# --- Angle -----------------------------------------------------------------
+# ONE ANGLE PER CONTENT CREATOR: one brief each, two script variations under it.
+# Not two angles on one page, and not a brief per angle.
+angle_per_creator: 1
+script_variations_per_angle: 2
+
+# Hoolest's house angle — not one of the framework's thirteen. Already the
+# concept in the creator page titles. Closest framework shape: Problem-Solution.
+# It is also the compliance-safest framing for the Self-Rescuer: "fight or
+# flight" is a body state (wellness language); "panic attack" names a condition
+# (drug-claim language). See references/modular-framework.md.
+current_angle: Fight-or-Flight
+
 # --- Framework selection ---------------------------------------------------
 # The 25-framework library lives in the `ugc-video-frameworks` skill. Do not
 # duplicate it here and do not invent a 26th.
