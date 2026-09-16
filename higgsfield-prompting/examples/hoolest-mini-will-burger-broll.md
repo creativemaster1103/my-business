@@ -7,6 +7,16 @@ Anxiety), Solution-Aware. Angle: Fight-or-Flight.
 Each shot is an **image prompt** (the still) and then a **video prompt** that animates that
 still as `start_image`.
 
+> **Interim product: VeRelief Prime.** Hoolest Mini statics are not ready, so shots 1–3 lock
+> against the VeRelief Prime Gen 2 product photo instead. Prime is a larger form factor than the
+> key-fob-sized Mini the A-roll script describes — these renders are good for composition,
+> framing and prompt testing, but the device on screen is not the device the launch ad sells.
+> Re-run 1–3 against the real Mini photo before anything goes live.
+>
+> Reference image:
+> `https://cdn.shopify.com/s/files/1/0684/6716/3449/files/hoolest-inc-verelief-prime-gen-2-vagus-nerve-stimulation-device-verelief-prime-gen-2-44243611812153.png`
+> Already imported to Higgsfield as `media_id: 4c169b54-7a35-4656-a691-6635e4e08af6`.
+
 ## Constraints taken from the brief
 
 | Brief line | What it does to the prompt |
@@ -61,12 +71,12 @@ texture under overcast light.
 ### Image
 
 **Model:** `nano_banana_pro` · **Aspect:** 9:16 · **Resolution:** 2k
-**Reference images:** Hoolest Mini product photo → `image_references`
+**Reference images:** VeRelief Prime Gen 2 photo → `image_references`
 
 ```
-Close on a man's open hand holding the small handheld device from the reference image, palm up,
-over a bare pale oak table, forearm entering from the bottom of the frame, plain unbranded
-charcoal sleeve at the wrist, 50mm close-up at hand height, shallow depth of field, soft
+Close on a man's open hand holding the handheld device from the reference image, resting across
+his open palm, over a bare pale oak table, forearm entering from the bottom of the frame, plain
+unbranded charcoal sleeve at the wrist, 50mm close-up at hand height, shallow depth of field, soft
 overcast daylight from a window at frame left with no fill, ungraded, straight off a phone
 camera, no filter, visible skin texture on the hand, faint sensor noise, 9:16, device centred
 with clean table above it
@@ -76,7 +86,7 @@ with clean table above it
 
 **Model:** `seedance_2_0` · **Aspect:** 9:16 · **Duration:** 7s · **Resolution:** 1080p ·
 `generate_audio: false`
-**Reference images:** the Shot 1 still → `start_image`; Hoolest Mini product photo →
+**Reference images:** the Shot 1 still → `start_image`; VeRelief Prime Gen 2 photo →
 `image_references`
 
 ```
@@ -97,12 +107,12 @@ abstract at 50mm.
 ### Image
 
 **Model:** `nano_banana_pro` · **Aspect:** 9:16 · **Resolution:** 2k
-**Reference images:** Hoolest Mini product photo + Shot 0 casting frame → `image_references`
+**Reference images:** VeRelief Prime Gen 2 photo + Shot 0 casting frame → `image_references`
 
 ```
 A man framed from the jaw down — chin, jawline, neck and one shoulder only, face above the top
-edge of frame — holding the small handheld device from the reference image against the side of
-his neck just below the earlobe, plain unbranded charcoal crew-neck t-shirt, a pale oak desk and
+edge of frame — holding the handheld device from the reference image against the side of his
+neck just below the earlobe, contact tip to the skin, plain unbranded charcoal crew-neck t-shirt, a pale oak desk and
 white wall behind him, 50mm at neck height from three-quarter side, soft overcast daylight from
 a window at frame left, ungraded, straight off a phone camera, no filter, visible skin texture
 and stubble at the jaw, faint sensor noise, 9:16
@@ -112,7 +122,7 @@ and stubble at the jaw, faint sensor noise, 9:16
 
 **Model:** `seedance_2_0` · **Aspect:** 9:16 · **Duration:** 8s · **Resolution:** 1080p ·
 `generate_audio: false`
-**Reference images:** the Shot 2 still → `start_image`; Hoolest Mini product photo →
+**Reference images:** the Shot 2 still → `start_image`; VeRelief Prime Gen 2 photo →
 `image_references`
 
 ```
@@ -133,12 +143,12 @@ the placement under the ear reads clearly.
 ### Image
 
 **Model:** `nano_banana_pro` · **Aspect:** 9:16 · **Resolution:** 2k
-**Reference images:** Hoolest Mini product photo → `image_references`
+**Reference images:** VeRelief Prime Gen 2 photo → `image_references`
 
 ```
 A man's hand reaching into the open mouth of a plain unbranded canvas tote bag slumped on a pale
-oak desk, the small handheld device from the reference image just visible inside among a
-notebook and keys, plain unbranded charcoal sleeve at the wrist, 35mm at desk height angled
+oak desk, the handheld device from the reference image lying inside on top of a folded
+notebook, plain unbranded charcoal sleeve at the wrist, 35mm at desk height angled
 down, soft overcast daylight from a window at frame left, ungraded, straight off a phone camera,
 no filter, visible weave in the canvas, faint sensor noise, 9:16
 ```
@@ -147,7 +157,7 @@ no filter, visible weave in the canvas, faint sensor noise, 9:16
 
 **Model:** `seedance_2_0` · **Aspect:** 9:16 · **Duration:** 7s · **Resolution:** 1080p ·
 `generate_audio: false`
-**Reference images:** the Shot 3 still → `start_image`; Hoolest Mini product photo →
+**Reference images:** the Shot 3 still → `start_image`; VeRelief Prime Gen 2 photo →
 `image_references`
 
 ```
@@ -310,10 +320,18 @@ version reads warmer and needs a second world lock.
 
 ## Open item — the product reference
 
-Shots 1, 2 and 3 are blocked on a real **Hoolest Mini** photo. Shopify has no product under that
-name: the closest record is **VeRelief Mini** ($199.95), which is ARCHIVED, and the brief calls
-the Mini Hoolest's "newest" stimulator — so it may be a new device rather than a rename.
+Shots 1–3 currently render **VeRelief Prime** as an interim stand-in because Hoolest Mini statics
+do not exist yet. Shopify has no product under the Mini's new name — the closest record is
+**VeRelief Mini** ($199.95), ARCHIVED — and the A-roll calls the Mini Hoolest's "newest"
+stimulator, so it may be a new device rather than a rename.
 
-Do not generate 1–3 until that is settled. A guessed device in a launch ad is worse than no
-B-roll, and the library's product lock forbids inventing form factors, logos, or buttons.
-Shots 4–7 have no product in frame and can run now.
+What that means in practice:
+
+- **Fine now:** testing the prompts, locking framing and light, showing the editor what the cut
+  looks like.
+- **Not fine later:** shipping any of shots 1–3 in the launch ad. The A-roll says "about the size
+  of a key fob" over footage of a visibly larger device, and the product lock exists precisely to
+  stop that mismatch reaching a paid placement.
+
+When the Mini photo lands, swap the `image_references` on shots 1, 2 and 3 and re-run. Nothing
+else in the sheet changes — the world lock, the casting frame and shots 4–7 carry over untouched.
