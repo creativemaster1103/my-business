@@ -4,6 +4,19 @@
 Ad Angle. They are a gate, not a worksheet: a script started before they are settled is a script
 written to nobody in particular, and it reads that way.
 
+> ## All four are the user's to set — if one is missing, ASK
+>
+> **Do not choose a gate the user did not give you.** All four, Ad Angle included. Naming a
+> persona answers one gate and leaves three open.
+>
+> **Recommending is not deciding.** Everything in this file is for arriving at the question well
+> prepared: two to four options, drawn from the persona's own pain / desire / fear, with a
+> recommendation and the reason. Then **wait for the answer**. Picking one and reporting it
+> afterwards hands the user a review instead of a decision, and by then the script is already
+> built on it.
+>
+> Ask for all the missing gates in **one exchange**, not four.
+
 State all four explicitly, per script, before the first line. Both scripts in a run get their own
 set — and they must not land on the same Persona + Angle pairing.
 
@@ -128,13 +141,13 @@ testing fixes it.
 
 ---
 
-## Gate 4 — Ad Angle *(optional — suggest one)*
+## Gate 4 — Ad Angle
 
-The only gate you may **propose** rather than be handed. If the user did not name an angle,
-derive one from the persona's pain, desire and fear, and **say which you picked and why** — do
-not just start writing with an unstated angle.
+**Ask, like the other three.** What is different about this gate is not that you may decide it —
+it is that the persona page gives you enough to arrive with good candidates rather than an open
+question. Derive two to four, recommend one, say why, and let the user pick.
 
-Derive it like this:
+Derive them like this:
 
 - **From the PAIN** → Problem-Solution, Before & After, the cost of doing nothing
 - **From the DESIRE** → Transformation, Identity, Functional Benefit
@@ -151,15 +164,20 @@ Worked examples, straight off the persona page:
 | Off-Ramper | Desire: *"handle an emergency without reaching for the benzo"* | **Do not run this as-is.** Reframe to control and body state — the medication framing is the flagged risk |
 | Self-Rescuer | Failed solution: *breathwork, box breathing* | Us vs Them — the tool that does not need composure you do not have |
 
-**Check the angle against the exclusions** in `config/competitors.yml` → `excluded_angles` before
-committing. Prescription/medication replacement, named-condition treatment, ingestible dosing and
+**Check the chosen angle against the exclusions** in `config/competitors.yml` → `excluded_angles`
+before writing. If the user picks one that collides with an exclusion, say so and offer the
+nearest workable alternative rather than silently reshaping it.
+
+
+Prescription/medication replacement, named-condition treatment, ingestible dosing and
 subscription-only mechanics do not transfer to this product, whoever the persona is.
 
 ---
 
 ## Recording the gates
 
-State them in the **chat report**, one block per script:
+Once the user has set them, restate them back in the **chat report**, one block per script, and
+mark which came from the user and which you recommended and they approved:
 
 ```
 Script 1

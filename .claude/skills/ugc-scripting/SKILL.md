@@ -51,9 +51,21 @@ it wrong in the general direction and you ship a brief that only works in one pe
 the first line. Full procedure in `references/four-gates.md`; the persona source is the
 `Official Persona` toggle on Notion's `👤 Buying Persona` page, read live each run.
 
-Ad Angle is the only one you may **propose** — derive it from the persona's pain, desire and fear
-and say which you picked and why. The other three are settled before writing, not discovered
-during it.
+> ### All four are the user's to set. If one is missing, ASK.
+>
+> **Do not choose a gate the user did not give you, and do not proceed on your own pick.** This
+> applies to **all four**, Ad Angle included. Naming a persona is not implicitly answering the
+> other three.
+>
+> **Recommending is not deciding.** Come to the question prepared: offer two to four options
+> drawn from the persona's pain, desire and fear, say which you would pick and why, and make it
+> one easy answer. Then **wait**. What you may not do is pick one, start writing, and report the
+> choice afterwards — by then the script is built on it and the user is reviewing a decision
+> instead of making one.
+>
+> These four decide who the ad talks to and what it argues. Getting one wrong does not produce
+> a slightly-off script; it produces a script aimed at the wrong person. That is the user's call
+> to make, not a detail to infer from a persona page.
 
 Do not confuse these with the **two compliance gates** (brand + endorsement) in step 8. The four
 gates decide *what to write*. The compliance gates decide *whether it can ship*.
@@ -174,8 +186,13 @@ around.
    than guessing. Cold UGC is usually Unaware or Problem-Aware.
 3. **Core Desire** — one of the Life Force 8, from the toggle on the same Notion page. Name
    **one**; two means it is not resolved.
-4. **Ad Angle** — propose one from the persona's pain / desire / fear if the user did not name
-   it, and say which and why. Check it against `excluded_angles` in `config/competitors.yml`.
+4. **Ad Angle** — **ask.** Derive candidates from the persona's pain / desire / fear, present
+   them with a recommendation, and let the user choose. Check the chosen angle against
+   `excluded_angles` in `config/competitors.yml`.
+
+**If the user supplied only some of the four, ask for the rest before writing** — in one go, with
+options, so it is a single exchange rather than four. A persona on its own is one gate answered
+and three still open.
 
 **The two scripts must not share a Persona + Angle pairing.** Two angles onto the same persona is
 one script with extra steps.
@@ -361,7 +378,9 @@ an awareness level, and the database has no properties to file one in.
 - **In creator-specific mode the persona must fit the creator.** You cannot cast someone who is
   already cast. If none of the personas fit them, say so.
 - **A general brief must say who to cast.** Otherwise it is not general, it is unfinished.
-- **The four gates are blocking.** No persona, awareness level and core desire, no script.
+- **The four gates are blocking, and all four are the user's to set.** If the user did not give
+  you an awareness level, a core desire or an ad angle, **ask** — with options and a
+  recommendation, then wait. Never pick one yourself and report it afterwards.
 - **Persona comes from the live `Official Persona` page**, never from memory or from this repo.
   Default to the four approved; ask before using the other four.
 - **Off-Ramper needs Nick's sign-off** and never runs anti-medication framing in paid. The

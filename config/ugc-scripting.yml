@@ -38,7 +38,7 @@ enforce_distinct_persona_angle_within_brief: true
 
 # Never relaxed automatically. Dropping any of these is lowering the bar.
 never_relax_without_approval:
-  - four gates cleared before writing
+  - four gates cleared before writing, by the user, not inferred
   - five distinct hook mechanisms per script
   - every clip shootable alone on an iPhone
   - brand compliance gate
@@ -91,12 +91,23 @@ general_brief_requires_casting_spec: true
 
 # --- The four gates --------------------------------------------------------
 # BLOCKING. Nothing is written until all four are resolved, per script.
+#
+# ALL FOUR ARE THE USER'S TO SET. If the user did not give you one, ASK —
+# with 2-4 options drawn from the persona's pain/desire/fear, a recommendation
+# and the reason — then WAIT. Never pick one yourself and report it after the
+# script is written. Naming a persona answers ONE gate, not four.
+#
+# Recommending is not deciding. Ask for all missing gates in one exchange.
 # Full procedure in references/four-gates.md.
+gates_are_user_set: true
+ask_for_missing_gates_before_writing: true
+never_infer_a_gate_the_user_did_not_give: true
+
 gates:
   - persona          # from the live `Official Persona` toggle on Notion
   - awareness_level  # Unaware -> Most-Aware
   - core_desire      # one of the Life Force 8
-  - ad_angle         # optional to be GIVEN — derive from pain/desire/fear and say so
+  - ad_angle         # ASK. Arrive with candidates; the user chooses
 
 # Read live every run. It is maintained and carries real survey percentages;
 # a copy in this repo would go stale silently.

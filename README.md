@@ -175,12 +175,19 @@ works in one person's kitchen.
 
 **Nothing gets written until all four are resolved, per script.**
 
-| Gate | Source |
-|---|---|
-| **Persona** | The `Official Persona` toggle on Notion's `👤 Buying Persona` page — read live, never from a copy |
-| **Awareness level** | Unaware → Most-Aware, read off the persona's buying behaviour |
-| **Core Desire** | One of the Life Force 8, from the toggle on the same page |
-| **Ad Angle** | *Optional to be given* — derived from the persona's pain / desire / fear, and stated |
+| Gate | Set by | Reference |
+|---|---|---|
+| **Persona** | **The user** | The `Official Persona` toggle on Notion's `👤 Buying Persona` page — read live, never from a copy |
+| **Awareness level** | **The user** | Unaware → Most-Aware |
+| **Core Desire** | **The user** | One of the Life Force 8, from the toggle on the same page |
+| **Ad Angle** | **The user** | Candidates derived from the persona's pain / desire / fear |
+
+**All four are the user's to set. If one is missing, the pipeline asks — it does not choose.**
+That includes the ad angle. Naming a persona answers one gate and leaves three open.
+
+Recommending is not deciding: it arrives with two to four options, a recommendation and the
+reason, then waits. What it must not do is pick one, write the script, and report the choice
+afterwards — by then the user is reviewing a decision instead of making one.
 
 They are a gate, not a worksheet. A script started before they are settled is written to nobody
 in particular, and it reads that way.
@@ -207,8 +214,8 @@ ASK                        →  specific creator, or general? (never inferred)
       ↓  decides which personas are available
 Okendo + Parker + Gorgias  →  quote bank (15-25 verbatim lines, tagged hook/objection/proof)
       ↓
-Official Persona (Notion)  →  FOUR GATES: persona · awareness · core desire · angle
-      ↓  blocking — nothing is written until these are stated
+ASK THE USER            →  FOUR GATES: persona · awareness · core desire · angle
+      ↓  blocking — all four are theirs to set, never inferred
 ugc-video-frameworks skill →  two frameworks, one per script, paired to share one clip bank
       ↓
 2 scripts × 5 hooks        →  Spoken / Shot-Action / Note
@@ -265,8 +272,8 @@ watered down to hit the count.
 ### What it deliberately does not do
 
 - **Never assumes who the script is for.** Specific creator or general is asked, not inferred.
-- **Never writes before the four gates are clear.** No persona, awareness level and core desire,
-  no script.
+- **Never writes before the four gates are clear**, and never sets one itself. If the user did
+  not give an awareness level, core desire or ad angle, it asks and waits.
 - **Never files a general brief without a casting spec** — that is not general, it is unfinished.
 - **Never invents a customer quote, review or statistic.** If the connectors return nothing, the
   run reports that and stops.
