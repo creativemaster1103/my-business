@@ -143,11 +143,16 @@ The things the creator must be told go where the template already puts them:
 
 | What | Where it goes on the page |
 |---|---|
-| Who they are playing, energy, location | The `Note` column, beat by beat |
-| What to shoot | `Shot / Action` column, and the shotlist |
-| Disclosure | A scripted `SUPER:` in the first beat of every hook |
-| Technical specs | The standing `Shooting Specifications` callout — unedited |
+| Who they are playing, energy, pacing | **Inline in yellow**, beat by beat |
+| What to shoot, when the product appears | **Inline in yellow** — `HOLD THE PRODUCT` on product beats |
+| Where the phone goes | **Inline in yellow** — `PROP THE PHONE`, and in the shotlist cells |
+| Disclosure | A scripted `SUPER: #ad` noted in yellow on the first hook beat |
+| Technical specs | The standing `Shooting Specifications` callout — verbatim, unedited |
 | File names | The standing `File Naming Convention` block |
+
+**Yellow text is the template's own convention**, stated at the top of its A-ROLL section. Use it
+rather than adding a block or a table — the template has no place for either, and a brief that
+invents one stops matching the rest of the folder.
 
 ## Two failure modes
 

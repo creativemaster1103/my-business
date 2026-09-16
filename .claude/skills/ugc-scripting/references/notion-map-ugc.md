@@ -28,9 +28,31 @@ Everything the Video Brief pipeline does around properties therefore **does not 
 **Do not file a UGC script in the Video Brief database**, and do not run the Zapier naming-sheet
 procedure for one. Those belong to `/competitor-ad-swipe` and the AI-VO pipeline.
 
+## Fill the pre-made pages — do not create new ones
+
+**Mark keeps a pre-made page per content creator in this database.** They are copies of the
+template with the creator's name already in the header, waiting for a script.
+
+> **Fill those. Do not create a new page.** Standing instruction from Mark, 2026-09-16, and it
+> holds for every batch from here on: the roster of pages is his, not something the pipeline
+> grows. A new page is only ever created if Mark says there is no pre-made one for that creator.
+
+At time of writing: `Hayden Bender`, `Lauren DeCicco`, `Clayton Stakelbeck`, `Kenzie Williams`,
+all suffixed `-Fight-or-flight`. **Read the parent page each run** rather than trusting this list
+— the roster changes, and Mark edits the pages live.
+
+**Their headers are not identical.** Hayden's carries `Persona` and `Angle` rows the others do
+not. Fill what is there; do not add rows to the pages that lack them, and do not strip rows from
+the ones that have them. Read the page before editing it — a `content_updates` call fails whole
+if one `old_str` does not match, which is the cheap way to find out a page has drifted.
+
+**Keep their titles.** The concept in the title is Mark's. Do not rename a pre-made page to match
+a concept you picked.
+
 ## Page title
 
-Depends on the brief mode, which the skill establishes before anything else.
+For the rare case Mark asks for a new page. Depends on the brief mode, which the skill
+establishes before anything else.
 
 | Mode | Title |
 |---|---|
@@ -53,27 +75,57 @@ what the existing four are. The concept name repeats; the creator name is what m
 **A general brief that later gets assigned is duplicated, not renamed** — the general version
 stays available for the next creator.
 
-## Page body — copy the template
+## Page body — the template, filled in
 
-Duplicate `✏️ TEMPLATE` and fill it. Do not rebuild the layout from scratch and do not reorder it
-— the standing callouts are the team's instructions to creators and every brief carries them
-identically.
+Duplicate `✏️ TEMPLATE` and fill it. **Do not rebuild the layout, do not re-order it, and do not
+add blocks it does not have.** Every brief in this database should look like every other one.
 
-Structure, in order:
+The only two structural changes the work requires:
+
+| Change | Why |
+|---|---|
+| Shotlist table **8 rows → 10** | Ten general clips |
+| Naming block **3 hooks → 5**, scoped per script | Five hooks per script, two scripts per page |
+
+Everything else is filled in, not altered. **Nothing else gets added** — no extra callouts, no
+extra headings, no `Spoken / Shot / Note` tables. If direction feels like it needs its own block,
+it does not: it goes inline in yellow, which is what the template already does.
+
+Structure, exactly as it ships:
 
 ```
 <table header-column>   Content Creator · Product · Event · Inspo link · Offer
-# Content Brief          standing paragraph
-callout 🎥 gray_bg       Shooting Specifications — standing, do not edit
-callout 💡 gray_bg       HOW TO UPLOAD CONTENT — standing, do not edit
+# Content Brief          standing paragraph — verbatim
+callout 🎥 gray_bg       Shooting Specifications — standing, verbatim
+callout 💡 gray_bg       HOW TO UPLOAD CONTENT — standing, verbatim
 # Storyboard / Shot List
-## A-ROLL/SCRIPT
+## A-ROLL/SCRIPT         the two lines about yellow text — verbatim
 ## A-Roll (TALKING HEAD)
-### Script 1                ← Hooks, then Main Body
-### Script 2                ← Hooks, then Main Body
-## B-ROLLS | SHOTLIST       ← the 10 general clips
-## File Naming Convention   standing, with the hook count corrected
+### Script 1
+#### Hooks                 ← numbered list, 5 items
+#### Main Body
+---                        ← body script sits between the dividers
+---
+### Script 2               ← same again
+## B-ROLLS | SHOTLIST      ← the two standing bullets, then the table (10 rows)
+## File Naming Convention  ← standing, with the hook count corrected to 5
 ```
+
+### Direction goes inline, in yellow
+
+The template states its own convention at the top of the A-ROLL section:
+
+> *"Talking head shots showing face and any gestures as noted in **yellow text**"*
+> *"Only some parts of the A-roll will require holding the product this will be outlined in
+> yellow text"*
+
+So spoken lines are plain and **every direction is `<span color="yellow">…</span>` inline** —
+what they do, where the phone goes, how to deliver it, and `HOLD THE PRODUCT` on the product
+beats. `\[REQUIRES GENUINE USE\]` markers ride in yellow too.
+
+This is the one to get right: the AI-VO pipeline's `Spoken / Shot / Note` cut-sheet table looks
+like an upgrade and is not. It is a different database's format, and using it here makes a brief
+that does not match the four already in the folder.
 
 ### The header table
 

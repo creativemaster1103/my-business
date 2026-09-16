@@ -173,6 +173,13 @@ framework_lookback: 12
 # no naming-convention spreadsheet. Do not file UGC scripts in the Video Brief
 # database — that is the AI-VO pipeline's destination.
 ugc_brief_database_page: 3448fb5b-44b0-80b7-a01f-df29eb7dd956   # 🤳 UGC Brief Database
+
+# Mark keeps a pre-made page per creator. FILL THOSE — do not create new pages.
+# Read the parent page each run: the roster changes, he edits them live, and
+# their headers are not identical (Hayden's has Persona/Angle rows others lack).
+fill_premade_creator_pages: true
+never_create_new_pages_unprompted: true
+keep_premade_page_titles: true
 template_page: 3dc8fb5b-44b0-8025-920d-cdc4e9ac0903             # ✏️ TEMPLATE
 page_icon: ✏️
 page_title_format: "<Creator Name>-<Concept>"

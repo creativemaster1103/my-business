@@ -198,6 +198,26 @@ the default; the other four need Mark's go-ahead. **The Off-Ramper carries a sta
 hold**: body-state language only, Nick's sign-off, and no anti-medication framing in paid — the
 persona is drawn to exactly the framing that carries the risk.
 
+### The modular framework
+
+Scripts are **assembled from blocks**, not written freehand — the same Ad Building Blocks
+framework (`brook-adblock-analyzer`) the swipe pipeline uses to take competitor ads apart.
+Structure blocks (Hook / Body / CTA), Product blocks (Introduction, Demonstration,
+Features, Buying Experience, Unboxing), Person blocks (Problem Statement, Failed Alternative,
+Desired Result, Before & After, Social Proof, Storytelling).
+
+The block sequence is chosen before a line is written, each beat does exactly one block, and every
+beat is labelled in the brief. That symmetry is the point: a script written in blocks can be
+audited in blocks, and a winner can be pulled apart and recombined.
+
+Three blocks do not transfer cleanly and the reference says why: **Social Proof** (a creator
+citing numbers is a claim the brand owns), **Before & After** (situational contrast only, never a
+health outcome), and **Buying Experience** (no price while Shopify is on hold).
+
+**Launch line.** While the Mini is launching, every script carries *"Hoolest just launched their
+newest vagus nerve stimulator"* at **Product Introduction** — never in the hook, because the hook
+is the viewer's problem, not the brand's news. It drops when Event stops being `Launch`.
+
 ### Why voice of customer
 
 The sibling pipeline mines what *competitors* proved in the auction. This one mines what *our
@@ -250,6 +270,7 @@ Loser`, or `/ugc-scripting general, from the post-purchase survey`.
 | `.claude/skills/ugc-scripting/SKILL.md` | The pipeline |
 | `references/four-gates.md` | Persona, awareness, core desire, angle — and how to derive an angle |
 | `references/voice-of-customer.md` | Where the quotes are and how to judge one |
+| `references/modular-framework.md` | The block system, what doesn't transfer, the launch line |
 | `references/general-clips.md` | The standing ten, their section names, capture notes |
 | `references/ugc-creator-brief.md` | Casting, delivery, **endorsement gate** |
 | `references/notion-map-ugc.md` | The destination page, the template, and what does *not* apply |
@@ -280,7 +301,15 @@ watered down to hit the count.
 - Never puts a review verbatim into a creator's mouth as their own experience.
 - Never files a UGC script in the Video Brief database, and never runs the `HPT` naming sheet for
   one — that database has no properties, no creative ID and its own creator-facing naming.
-- Never edits the standing `Shooting Specifications` or `HOW TO UPLOAD CONTENT` callouts.
+- **Never creates a new Notion page.** Mark keeps a pre-made page per creator; the pipeline
+  fills those and keeps their titles. It re-reads the roster each run, because the pages get
+  edited live and their headers differ.
+- **Never reinvents the Notion template.** It fills the structure that is there — no extra
+  callouts, headings or tables, no re-ordering. The only structural changes are 8→10 shotlist
+  rows and 3→5 hooks in the naming block. Direction goes inline in yellow text, which is the
+  template's own convention.
+- Never edits the standing `Shooting Specifications` or `HOW TO UPLOAD CONTENT` callouts —
+  they are copied verbatim.
 - Never edits an existing brief.
 
 ### Flagged, not decided

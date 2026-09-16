@@ -218,16 +218,36 @@ you have picked badly.
 
 ### 6. Write the two scripts
 
-Per beat, three things:
+**Use the template's own format. Do not invent one.** The template tells you exactly how
+direction is carried:
 
-| Spoken | Shot / Action | Note |
-|---|---|---|
+> *"Talking head shots showing face and any gestures as noted in **yellow text**"*
+> *"Only some parts of the A-roll will require holding the product, this will be outlined in
+> yellow text"*
 
-- **Spoken** is the line, verbatim, as a person talks. Contractions. Fragments. One idea per line.
-  If you cannot say it out loud in one breath, it is written, not spoken.
-- **Shot / Action** is what the creator physically does — where they are, what is in frame, what
-  they pick up.
-- **Note** is delivery and pacing.
+So: **spoken lines plain, every direction inline in `<span color="yellow">…</span>`.** No
+`Spoken / Shot / Note` table — that is the AI-VO pipeline's cut-sheet format and it does not
+belong in this database. Hooks are a numbered list under `#### **Hooks**`; the body is script
+text between the `---` dividers under `#### Main **Body**`, exactly as the template lays it out.
+
+**Build from the modular framework.** Read `references/modular-framework.md` — the house
+messaging structure, taken from the `brook-adblock-analyzer` skill. Choose the **block sequence**
+before writing a line (`Hook → Failed Alternative → Problem Statement → Product Introduction →
+Demonstration → Desired Result → CTA`), give each beat **one** block, and **label it inline in
+yellow** so the structure is visible. The two scripts on a page must use different sequences, not
+just different words.
+
+**Every script carries the launch line at Product Introduction:** *"Hoolest just launched their
+newest vagus nerve stimulator."* Never in the hook — the hook is the viewer's problem, not the
+brand's news. Drop it when Event stops being `Launch`.
+
+Everything a beat needs still gets said, just inline:
+
+- **The line**, verbatim, as a person talks. Contractions. Fragments. One idea per line. If you
+  cannot say it out loud in one breath, it is written, not spoken.
+- **What they do**, in yellow — where they are, what is in frame, when the product comes up.
+  `HOLD THE PRODUCT` is the template's own signal for the product beats.
+- **Delivery and pacing**, in yellow — energy, where to pause, what not to overplay.
 
 Rules that hold for every UGC script:
 
@@ -332,8 +352,29 @@ to hit the count. Run the gates; **do not print them into the brief.**
 
 ### 10. File it in the UGC Brief Database
 
-Follow `references/notion-map-ugc.md` exactly. Duplicate the **`✏️ TEMPLATE`** page and fill it —
-do not rebuild the layout, and do not edit the standing callouts.
+> ### Fill Mark's pre-made creator pages. Do not create new ones.
+>
+> There is a pre-made page per creator in the database, already named, waiting for a script.
+> **Fill those.** Read the parent page each run to see the current roster — Mark edits them live,
+> and their headers are not all identical. Keep their existing titles: the concept in the title
+> is his. Only create a page if Mark says there is no pre-made one for that creator.
+
+Follow `references/notion-map-ugc.md` exactly.
+
+> ### Follow the template. Do not reinvent the wheel.
+>
+> **Fill the structure that is there; do not add to it.** No extra callouts, no extra headings,
+> no tables the template does not have, no re-ordering. Every brief in this database should look
+> like every other one — that is the point of a template, and a creator who has shot from one
+> brief should not have to re-learn the next.
+>
+> The **only** sanctioned changes to the template's structure are the two the work requires:
+> the shotlist table goes from 8 rows to **10**, and the naming block goes from three hooks to
+> **five**, scoped per script. Everything else is filled in, not altered.
+>
+> Standing text — the Content Brief paragraph, the 🎥 Shooting Specifications callout, the
+> 💡 HOW TO UPLOAD CONTENT callout — is copied **verbatim**. If guidance feels missing, it goes
+> inline in yellow text where the template already puts direction, not in a new block you made up.
 
 1. **Title**: `<Creator Name>-<Concept>` in creator-specific mode, `General-<Concept>` in
    general mode. Icon **✏️**, parent `3448fb5b-44b0-80b7-a01f-df29eb7dd956`.
@@ -400,7 +441,18 @@ an awareness level, and the database has no properties to file one in.
   second phone, no props they do not own. State handheld or propped on every row.
 - **Wrong database is the loudest failure here.** UGC briefs go in the UGC Brief Database, as
   child pages of the template, with icon ✏️ and no properties.
+- **Build from the modular framework.** Block sequence chosen first, one block per beat, each
+  labelled inline. Never invent a block outside `brook-adblock-analyzer`.
+- **The launch line goes at Product Introduction, never in the hook**, for as long as Event is
+  `Launch`.
+- **Fill Mark's pre-made creator pages; never create a new one unprompted.** Read the parent
+  page each run — the roster changes and the headers differ between pages.
+- **Follow the template; do not reinvent it.** No callouts, headings, tables or sections the
+  template does not have. The only structural changes allowed are 8→10 shotlist rows and 3→5
+  hooks in the naming block.
+- **Direction goes inline in yellow text**, which is the template's own stated convention — not
+  in a `Spoken / Shot / Note` table borrowed from the AI-VO pipeline.
 - **Do not edit the standing callouts** — Shooting Specifications and HOW TO UPLOAD CONTENT are
-  identical on every brief.
+  identical on every brief, copied verbatim.
 - **Do not touch existing briefs.** This skill only creates.
 - **The brief is for the creator.** Direction they can act on, and nothing else.
