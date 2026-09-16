@@ -8,14 +8,16 @@ name, call:
 models_explore { action: "get", model_id: "<id>" }
 ```
 
-and use what comes back. `models_explore { action: "recommend", query: "...", input: "image" }`
+and use what comes back — especially `medias[].roles`, which is where routing mistakes actually
+bite. `models_explore { action: "recommend", query: "...", input: "image" }`
 is the fast path when nothing below obviously fits.
 
 ## Images
 
 | Job | Model | Why |
 |---|---|---|
-| Realistic person, UGC, creator frame | `soul_2` | Built for UGC / editorial realism. Optional `soul_id` locks a recurring face. Up to 2k. |
+| Realistic person, UGC, creator frame — **no product in hand** | `soul_2` | Built for UGC / editorial realism. Optional `soul_id` locks a recurring face. Up to 2k. **Takes one media at role `image` only — it has no `image_references` role, so it cannot hold a product photo.** |
+| Person **plus** a product that must stay itself | `nano_banana_pro`, `seedream_v4_5`, `kling_omni_image`, `flux_2` | These take `image_references`. This is the row people get wrong — see the `soul_2` caveat above. |
 | Cinematic still, concept art | `soul_cinematic`, `cinematic_studio_2_5` | Dramatic light and lensing. `cinematic_studio_2_5` goes to 4k. |
 | **Legible on-image text**, diagrams, packaging copy | `nano_banana_pro`, `gpt_image_2_5`, `openai_hazel` | The only reliable text renderers. Realism models will hand you gibberish letterforms. |
 | General photoreal, versatile | `nano_banana_2`, `kling_omni_image`, `flux_2` | Good defaults. `flux_2` has the tightest prompt adherence when the prompt is long and specific. |
@@ -70,10 +72,18 @@ A product passed as `start_image` is a frame the model will move away from. The 
 passed as `image_references` is a constraint it holds. For product work you usually want the
 second, or both.
 
+## The id you ask for is not always the id that runs
+
+A `nano_banana_pro` request came back as a completed `nano_banana_2` job on 2026-09-16. The
+server re-routes. When the exact model matters — a text render, a 4k finish — read the `model`
+field on the returned job rather than assuming, and re-run on an explicit id if it matters.
+
 ## Cost discipline
 
 - `balance` and `show_plans_and_credits` before a large batch.
 - `run_cost` / `charged_cost` are **USD**, not credits (`0.009` = $0.009). Quote USD.
 - Resolution and quality tiers scale cost roughly linearly. Compose at 1k, finish at 4k.
+- Reference point: one 2k 9:16 image on `nano_banana_pro` with one reference image cost
+  **2 credits** (2026-09-16).
 - On `insufficient_credits` / `BILLING_*`: stop. Do not retry — send the upgrade link from the
   error.

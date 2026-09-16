@@ -110,12 +110,24 @@ set the type in design, or render text-carrying variants on `nano_banana_pro` /
 | Right idea, wrong crop | Aspect ratio left to default | State it, and confirm the model supports it via `models_explore action:"get"` |
 | Looks like stock photography | No realism levers, everything lit evenly | Add three from the anti-AI kit, kill the fill light |
 
-## Iterating without burning budget
+## Iterating
 
-1. Compose on a cheap model (`z_image`, `nano_banana`) at low resolution until the framing is
-   right.
-2. Move the working prompt to the quality model, **one frame**.
-3. Only then batch variants — `generate_image_batch` + `jobs_wait` + one
-   `show_generation_by_ids`.
-4. Change **one slot at a time** between attempts. Changing three and getting a better result
-   teaches you nothing about which one did it.
+Whoever runs the prompt should change **one slot at a time**. Changing three and getting a better
+result teaches nothing about which one did it — and the whole point of the slot structure is that
+each slot is separately steerable.
+
+A sane order when a frame misses:
+
+1. **Framing wrong** → camera slot (lens, height, distance).
+2. **Mood wrong** → light slot before the palette slot. Light does more than grade.
+3. **Looks like stock / looks like AI** → add three realism levers, and kill the fill light.
+4. **Right frame, wrong world** → environment slot, and name two concrete props instead of one
+   adjective.
+5. **Half the prompt ignored** → it is too long or self-contradictory. Cut quality adjectives
+   first, then resolve the contradiction (nothing has both `shallow depth of field` and
+   `deep focus`).
+
+Compose cheap before committing: `z_image` or `nano_banana` at low resolution settles framing for
+a fraction of what a quality model costs. When a prompt is confirmed on one generation, a variant
+sweep (`templates.md` T8) is the efficient way to get a test set — one slot varying, everything
+else byte-identical.

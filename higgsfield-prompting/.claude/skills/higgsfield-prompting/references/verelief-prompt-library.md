@@ -7,13 +7,24 @@ half of the same discipline and defers to that brief wherever the two touch.
 
 ## 1. Product lock
 
-**Never describe the device in words when a photograph is available.** Pull the current product
-image from Shopify (or the Marketing Studio product record) and pass it as `image_references` on
-every generation the device appears in. For video, that means `seedance_2_0` — it is the model
+**Never describe the device in words when a photograph is available.** Attach a real product
+photo as `image_references` on every prompt the device appears in, and say so in the settings
+line rather than describing the device in prose. Words drift — the device is a different device
+in frame two, and an ad with an inconsistent product is unusable no matter how good the light is.
+
+**This constrains the model.** `soul_2` is the obvious choice for a realistic person, but it
+accepts a single media at role `image` and has **no `image_references` role** — it cannot hold a
+product photo. Any prompt with the device in hand goes to a model that takes
+`image_references`: `nano_banana_pro`, `seedream_v4_5`, `kling_omni_image`, or `flux_2`. Reserve
+`soul_2` for person-only frames with no product in shot. For video, `seedance_2_0` is the model
 that holds a product identity across a clip.
 
-Words drift. A word-described device is a different device in frame two, and an ad with an
-inconsistent product is unusable no matter how good the light is.
+**Which Shopify record.** Searching `VeRelief` returns mostly ARCHIVED and UNLISTED products —
+as of 2026-09-16 the only ACTIVE SKUs are the gel tips ($14) and the Gel Hydration Solution
+($31). For a clean device shot use the **VeRelief Prime Gen 2** product image; for price, the
+**VeRelief Prime — Lasting Relief Bundle** record carries $399.00, which matches the brief's
+$399 sanity check. Confirm the live price at run time regardless — do not cite a number from
+this file.
 
 When a photograph genuinely is not available — a concept frame, a silhouette, a shot where the
 device is out of focus in the background — this is the only permitted verbal description:
@@ -73,12 +84,14 @@ One recognisable frame, across every avatar:
 
 ## 4. Prompts by avatar
 
-Each is a starting block, not a finished prompt. Pass the product photo as `image_references`,
-set the aspect ratio for the placement, and add realism levers from `prompt-anatomy.md`.
+Each is a starting block, not a finished prompt. Attach the product photo at role
+`image_references`, set the aspect ratio for the placement, and add realism levers from
+`prompt-anatomy.md`. Where a block says "the handheld device", the reference image is doing the
+work — point at it (`the handheld device from the reference image`) rather than describing it.
 
 ### Wired Lifer — "tired but wired", relief in seconds, mid-day
 
-**Model:** `soul_2` · 9:16
+**Model:** `nano_banana_pro` (product as `image_references`) · 9:16
 
 ```
 A man in his late thirties in a plain charcoal t-shirt, pressing the handheld device to the
@@ -97,7 +110,7 @@ eyes closed and his jaw unclenched, audio off`
 
 ### Off-ramper — drug-free, non-habit-forming, in your control
 
-**Model:** `soul_2` · 4:5 or 9:16
+**Model:** `nano_banana_pro` or `seedream_v4_5` (product as `image_references`) · 4:5 or 9:16
 
 ```
 A woman in her forties in a linen shirt, sitting on the edge of a sofa holding the handheld
@@ -114,7 +127,7 @@ copy.
 
 ### Sleep Struggler — wind-down ritual, no morning hangover
 
-**Model:** `soul_2` · 9:16
+**Model:** `nano_banana_pro` (product as `image_references`) · 9:16
 
 ```
 A woman in her thirties in a grey sleep tee, sitting on the edge of the bed pressing the
@@ -129,7 +142,7 @@ visible skin texture, slight motion blur on the hand,
 
 ### HRV Hunter — mechanism, measurable, stackable
 
-**Model:** `soul_2` · 1:1 or 16:9
+**Model:** `nano_banana_pro` (product as `image_references`) · 1:1 or 16:9
 
 ```
 A man in his early thirties in technical fabric, the handheld device in one hand and a wrist
@@ -150,7 +163,7 @@ displayed number would be a claim.
 | Asset | Route |
 |---|---|
 | PDP packshot, gel tips, in-box | `product-photoshoot` workflow → T1 |
-| Static ad pack for Meta | `ms_image` (pick `style_id` via `show_marketing_studio`) or T2 + T4 |
+| Static ad pack for Meta | `ms_image` (pick `style_id` via `show_marketing_studio`) or T2 + T4 on a model that takes `image_references` |
 | UGC creator video | `ugc-review-video` workflow, house look above |
 | Product-only video ad, voiceover | `ugc-product-video` workflow |
 | Variants of an ad that already works | `ad-multiplier` workflow |
@@ -158,7 +171,8 @@ displayed number would be a claim.
 
 ## 6. Before anything ships
 
-1. Product lock applied — real photo as `image_references`, no invented logo or mark.
+1. Product lock applied — real photo at role `image_references`, on a model that accepts that
+   role, no invented logo or mark.
 2. Nothing on the visual don't-list is in frame.
 3. Any on-frame text passes the brief's written compliance gate, and the price, if shown, came
    from Shopify at run time.

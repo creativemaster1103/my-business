@@ -4,6 +4,10 @@ How Hoolest prompts Higgsfield. Model routing, prompt structure, reusable templa
 VeRelief Prime prompt library — everything needed to get a usable frame or clip on the first or
 second generation instead of the sixth.
 
+**The deliverable is a prompt, not a generation.** The skill hands back a copy-paste-ready block
+plus the model and settings it was written for. It generates only when asked outright, and
+quotes the cost first.
+
 Higgsfield is reached through its **MCP connector**, not an HTTP API. Nothing here is a script;
 it is the prompting layer a Claude session loads before it calls `generate_image` /
 `generate_video`.
@@ -19,7 +23,8 @@ output is not a model problem — it is one of four things:
    owns that deliverable and would have produced a structured one.
 3. **Overloaded prompt.** Three actions and two camera moves in a 5-second clip.
 4. **No product lock.** The device drifts shape between frames because it was described in words
-   rather than passed as a reference image.
+   rather than attached as a reference image — or because the prompt was written for a model
+   that has no `image_references` role to attach it to.
 
 Each of those has a rule in here.
 

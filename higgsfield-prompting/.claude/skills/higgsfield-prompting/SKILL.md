@@ -1,25 +1,50 @@
 ---
 name: higgsfield-prompting
-description: Route a visual request to the right Higgsfield model or bundled workflow and write the prompt to house structure. Use whenever the user asks for an image, video, product shot, ad creative, thumbnail, UGC clip, or any generated visual through the Higgsfield connector — including "make me a product photo", "generate a video ad", "a bedside shot of the device", or any VeRelief Prime asset.
+description: Craft a Higgsfield prompt — pick the model the prompt is written for, write it to house structure, and hand back a copy-paste-ready block. Use whenever the user wants a prompt for an image, video, product shot, ad creative, thumbnail, UGC clip, or any VeRelief Prime visual. The deliverable is the prompt, not a generation.
 ---
 
 # Higgsfield prompting
 
-Four gates, in order. Do not skip to the prompt.
+**The deliverable is a prompt.** Write it, hand it over, stop. Do not call `generate_image` /
+`generate_video` unless the user asks for a generation in so many words — and even then, quote
+the cost first.
 
-## Gate 1 — Does a bundled workflow own this deliverable?
+Four gates, in order.
 
-Higgsfield ships workflows that own whole categories. When one owns the ask, calling
-`generate_image` / `generate_video` directly produces a worse result than the workflow would,
-and the connector's own instructions require loading it first.
+## Gate 1 — Which model is this prompt written for?
 
-Call `get_workflow_instructions` **with no argument** to list the catalog, then load the match:
+A prompt is not model-agnostic. Reference roles, aspect ratios, durations, and how much
+prose the model will actually read all differ. Pick the model before writing a word, and name it
+in the output. `references/model-routing.md` has the full table; the short version:
+
+- **Realistic person, UGC, no product in hand** → `soul_2`
+- **Person *and* a product that must stay itself** → `nano_banana_pro`, `seedream_v4_5`,
+  `kling_omni_image`, or `flux_2`. **Not `soul_2`** — it takes a single media at role `image`
+  and has no `image_references` role, so it cannot hold a product photo. (Confirmed against
+  `models_explore action:"get"`, 2026-09-16.)
+- **Legible on-image text or a diagram** → `nano_banana_pro`, `gpt_image_2_5`, `openai_hazel`
+- **Edit or restyle an existing image** → `seedream_v4_5`, `nano_banana_2`, `flux_kontext`
+- **Cinematic still** → `soul_cinematic`, `cinematic_studio_2_5`
+- **Product identity held across a clip** → `seedance_2_0`, product as `image_references`
+- **Cinematic clip** → `cinematic_studio_3_0`
+- **Start frame → end frame** → `flux_3_video`, `minimax_h3`
+- **Extend or edit an existing clip** → `seedance_2_5` with the matching `mode`
+
+Verify anything you are about to put in the settings line:
+`models_explore { action: "get", model_id: "<id>" }` returns that model's real aspect ratios,
+durations, parameters, and media roles. The roster moves.
+
+## Gate 2 — Does a bundled workflow own this deliverable?
+
+Some deliverables are owned by a Higgsfield workflow that carries its own prompt architecture —
+a hand-written prompt is the wrong shape for them. Call `get_workflow_instructions` with **no
+argument** to list the catalog, then load the match and write inside its structure:
 
 | Ask | Workflow |
 |---|---|
-| Product photography, packshot, hero banner, static ad pack, catalog image | `product-photoshoot` |
+| Product photography, packshot, hero banner, static ad pack | `product-photoshoot` |
 | UGC creator talking to camera | `ugc-review-video` |
-| UGC, product only, voiceover, no creator on camera | `ugc-product-video` |
+| UGC, product only, no creator on camera | `ugc-product-video` |
 | Unboxing / first reaction | `ugc-unboxing-video` |
 | Step-by-step how-to with on-screen steps | `ugc-tutorial-video` |
 | Wearing / fit check | `ugc-try-on-video` |
@@ -31,59 +56,59 @@ Call `get_workflow_instructions` **with no argument** to list the catalog, then 
 | Consistent character across views | `character-sheet` |
 | Burned-in captions on a finished cut | `subtitles` |
 
-The catalog is the source of truth — check it rather than trusting this table, which is a
-snapshot. If a workflow matches, load it and follow it; the rest of this skill still governs how
-the prompt text inside it is written.
+The catalog is the source of truth — this table is a dated snapshot.
 
-No workflow matches → Gate 2.
+## Gate 3 — Write it
 
-## Gate 2 — Pick the model
-
-`references/model-routing.md`. The short version:
-
-- **Realistic person / UGC frame** → `soul_2`
-- **Legible on-image text or a diagram** → `nano_banana_pro`, `gpt_image_2_5`, or `openai_hazel`.
-  Never a realism model.
-- **Edit or restyle an existing image** → `seedream_v4_5`, `nano_banana_2`, `flux_kontext`
-- **Cinematic still** → `soul_cinematic`, `cinematic_studio_2_5`
-- **Cheap look-see before committing** → `z_image`, `nano_banana`
-- **Product identity held across a clip** → `seedance_2_0` with the product as `image_references`
-- **Cinematic clip** → `cinematic_studio_3_0`
-- **Start frame → end frame** → `flux_3_video`, `minimax_h3`
-- **Extend or edit an existing clip** → `seedance_2_5` with the matching `mode`
-
-Verify before you rely on a parameter: `models_explore` with `action: "get"` and the `model_id`
-returns that model's real aspect ratios, durations, and parameters. The roster changes.
-
-## Gate 3 — Write the prompt to house structure
-
-`references/prompt-anatomy.md`, and `references/templates.md` for a starting block.
+`references/prompt-anatomy.md` for the slot structure and vocabulary,
+`references/templates.md` for a starting block.
 
 Non-negotiable:
 
-- **One subject, one action, one camera move per clip.** A second action needs a second clip.
-- **Camera and light are named, not implied.** "Shot on a 35mm at chest height, window light
-  from frame left" beats "nice lighting" every time.
-- **Never describe a product in words when you can pass it as a reference image.** Words drift;
-  references do not.
-- **Never ask for cuts inside a single generation.** Generate the shots and assemble.
-- **State the aspect ratio explicitly**, matched to the destination (9:16 paid social, 1:1 feed,
-  16:9 site/YouTube).
+- **One subject, one action, one camera move per clip.** A second action is a second prompt.
+- **Camera and light are named, not implied.** "35mm at chest height, window light from frame
+  left, no fill" beats "nice lighting" every time.
+- **A product that must stay itself is a reference image, not a sentence.** Say so in the
+  settings line rather than describing the product in prose.
+- **Never ask for a cut inside one generation.** One prompt is one continuous shot.
+- **State the aspect ratio**, matched to the destination (9:16 paid social, 1:1 feed, 16:9 site).
+- **No quality adjectives.** `8k`, `masterpiece`, `award-winning` do nothing but dilute the
+  tokens that work.
 
 ## Gate 4 — VeRelief Prime / Hoolest work
 
-Load `references/verelief-prompt-library.md` and apply the **product lock** and the **visual
-compliance rules** before generating. The written claim rules in the brand brief
-(`my-business` → `competitor-ad-swipe/references/verelief-prime-brief.md`) apply to on-screen
-text and implied setting exactly as they apply to script copy — a clinic set and a white coat
-make a medical claim without a single word being said.
+Load `references/verelief-prompt-library.md` and apply the **product lock** and **visual
+compliance rules**. The written claim rules in the brand brief (`my-business` →
+`competitor-ad-swipe/references/verelief-prime-brief.md`) govern on-screen text and implied
+setting exactly as they govern script copy — a clinic set and a white coat make a medical claim
+without a word being said.
 
-## Running the generation
+## Output contract
 
-- Local or attached media with no confirmed `media_id` → call `media_upload_widget` as the only
-  tool in that turn. Do not go looking in the filesystem for it.
-- More than one independent generation of the same type → `generate_image_batch` /
-  `generate_video_batch`, then `jobs_wait`, then a single `show_generation_by_ids`.
-- Quote cost in USD from `run_cost` / `charged_cost` before spending on a batch.
-- Generate **one** frame first, confirm it, then batch the variants. A batch of twelve wrong
-  frames costs twelve times as much as one wrong frame.
+Hand back exactly this, nothing padded around it:
+
+````
+**Model:** <id>  ·  **Aspect:** <ratio>  ·  **Resolution:** <tier>
+**Reference images:** <what to attach, at which role — or "none">
+
+```
+<the prompt, ready to paste>
+```
+
+**Vary next:** <the one slot worth changing if this misses>
+````
+
+Then say in one line what you would change first if it comes back wrong. Do not narrate the slot
+structure back at the user — they have this file.
+
+## If the user does ask you to generate
+
+Only then:
+
+1. `get_cost: true` first, and quote the number before spending.
+2. Local or attached media with no confirmed `media_id` → `media_upload_widget`, as the only
+   tool in that turn. Do not go hunting in the filesystem.
+3. One generation, confirmed, *then* batch variants — `generate_image_batch` /
+   `generate_video_batch` → `jobs_wait` → a single `show_generation_by_ids`.
+4. Check the model the job reports back. A requested id is not always the id that runs
+   (a `nano_banana_pro` request came back as `nano_banana_2` on 2026-09-16).
