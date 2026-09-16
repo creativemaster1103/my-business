@@ -1,0 +1,90 @@
+# Config for the /ugc-scripting pipeline.
+# Edit freely — the skill reads this file at the start of every run.
+
+# One concept = one brief = one HPT number, each carrying exactly 4 hook variants.
+# A three-script run is therefore 12 file-name rows and 12 takes for the creator.
+scripts_per_run: 3
+hooks_per_script: 4
+
+# Never relaxed automatically. Dropping any of these is lowering the bar.
+never_relax_without_approval:
+  - brand compliance gate
+  - endorsement gate
+  - four distinct hook mechanisms per script
+  - customer-sourced — no invented quotes
+
+# --- Voice of customer -----------------------------------------------------
+# Minimum usable quotes in the bank before writing starts. Below this the run
+# stops and reports, rather than writing an AI-VO script and calling it UGC.
+min_quotes_in_bank: 15
+
+# Prefer material that several independent customers circle. One striking
+# review is an anecdote; three saying the same thing is an insight.
+min_independent_voices_per_concept: 3
+
+# Read these first. 5-star reviews are congratulation, not information.
+review_star_priority: [3, 4, 2, 5, 1]
+
+voc_sources:
+  - okendo_reviews          # reviews_search / reviews_aggregate
+  - parker_reviews_semantic # search_customer_reviews_semantic
+  - post_purchase_survey    # semantic_search_post_purchase_survey — the trigger moment
+  - ad_comments             # search_facebook_ad_comments_semantic — public objections
+  - gorgias_tickets         # optional — private objections
+
+# --- Framework selection ---------------------------------------------------
+# The 25-framework library lives in the `ugc-video-frameworks` skill. Do not
+# duplicate it here and do not invent a 26th.
+frameworks_skill: ugc-video-frameworks
+
+# Skip a framework used in the last N briefs, and never repeat one within a run.
+framework_lookback: 12
+
+# --- Notion ----------------------------------------------------------------
+video_brief_data_source: collection://34b8fb5b-44b0-8029-8b87-000b98d7a19f
+
+# Free-text property, so nothing validates it — a typo propagates into every
+# filename. Must match the naming sheet exactly.
+content_type: UGC
+
+# Only `New` and `Iteration` exist as options. There is NO `Adaptation` option,
+# despite what the competitor-ad-swipe notion map claims — verified live
+# 2026-09-16. Raise that discrepancy with Mark rather than adding an option.
+default_category: New
+
+# Avatars currently under-served in the Video Brief library. Prefer these when
+# concepts are otherwise close. Re-check live counts each run.
+# NOTE the capital R: the Notion select option is `Off-Ramper`, not `Off-ramper`.
+prefer_avatars:
+  - HRV Hunter
+  - Sleep Struggler
+  - Off-Ramper
+
+# --- Creator shoot defaults ------------------------------------------------
+# Deliberately unpolished. A ring-lit, tripod-steady, studio-audio UGC ad reads
+# as a brand ad and loses the format's only advantage.
+shoot_defaults:
+  camera: Front-facing phone, hand-held
+  framing: Chest-up, slightly off-centre
+  audio: Phone mic or earbuds, room tone audible
+  light: Available light, facing a window
+  location: The room where the problem actually happens
+  wardrobe: Own clothes, nothing styled
+  takes_per_hook: 1
+
+# Scripted at 30-45s unless the chosen framework specifies otherwise.
+target_length_seconds: [30, 45]
+hook_must_land_within_seconds: 3
+
+# Any paid or gifted creator discloses in the first two seconds, as a super.
+# Not in the caption, not at the end.
+disclosure_super: "#ad"
+disclosure_within_seconds: 2
+
+# Grab these every shoot regardless of framework — they are what saves a
+# script in the edit and cost thirty seconds.
+always_capture_broll:
+  - Device in hand, close, unbranded surface
+  - Device applied correctly, second angle
+  - The moment before — the stressed/tired state, no device in frame
+  - Hands doing something ordinary nearby
