@@ -145,6 +145,39 @@ with both headings for exactly this reason: one creator, one shoot, two scripts.
 Under each: `#### Hooks`, then `#### Main Body`. The two scripts must differ in framework and in
 angle+avatar — see the skill.
 
+### The upload link — fill the `[LINK]` placeholder
+
+The `💡 HOW TO UPLOAD CONTENT` callout ships with a `[LINK]` placeholder. **It gets filled**, and
+that is the one edit the standing callouts take.
+
+Procedure, every batch:
+
+1. Check Dropbox **`Hoolest UGC - 2026`** (`ns:12062740723//Hoolest UGC - 2026`) for a folder
+   named after the creator.
+2. **Folder exists** → create a **Dropbox file request** pointing at that folder and put its URL
+   in the callout.
+3. **No folder** → **ask Mark** whether to create one for that creator. Do not create it yourself.
+
+**Use a file request, not a shared link.** Two reasons, both learned here:
+
+- The Dropbox MCP **cannot create public or edit-access shared links** — it is locked to
+  view-only, audience `no_one`. Only the web UI can make an editor link.
+- A folder edit-link would let every creator browse, edit and delete every other creator's raw
+  footage. A file request gives them an upload URL into their own folder and nothing else. It is
+  the right mechanism regardless of the tool limit.
+
+> **`update_content` cannot reach text inside a callout.** Search-and-replace silently finds no
+> match, however the string is escaped. To fill `[LINK]` you must use `replace_content` and
+> rewrite the whole page. Budget for that rather than burning calls discovering it again.
+
+Live file requests, created 2026-09-16:
+
+| Creator | Upload URL |
+|---|---|
+| Hayden Bender | `https://www.dropbox.com/request/nmvu4q98u2axb3qxfzmn` |
+| Clayton Stakelbeck | `https://www.dropbox.com/request/6oo8txkqa84dmbaek05h` |
+| Kenzie Williams | `https://www.dropbox.com/request/1l6l8puxq3n2hr9w2hed` |
+
 ### The shotlist is the clip bank
 
 `B-ROLLS | SHOTLIST` is a three-column table, header row `orange_bg`:
@@ -159,12 +192,14 @@ table; the row count is not sacred, the ten clips are.
 the phone is handheld or propped. There is no crew and no production shoot — see
 `general-clips.md` for the execution rules every row obeys.
 
-> **Each row needs a section NAME, not just a number.** The file-naming convention at the bottom
-> of the page is `BRoll_<section>`, and *"the name of 'section' can be found in the Shotlist
-> above"*. A numbered row with no name gives the creator nothing to name the file after. Put the
-> name at the front of the `Visual description` cell — `**Struggle** — jaw set, shoulders up…`.
-> The template's own examples are `BRoll_Struggle`, `BRoll_Frustration`,
-> `BRoll_Physical discomfort`.
+> **The `Shotlist` column holds the NAME, not a number.** `Device`, `Application`, `Struggle`,
+> `Relief`… That column is what the creator names the file after — `BRoll_Struggle` — and the
+> template says so: *"the name of 'section' can be found in the Shotlist above"*. A numbered row
+> gives them nothing to name the file from.
+>
+> **Keep the description short.** One or two plain sentences: what to point the phone at, and
+> whether to prop it. `Sit how you actually sit at 4pm — shoulders up, jaw tight. Do nothing for
+> 8 seconds. Prop the phone.` A creator skims this on set; a paragraph does not get read.
 
 Section names for the standing ten are in `general-clips.md`.
 

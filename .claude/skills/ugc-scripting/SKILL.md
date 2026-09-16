@@ -385,9 +385,16 @@ Follow `references/notion-map-ugc.md` exactly.
    - `Offer` comes from the user or stays at the template's default. **Shopify is on hold** —
      do not query it, and do not guess a discount.
 3. **`Script 1` and `Script 2`** — hooks then main body, under the headings already there.
-4. **`B-ROLLS | SHOTLIST`** — extend the template's 8 rows to **10**, one clip each, section name
-   in bold at the front of the `Visual description` cell. `INSPO` takes a link or stays empty.
-5. **File Naming Convention** — the template's standing text says three hooks. **Correct it to
+4. **`B-ROLLS | SHOTLIST`** — extend the template's 8 rows to **10**, one clip each. The
+   `Shotlist` column holds the **name** (`Device`, `Struggle`, `Relief`…), not a number — that is
+   what the creator names the file after. Keep descriptions to one or two plain sentences and say
+   whether to prop the phone. `INSPO` takes a link or stays empty.
+5. **Fill the `[LINK]` placeholder** in the HOW TO UPLOAD callout. Check Dropbox
+   `Hoolest UGC - 2026` for the creator's folder: if it exists, create a **file request** into it
+   and use that URL; if it does not, **ask Mark** before creating one. Use a file request, never a
+   folder share link — creators must not be able to browse each other's footage. Note that
+   `update_content` cannot reach callout text, so this needs `replace_content`.
+6. **File Naming Convention** — the template's standing text says three hooks. **Correct it to
    five and scope the names to the script**: `Talkinghead_S1_hook1` … `Talkinghead_S2_hook5`,
    plus `Talkinghead_S1_body` / `Talkinghead_S2_body`. B-roll stays `BRoll_<section>`, ten of
    them.
