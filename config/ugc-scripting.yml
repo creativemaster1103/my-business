@@ -184,6 +184,17 @@ script_variations_per_angle: 2
 # (drug-claim language). See references/modular-framework.md.
 current_angle: Fight-or-Flight
 
+# The product spine. Fixed order, every script, all three blocks present.
+# Usability BEFORE benefits - a benefit list means nothing until they can
+# picture the action. Person blocks arrange around this; these three stay
+# together and stay in this order.
+product_spine:
+  - Product Introduction   # "Hoolest just launched their newest vagus nerve stimulator, the Hoolest Mini."
+  - Demonstration          # how you actually use it
+  - Features/Benefits      # what makes it different
+launch_line: "Hoolest just launched their newest vagus nerve stimulator, the Hoolest Mini."
+product_spine_is_fixed_order: true
+
 # --- Framework selection ---------------------------------------------------
 # The 25-framework library lives in the `ugc-video-frameworks` skill. Do not
 # duplicate it here and do not invent a 26th.

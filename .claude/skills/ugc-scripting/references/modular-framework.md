@@ -123,7 +123,30 @@ condition-plus-number hook turns on.
 
 **Hoolest Mini is a new product.** Every script carries a launch beat at **Product Introduction**:
 
-> *"The Hoolest Mini just launched. It's their newest vagus nerve stimulator."*
+> *"Hoolest just launched their newest vagus nerve stimulator, the Hoolest Mini."*
+>
+> Mark's wording, and it beats the alternatives: one sentence, brand first, and the product name
+> lands **last**, which is where the emphasis sits. Use it verbatim.
+
+### The product spine runs in this order, every script
+
+```
+Product Introduction   →  "Hoolest just launched their newest vagus nerve
+                           stimulator, the Hoolest Mini."
+Demonstration          →  how you actually use it — tips on, under the ear,
+                           two minutes a side
+Features/Benefits      →  what makes it different — no gel, no app, nothing
+                           to clean, pre-loaded tips
+```
+
+**Usability before benefits.** Show them the thing working before you list what is good about it;
+a benefit list means nothing until they can picture the action. This is the one fixed sequence in
+the script — Person blocks arrange around it, but these three stay in this order and stay
+together.
+
+**Every script gets all three.** A script with Product Introduction and Demonstration but no
+Features/Benefits asserts that it is easier without ever saying what is easier about it — which
+is exactly the question a Solution-Aware buyer is asking.
 
 **The product is `Hoolest Mini`. Never `Mini` on its own**, in a script, a shotlist or a brief —
 it is the product name, not a nickname, and a creator who hears "the Mini" will say "the Mini".
