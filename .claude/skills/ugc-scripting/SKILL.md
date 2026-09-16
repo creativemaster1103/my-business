@@ -264,13 +264,13 @@ text between the `---` dividers under `#### Main **Body**`, exactly as the templ
 > | Label | When |
 > |---|---|
 > | `Talking head` | Just talking. Goes once at the top of a section |
-> | `Talking head, presenting the product` | Talking while holding or showing the Mini |
+> | `Talking head, presenting the product` | Talking while holding or showing the Hoolest Mini |
 > | `Talking head, holding a gel tip` | Same, with the consumable |
 > | `Prop the phone` | Both hands needed |
 > | `Start mid-sentence` | In-medias-res openings |
 > | `Say nothing first` | Demonstration-first openings |
 >
-> A label replaces a paragraph. "HOLD THE PRODUCT — bring the Mini into frame for the first time,
+> A label replaces a paragraph. "HOLD THE PRODUCT — bring the Hoolest Mini into frame for the first time,
 > don't explain it yet, two full seconds before the next line" becomes
 > `Talking head, presenting the product`. The creator already knows how to hold something up.
 >
