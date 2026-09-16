@@ -298,7 +298,13 @@ shoot_defaults:
   energy: Low and flat. Talking, not presenting
   takes_per_hook: 1
 
-target_length_seconds: [30, 45]
+# 30-60s, and AIM FOR THE MIDDLE. A script that counts out at 35s on paper can
+# land under 30 with a fast creator, so write to ~50s and let delivery vary.
+# At UGC pace, budget ~2.6-3 words per second including pauses: 50s is roughly
+# 140 words of body plus a hook.
+target_length_seconds: [30, 60]
+target_length_sweet_spot_seconds: 50
+words_per_second_estimate: 2.8
 
 # Hooks TARGET 3 seconds and may not EXCEED 5. At UGC pace (~3 words/sec) that
 # is ~10 words, 15 at the ceiling. Count them - "inside 3 seconds" is
