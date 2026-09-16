@@ -311,6 +311,21 @@ direction_only_when_action_changes: true
 shared_direction_stated_once: true
 no_writer_rationale_in_brief: true
 
+# Use short shot LABELS, not prose. A label replaces a paragraph - the creator
+# already knows how to hold something up. This is the whole vocabulary.
+shot_labels:
+  - Talking head
+  - Talking head, presenting the product
+  - Talking head, holding a gel tip
+  - Prop the phone
+  - Start mid-sentence
+  - Say nothing first
+
+# Not shot labels, but they stay: producer flags, not performance notes.
+producer_flags:
+  - check placement in the product guide   # on the demo beat
+  - only if you've actually used it        # on any personal-outcome line
+
 # Any paid or gifted creator discloses in the first two seconds, as a super.
 # Not in the caption, not at the end.
 disclosure_super: "#ad"

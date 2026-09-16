@@ -247,6 +247,25 @@ text between the `---` dividers under `#### Main **Body**`, exactly as the templ
 > makes the next line credible", "the pause is the hook", "this is the thesis, give it room" are
 > notes to the writer. The creator cannot act on them and they make the brief look like homework.
 >
+> **Use shot labels, not prose.** The whole direction vocabulary is about six phrases:
+>
+> | Label | When |
+> |---|---|
+> | `Talking head` | Just talking. Goes once at the top of a section |
+> | `Talking head, presenting the product` | Talking while holding or showing the Mini |
+> | `Talking head, holding a gel tip` | Same, with the consumable |
+> | `Prop the phone` | Both hands needed |
+> | `Start mid-sentence` | In-medias-res openings |
+> | `Say nothing first` | Demonstration-first openings |
+>
+> A label replaces a paragraph. "HOLD THE PRODUCT — bring the Mini into frame for the first time,
+> don't explain it yet, two full seconds before the next line" becomes
+> `Talking head, presenting the product`. The creator already knows how to hold something up.
+>
+> Two things are not shot labels and still earn their place, because they are producer flags
+> rather than performance notes: **`check placement in the product guide`** on the demo beat, and
+> **`only if you've actually used it`** on a personal-outcome line.
+>
 > The test: **could they do it?** "Prop the phone" passes. "Self-deprecating, not self-pitying"
 > does not.
 
