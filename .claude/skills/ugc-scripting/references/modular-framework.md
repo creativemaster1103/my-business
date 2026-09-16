@@ -73,6 +73,42 @@ just following:
 - Any mechanism claim beyond **targets the vagus nerve**. "The nerve that talks to the switch" is
   a mechanism story we have not substantiated. Show the placement; do not explain the wiring.
 
+## Swiping our own winners
+
+A hook that is already performing is the best material there is — better than a competitor's,
+because it won on our audience with our product. **Take the mechanism, not the wording**, exactly
+as the swipe pipeline does with competitor ads.
+
+**The reference winner** (Mark, 2026-09-16): *"This gel tips helps me stop my panic attack in 30
+seconds."*
+
+**Why it works — four things, all reusable:**
+
+1. **It leads with the consumable, not the device.** "This gel tip" is small, odd and concrete.
+   A gel tip is a stranger object than a device, so it opens a curiosity gap the device cannot.
+2. **A bounded, small timeframe.** Not "fast" — a number you can picture. Short enough to sound
+   like a tool rather than a treatment.
+3. **First-person, present-tense, modest verb.** "Helps me stop", not "cured me". It claims a
+   tool, not a transformation, which is why it reads as real.
+4. **It names the exact moment**, not a general state. The hook is about a spike, not about
+   wellness.
+
+**What cannot come across, and why:**
+
+| In the winner | Problem | Compliant form |
+|---|---|---|
+| "my panic attack" | Names a diagnosable condition as the thing the product acts on. Top of the cannot-say list | A body state or the customer's own word: "my chest going tight", "a spiral", or just "it" |
+| "in 30 seconds" | Specific numeric outcome claim, no approved source | "In under a minute", "in seconds". **"Effects in seconds to minutes" is on the approved list**, so qualitative speed is ours to claim — the figure is not |
+
+> **The vaguer noun is often the better hook anyway.** "Stop it" makes the viewer supply their own
+> version of *it*, which is more personal than anything we could name — and it is the version that
+> passes. Compliance and craft point the same way here, which is not always true.
+
+**If a winner like this is already running**, that is worth raising rather than copying: it is a
+live claim on a paid placement. Ask whether it carries an approval this repo does not know about.
+The brand brief flags the regulatory posture as **still open**, which is precisely the question a
+condition-plus-number hook turns on.
+
 ## Blocks that do not transfer to us
 
 - **Social Proof** — a creator citing reviews or user counts is a claim the brand owns, and the
