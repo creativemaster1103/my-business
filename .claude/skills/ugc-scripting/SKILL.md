@@ -51,6 +51,18 @@ it wrong in the general direction and you ship a brief that only works in one pe
 the first line. Full procedure in `references/four-gates.md`; the persona source is the
 `Official Persona` toggle on Notion's `👤 Buying Persona` page, read live each run.
 
+> ### Confirm all four before EVERY script. Carrying them forward is not having them.
+>
+> **The gates are per script, not per session.** Values set for an earlier script do not
+> automatically apply to the next one. When the user asks for a new script — a rework, a fresh
+> concept, a second batch — **ask again**, even if nothing seems to have changed. Reusing last
+> script's gates without checking is the same overstep as inventing them, one step removed: the
+> user never said they still apply.
+>
+> Make it cheap to confirm. Offer the previous value as the first, recommended option so an
+> unchanged answer is one click, and the other options so a change is just as easy. That is the
+> difference between a checkpoint and an interrogation.
+>
 > ### All four are the user's to set. If one is missing, ASK.
 >
 > **Do not choose a gate the user did not give you, and do not proceed on your own pick.** This
@@ -492,6 +504,9 @@ an awareness level, and the database has no properties to file one in.
 - **In creator-specific mode the persona must fit the creator.** You cannot cast someone who is
   already cast. If none of the personas fit them, say so.
 - **A general brief must say who to cast.** Otherwise it is not general, it is unfinished.
+- **Confirm the four gates before every script, not once per session.** A rework, a fresh
+  concept or a second batch all need them re-confirmed — offer the previous values as one-click
+  defaults. Carrying them forward silently is the same overstep as inventing them.
 - **The four gates are blocking, and all four are the user's to set.** If the user did not give
   you an awareness level, a core desire or an ad angle, **ask** — with options and a
   recommendation, then wait. Never pick one yourself and report it afterwards.

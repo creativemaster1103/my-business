@@ -103,6 +103,15 @@ gates_are_user_set: true
 ask_for_missing_gates_before_writing: true
 never_infer_a_gate_the_user_did_not_give: true
 
+# PER SCRIPT, NOT PER SESSION. Values set for an earlier script do not carry
+# to the next one. A rework, a fresh concept or a second batch all get the
+# gates re-confirmed - reusing last script's gates without checking is the
+# same overstep as inventing them, one step removed.
+# Make confirming cheap: offer the previous value as the first, recommended
+# option so an unchanged answer is one click.
+confirm_gates_per_script: true
+previous_gates_do_not_carry_forward: true
+
 gates:
   - persona          # from the live `Official Persona` toggle on Notion
   - awareness_level  # Unaware -> Most-Aware
