@@ -259,6 +259,27 @@ text between the `---` dividers under `#### Main **Body**`, exactly as the templ
 > makes the next line credible", "the pause is the hook", "this is the thesis, give it room" are
 > notes to the writer. The creator cannot act on them and they make the brief look like homework.
 >
+> ### Every script says when the product is in frame
+>
+> The template promises this — *"only some parts of the A-roll will require holding the product,
+> this will be outlined in yellow text"* — so a brief that only marks the intro beat is breaking
+> its own contract. A creator who is not told will guess, and half the takes come back with the
+> product in the wrong hand or missing entirely.
+>
+> **State the default once per section; mark only where it changes.** Tagging all nine body lines
+> is noise, and noise is how the one line that matters gets skimmed past. The product has a
+> natural life in a script — away, then out, then it stays out — so one sentence covers almost
+> all of it:
+>
+> - **Problem-led script:** `No product in frame until the Product Introduction. From there, keep
+>   it in your hand.`
+> - **Product-led script:** `Hoolest Mini and gel tips in frame throughout.`
+> - **Hooks:** the section header already carries it — `Talking head, no product in frame` or
+>   `Talking head, holding a gel tip`.
+>
+> Then mark the exceptions on their own line: `SHOW PRODUCT — put it in your bag on this line`,
+> `PRODUCT AWAY for this beat`. Two or three marks per script, not nine.
+>
 > **Use shot labels, not prose.** The whole direction vocabulary is about six phrases:
 >
 > | Label | When |

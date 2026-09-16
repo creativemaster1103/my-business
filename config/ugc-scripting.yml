@@ -345,6 +345,18 @@ no_writer_rationale_in_brief: true
 
 # Use short shot LABELS, not prose. A label replaces a paragraph - the creator
 # already knows how to hold something up. This is the whole vocabulary.
+# Every script must say when the product is in frame - the Notion template
+# promises it ("only some parts of the A-roll will require holding the
+# product"). State the DEFAULT once per section and mark only where it changes;
+# tagging every line is noise, and noise is how the one line that matters gets
+# skimmed past. The product's natural life is: away, then out, then stays out.
+product_in_frame_default_stated_once: true
+product_in_frame_defaults:
+  problem_led: "No product in frame until the Product Introduction. From there, keep it in your hand."
+  product_led: "Hoolest Mini and gel tips in frame throughout."
+  hooks: "Carried by the section header - talking head, no product in frame / holding a gel tip."
+product_in_frame_exception_marks: ["SHOW PRODUCT", "PRODUCT AWAY"]
+
 shot_labels:
   - Talking head
   - Talking head, presenting the product
