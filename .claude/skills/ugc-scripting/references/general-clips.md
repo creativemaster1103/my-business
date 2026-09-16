@@ -47,6 +47,20 @@ can be found in the Shotlist above"*. Put it at the front of the `Visual descrip
 bold, then the description. A numbered row with no section name gives the creator nothing to name
 the file after.
 
+## Brief mode changes how they are written
+
+The ten clips are the same ten either way. How specifically you describe them is not.
+
+- **Creator-specific** — stage them in the creator's actual space. `Struggle` is *their* desk at
+  4pm, `Trigger` is *their* calendar. Specific beats generic every time, and you know enough to
+  be specific.
+- **General** — describe them so **anyone** can shoot them. No named rooms, no assumed props, no
+  "the window behind their couch". If a clip only works in one person's home, it is not general
+  and the brief will come back half-shot.
+
+The `Visual description` cell is where this lands. `Struggle — jaw set, shoulders up, staring
+past a screen` works anywhere; `Struggle — Hayden at the standing desk in the loft` does not.
+
 ## Capture notes
 
 - **Shoot every clip twice**, once wide-ish and once close. Costs nothing, doubles the edit's options.

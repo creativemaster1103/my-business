@@ -28,6 +28,32 @@ never_relax_without_approval:
   - ten general clips per brief
   - customer-sourced — no invented quotes
 
+# --- Brief mode ------------------------------------------------------------
+# ASK FIRST, before the gates and before the research. Never inferred, never
+# defaulted — it decides which personas are even available to the script.
+ask_brief_mode_first: true
+brief_modes:
+  creator:   # for a named content creator
+    title_format: "<Creator Name>-<Concept>"
+    content_creator_cell: "<Creator Name>"
+    persona: Constrained — must be one this creator can carry without acting
+    confirm_genuine_use: true    # ask. gifted is not used
+    clips: Staged in the creator's actual space
+  general:   # not yet assigned to anyone
+    title_format: "General-<Concept>"
+    content_creator_cell: "General — unassigned · cast: <one-line spec>"
+    persona: Free — chosen on the evidence, then the casting is specified
+    mark_all_personal_outcome_lines: "[REQUIRES GENUINE USE]"
+    clips: Location-agnostic — anyone must be able to shoot them
+
+# `General-` is a new convention; every existing brief is creator-named.
+# Flag it to Mark the first time one is filed.
+general_title_prefix_is_new_convention: true
+
+# A general brief with no casting spec is unfinished — nobody downstream
+# knows who to book.
+general_brief_requires_casting_spec: true
+
 # --- The four gates --------------------------------------------------------
 # BLOCKING. Nothing is written until all four are resolved, per script.
 # Full procedure in references/four-gates.md.

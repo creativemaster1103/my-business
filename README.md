@@ -116,6 +116,24 @@ edits. The test for "general" is blunt: **if it cannot be cut into both scripts,
 general clip** — it is script b-roll, and it does not count toward the ten. Each row carries a
 section name, because the creator names the file `BRoll_<section>`.
 
+### First question: specific creator, or general?
+
+**The pipeline asks before it does anything else**, and never infers the answer. It is first
+because it decides *which personas are even available*:
+
+| | **Creator-specific** | **General** |
+|---|---|---|
+| Persona | Constrained — one **this creator can carry** without acting | Free — chosen on the evidence, then the casting is specified |
+| Page title | `<Creator Name>-<Concept>` | `General-<Concept>` |
+| `Content Creator` cell | Their name | `General — unassigned` + a one-line casting spec |
+| Personal-outcome lines | Only if they have genuinely used it — **the pipeline asks** | All marked `[REQUIRES GENUINE USE]`; it cannot know |
+| Clip bank | Staged in their actual space | Location-agnostic, so anyone can shoot it |
+
+You cannot cast someone who is already cast. Get it wrong in the creator-specific direction and
+you write a Lights-Out Loser script for someone who reads wired and 24 — unusable, and nobody
+notices until the footage comes back. Get it wrong the other way and you ship a brief that only
+works in one person's kitchen.
+
 ### The four gates
 
 **Nothing gets written until all four are resolved, per script.**
@@ -148,6 +166,8 @@ The 3- and 4-star reviews carry the information. Five-star reviews are congratul
 ### How it runs
 
 ```
+ASK                        →  specific creator, or general? (never inferred)
+      ↓  decides which personas are available
 Okendo + Parker + Gorgias  →  quote bank (15-25 verbatim lines, tagged hook/objection/proof)
       ↓
 Official Persona (Notion)  →  FOUR GATES: persona · awareness · core desire · angle
@@ -168,8 +188,9 @@ Notion MCP                 →  duplicate ✏️ TEMPLATE, fill, file as `<Creat
 /ugc-scripting
 ```
 
-Or scope it: `/ugc-scripting for Hayden Bender, Lights-Out Loser`,
-`/ugc-scripting from the post-purchase survey`.
+It will ask whether the brief is for a specific creator or general. Answer up front to skip the
+question: `/ugc-scripting for Hayden Bender`, or `/ugc-scripting general brief, Lights-Out
+Loser`, or `/ugc-scripting general, from the post-purchase survey`.
 
 ### Required connectors
 
@@ -207,8 +228,10 @@ watered down to hit the count.
 
 ### What it deliberately does not do
 
+- **Never assumes who the script is for.** Specific creator or general is asked, not inferred.
 - **Never writes before the four gates are clear.** No persona, awareness level and core desire,
   no script.
+- **Never files a general brief without a casting spec** — that is not general, it is unfinished.
 - **Never invents a customer quote, review or statistic.** If the connectors return nothing, the
   run reports that and stops.
 - Never puts a review verbatim into a creator's mouth as their own experience.
@@ -217,7 +240,7 @@ watered down to hit the count.
 - Never edits the standing `Shooting Specifications` or `HOW TO UPLOAD CONTENT` callouts.
 - Never edits an existing brief.
 
-### Two things flagged, not decided
+### Flagged, not decided
 
 **Hook count.** The Video Brief pipeline standardises on **four** hook variants per concept; the
 UGC template's naming block asks for **three**. The UGC pipeline follows its own template. Both
@@ -231,3 +254,7 @@ at all.
 
 **Product.** The UGC template and all four existing briefs say `Hoolest Mini`, not
 `VeRelief Prime`. The pipeline confirms the product before filing rather than assuming.
+
+**`General-<Concept>` is a new title convention.** Every existing brief is creator-named, so
+there is no precedent for an unassigned one. It keeps them sorting together and makes it obvious
+which briefs still need a creator — but it is a proposal, not a settled convention.

@@ -30,17 +30,28 @@ procedure for one. Those belong to `/competitor-ad-swipe` and the AI-VO pipeline
 
 ## Page title
 
-```
-<Creator Name>-<Concept>
-```
+Depends on the brief mode, which the skill establishes before anything else.
+
+| Mode | Title |
+|---|---|
+| **Creator-specific** | `<Creator Name>-<Concept>` |
+| **General** | `General-<Concept>` |
 
 Live examples: `Hayden Bender-Fight-or-flight`, `Kenzie Williams-Fight-or-flight`,
 `Lauren DeCicco-Fight-or-flight`, `Clayton Stakelbeck-Fight-or-flight`.
 
 Hyphen, no spaces around it. Icon **✏️**, matching the template and every existing brief.
 
+> **`General-` is a new convention.** Every existing brief is creator-named, so there is no
+> precedent for an unassigned one. `General-<Concept>` keeps them sorting together and makes it
+> obvious at a glance which briefs still need a creator. Flag it to Mark the first time one is
+> filed rather than assuming it is settled.
+
 **One page per creator.** Four creators shooting the same concept is four pages, which is exactly
 what the existing four are. The concept name repeats; the creator name is what makes it unique.
+
+**A general brief that later gets assigned is duplicated, not renamed** — the general version
+stays available for the next creator.
 
 ## Page body — copy the template
 
@@ -68,7 +79,7 @@ callout 💡 gray_bg       HOW TO UPLOAD CONTENT — standing, do not edit
 
 | Row | Fill with |
 |---|---|
-| `Content Creator` | The creator's name. The only row filled in on the existing briefs |
+| `Content Creator` | **Creator-specific:** their name — the only row filled in on the existing briefs. **General:** `General — unassigned`, then a one-line casting spec on the same cell: `General — unassigned · cast: reads as a wired 30s founder, films at a real desk, low flat energy`. A general brief with no casting spec is unfinished, because nobody downstream knows who to book |
 | `Product` | The product this brief is for. **The template and all four live briefs say `Hoolest Mini`** — confirm which product before filing rather than assuming VeRelief Prime |
 | `Event` | `Launch` in the live briefs. `Evergreen` otherwise |
 | `Inspo link` | A reference ad if the concept came from one. Leave empty otherwise |

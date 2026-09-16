@@ -19,8 +19,13 @@ the script.
 1. **Does a line state a personal outcome the speaker has not had?**
    → Either the creator has genuinely used the product and can say it, or the line is rewritten
    as something other than personal experience. Never script a first-person result for a creator
-   who has not experienced it. If casting is unresolved when the brief is written, mark the line
-   `[REQUIRES GENUINE USE]` in the Note column so the producer cannot miss it.
+   who has not experienced it.
+
+   **This is where brief mode bites hardest.** In creator-specific mode, *ask* whether they have
+   genuinely used it — gifted is not used, and an assumption here is how an unsubstantiated
+   testimonial reaches a paid ad. In **general** mode you cannot know, by definition, so **every**
+   personal-outcome line is marked `[REQUIRES GENUINE USE]` in the `Note` column. The producer
+   then either books someone who has used it or has the line rewritten before the shoot.
 
 2. **Does a line present an outcome as typical?**
    → "It works in seconds for everyone" is a typicality claim. Keep results individual and
@@ -56,7 +61,23 @@ the script.
 
 ## Casting
 
-Cast the **persona**, not the demographic. Age matters far less than whether the person reads as
+**Which direction you are working in depends on the brief mode**, and they are genuinely
+different jobs:
+
+| | **Creator-specific** | **General** |
+|---|---|---|
+| You are choosing | The persona, to fit a fixed person | The person, to fit a chosen persona |
+| The failure | Casting against type — scripting someone as who they are not | Leaving the casting unstated, so whoever books it guesses |
+| Written where | Nowhere — it constrained the persona choice at gate 1 | The `Content Creator` cell, as a one-line spec |
+
+In creator-specific mode you **cannot cast** — they are already cast. Read the person, then pick
+the persona they can carry without acting. If none of the personas fit them, that is a finding to
+report, not something to write around.
+
+In general mode you pick the persona on the evidence and then **must** say who to book. A general
+brief with no casting spec is unfinished.
+
+Either way: cast the **persona**, not the demographic. Age matters far less than whether the person reads as
 someone who would plausibly own the problem. Personas come from the live `Official Persona`
 toggle — see `four-gates.md`.
 

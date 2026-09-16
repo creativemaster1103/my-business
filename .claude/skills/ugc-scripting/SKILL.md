@@ -1,6 +1,6 @@
 ---
 name: ugc-scripting
-description: Write creator-ready UGC video scripts for Hoolest — two scripts plus a ten-clip B-roll shotlist per brief, sourced from customer language and gated on persona, awareness level, core desire and ad angle — and file them in the Notion UGC Brief Database. Use when the user asks for a UGC script, a creator script, a talking-head ad, a testimonial ad, to script a creator shoot, or to run the UGC batch.
+description: Write creator-ready UGC video scripts for Hoolest — two scripts plus a ten-clip B-roll shotlist per brief, for a named content creator or as a general unassigned brief, sourced from customer language and gated on persona, awareness level, core desire and ad angle — and file them in the Notion UGC Brief Database. Use when the user asks for a UGC script, a creator script, a script for a specific creator, a talking-head ad, a testimonial ad, to script a creator shoot, or to run the UGC batch.
 ---
 
 # UGC Scripting → UGC Brief Database
@@ -19,6 +19,30 @@ in the Notion **UGC Brief Database** off the team's own template.
 >
 > One page, one creator, two scripts, ten clips. Two scripts without the clip bank is an
 > incomplete brief, and so is a clip bank shot for only one of them.
+
+## First, ask who the script is for
+
+**Before anything else — before the gates, before the research — ask:**
+
+> **Is this for a specific content creator, or a general script?**
+
+Do not infer it, and do not default to one. If the user named a creator, confirm that reading
+back rather than assuming; if they named none, ask rather than quietly writing a general brief.
+
+It is the first question because it **changes who the persona can be**:
+
+| | **Creator-specific** | **General** |
+|---|---|---|
+| Persona | Pick one **this creator can credibly carry**. You cannot cast — they are who they are | Pick freely on the evidence, then **specify the casting** |
+| Page title | `<Creator Name>-<Concept>` | `General-<Concept>` |
+| `Content Creator` row | Their name | `General — unassigned` + the casting spec |
+| Personal-outcome lines | Write them only if they have genuinely used it — **ask** | Always mark `[REQUIRES GENUINE USE]`; you cannot know |
+| Clip bank | Staged in their actual space | **Location-agnostic** — whoever shoots it must be able to |
+| Wardrobe / location | What they own, where they live | Described generically, never specified |
+
+Get it wrong in the creator-specific direction and you write a Lights-Out Loser script for
+someone who reads 24 and wired — unusable, and nobody notices until the footage comes back. Get
+it wrong in the general direction and you ship a brief that only works in one person's kitchen.
 
 ## Nothing gets written until the four gates are clear
 
@@ -65,13 +89,32 @@ could not reach — a fabricated review is the one failure this pipeline cannot 
 
 ## Run the pipeline
 
-### 1. Load the config
+### 1. Establish the brief mode
+
+Ask the question above and get an answer before doing anything else.
+
+**Creator-specific** → get the creator's name, and ask two things the brief depends on:
+
+1. **Have they genuinely used the product?** This decides whether a first-person outcome line is
+   allowed at all — see the endorsement gate. Do not guess, and do not assume gifted means used.
+2. **What is their actual setup?** Where they film, what their space looks like, their register.
+   The clip bank gets staged there, so it matters.
+
+If the creator is one of the existing briefs' creators — Hayden Bender, Lauren DeCicco, Clayton
+Stakelbeck, Kenzie Williams — check whether they already have a page before creating a second one.
+
+**General** → nothing more is needed to start, but the brief carries an extra obligation: it must
+say **who to cast**, because nobody else will. That goes in the `Content Creator` cell.
+
+Record the mode. Every later step branches on it.
+
+### 2. Load the config
 
 Read `config/ugc-scripting.yml` for `scripts_per_brief` (2), `hooks_per_script` (3),
 `general_clips_per_brief` (10), `framework_lookback` and the shoot defaults. A user instruction
 overrides the file.
 
-### 2. Mine the voice of customer
+### 3. Mine the voice of customer
 
 Read `references/voice-of-customer.md` — it carries the search terms that actually surface
 material, and the test for whether a quote is usable or merely nice.
@@ -95,9 +138,15 @@ Collect **verbatim** lines into a quote bank, each tagged hook / objection / pro
 anything. **If the bank is thin, say so and stop** — a UGC script with no customer input is just
 an AI-VO script delivered to camera, and it will read like one.
 
-### 3. Clear the four gates
+### 4. Clear the four gates
 
-**Blocking.** Work `references/four-gates.md` and state all four, per script:
+**Blocking.** Work `references/four-gates.md` and state all four, per script.
+
+**In creator-specific mode the persona is constrained**, not free: it has to be one this person
+can carry without acting. A creator who reads as a wired 30-something founder is a Wired Lifer or
+an HRV Hunter; scripting them as a Lights-Out Loser is casting against type and the footage will
+show it. If no persona fits the creator, say so — that is a real finding, not a blocker to route
+around.
 
 1. **Persona** — from the `Official Persona` toggle, read live. Default to the four in
    `Final and approved personas`; the other four need Mark's go-ahead, so ask rather than
@@ -113,7 +162,7 @@ an AI-VO script delivered to camera, and it will read like one.
 **The two scripts must not share a Persona + Angle pairing.** Two angles onto the same persona is
 one script with extra steps.
 
-### 4. Pick the framework
+### 5. Pick the framework
 
 The 25-framework library lives in the **`ugc-video-frameworks`** skill. Load it — do not reproduce
 it here and do not invent a 26th.
@@ -132,7 +181,7 @@ Choose on fit, in this order:
 Two frameworks needing completely disjoint footage will not share ten clips — that is the signal
 you have picked badly.
 
-### 5. Write the two scripts
+### 6. Write the two scripts
 
 Per beat, three things:
 
@@ -163,7 +212,7 @@ Rules that hold for every UGC script:
 Casting, delivery and energy direction are in `references/ugc-creator-brief.md`. The template's
 own **Shooting Specifications** callout governs the technical side — do not contradict it.
 
-### 6. Three hooks per script
+### 7. Three hooks per script
 
 The template's naming block asks the creator to *"film the 3 hooks separately to the body"*.
 
@@ -184,7 +233,7 @@ Pick three of the four per script, and do not give both scripts the same three.
 > for **three**. The UGC pipeline follows the template. Raise it with Mark rather than letting the
 > two conventions drift apart by accident.
 
-### 7. Build the clip bank
+### 8. Build the clip bank
 
 **10 general clips, shared by both scripts.** Read `references/general-clips.md` — the standing
 ten, why each earns its place, their section names, and the capture notes.
@@ -201,7 +250,7 @@ The standing ten are the default. Swap one only for a clip that passes the same 
   prescription bottle implies medication replacement, and a clip showing wrong device placement
   outlives the script it was shot for.
 
-### 8. Run the two compliance gates
+### 9. Run the two compliance gates
 
 **First**, the brand compliance gate in
 `.claude/skills/competitor-ad-swipe/references/verelief-prime-brief.md` — same product, same
@@ -215,16 +264,17 @@ handed to a creator as their own experience.
 A script that fails either does not get filed. Fix it or drop the concept — never water one down
 to hit the count. Run the gates; **do not print them into the brief.**
 
-### 9. File it in the UGC Brief Database
+### 10. File it in the UGC Brief Database
 
 Follow `references/notion-map-ugc.md` exactly. Duplicate the **`✏️ TEMPLATE`** page and fill it —
 do not rebuild the layout, and do not edit the standing callouts.
 
-1. **Title**: `<Creator Name>-<Concept>`, icon **✏️**, parent
-   `3448fb5b-44b0-80b7-a01f-df29eb7dd956`.
-2. **Header table**: Content Creator · Product · Event · Inspo link · Offer. **Confirm the
-   product** — the template and all four live briefs say `Hoolest Mini`, not VeRelief Prime.
-   Pull the offer from Shopify.
+1. **Title**: `<Creator Name>-<Concept>` in creator-specific mode, `General-<Concept>` in
+   general mode. Icon **✏️**, parent `3448fb5b-44b0-80b7-a01f-df29eb7dd956`.
+2. **Header table**: Content Creator · Product · Event · Inspo link · Offer.
+   - `Content Creator` takes the name, or `General — unassigned` plus a one-line casting spec.
+   - **Confirm the product** — the template and all four live briefs say `Hoolest Mini`, not
+     VeRelief Prime. Pull the offer from Shopify.
 3. **`Script 1` and `Script 2`** — hooks then main body, under the headings already there.
 4. **`B-ROLLS | SHOTLIST`** — extend the template's 8 rows to **10**, one clip each, section name
    in bold at the front of the `Visual description` cell. `INSPO` takes a link or stays empty.
@@ -233,24 +283,32 @@ do not rebuild the layout, and do not edit the standing callouts.
    `Talkinghead_S2_body`. B-roll stays `BRoll_<section>`.
 
 **One page per creator.** Four creators shooting the same concept is four pages — which is exactly
-what the existing four are.
+what the existing four are. A general brief is one page that any of them could shoot; if it is
+later assigned, duplicate it under the creator's name rather than renaming the general one.
 
-### 10. Report
+### 11. Report
 
-A short table, **one row per script**: Concept, framework, persona, awareness, core desire, angle.
-Then:
+Open with **the brief mode and the creator**, since it framed everything else. Then a short
+table, **one row per script**: Concept, framework, persona, awareness, core desire, angle. Then:
 
 - **the four gates as a block per script**, so Mark can check the reasoning
 - the customer quote each script was built on, one line each
 - **one line confirming the clip bank**: ten clips, and any swap with the reason
 - anything dropped and why
 - **anything needing sign-off** — an unapproved persona, or an Off-Ramper script for Nick
+- in creator-specific mode, **whether genuine use was confirmed**, and which lines are marked
+  `[REQUIRES GENUINE USE]` if not
 
 The gates and the research belong in this report, **not** in the brief. The creator cannot act on
 an awareness level, and the database has no properties to file one in.
 
 ## Guardrails
 
+- **Ask creator-specific or general before anything else.** Never infer it. It decides which
+  personas are even available, how the clips are staged, and what the page is called.
+- **In creator-specific mode the persona must fit the creator.** You cannot cast someone who is
+  already cast. If none of the personas fit them, say so.
+- **A general brief must say who to cast.** Otherwise it is not general, it is unfinished.
 - **The four gates are blocking.** No persona, awareness level and core desire, no script.
 - **Persona comes from the live `Official Persona` page**, never from memory or from this repo.
   Default to the four approved; ask before using the other four.
