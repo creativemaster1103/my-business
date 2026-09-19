@@ -115,8 +115,24 @@ condition-plus-number hook turns on.
   compliance gate blocks unsourced numbers. Use it only with an approved, sourced figure.
 - **Before & After** — allowed only as a *situational* contrast ("the dinner, the drive home"),
   never as a health outcome. A before/after framed as symptom change is a condition claim.
-- **Buying Experience** — no price in the script while Shopify is on hold. Guarantee language
+- **Buying Experience** — **available during the launch**, on figures Mark supplies. Shopify is
+  still on hold, so the price never comes from a lookup: he states it, the script uses it, and it
+  gets re-confirmed with him each batch rather than carried forward. Guarantee language still
   needs the current window confirmed before it can be cited.
+
+  Launch figures as given (Mark, 2026-09-19): **$249 normally, $99 for the launch.**
+
+  > **A was/now price is its own compliance surface, separate from the health claims.** A
+  > "normally $249" claim needs $249 to have been a genuine price the Hoolest Mini was actually
+  > offered at — a former price, not a different SKU. When last read (16 Sep) Shopify had $99 as
+  > the *Hoolest Mini Starter Pack* and $249 as the *Lasting Relief Bundle*: two live variants,
+  > not a markdown on one item. Confirm the Mini itself carries a compare-at of $249 before this
+  > runs, and make sure the landing page shows the same thing the ad says.
+
+  **Urgency has to be real.** The brand brief lists manufactured urgency and fake scarcity under
+  *Don't*, and this persona has been burned by gadgets — a hard-sell close reads as a scam to
+  them. A launch price genuinely ending is legitimate; "only 3 left" is not. Keep it to one flat
+  line in the creator's register and let the CTA stay as it was.
 - **Unboxing** — fine, but it is a different shoot from these ten clips.
 
 ## The launch line

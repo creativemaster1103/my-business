@@ -60,7 +60,7 @@ connector_holds:
     scope: All queries — price, offer, product status
     consequences:
       offer_value: Take from the user, or leave the Notion template's default
-      price_in_scripts: None. Ask Mark for a figure if one is genuinely needed
+      price_in_scripts: Only figures Mark supplies directly, re-confirmed each batch. Never a lookup, never carried forward
       never: Infer a discount from an order value or reuse a stale number from this repo
 
 # --- Brief mode ------------------------------------------------------------
@@ -193,6 +193,19 @@ product_spine:
   - Demonstration          # how you actually use it
   - Features/Benefits      # what makes it different
 launch_line: "Hoolest just launched their newest vagus nerve stimulator, the Hoolest Mini."
+
+# Buying Experience block, available during the launch on Mark's figures
+# (2026-09-19). Urgency must be REAL - a launch price genuinely ending is
+# legitimate; "only 3 left" is the manufactured scarcity the brand brief bans,
+# and this persona reads a hard close as a scam.
+# FLAG: a was/now price needs $249 to be a former price of the Mini itself. On
+# Shopify (16 Sep) $99 was the Starter Pack and $249 the Lasting Relief Bundle -
+# two live variants, not a markdown. Confirm compare-at before this runs.
+launch_pricing:
+  regular: 249
+  launch: 99
+  currency: USD
+  confirm_compare_at_before_running: true
 product_spine_is_fixed_order: true
 
 # --- Framework selection ---------------------------------------------------
