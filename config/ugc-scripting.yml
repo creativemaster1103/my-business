@@ -198,14 +198,15 @@ launch_line: "Hoolest just launched their newest vagus nerve stimulator, the Hoo
 # (2026-09-19). Urgency must be REAL - a launch price genuinely ending is
 # legitimate; "only 3 left" is the manufactured scarcity the brand brief bans,
 # and this persona reads a hard close as a scam.
-# FLAG: a was/now price needs $249 to be a former price of the Mini itself. On
-# Shopify (16 Sep) $99 was the Starter Pack and $249 the Lasting Relief Bundle -
-# two live variants, not a markdown. Confirm compare-at before this runs.
+# NO COMPARE-AT. Mark's standing instruction (2026-09-22): state the launch
+# price only, never a "normally $X" or "back to $X" line. A was/now claim would
+# need the higher figure to be a former price of the Hoolest Mini itself, and on
+# Shopify it is a different variant - so the scripts do not carry one at all.
+# Urgency comes from the price rising, not from a struck-through number.
 launch_pricing:
-  regular: 249
   launch: 99
   currency: USD
-  confirm_compare_at_before_running: true
+  state_compare_at: false
 product_spine_is_fixed_order: true
 
 # --- Framework selection ---------------------------------------------------

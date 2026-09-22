@@ -120,14 +120,14 @@ condition-plus-number hook turns on.
   gets re-confirmed with him each batch rather than carried forward. Guarantee language still
   needs the current window confirmed before it can be cited.
 
-  Launch figures as given (Mark, 2026-09-19): **$249 normally, $99 for the launch.**
+  Launch figure as given (Mark, 2026-09-22): **$99 for the launch. State that price only.**
 
-  > **A was/now price is its own compliance surface, separate from the health claims.** A
-  > "normally $249" claim needs $249 to have been a genuine price the Hoolest Mini was actually
-  > offered at — a former price, not a different SKU. When last read (16 Sep) Shopify had $99 as
-  > the *Hoolest Mini Starter Pack* and $249 as the *Lasting Relief Bundle*: two live variants,
-  > not a markdown on one item. Confirm the Mini itself carries a compare-at of $249 before this
-  > runs, and make sure the landing page shows the same thing the ad says.
+  > **No compare-at.** Do not write "normally $249", "back to $249", or any struck-through
+  > number. A was/now price is its own compliance surface: it needs the higher figure to have
+  > been a price the Hoolest Mini itself was actually offered at, and on Shopify $249 is the
+  > *Lasting Relief Bundle* — a different variant, not a markdown on the Starter Pack. Mark's
+  > standing instruction is the launch price alone, so the urgency carries the line instead:
+  > "$99 for the launch, and that price is going up soon."
 
   **Urgency has to be real.** The brand brief lists manufactured urgency and fake scarcity under
   *Don't*, and this persona has been burned by gadgets — a hard-sell close reads as a scam to
