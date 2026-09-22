@@ -179,6 +179,27 @@ worth filling.
 - Never edits or deletes an existing Notion row — it only creates.
 - Never files a script that fails the compliance gate.
 
+---
+
+## SB7 Framework
+
+`.claude/skills/sb7-framework/SKILL.md` — Donald Miller's StoryBrand, as a skill. Three modes:
+build a BrandScript, turn one into assets (video, UGC, static, landing page, email, hook
+batches), or audit existing copy against the 7 elements.
+
+Not an automation like the two pipelines above — a messaging lens you invoke when a concept
+needs a story spine rather than a block structure. Its premise is the one rule the whole
+framework turns on: **the customer is the hero, the brand is the guide.** A brand that makes
+itself the hero leaves the customer with no role in the story.
+
+It carries its own compliance layer for health/wellness DTC, and it defers: *"If the user has
+standing rules on file, those override these defaults."* Ours are in `verelief-prime-brief.md`,
+and the two agree on every point that matters — body-state language over condition language, no
+time-to-effect claims without sign-off, no competitor names, and never invent a review count.
+
+Already in use in Notion before it was a skill: the **Built for a Car Crash** Video Brief and the
+**3am Jolt** pipeline entry are both built on an SB7 Brandscript.
+
 ### Naming convention — changed 2026-09-14
 
 File names are now built **from each brief's own Notion properties**. Mark's Naming Convention
