@@ -1,9 +1,14 @@
 ---
 name: sb7-framework
-description: "Build and apply StoryBrand (SB7) messaging — Donald Miller's 7-part framework where the customer is the hero and the brand is the guide. Use this skill to create a BrandScript for a product, write a one-liner, turn a BrandScript into ad scripts, VSLs, landing pages, emails, or hooks, or audit existing copy against the 7 elements. Trigger whenever the user mentions StoryBrand, SB7, BrandScript, one-liner, 'customer as hero', 'brand as guide', or asks to clarify a product's messaging, fix confusing copy, find the internal problem, write stakes/success sections, or structure an ad or page around a story — even if they don't name the framework."
+description: "ASK THE USER FIRST — never invoke this skill on your own initiative. Even when a task obviously fits, say what you would use it for and wait for a yes. Build and apply StoryBrand (SB7) messaging — Donald Miller's 7-part framework where the customer is the hero and the brand is the guide. Use this skill to create a BrandScript for a product, write a one-liner, turn a BrandScript into ad scripts, VSLs, landing pages, emails, or hooks, or audit existing copy against the 7 elements. Trigger whenever the user mentions StoryBrand, SB7, BrandScript, one-liner, 'customer as hero', 'brand as guide', or asks to clarify a product's messaging, fix confusing copy, find the internal problem, write stakes/success sections, or structure an ad or page around a story — even if they don't name the framework."
 ---
 
 # SB7 Framework (StoryBrand)
+
+> **Invoke only when asked.** Mark's standing instruction, 2026-09-24: always ask before
+> using this framework. Do not auto-trigger it because a task looks like a story problem, and
+> do not apply its structure quietly without naming it. If SB7 would help, say so in a line and
+> wait for a yes. This overrides the trigger wording in the description above.
 
 This skill turns a product into a clear hero story the customer can see themselves in, then turns that story into copy.
 
