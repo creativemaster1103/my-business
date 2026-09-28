@@ -194,8 +194,10 @@ itself the hero leaves the customer with no role in the story.
 
 It carries its own compliance layer for health/wellness DTC, and it defers: *"If the user has
 standing rules on file, those override these defaults."* Ours are in `verelief-prime-brief.md`,
-and the two agree on every point that matters — body-state language over condition language, no
-time-to-effect claims without sign-off, no competitor names, and never invent a review count.
+and the two agree on every point that matters — naming a condition is fine, claiming to act on
+it is not, no time-to-effect claims without sign-off, no competitor names, and never invent a
+review count. Where the SB7 skill's own layer says body-state language only, ours is now the
+looser and the governing one (Mark, 2026-09-28).
 
 Already in use in Notion before it was a skill: the **Built for a Car Crash** Video Brief and the
 **3am Jolt** pipeline entry are both built on an SB7 Brandscript.

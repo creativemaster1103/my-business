@@ -147,41 +147,68 @@ Rewrite every claim into one of these shapes. If a swiped claim will not fit her
 - Supports calm, wind-down, stress recovery, focus
 - Reusable device; consumable gel tips
 - Money-back guarantee (confirm current window from the site before citing a number)
+- **Name the experience the viewer is having** — panic attack, anxiety attack, stress, the
+  fight-or-flight response. Describing what happens to a person is allowed; see the
+  naming-vs-claiming test below
 
 **Cannot say**
-- That it treats, cures, prevents, or is a therapy for *any* named condition — anxiety
-  disorder, depression, PTSD, insomnia, POTS, long COVID, migraine, epilepsy, tinnitus,
-  IBS, autism, ADHD
+- That it treats, cures, prevents, reverses, or is a therapy for *any* condition — including
+  the ones we are now free to name. "For panic attacks" is a claim; "when a panic attack
+  hits" is a description. This covers every diagnosable disorder too: anxiety disorder,
+  depression, PTSD, insomnia, POTS, long COVID, migraine, epilepsy, tinnitus, IBS, autism, ADHD
 - That it replaces, tapers, or lets someone stop a prescribed medication
 - "Clinically proven" / "FDA approved" / "medically proven" as bare phrases
 - Specific numeric outcomes (HRV %, cortisol %, "83% of users") unless the exact figure and
   its source are already approved in the Insight Bank
 - Anything implying diagnosis or a medical device indication
 
-> **Confirm before first run:** the exact regulatory posture of VeRelief Prime (general
-> wellness device vs. any FDA clearance and its indication) determines how far the claim set
-> can stretch. This file is written conservatively on purpose. Have Mark confirm the current
-> status and update this section — do not widen these claims on your own inference.
+> **Resolved 2026-09-28 — Mark.** Naming the experience is permitted. His words: *"we are now
+> allowed to say panic attack, stress, anxiety attack as long as we don't claim any cure with
+> our product."* This supersedes the earlier never-name-the-condition rule, which had scripts
+> writing around the word with "it", "when it hits", "mid-spiral". Those workarounds are no
+> longer required — but they are still often the better line, because a character who says
+> *"when it hits"* sounds like a person and *"during a panic attack"* sounds like a brochure.
+> Anything beyond this list still needs Mark; do not widen further on your own inference.
 
-**The distinction that matters:** describing a *feeling state* ("feel calmer", "settle a racing
-mind") is wellness language. Naming a *condition* ("treats your anxiety") is a drug claim. The
-competitor's ad may well cross that line. Ours does not — that is the single most common thing
-you will have to fix while rewriting.
+**The distinction that matters** is no longer *feeling state vs. condition name*. It is
+**naming vs. claiming.**
+
+- *Naming* is describing what is happening to the person. "A panic attack at 2pm on a Tuesday."
+  "Your stress response doesn't have an off switch." That is allowed.
+- *Claiming* is attaching an outcome to the product. "Stops panic attacks." "For anxiety."
+  "Treats your stress." That is not — and the word "for" is where it usually sneaks in.
+
+Test every line that contains a condition word: **is the product the subject of the sentence?**
+If the condition is something the *character experiences*, it is fine. If it is something the
+*device acts on*, rewrite it. The fear belongs to the character; the claim belongs to the
+product; never weld them together.
+
+**A separate risk, still live:** Meta's health and personal-attributes policy can restrict or
+reject an ad that implies it knows the viewer's health status — "Do you suffer from panic
+attacks?" — even with no cure claimed. That is a delivery risk, not a claims risk. Keep
+condition words in the *third person or the scene* ("a panic attack doesn't ask permission"),
+not in second-person diagnosis ("your panic attacks").
 
 ## Compliance gate
 
 Run every finished script through this before it goes to Notion. Any failure blocks filing.
 
-1. Does any line name a diagnosable condition as something the product acts on? → rewrite to a
-   feeling state.
-2. Does any line suggest replacing or reducing a medication? → cut it entirely.
-3. Is there a number (%, mg, minutes-to-result, user counts) without an approved source? → cut
+1. Does a sentence containing a condition word (panic attack, anxiety attack, stress) make the
+   *product* its subject — "for panic attacks", "stops the anxiety", "fixes your stress"? →
+   rewrite so the condition belongs to the character and the product only shows up next to
+   what it does mechanically. Naming is allowed; claiming is not.
+2. Does any line claim to treat, cure, prevent, or reverse a diagnosable disorder? → cut it.
+3. Is any condition word in second-person diagnosis form — "do you suffer from", "your panic
+   attacks"? → move it into the scene or the third person. Meta delivery risk, not a claims
+   risk, but it gets ads rejected either way.
+4. Does any line suggest replacing or reducing a medication? → cut it entirely.
+5. Is there a number (%, mg, minutes-to-result, user counts) without an approved source? → cut
    the number or replace with qualitative language.
-4. Does any sentence, tagline, or on-screen text survive from the competitor's ad verbatim or
+6. Does any sentence, tagline, or on-screen text survive from the competitor's ad verbatim or
    near-verbatim? → rewrite it.
-5. Does a claim assume the competitor's device mechanism rather than ours? → re-derive from the
+7. Does a claim assume the competitor's device mechanism rather than ours? → re-derive from the
    approved set above.
-6. Is the price current from Shopify? → refresh it.
+8. Is the price current from Shopify? → refresh it.
 
 Record the gate result in the brief body so a reviewer can see it ran.
 

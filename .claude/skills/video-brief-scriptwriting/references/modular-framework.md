@@ -180,5 +180,11 @@ felt downshift. The script must never connect the two — *"so I got this, and n
 about my heart"* is a disease claim and it kills the ad. Anyone "tightening" a script by joining
 those beats has broken it.
 
-The same discipline, less acutely, applies to desires 3 and 5: name the feeling, never the
-condition.
+**Naming a condition is allowed as of 2026-09-28** — panic attack, anxiety attack, stress. What
+is not allowed is attaching it to the product. That relaxation does not soften the rule above; it
+sharpens why it exists. The old workaround was silence — write around the word and the weld
+becomes impossible. Now the word is available, and the weld is one careless preposition away.
+"For panic attacks" is a claim. "The first time a panic attack hit me at my desk" is a scene.
+
+The same discipline applies to desires 3 and 5: the condition belongs to the character's
+experience, never to what the device does.
