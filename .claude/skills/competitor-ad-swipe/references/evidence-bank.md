@@ -33,9 +33,18 @@ Putting its figures in a public ad is a decision for Mark each time, not an inhe
 
 In-script phrasing that clears the compliance gate, in plain language, no jargon:
 
-> They tested it against a dummy device — looks identical, does nothing. After ten minutes,
-> every single person using the real one said they felt relaxed. Only a third of the dummy
-> group did.
+> It's one small study — twenty-four people. But some got the real device, some got a fake one,
+> and nobody knew which. Ten minutes in, nearly everyone with the real one said they felt
+> relaxed. About a third of the fake group did.
+
+**Lead with the limitation, and round the number down.** The true figure is 100%, and 100% is
+the least believable number in advertising — stating it accurately makes the honest claim sound
+invented. "Nearly everyone" understates an approved figure, which is always compliant, and it is
+the version a viewer believes. Naming the small n *first* buys the rest of the sentence: a claim
+that concedes its own weakness reads as evidence, a claim that doesn't reads as a pitch.
+
+Same logic in the visuals: a designed stat card or animated bar chart reads as advertising.
+Show the actual document — title page, a slow scroll over the results — plain and unstyled.
 
 Never "clinically proven", never a treat/cure/prevent frame, never an FDA indication.
 
