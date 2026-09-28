@@ -161,7 +161,11 @@ Rewrite every claim into one of these shapes. If a swiped claim will not fit her
 - That it replaces, tapers, or lets someone stop a prescribed medication
 - "Clinically proven" / "FDA approved" / "medically proven" as bare phrases
 - Specific numeric outcomes (HRV %, cortisol %, "83% of users") unless the exact figure and
-  its source are already approved in the Insight Bank
+  its source are already approved in the Insight Bank or `evidence-bank.md`. **HRV and other
+  physiological numbers are never approved** — our own 2019 study found autonomic effects
+  often shared with sham
+- Any figure from the Recharge Room case studies (99.7%, ~90-95%, >96%) as a claim about the
+  device: those were device *plus* other modalities, with no sham. See `evidence-bank.md`
 - Anything implying diagnosis or a medical device indication
 
 > **Resolved 2026-09-28 — Mark.** Naming the experience is permitted. His words: *"we are now
