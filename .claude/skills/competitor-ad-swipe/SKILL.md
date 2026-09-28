@@ -274,9 +274,26 @@ Hard rules:
 **Video Brief database only.** Do not create an Ad Creative Pipeline row — the team promotes
 briefs into the pipeline themselves. Follow `references/notion-map.md` exactly.
 
-1. Get the next `Creative ID`: query the Video Brief data source for the highest existing
-   `HPT<n>` and increment it, zero-padded to three digits (`HPT084` → `HPT085`). Numbers are
+1. Get the next `Creative ID` with a **SQL query, never a search**:
+
+   ```sql
+   SELECT "Creative ID", "Concept Name", createdTime
+   FROM "collection://34b8fb5b-44b0-8029-8b87-000b98d7a19f"
+   WHERE "Creative ID" LIKE 'HPT1%' ORDER BY "Creative ID" DESC
+   ```
+
+   Increment the highest, zero-padded to three digits (`HPT084` → `HPT085`). Numbers are
    sequential house IDs, unrelated to the source ad.
+
+   > **Re-run this query immediately before creating the page, not once at the top of a
+   > session.** Mark files briefs by hand into the same database while you work, so an ID that
+   > was free when you started the script may be taken by the time you file it. Collided twice
+   > on 2026-09-28: once by trusting `notion-search` (fuzzy, reported HPT100 free when it was
+   > the highest) and once by reserving HPT102 half an hour before filing, in which time Mark
+   > created his own HPT102.
+   >
+   > If a collision happens anyway, **renumber your own brief** — Creative ID, batch name,
+   > folder name and every file-name row. Never renumber Mark's.
 2. Create the page with the layout the Notion template uses, and **only** that layout: the
    Batch/Folder table, `File naming`, `### AD INSPO`, `### GENERAL INSTRUCTION`, `### GLOSSARY:`,
    `---`, `## Creative Brief Instruction`, `**HOOK**` table, `**BODY**` table. Read the template
