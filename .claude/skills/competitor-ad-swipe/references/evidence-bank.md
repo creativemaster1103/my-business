@@ -7,6 +7,43 @@ file was synced 2026-09-28 and the tracker moves.
 "No approved social proof" has blocked four briefs. It is not that we have no evidence — it is
 that most of it cannot carry the weight an ad puts on it. This file says which is which.
 
+## What hoolest.com already publishes
+
+Read this before deciding what an ad may claim, because the site is **less conservative than
+this file and less conservative than the studies' own claim fences.** Captured from the
+homepage 2026-09-28:
+
+- Headline: **"Clinically Proven"**
+- "VeRelief instantly reactivates your vagus nerve… **reset your nervous system after a single
+  use**"
+- **31%** increase in heart rate variability (0% in placebo group)
+- **36%** reduction in "state-anxiety" severity after a single use (2x more effective than
+  placebo)
+- **94%** of over 1,000 first responders in a case study were more relaxed after a single use
+- Customer-count claim: **"Thousands Stopped The Spiral"**
+- Disclaimer carried under the stats: individual results may vary; 60-day money-back guarantee
+
+**Where these diverge from the source documents.** Worth knowing before repeating them:
+
+- **"Clinically Proven"** is on this brief's cannot-say list, and the Hool & Carpenter report's
+  own claim fence says prefer "randomized sham-controlled study (n=24)" over it.
+- **31% HRV** — the 2019 electrode study (n=120) found autonomic effects *often shared with
+  sham*, and the Hool & Carpenter biometrics were explicitly **deferred, preliminary and
+  trend-level, not powered endpoints.** A placebo-contrast HRV figure is the single claim those
+  documents most directly warn against.
+- **36% state-anxiety** does not match Hool & Carpenter (−24% active vs −20% sham). It is close
+  to the 2020 golf study (STAI ~41→26, about −37%) — an athlete population, not an anxious one.
+- **94% of 1,000+ first responders** comes from the Recharge Room programme, which is **device
+  plus other recovery modalities, with no sham**, so it is not attributable to the device alone.
+
+None of this is a ruling on the website. It is a live commercial decision that has already been
+taken, and the brand has taken it. But an ad is reviewed separately from a PDP by both Meta and
+the FTC, so **repeating a site claim is a choice, not an inheritance.** Ask Mark per script; do
+not assume the site's posture applies to paid.
+
+**Safe to lift as-is:** "thousands" as a customer-count claim, and the 60-day money-back
+guarantee.
+
 ## The one study that can carry an ad
 
 **Hool & Carpenter (2025) — VeRelief Prime taVNS for acute anxiety.** The only study in the
