@@ -9,8 +9,10 @@ device. Patented. Non-invasive, drug-free, no prescription. Works in seconds, in
 anywhere. Consumable gel tips (~$14 / 30-day supply) are the repeat-purchase engine.
 
 **Always pull the live price and current offer from Shopify at run time.** Prices in this file
-would go stale and a wrong price in a brief reaches an editor. As of writing, VeRelief Prime
-sits around $399 — treat that as a sanity check, not a source.
+go stale and a wrong price in a brief reaches an editor. Checked 2026-09-28: the live
+`verelief-prime` listing is **$199** for the device and **$399** for the Ultimate Bundle; gel
+tips are $14 / 30-day. The archived `VeRelief Prime Gen 2` listing still shows $399.95 — that
+is the old product, do not quote it. Treat all of this as a sanity check, not a source.
 
 ## Who we're talking to
 
