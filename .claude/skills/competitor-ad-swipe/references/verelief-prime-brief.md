@@ -191,6 +191,29 @@ attacks?" — even with no cure claimed. That is a delivery risk, not a claims r
 condition words in the *third person or the scene* ("a panic attack doesn't ask permission"),
 not in second-person diagnosis ("your panic attacks").
 
+## Who is allowed to say it
+
+Separate from *what* may be said: **who says it changes the rules.**
+
+- **A lay person describing their own use** ("I keep it in my bag") is a consumer testimonial.
+  Lowest exposure. Must still be a real person's real experience if presented as one.
+- **A clinician recommending the product** ("I'm an ER nurse. I recommend VeRelief Prime") is an
+  **expert endorsement.** The FTC's health-product guidance holds these to a higher bar: the
+  endorser is expected genuinely to hold the expertise claimed and to have actually evaluated
+  the product. Meta's reviewers also reject medical-professional endorsements on health devices
+  more often than lay testimonials.
+- **AI VO makes this sharper, not softer.** A synthetic voice claiming a credential is a
+  credential nobody holds. The exposure is the fabricated expertise, not the sentence.
+
+> **Precedent — HPT100, 2026-09-28.** Mark approved an AI-VO ER nurse saying *"I recommend
+> VeRelief Prime"* after the exposure was put to him. Treat that as approval for that brief, not
+> a standing rule: raise it once per script that casts a clinician as endorser, then follow his
+> call. Reverting an endorser to "I use" removes the exposure without touching anything else.
+
+Whoever is speaking, the recommendation attaches to the **product**, never to a condition.
+"I recommend VeRelief Prime" is fine. "I recommend it for panic attacks" is a claim. And no
+speaker ever references patients, prescribing, or treating the viewer.
+
 ## Compliance gate
 
 Run every finished script through this before it goes to Notion. Any failure blocks filing.
