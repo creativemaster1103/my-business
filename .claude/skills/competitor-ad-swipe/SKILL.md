@@ -277,7 +277,18 @@ briefs into the pipeline themselves. Follow `references/notion-map.md` exactly.
 1. Get the next `Creative ID`: query the Video Brief data source for the highest existing
    `HPT<n>` and increment it, zero-padded to three digits (`HPT084` → `HPT085`). Numbers are
    sequential house IDs, unrelated to the source ad.
-2. Create the page with the Hook/Body/CTA table layout the template uses.
+2. Create the page with the layout the Notion template uses, and **only** that layout: the
+   Batch/Folder table, `File naming`, `### AD INSPO`, `### GENERAL INSTRUCTION`, `### GLOSSARY:`,
+   `---`, `## Creative Brief Instruction`, `**HOOK**` table, `**BODY**` table. Read the template
+   page before writing rather than reconstructing it from memory.
+
+   > **Do not invent sections.** A strategy-gate table, a compliance-gate table or an
+   > open-items list is not in the template and does not belong on the page. The gates you
+   > resolved, the compliance result and anything you need Mark to decide all go as bullets
+   > under `## Creative Brief Instruction`, where the editor already reads. Mark has corrected
+   > this once (2026-09-28); the template is the contract.
+
+   The CTA is the last row of the **BODY** table. There is no separate CTA table.
 3. Fill `Avatar` and `Landing Page` from your step-5 analysis. **Do not set `TEEP Stage`,
    `Self Targeting` or `Valence Zone`** — retired 2026-09-14, see `references/notion-map.md`.
 4. **Four hook variants per brief, always.**

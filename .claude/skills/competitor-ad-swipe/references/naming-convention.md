@@ -39,7 +39,7 @@ HPT089_VID_Twenty Two Years Running Hot_1B_VeRelief Prime_AI VO_Wired Lifer_NA_N
 | Product | `Product` | `VeRelief Prime` / `PEMF Mini Max` |
 | Content Type | `Content Type` | defaults `AI VO` |
 | Persona | `Avatar` | the persona, e.g. `Wired Lifer` |
-| Offer | `Offer` | `NA` unless the script carries one |
+| Offer | `Offer` | `NA` unless the script carries one. Live options are **`NA`, `20OFF`, `15%OFF`** — note `20OFF` has no `%`, and the API rejects `20%OFF`. Filenames written before 2026-09-14 say `20%OFF` because the retired spreadsheet spelled it that way; use the property's spelling, not theirs |
 | Category | `Category` | `New` / `Iteration` |
 | Strategist | `Strategist` | defaults `Mark` |
 | Editor | `Editor` | defaults `JM` |
