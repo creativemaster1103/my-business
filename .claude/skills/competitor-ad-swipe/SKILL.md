@@ -330,6 +330,12 @@ briefs into the pipeline themselves. Follow `references/notion-map.md` exactly.
 8. Set the page **icon to ⚡** — the Video Brief template default. Every brief uses it. Do not
    pick a per-brief emoji, however apt: a consistent icon is how the database stays scannable.
 
+   > **How.** `icon` is a **top-level argument** on `notion-update-page`, not a page property.
+   > Passing it inside `properties` fails with *"Property \"icon\" not found in the data
+   > source"*, and page creation does not take it at all — so set it in a follow-up
+   > `update_properties` call. Missed once (2026-09-28, HPT100) and read as "the API cannot
+   > set icons", which is wrong.
+
 ### 8. Report
 
 Give the user a short table: competitor, days running, angle, avatar, Creative ID, brief link.
