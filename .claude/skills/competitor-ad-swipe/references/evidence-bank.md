@@ -71,6 +71,15 @@ on self-report. Nothing in them can be attributed to VeRelief alone. An ad sayin
 stressed" from these is unsupportable. They are fine for B2B and Recharge Room decks, where the
 stack *is* the product.
 
+> **Adoption is not efficacy, and adoption is usable.** The Recharge Room programme still yields
+> a claim an ad can carry, because counting installations says nothing about whether the device
+> works: *"Trusted by 20,000+ professionals and 33+ Recharge Room locations across six states"*
+> (Mark, 2026-09-28 — **get the underlying count on file; it is not in the tracker**). Scale and
+> institutional adoption are strong proof for a skeptical buyer and carry none of the
+> efficacy exposure. The line to never cross is a *performance* number from these programmes.
+> Adoption claims still need substantiation like any other objective claim, so the source for
+> the 20,000 and the 33 belongs in this file before it runs again.
+
 **Morning VNS & outbound sales field study (2025), n=20.** No sham, performance metrics, healthy
 adults. Fine for a B2B or performance angle; irrelevant to panic and not evidence of calm.
 
