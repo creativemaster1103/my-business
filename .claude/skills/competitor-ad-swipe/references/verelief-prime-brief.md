@@ -218,6 +218,38 @@ Whoever is speaking, the recommendation attaches to the **product**, never to a 
 "I recommend VeRelief Prime" is fine. "I recommend it for panic attacks" is a claim. And no
 speaker ever references patients, prescribing, or treating the viewer.
 
+## Meta delivery — how a line is phrased, not what it claims
+
+The claim set decides what is true enough to say. This decides whether Meta will run it. A line
+can clear every claims rule and still be rejected, and these are the three shapes that do it.
+
+**1. Second person plus a named condition.** This is the personal-attributes pattern, and it is
+the single most common rejection on health creative. The policy is not about the condition being
+named — it is about the ad appearing to know the viewer has it.
+
+| Rejected shape | Safe shape |
+| --- | --- |
+| "You could stop bracing for panic attacks" | "Most people stop bracing for panic attacks" |
+| "Your panic attacks" · "Do you suffer from…" · "You get anxiety attacks" | "A panic attack" · "the next one" · "when it hits" |
+| "A week *you* didn't plan around a panic attack" | "Week four: plans stop bending around a panic attack" |
+
+Second person is fine for a **behaviour** — "you stop checking where the exit is" names no
+condition and reads as description. It is the pairing that fails.
+
+**2. An unhedged outcome.** "Four weeks from now you will feel calmer" promises a result on a
+schedule. **"Most people…"** is the fix, and it costs nothing: it is the device the timeline
+swipe's own source ad uses in five separate lines. Prefer it over deleting the outcome.
+
+**3. A comparative efficacy claim.** "It does the work your breathing was supposed to do" says
+we succeed where a named alternative fails. Describe what the product *targets* instead of what
+it *achieves*: "it goes at the same system the breathing was aiming at."
+
+> **Apply this to hooks first.** A hook is read by more people than the script, it is the part
+> reviewers see in isolation, and it is where a writer reaching for punch drops the hedge. When
+> a hook has to lose a word, lose it from the front — never the article, never "most people".
+
+Record the phrasing pass alongside the claims gate below.
+
 ## Compliance gate
 
 Run every finished script through this before it goes to Notion. Any failure blocks filing.
