@@ -185,3 +185,15 @@ never fired; its first run is 2026-08-31.
   from the recorded one — it reports the disagreement instead.
 - Never evaluates statics, creator whitelist ads, or anything without a VID token.
 - Never guesses which row an ambiguous Creative ID means.
+
+## Video editing
+
+Editing ad creatives: turning a Video Brief's four hooks plus its body and CTA into finished,
+correctly named cuts. It lives in [`video-editing/`](video-editing/README.md).
+
+- `scripts/assemble.py` builds every hook × body × CTA cut from a CSV cut list.
+- `scripts/qc.py` checks exports before upload: naming (the fields the Winner Crawl depends
+  on), frame size, H.264, audio and file size.
+- `specs/meta-export.md` holds frame sizes, encode settings and safe zones.
+
+Standard-library Python plus ffmpeg, with nothing to install. No footage lives in git.

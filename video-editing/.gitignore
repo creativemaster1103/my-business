@@ -1,0 +1,56 @@
+# Footage and exports live on the shared drive, never in git.
+media/
+exports/
+*.partial.mp4
+
+# Video
+*.mp4
+*.mov
+*.m4v
+*.mxf
+*.avi
+*.mkv
+*.webm
+*.mts
+*.m2ts
+*.braw
+*.r3d
+
+# Audio
+*.wav
+*.mp3
+*.aif
+*.aiff
+*.m4a
+*.aac
+*.flac
+
+# Image sequences and stills from exports
+*.dpx
+*.exr
+
+# Premiere / After Effects
+*.pek
+*.cfa
+*.prmdc
+Adobe Premiere Pro Auto-Save/
+Adobe Premiere Pro Preview Files/
+Adobe After Effects Auto-Save/
+Media Cache/
+Media Cache Files/
+
+# Resolve
+CacheClip/
+.gallery/
+ProxyMedia/
+
+# CapCut / Final Cut
+*.fcpbundle/
+Render Files/
+Proxies/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
